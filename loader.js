@@ -5,14 +5,14 @@ function showLoader() {
         <div class="flex flex-col items-center gap-4"> 
             <div class="flex flex-row gap-2">
                 <img src="/img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 spin-animation">
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.1s]">P</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.2s]">C</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.3s]">o</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.4s]">n</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.5s]">n</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.6s]">e</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.7s]">c</div>
-                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.8s]">t</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.1s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">P</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.2s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">C</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.3s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">o</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.4s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">n</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.5s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">n</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.6s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">e</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.7s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">c</div>
+                <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.8s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">t</div>
             </div>
             <p class="text-[8px] font-light">Loading, please wait...</p> 
         </div>
