@@ -128,7 +128,7 @@ function hidePopper(popperId) {
             ...options,
             modifiers: [
                 ...options.modifiers,
-                { name: 'eventListeners', enabled: false },
+                { name: 'eventListeners', enabled: false }
             ],
         }
     });
