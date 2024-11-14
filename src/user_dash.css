@@ -1,0 +1,11 @@
+.circle-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: gray;
+    cursor: pointer;
+  }
+  
+  .circle-button.active {
+    background-color: white;
+  }
