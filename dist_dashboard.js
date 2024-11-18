@@ -3,11 +3,10 @@
     new Chart(productSalesCtx, {
       type: 'line',
       data: {
-        labels: ['8-10', '9-10', '10-10'],
+        labels: ['7-10','8-10', '9-10', '10-10', '11-10'],
         datasets: [{
           label: 'Last Month',
-          data: [400000, 450000, 512000],
-          tension:0.1,
+          data: [829, 721, 920, 1050, 1250],
           borderColor: '#ABEBC6',
           backgroundColor: '#27AE60',
         }]
@@ -19,10 +18,10 @@
     new Chart(addToCartCtx, {
       type: 'line',
       data: {
-        labels: ['8-10', '9-10', '10-10'],
+        labels: ['7-10','8-10', '9-10', '10-10','11-11'],
         datasets: [{
           label: 'This Month',
-          data: [4000, 4500, 5214],
+          data: [120, 142, 199, 164, 255],
           borderColor: '#ABEBC6',
           backgroundColor: '#27AE60',
         }]
@@ -34,10 +33,10 @@
     new Chart(checkoutCtx, {
       type: 'bar',
       data: {
-        labels: ['8-10', '9-10', '10-10'],
+        labels: ['7-10','8-10', '9-10', '10-10', '11-10'],
         datasets: [{
           label: 'Sales',
-          data: [3000, 3920, 3600],
+          data: [110, 124, 155, 145, 198],
           borderColor: '#ABEBC6',
           backgroundColor: '#27AE60',
         }]
