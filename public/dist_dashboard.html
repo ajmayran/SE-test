@@ -8,6 +8,7 @@
     <link rel="icon" href="/img/Pconnect Logo.png">
     <link rel="stylesheet" href="/src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
         font-family: 'Lexend', sans-serif;
@@ -20,10 +21,11 @@
         .sidebar-menu .group.active .icon{
             color: white;
         }
+        
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-white shadow">
+    <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
         <div class="container flex items-center justify-between px-4 py-4 mx-auto">
             <div class="flex items-center">
                 <img alt="PConnect Logo" class="w-8 h-8" src="/img/Pconnect Logo.png"/>
@@ -114,21 +116,93 @@
                 </li>
             </ul>
         </aside>
-        <main class="w-3/4 p-8">
-            <div class="">
-                <div>
-
-                </div>
-            </div>
-
-
-
-
-
+        
+        <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
+        
+        <h1 class="mb-4 text-3xl font-bold">Overview</h1>
             
-    
-    
-        </main>
+    <!-- Overview Section -->
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <!-- Product Sales -->
+        <div class="p-4 bg-white rounded-lg shadow-md">
+          <h3 class="text-lg font-semibold">Product Sales</h3>
+          <canvas id="productSalesChart" class="mt-4"></canvas>
+        </div>
+  
+        <!-- Add to Cart -->
+        <div class="p-4 bg-white rounded-lg shadow-md">
+          <h3 class="text-lg font-semibold">Add to Cart</h3>
+          <canvas id="addToCartChart" class="mt-4"></canvas>
+        </div>
+  
+        <!-- Checkout -->
+        <div class="p-4 bg-white rounded-lg shadow-md">
+          <h3 class="text-lg font-semibold">Checkout</h3>
+          <canvas id="checkoutChart" class="mt-4"></canvas>
+        </div>
+      </div>
+  
+      
+      <div class="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-3">
+        <!-- Most Selling Products -->
+        <div class="col-span-1 p-4 bg-white rounded-lg shadow-md lg:col-span-2">
+          <h3 class="text-lg font-semibold">Most Selling Products</h3>
+          <table class="w-full mt-4 text-sm table-auto">
+            <thead>
+              <tr class="border-b">
+                <th class="py-2 text-left">Product</th>
+                <th class="py-2 text-left">Brand</th>
+                <th class="py-2 text-right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2">Magnolia Ready to Cook Chicken Strips</td>
+                <td class="py-2">Magnolia Inc.</td>
+                <td class="py-2 text-right">₱200</td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Chart Orders -->
+        <div class="p-4 bg-white rounded-lg shadow-md">
+          <h3 class="text-lg font-semibold">Chart Orders</h3>
+          <canvas id="chartOrders"></canvas>
+        </div>
+      </div>
+  
+      <!-- Income Section -->
+      <div class="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-3">
+        <div class="p-4 bg-white rounded-lg shadow-md">
+          <h3 class="text-lg font-semibold">Income</h3>
+          <canvas id="incomeChart"></canvas>
+        </div>
+  
+        <!-- Trending Products -->
+        <div class="col-span-1 p-4 bg-white rounded-lg shadow-md lg:col-span-2">
+          <h3 class="text-lg font-semibold">Trending Products</h3>
+          <table class="w-full mt-4 text-sm table-auto">
+            <thead>
+              <tr class="border-b">
+                <th class="py-2 text-left">#</th>
+                <th class="py-2 text-left">Product</th>
+                <th class="py-2 text-right">Likes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="py-2">1</td>
+                <td class="py-2">Magnolia Ready to Cook Chicken Strips</td>
+                <td class="py-2 text-right">314</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
     </div>
     <footer class="py-8" style="background-color: #282424;">
         <div class="container px-4 mx-auto mt-10">
@@ -184,6 +258,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/dist_dashboard.js"></script>
 </body>
 </html>

@@ -12,10 +12,17 @@
         body {
         font-family: 'Lexend', sans-serif;
         }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease-in; /* Adjust duration and easing as needed */
+        }
+        .fade-in-active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-white shadow">
+    <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
         <div class="container flex items-center justify-between px-4 py-4 mx-auto">
             <div class="flex items-center">
                 <img alt="PConnect Logo" class="w-8 h-8" src="/img/Pconnect Logo.png"/>
@@ -33,10 +40,10 @@
          </div>
     </header>
     <div class="flex">
-        <aside class="w-1/4 min-h-screen mt-0.5 bg-white">
+        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sticky top-0"> 
             <ul class="m-10 ml-10 space-y-2">
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a href="dist_dashboard.html" class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
                         <span class="ml-2 font-normal">Dashboard</span>
                     </a>
                 </li>
@@ -106,7 +113,7 @@
                 </li>
             </ul>
         </aside>
-        <main class="w-3/4 p-8">
+        <main class="w-3/4 p-8 overflow-y-auto fade-in">
             <h1 class="mb-4 ml-20 text-2xl font-bold">To do List</h1>
             <div class="w-4/5 p-6 ml-20 bg-white rounded-lg shadow">
                 <p class="mb-4 text-2xl font-normal">
@@ -179,7 +186,7 @@
                     <ul>
                         <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Email Us</a></li>
                         <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Message Us</a></li>
-                        <li class="mb-1"><a href="#" class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</a></li>
+                        <li class="mb-1"><p class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</p></li>
                     </ul>
                 </div>
                 <div>
@@ -201,6 +208,11 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const main = document.querySelector('main');
+            main.classList.add('fade-in-active'); // Add the active class to trigger the fade-in
+        });
+    </script>
 </body>
 </html>
