@@ -12,18 +12,18 @@ CREATE TABLE IF NOT EXISTS `user` (
 	`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS distributor_business_information {
+CREATE TABLE IF NOT EXISTS distributor_business_information (
     `id` INT PRIMARY KEY AUTO_INCREMENT,
     `address` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `contact_number` INT(11) NOT NULL
-};
+);
 
-CREATE TABLE IF NOT EXISTS distributor_information {
+CREATE TABLE IF NOT EXISTS distributor_information (
     `id` INT PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     `address` VARCHAR(255) NOT NULL,
     `tin_number` VARCHAR(255) NOT NULL,
     `bir` VARCHAR(255) NOT NULL,
     `sec` VARCHAR(255) NOT NULL
-};
+);

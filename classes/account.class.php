@@ -52,7 +52,7 @@ class Account{
         return true;
     }
 
-    function email($email) {
+    function emailExists($email) {
         $sql = "SELECT COUNT(*) FROM user WHERE email = :email";
         $query = $this->db->connect()->prepare($sql);
         $query->bindParam(':email', $email);
