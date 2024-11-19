@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="icon" href="/img/Pconnect Logo.png">
-    <link rel="stylesheet" href="/src/output.css">
+    <link rel="icon" href="../../img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <title>Accepted Products</title>
 </head>
@@ -44,12 +44,12 @@
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
+            <img src="../../img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
             <span class="ml-3 text-lg font-bold">PConnect</span>
         </a>
         <ul class="mt-4">
             <li class="mb-1 group">
-                <a href="dashboard.html" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
+                <a href="../dashboard.html" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
                     <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Dashboard</span>
                 </a>
@@ -74,12 +74,12 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="pendingProducts.html"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="rejectedProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
                             Products</a>
                     </li>
@@ -94,11 +94,6 @@
                         class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
-                            order</a>
-                    </li>
                     <li class="mb-4">
                         <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed
@@ -220,7 +215,7 @@
                     <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Products</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Rejected</li>
+                <li class="mr-2 font-medium text-gray-600">Pending</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -370,9 +365,7 @@
 
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Rejected Products
-                    </div>
+                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">Pending Products</div>
 
                     <div class="flex space-x-2">
                         <button class="bg-green-500 hover:bg-green-700 text-white p-2 rounded"><iconify-icon icon="mdi:pencil" /></button>
@@ -380,14 +373,14 @@
                     </div>
                 </div>
                 <div class="overflow-x-auto"> </div>
-                <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
+                <table id="productTable" class="w-full table-auto">
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">
+                             <th class="p-2">Product Code</th>
                              <th class="p-2">Product</th>
                              <th class="p-2">Distributor</th>
                              <th class="p-2">Price</th>
-                             <th class="p-2">Date</th>
-                             <th class="p-2">Reason</th>
+                             <th class="p-2">Date Issued</th>
                              <th class="p-2">Action</th>  
                         </tr>
                     </thead>
@@ -401,27 +394,25 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="../dashboard.js"></script>
+    <script src="../../dashboard.js"></script>
     <script>
         $(document).ready( function () {
             $('#productTable').DataTable({  
                 data: [ 
-                    ['<img src="../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', 'Not applicable', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['<img src="../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '10,000.00', '11/15/2024', 'Overpriced', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['<img src="../img/Products/wrong-item.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> Yumyum Sarap', 'Ice Cream Man', '120.50', '11/15/2024', 'Wrong Information', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['PRC001', '<img src="../../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['PRC002', '<img src="../../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
                     
                 ],
                 columns: [  
+                    { title: "Product Code" },
                     { title: "Product" },         
                     { title: "Distributor" },
                     { title: "Price" },
-                    { title: "Date" },
-                    { title: "Reason" },
+                    { title: "Date Approved" },
                     { title: "Action" }            
                 ]
             });
         } );
     </script>
 </body>
-
 </html>
