@@ -118,6 +118,7 @@
         </aside>
         
         <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
+            <h1 class="mb-4 text-2xl font-bold">My Orders</h1>
             <div class="container mx-auto">
                 <div class="p-4 bg-white rounded-lg shadow-md">
                   <!-- Tabs -->
@@ -129,9 +130,23 @@
                       Completed
                     </button>
                   </div>
-            
+                  
+                  <div class="flex items-center justify-between w-full h-10">
+                        <div class="flex items-center w-full max-w-md">
+                            <input type="text" placeholder="Search order" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"/>
+                            <button class="w-12 p-2 text-white bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none">
+                                <iconify-icon icon="material-symbols:search" class="text-xl"></iconify-icon>
+                            </button>
+                        </div>
+                        <!-- Order Reports Button -->
+                        <button class="p-2 bg-white border border-gray-600 rounded-md hover:bg-green-500 hover:text-white group">
+                            <iconify-icon icon="fa:download" class="px-2 text-lg text-green-500 group-hover:text-white hover:border-green-500"></iconify-icon>
+                            <span class="text-sm text-green-500 group-hover:text-white">Order Reports</span>
+                        </button>
+                  </div>
+
                   <!-- Pending Orders Table -->
-                  <div id="pending-orders" class="block">
+                  <div id="pending-orders" class="block mt-6">
                     <div class="overflow-x-auto">
                       <table class="w-full table-auto">
                         <thead>
@@ -145,27 +160,27 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="border-b-2 border-gray-100">
+                          <tr class="text-sm border-b-2 border-gray-100">
                             <td class="flex items-center px-4 py-2">
-                              <img src="/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product" class="w-12 h-12 mr-2 rounded">
-                              Magnolia Ready to Cook Cheesy Chicken Fingers <br> <span class="text-sm text-gray-500">+ 2 more products</span>
+                              <img src="/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product" class="mr-2 rounded w-14 h-14">
+                              Magnolia Ready to Cook Cheesy Chicken Fingers<span class="text-sm text-gray-500"> + 2 more products</span>
                             </td>
-                            <td class="px-4 py-2 text-right ">₱800.00</td>
-                            <td class="px-4 py-2">Standard Free</td>
-                            <td class="px-4 py-2">Julies Beykshap</td>
-                            <td class="px-4 py-2 ">September 30, 2024</td>
-                            <td class="px-4 py-2 text-blue-600 cursor-pointer hover:underline">Details</td>
+                            <td class="px-4 py-2 text-sm text-right">₱800.00</td>
+                            <td class="px-4 py-2 text-sm">Standard Free</td>
+                            <td class="px-4 py-2 text-sm">Julies Beykshap</td>
+                            <td class="px-4 py-2 text-sm">September 30, 2024</td>
+                            <td class="px-4 py-2 text-sm text-blue-600 cursor-pointer hover:underline">Details</td>
                           </tr>
                           <tr>
-                            <td class="flex items-center px-4 py-2">
+                            <td class="flex items-center px-4 py-2 text-sm">
                               <img src="/img/Products/rtc-chicken-siomai.png" alt="Product" class="w-12 h-12 mr-2 rounded">
-                              Magnolia Ready to Cook Chicken Siomai
+                                Magnolia Ready to Cook Chicken Siomai
                             </td>
-                            <td class="px-4 py-2 text-right">₱400.00</td>
-                            <td class="px-4 py-2">Standard Free</td>
-                            <td class="px-4 py-2]">Sinto Ron</td>
-                            <td class="px-4 py-2">September 30, 2024</td>
-                            <td class="px-4 py-2 text-blue-600 cursor-pointer hover:underline">Details</td>
+                            <td class="px-4 py-2 text-sm text-right">₱400.00</td>
+                            <td class="px-4 py-2 text-sm">Standard Free</td>
+                            <td class="px-4 py-2 text-sm">Sinto Ron</td>
+                            <td class="px-4 py-2 text-sm">September 30, 2024</td>
+                            <td class="px-4 py-2 text-sm text-blue-600 cursor-pointer hover:underline">Details</td>
                           </tr>
                         </tbody>
                       </table>
@@ -173,7 +188,7 @@
                   </div>
             
                   <!-- Completed Orders Table -->
-                  <div id="completed-orders" class="hidden">
+                  <div id="completed-orders" class="hidden mt-6">
                     <div class="overflow-x-auto">
                       <table class="w-full border border-collapse border-gray-200 table-auto">
                         <thead>
@@ -188,15 +203,15 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td class="flex items-center px-4 py-2">    
+                            <td class="flex items-center px-4 py-2 text-sm">    
                               <img src="/img/Products/rtc-chicken-tocino.png" alt="Product" class="w-12 h-12 mr-2 rounded">
                               Magnolia Ready to Cook Chicken Tocino
                             </td>
-                            <td class="px-4 py-2 text-right">₱500.00</td>
-                            <td class="px-4 py-2 ">Standard Free</td>
-                            <td class="px-4 py-2 ">Anna Reyes</td>
-                            <td class="px-4 py-2 ">September 29, 2024</td>
-                            <td class="px-4 py-2 text-blue-600 cursor-pointer hover:underline">Details</td>
+                            <td class="px-4 py-2 text-sm text-right">₱500.00</td>
+                            <td class="px-4 py-2 text-sm">Standard Free</td>
+                            <td class="px-4 py-2 text-sm">Anna Reyes</td>
+                            <td class="px-4 py-2 text-sm">September 29, 2024</td>
+                            <td class="px-4 py-2 text-sm text-blue-600 cursor-pointer hover:underline">Details</td>
                           </tr>
                         </tbody>
                       </table>
