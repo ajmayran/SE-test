@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributors Orders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="/src/output.css">
+    <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
+
+    <style>
+        body {
+        font-family: 'Lexend', sans-serif;
+        }
+        .sidebar-menu .group.active a{
+            background-color: #27AE60;
+            color: white;
+            border-radius: 5px;
+        }
+        .sidebar-menu .group.active .icon{
+            color: white;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
+        <div class="container flex items-center justify-between px-4 py-4 mx-auto">
+            <div class="flex items-center">
+                <img alt="PConnect Logo" class="w-8 h-8" src="/img/Pconnect Logo.png"/>
+                <span class="ml-2 text-xl font-bold">
+                PConnect
+                </span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span >Logo</span>
+                <span >Shop Name</span>
+                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
+                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:shop" class="text-xl text-green-500"></iconify-icon></a>
+                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
+            </div>
+         </div>
+    </header>
+    <div class="flex">
+        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
+            <ul class="m-10 ml-10 space-y-2">
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_dashboard.html"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Dashboard</span>
+                    </a>
+                </li>
+                <li class="group active">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">My Orders</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Return | Refund</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Cancellation</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Delivery</span>
+                    </a>
+                </li>
+                <hr class="border-gray-300 shadow-sm"/>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Inventory</span>
+                    </a>
+                </li>
+                <hr class="border-gray-300 shadow-sm"/>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Messages</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Blocking</span>
+                    </a>
+                </li>
+                <hr class="border-gray-300 shadow-sm"/>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">My Income</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="material-symbols:account-balance-wallet" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">My Balance</span>
+                    </a>
+                </li>
+                <hr class="border-gray-300 shadow-sm"/>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                        <span class="ml-2 font-normal">Business Insights</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                        <span class="ml-2 font-normal">Voucher</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Shop Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
+            <div class="container mx-auto">
+                <div class="p-4 bg-white rounded-lg shadow-md">
+                  <!-- Tabs -->
+                  <div class="flex mb-4 space-x-4 border-b">
+                    <button id="tab-pending" class="px-4 py-2 font-semibold text-green-600 border-b-4 border-green-600 focus:outline-none">
+                      Pending
+                    </button>
+                    <button id="tab-completed" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
+                      Completed
+                    </button>
+                  </div>
+            
+                  <!-- Pending Orders Table -->
+                  <div id="pending-orders" class="block">
+                    <div class="overflow-x-auto">
+                      <table class="w-full table-auto">
+                        <thead>
+                          <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left">Product</th>
+                            <th class="px-4 py-2 text-right">Amount</th>
+                            <th class="px-4 py-2 text-left ">Delivery</th>
+                            <th class="px-4 py-2 text-left ">Customer</th>
+                            <th class="px-4 py-2 text-left ">Date</th>
+                            <th class="px-4 py-2 text-left ">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border-b-2 border-gray-100">
+                            <td class="flex items-center px-4 py-2">
+                              <img src="/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product" class="w-12 h-12 mr-2 rounded">
+                              Magnolia Ready to Cook Cheesy Chicken Fingers <br> <span class="text-sm text-gray-500">+ 2 more products</span>
+                            </td>
+                            <td class="px-4 py-2 text-right ">₱800.00</td>
+                            <td class="px-4 py-2">Standard Free</td>
+                            <td class="px-4 py-2">Julies Beykshap</td>
+                            <td class="px-4 py-2 ">September 30, 2024</td>
+                            <td class="px-4 py-2 text-blue-600 cursor-pointer hover:underline">Details</td>
+                          </tr>
+                          <tr>
+                            <td class="flex items-center px-4 py-2">
+                              <img src="/img/Products/rtc-chicken-siomai.png" alt="Product" class="w-12 h-12 mr-2 rounded">
+                              Magnolia Ready to Cook Chicken Siomai
+                            </td>
+                            <td class="px-4 py-2 text-right">₱400.00</td>
+                            <td class="px-4 py-2">Standard Free</td>
+                            <td class="px-4 py-2]">Sinto Ron</td>
+                            <td class="px-4 py-2">September 30, 2024</td>
+                            <td class="px-4 py-2 text-blue-600 cursor-pointer hover:underline">Details</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            
+                  <!-- Completed Orders Table -->
+                  <div id="completed-orders" class="hidden">
+                    <div class="overflow-x-auto">
+                      <table class="w-full border border-collapse border-gray-200 table-auto">
+                        <thead>
+                          <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left">Product</th>
+                            <th class="px-4 py-2 text-right">Amount</th>
+                            <th class="px-4 py-2 text-left">Delivery</th>
+                            <th class="px-4 py-2 text-left">Customer</th>
+                            <th class="px-4 py-2 text-left">Date</th>
+                            <th class="px-4 py-2 text-left">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="flex items-center px-4 py-2">    
+                              <img src="/img/Products/rtc-chicken-tocino.png" alt="Product" class="w-12 h-12 mr-2 rounded">
+                              Magnolia Ready to Cook Chicken Tocino
+                            </td>
+                            <td class="px-4 py-2 text-right">₱500.00</td>
+                            <td class="px-4 py-2 ">Standard Free</td>
+                            <td class="px-4 py-2 ">Anna Reyes</td>
+                            <td class="px-4 py-2 ">September 29, 2024</td>
+                            <td class="px-4 py-2 text-blue-600 cursor-pointer hover:underline">Details</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </main>
+        
+    </div>
+    <script>
+        const pendingTab = document.getElementById('tab-pending');
+        const completedTab = document.getElementById('tab-completed');
+        const pendingOrders = document.getElementById('pending-orders');
+        const completedOrders = document.getElementById('completed-orders');
+    
+        pendingTab.addEventListener('click', () => {
+          pendingOrders.classList.remove('hidden');
+          completedOrders.classList.add('hidden');
+          pendingTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+          completedTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        });
+    
+        completedTab.addEventListener('click', () => {
+          completedOrders.classList.remove('hidden');
+          pendingOrders.classList.add('hidden');
+          completedTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+          pendingTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        });
+      </script>
+    </body>
+    
+</html>
