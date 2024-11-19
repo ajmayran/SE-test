@@ -48,7 +48,7 @@
     new Chart(chartOrdersCtx, {
       type: 'line',
       data: {
-        labels: ['April', 'May', 'June', 'July', 'August', 'September', 'October','November'],
+        labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov'],
         datasets: [{
           label: 'Data',
           data: [250, 405, 723, 620, 956, 713, 532, 602],
@@ -64,7 +64,7 @@
     new Chart(incomeCtx, {
       type: 'line',
       data: {
-        labels: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'],
+        labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
         datasets: [{
           label: 'Income',
           data: [10230, 12500, 11000, 15200, 17200, 13000, 11500, 12500],
