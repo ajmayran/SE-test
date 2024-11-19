@@ -64,7 +64,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="acceptedProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
                             Products</a>
                     </li>
@@ -79,7 +79,7 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="rejectedProducts.html"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
                             Products</a>
                     </li>
@@ -220,7 +220,7 @@
                     <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Products</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Accepted</li>
+                <li class="mr-2 font-medium text-gray-600">Rejected</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -371,7 +371,7 @@
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Accepted Products
+                        Rejected Products
                     </div>
 
                     <div class="flex space-x-2">
@@ -383,11 +383,11 @@
                 <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">
-                             <th class="p-2">Product Code</th>
                              <th class="p-2">Product</th>
                              <th class="p-2">Distributor</th>
                              <th class="p-2">Price</th>
-                             <th class="p-2">Date Approved</th>
+                             <th class="p-2">Date</th>
+                             <th class="p-2">Reason</th>
                              <th class="p-2">Action</th>  
                         </tr>
                     </thead>
@@ -406,16 +406,17 @@
         $(document).ready( function () {
             $('#productTable').DataTable({  
                 data: [ 
-                    ['PRC001', '<img src="../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['PRC002', '<img src="../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['<img src="../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', 'Not applicable', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['<img src="../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '10,000.00', '11/15/2024', 'Overpriced', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['<img src="../img/Products/wrong-item.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> Yumyum Sarap', 'Ice Cream Man', '120.50', '11/15/2024', 'Wrong Information', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
                     
                 ],
                 columns: [  
-                    { title: "Product Code" },
                     { title: "Product" },         
                     { title: "Distributor" },
                     { title: "Price" },
-                    { title: "Date Approved" },
+                    { title: "Date" },
+                    { title: "Reason" },
                     { title: "Action" }            
                 ]
             });
