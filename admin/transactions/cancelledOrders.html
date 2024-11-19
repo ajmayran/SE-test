@@ -8,7 +8,7 @@
     <link rel="icon" href="../../img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Accepted Products</title>
+    <title>Cancelled Orders</title>
 </head>
 <style>
     body {
@@ -54,7 +54,7 @@
                     <span class="text-sm">Dashboard</span>
                 </a>
             </li>
-            <li class="mb-1 group active">
+            <li class="mb-1 group">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon>
@@ -64,7 +64,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../products/acceptedProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
                             Products</a>
                     </li>
@@ -74,19 +74,19 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="pendingProducts.html"
+                        <a href="../products/pendingProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="rejectedProducts.html"
+                        <a href="../products/rejectedProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
                             Products</a>
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group">
-                <a href="#"
+            <li class="mb-1 group active">
+                <a href="#" id="active-link"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Transactions</span>
@@ -95,12 +95,12 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../transactions/completedOrders.html"
+                        <a href="completedOrders.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed
                             order</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../transactions/cancelledOrders.html"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled
                             order</a>
                     </li>
@@ -212,10 +212,10 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Products</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Transactions</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Accepted</li>
+                <li class="mr-2 font-medium text-gray-600">Cancelled</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -346,44 +346,37 @@
         <div class="p-6">
             <div class="mb-6 flex flex-row justify-between space-x-4">
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">68</h2>
+                    <p class="text-gray-600">All Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">12,689</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Featured Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">5</h2>
+                    <p class="text-gray-600">Successful Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">10,102</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Pending Request</p>
-                    <h2 class="text-2xl font-bold text-green-700">20</h2>
+                    <p class="text-gray-600">Pending Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">2,960</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Rejected Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">6</h2>
+                    <p class="text-gray-600">Failed Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">920</h2>
                 </div>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Accepted Products
-                    </div>
-
-                    <div class="flex space-x-2">
-                        <button class="bg-green-500 hover:bg-green-700 text-white p-2 rounded"><iconify-icon icon="mdi:pencil" /></button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
+                        Cancelled Orders
                     </div>
                 </div>
-                <div class="overflow-x-auto"> </div>
-                <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
+                <table id="orderTable" class="w-full table-auto"> <!--- Added id to the table --->
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">
-                             <th class="p-2">Product Code</th>
-                             <th class="p-2">Product</th>
+                             <th class="p-2">Order ID</th>
+                             <th class="p-2">Retailer ID</th>
+                             <th class="p-2">Retailer Name</th>
                              <th class="p-2">Distributor</th>
-                             <th class="p-2">Price</th>
-                             <th class="p-2">Date Approved</th>
-                             <th class="p-2">Action</th>  
+                             <th class="p-2">Date</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -399,23 +392,32 @@
     <script src="../../dashboard.js"></script>
     <script>
         $(document).ready( function () {
-            $('#productTable').DataTable({  
+            $('#orderTable').DataTable({  
                 data: [ 
-                    ['PRC001', '<img src="../../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['PRC002', '<img src="../../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'Rudeee Abao', 'Primus' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Kyluzz Wiffer', 'Primus' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'Therty Carroz', 'New Horizon Distribution Corporation' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Daniba SK', 'Jacob Trading' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'No sleep AJ', 'New Horizon Distribution Corporation' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'No sleep AJ', 'New Horizon Distribution Corporation' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Primus' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'Kyluzz Wiffer', 'Primus' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Primus' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'No sleep AJ', 'Primus' , '11/15/2024', 'Complete'],
+                    ['order003', 'user004', 'BuggerMan Emman', 'Jacob Trading' , '11/15/2024', 'Complete']
                     
                 ],
                 columns: [  
-                    { title: "Product Code" },
-                    { title: "Product" },         
+                    { title: "Order ID" },
+                    { title: "Retailer ID" },
+                    { title: "Retailer Name" },         
                     { title: "Distributor" },
-                    { title: "Price" },
-                    { title: "Date Approved" },
-                    { title: "Action" }            
+                    { title: "Date" }
                 ]
             });
         } );
     </script>
 </body>
-
 </html>
