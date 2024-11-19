@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/img/Pconnect Logo.png">
-    <link rel="stylesheet" href="/src/output.css">
+    <link rel="icon" href="../img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <title>Dashboard</title>
 </head>
@@ -21,7 +21,6 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
     }
-
     .sidebar-menu .group.active a::after {
         content: '';
         position: absolute;
@@ -39,7 +38,7 @@
     <!-- Sidebar -->
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu" style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
+            <img src="../img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
             <span class="ml-3 text-lg font-bold">PConnect</span>
         </a>
         <ul class="mt-4">
@@ -57,13 +56,16 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Products</a>
+                        <a href="./products/acceptedProducts.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured Products</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
+                        <a href="./products/pendingProducts.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
+                        <a href="./products/rejectedProducts.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
                     </li> 
                 </ul>
             </li>
@@ -75,13 +77,10 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active order</a>
+                        <a href="./transactions/completedOrders.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Canceled order</a>
+                        <a href="./transactions/canceledOrders.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Canceled order</a>
                     </li> 
                 </ul>
             </li>
@@ -160,6 +159,7 @@
     
     <!-- Main -->
     <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+        <!-- Topbar -->
         <div class="sticky top-0 left-0 z-30 flex items-center px-6 py-2 bg-white shadow-md shadow-black/5">
             <button type="button" class="text-lg text-gray-600 sidebar-toggle">
                 <i class="ri-menu-line"></i>
@@ -213,51 +213,6 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Search</div>
-                                            <div class="text-[11px] truncate text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias et dolorum esse excepturi earum culpa rerum quos debitis repudiandae labore ullam tenetur rem obcaecati consectetur quia, vero laudantium. Consectetur, fugit.</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Search</div>
-                                            <div class="text-[11px] truncate text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident maiores odit repellat nam officiis sequi quidem earum velit voluptatum. Assumenda in aliquam natus quos tempore similique dolore consectetur sequi harum.</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Search</div>
-                                            <div class="text-[11px] truncate text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, mollitia nesciunt. Cum, consectetur sed doloremque officiis quod ex odio repellat quos veritatis quisquam culpa tenetur itaque libero! Pariatur, delectus possimus!</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Search</div>
-                                            <div class="text-[11px] truncate text-gray-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio corrupti voluptates ex atque hic, earum quod perferendis repudiandae autem qui voluptate aperiam voluptas eaque a provident quisquam. Laudantium, est provident.</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Search</div>
-                                            <div class="text-[11px] truncate text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facere facilis placeat numquam neque suscipit libero distinctio, possimus hic est sit, adipisci cumque illo ipsam veritatis assumenda. Repudiandae, sit sunt.</div>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -270,33 +225,6 @@
                        <h4 class="p-2 font-medium">Messages</h4>
                         <div class="my-2"> 
                             <ul class="overflow-y-auto max-h-64" data-tab-for="notification" data-page="messages">
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Mathew</div>
-                                            <div class="text-[11px] text-gray-400">Hello there!</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Jazzer</div>
-                                            <div class="text-[11px] text-gray-400">Hello there!</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">AJ</div>
-                                            <div class="text-[11px] text-gray-400">Hello there!</div>
-                                        </div>
-                                    </a>
-                                </li>
                                 <li>
                                     <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
                                         <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
@@ -345,33 +273,6 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Request Access</div>
-                                            <div class="text-[11px] text-gray-400">from a user</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Request Access</div>
-                                            <div class="text-[11px] text-gray-400">from a user</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
-                                        <img src="https://placehold.co/32x32" alt="" class="block object-cover w-8 h-8 align-middle rounded">
-                                        <div class="ml-2">
-                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Request Access</div>
-                                            <div class="text-[11px] text-gray-400">from a user</div>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>                      
                         </div>
                     </div>
@@ -394,6 +295,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="p-6">
             <div class="grid grid-cols-1 gap-6 mb-6 md:grid-cols-2 lg:grid-cols-3">
                 <div class="p-6 bg-white border border-gray-100 rounded-md shadow-md shadow-black/5">
@@ -1262,10 +1164,8 @@
             </div>
         </div>
     </main>
-    
-
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/dashboard.js"></script>
+    <script src="../dashboard.js"></script>
 </body>
 </html>
