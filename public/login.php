@@ -1,3 +1,27 @@
+<?php
+    require_once '../classes/account.class.php';
+
+    session_start();
+
+    $email = $password = '';
+    $accountObj = new Account();
+    $loginErr = '';
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $email = (($_POST['email']));
+        $password = ($_POST['password']);
+
+        if($accountObj->login($email, $password)){
+            $data = $accountObj->fetch($email);
+            $_SESSION['user'] = $data;
+            header('location: ./user_dash.html');
+        }else{
+            $loginErr = 'Invalid username/password';
+    }
+}
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,18 +52,19 @@
 <body class="flex items-center justify-center min-h-screen bg-center bg-cover" style="background-image: url('../img/loginbg.png');">
     <div class="w-full max-w-lg p-8 mx-4 bg-white rounded-lg shadow-lg">
         <h2 class="mb-6 text-2xl font-semibold text-center">Login</h2>
-        <form>
+        <form method="POST">
             <div class="mb-4">
-                <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="email" name="email" placeholder="Email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div class="relative mb-4">
-                <input type="password" placeholder="Password" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="password" name="password" placeholder="Password" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div class="mb-6 text-right">
                 <a href="#" class="text-green-500 hover:text-green-400">Forget Password?</a>
             </div>
-            <button type="button" <a href="user_dash.html" onclick="handleLogin(event)" class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">Login</a></button>
+            <input type="submit" name="login" value="Login" class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">
         </form>
+
         <div class="flex items-center my-6">
             <hr class="flex-grow border-t border-gray-300">
             <span class="mx-4 text-gray-500">OR</span>
@@ -71,7 +96,7 @@
         showLoader();
         setTimeout(() => {
             hideLoader();
-            window.location.href = 'signup.html';
+            window.location.href = 'signup.php';
         }, 3000);
     }
 
