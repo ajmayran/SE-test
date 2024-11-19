@@ -8,7 +8,7 @@
     <link rel="icon" href="../../img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Completed Orders</title>
+    <title>Cancelled Orders</title>
 </head>
 <style>
     body {
@@ -95,12 +95,12 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="completedOrders.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed
                             order</a>
                     </li>
                     <li class="mb-4">
-                        <a href="cancelledOrders.html"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled
                             order</a>
                     </li>
@@ -215,7 +215,7 @@
                     <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Transactions</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Completed</li>
+                <li class="mr-2 font-medium text-gray-600">Cancelled</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -366,34 +366,7 @@
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Distributors
-                    </div>
-
-                    <div class="flex space-x-2">
-                        <button class="bg-green-500 hover:bg-green-700 text-white p-2 rounded"><iconify-icon icon="mdi:pencil" /></button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
-                    </div>
-                </div>
-                <div class="overflow-x-auto"> </div>
-                <table id="distTable" class="w-full table-auto"> <!--- Added id to the table --->
-                    <thead>
-                        <tr class="bg-gray-100 text-gray-600 text-left">
-                             <th class="p-2">ID</th>
-                             <th class="p-2">Distributor</th>
-                             <th class="p-2">Date Approved</th>
-                             <th class="p-2">Action</th>  
-                        </tr>
-                    </thead>
-                    <tbody>
-                       <!-- Data will be populated by DataTables --> 
-                    </tbody>
-                </table>
-
-                <div class="overflow-x-auto"> </div>
-                
-                <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Completed Orders
+                        Cancelled Orders
                     </div>
                 </div>
                 <table id="orderTable" class="w-full table-auto"> <!--- Added id to the table --->
@@ -419,36 +392,21 @@
     <script src="../../dashboard.js"></script>
     <script>
         $(document).ready( function () {
-            $('#distTable').DataTable({  
-                data: [ 
-                    ['dist001', '<img src="../../img/distributors/glenmark.png" alt="distributor 1" class="w-20 h-20 inline-block mr-2"> New Horizon Distribution Corporation', '11/14/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
-                    ['dist002', '<img src="../../img/distributors/jacob.png" alt="distributor 2" class="w-20 h-20 inline-block mr-2"> Jacob Trading', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
-                    ['dist003', '<img src="../../img/distributors/primus.png" alt="distributor 3" class="w-20 h-20 inline-block mr-2"> Primus', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>']
-                    
-                ],
-                columns: [  
-                    { title: "ID" },
-                    { title: "Distributor" },         
-                    { title: "Date Approved" },
-                    { title: "Action" }            
-                ]
-            });
-
             $('#orderTable').DataTable({  
                 data: [ 
-                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading' , '11/14/2024', 'Completed'],
-                    ['order002', 'user007', 'Rudeee Abao', 'Primus' , '11/15/2024', 'Completed'],
-                    ['order001', 'user001', 'Kyluzz Wiffer', 'Primus' , '11/14/2024', 'Completed'],
-                    ['order002', 'user007', 'Therty Carroz', 'New Horizon Distribution Corporation' , '11/15/2024', 'Completed'],
-                    ['order001', 'user001', 'Daniba SK', 'Jacob Trading' , '11/14/2024', 'Completed'],
-                    ['order002', 'user007', 'No sleep AJ', 'New Horizon Distribution Corporation' , '11/15/2024', 'Completed'],
-                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading' , '11/14/2024', 'Completed'],
-                    ['order002', 'user007', 'No sleep AJ', 'New Horizon Distribution Corporation' , '11/15/2024', 'Completed'],
-                    ['order001', 'user001', 'Jazzer Onggoy', 'Primus' , '11/14/2024', 'Completed'],
-                    ['order002', 'user007', 'Kyluzz Wiffer', 'Primus' , '11/15/2024', 'Completed'],
-                    ['order001', 'user001', 'Jazzer Onggoy', 'Primus' , '11/14/2024', 'Completed'],
-                    ['order002', 'user007', 'No sleep AJ', 'Primus' , '11/15/2024', 'Completed'],
-                    ['order003', 'user004', 'BuggerMan Emman', 'Jacob Trading' , '11/15/2024', 'Completed']
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'Rudeee Abao', 'Primus' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Kyluzz Wiffer', 'Primus' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'Therty Carroz', 'New Horizon Distribution Corporation' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Daniba SK', 'Jacob Trading' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'No sleep AJ', 'New Horizon Distribution Corporation' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'No sleep AJ', 'New Horizon Distribution Corporation' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Primus' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'Kyluzz Wiffer', 'Primus' , '11/15/2024', 'Complete'],
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Primus' , '11/14/2024', 'Complete'],
+                    ['order002', 'user007', 'No sleep AJ', 'Primus' , '11/15/2024', 'Complete'],
+                    ['order003', 'user004', 'BuggerMan Emman', 'Jacob Trading' , '11/15/2024', 'Complete']
                     
                 ],
                 columns: [  
