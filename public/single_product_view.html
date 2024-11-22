@@ -98,8 +98,8 @@
                         <input type="number" class="border border-gray-300 px-4 py-2 w-16 text-center" value="1">
                         <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-r-lg">+</button>
                       </div>
-
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+ 
+                    <button type="" onclick="openproductModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">
                         Add to Cart
                     </button>
                 </div>
@@ -182,6 +182,27 @@
               </div>
         </div>
     </section>
+    
+    <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
+        <div class="relative w-full max-w-sm max-h-screen p-8 overflow-y-auto bg-white rounded-lg">   
+            <div class="flex justify-center">
+                <div class="bg-green-500 text-white rounded-full p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
+                    </svg>
+                </div>
+            </div>
+            <p class="text-green-500 font-semibold text-2xl flex justify-center">Success!</p>
+            <div class="flex justify-center">
+                    <p>Your item has been added to the cart.</p>
+            </div>
+            <hr class="my-6">
+            <div class="flex justify-center mt-6">
+                <button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-white bg-gray-400 border rounded-lg hover:bg-gray-300 hover:text-gray-700">Close</button>
+                <button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-gray-700 bg-white border rounded-lg hover:bg-gray-100">View Cart</button>
+            </div>
+        </div>
+    </div>
     <footer class="py-8" style="background-color: #282424;">
         <div class="container px-4 mx-auto mt-10">
             <div class="flex justify-between">
@@ -236,6 +257,14 @@
             </div>
         </div>
     </footer>
+    <script>
+        function openproductModal() {
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+        function closeproductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+        }
+    </script>
 </body>
 
   
