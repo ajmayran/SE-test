@@ -653,6 +653,22 @@ video {
   top: 1rem;
 }
 
+.right-1 {
+  right: 0.25rem;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
+.right-10 {
+  right: 2.5rem;
+}
+
+.top-10 {
+  top: 2.5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -902,6 +918,10 @@ video {
   margin-top: 2rem;
 }
 
+.mr-32 {
+  margin-right: 8rem;
+}
+
 .block {
   display: block;
 }
@@ -988,10 +1008,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .max-h-64 {
