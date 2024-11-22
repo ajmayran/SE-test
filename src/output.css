@@ -1681,6 +1681,10 @@ video {
   padding-right: 1rem;
 }
 
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1695,6 +1699,10 @@ video {
 
 .text-justify {
   text-align: justify;
+}
+
+.align-baseline {
+  vertical-align: baseline;
 }
 
 .align-top {
