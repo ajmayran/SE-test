@@ -71,6 +71,11 @@
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_products.html"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">My Products</span>
+                    </a>
+                </li>
                 <li class="group active">
                     <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Inventory</span>
@@ -132,34 +137,36 @@
                 </div>
               
                     
-                  <!-- Category Filter -->
-                  <div class="flex items-center space-x-2">
-                        <span class="text-gray-700 m">Category</span>
-                        <select class="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500">
-                        <option>All</option>
-                        <option>Frozen Goods</option>
-                        <option></option>   
+                <!-- Category Filter -->
+                <div class="flex items-center space-x-2">
+                    <span class="text-gray-700">Category</span>
+                    <div class="relative">
+                        <select class="w-full px-3 py-2 border rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option>All</option>
+                            <option>Frozen Goods</option>
                         </select>
-                  </div>
-              
-                  <!-- Action Buttons -->
-    
-                    <button type="" onclick="openproductModal()"  class="px-2 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Add Product</button>
-                    <button type="" onclick="openstocksModal()"  class="px-2 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Manage Stocks</button>
-                  
+                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                            <iconify-icon icon="mdi:arrow-down-drop" class="w-4 h-4 text-xl"></iconify-icon>
+                        </div>
+                    </div>
+                    </div>
+                    <button type="" onclick="openstocksModal()"  class="px-2 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Manage Stocks</button> 
                 </div>
               
                 <!-- Table Section -->
                 <div class="overflow-x-auto bg-white">
-                  <table class="w-full table-auto">
+                  <table class="w-full overflow-x-auto table-auto">
                     <thead>
                       <tr class="bg-gray-100">
                         <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Image</th>
                         <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Name</th>
                         <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Category</th>
-                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Description</th>
-                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Quantity</th>
+                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Stocks</th>
+                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Minimum  Purchase Qty</th>
+                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Maximum Purchase Qty</th>
                         <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Tags</th>
+                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Price</th>
+                        <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -168,16 +175,18 @@
                         <td><img src="/img/Products/rtc-chicken-inasal.png" class="w-12 h-12 my-1 ml-3 " alt=""></td>
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Inasal</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
-                        <td class="text-[12px] font-light text-left">Chicken Inasal</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">10</td>
+                        <td class="text-[12px] font-light text-left">20</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>   
+                        <td class="text-[12px] font-light text-left">250.00</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
                         <td><img src="/img/Products/rtc-chicken-bbq.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken BBQ</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Barbeque</td>
-                        <td class="text-[12px] font-light text-left">20</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -185,7 +194,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Siomal</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Siomai</td>
-                        <td class="text-[12px] font-light text-left">15</td>
+                        <td class="text-[12px] font-light text-left">200</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -193,7 +202,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Longanisa</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Longanisa</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">200</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -201,7 +210,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Cheesy Fingers</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Cheesy Fingers</td>
-                        <td class="text-[12px] font-light text-left">18</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -209,7 +218,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Lumpia</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Lumpia</td>
-                        <td class="text-[12px] font-light text-left">16</td>
+                        <td class="text-[12px] font-light text-left">250</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -217,7 +226,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Tapa</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Tapa</td>
-                        <td class="text-[12px] font-light text-left">14</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -225,7 +234,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Korean Chicken BBQ</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Korean Chicken Barbeque</td>
-                        <td class="text-[12px] font-light text-left">10</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -233,7 +242,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Teriyaki</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Teriyaki</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -241,7 +250,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Middeterranian</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Middeterranian</td>
-                        <td class="text-[12px] font-light text-left">10</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -249,7 +258,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Fried Chicken</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Fried</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -257,7 +266,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Tocino</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Tocino</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">200</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -265,7 +274,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Vanilla Chicken Finger</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Finger</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -273,7 +282,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Spicy Wings</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Wings Spicy</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">250</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -281,7 +290,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Spicy Fried Chicken</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Fried Spicy</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">200</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -289,7 +298,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Oriental Wings</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Wings</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">250</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -297,7 +306,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Pepper Steak</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Steak</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">100</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
@@ -305,7 +314,7 @@
                         <td class="text-[12px] font-light text-left">Ready to Cook Chicken Lumpia Shanghai Mix</td>
                         <td class="text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="text-[12px] font-light text-left">Chicken Lumpia Mix</td>
-                        <td class="text-[12px] font-light text-left">12</td>
+                        <td class="text-[12px] font-light text-left">250</td>
                         <td class="text-[12px] font-light text-left">Food, Meat</td>
                       </tr>
                     </tbody>
