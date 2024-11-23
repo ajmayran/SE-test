@@ -6,7 +6,7 @@
     <title>Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
+    <link rel="icon" href="../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../src/output.css">
     <style>
         body {
@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-cover" style="background-image: url('../img/Registration\ Stepsbg.png');">
+<body class="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-cover" style="background-image: url('../resources/img/Registration\ Stepsbg.png');">
     <div class="w-full max-w-4xl p-8 bg-white border border-gray-100 rounded-lg shadow-lg">
         <h1 class="mb-6 text-2xl font-bold">Distributor Registration</h1>
         <div class="flex items-center mb-6">
@@ -40,7 +40,7 @@
             </div>
             <p class="mb-2 text-lg font-medium">Submitted Successfully!</p>
             <p class="mb-6 text-gray-600">Wait for the confirmation for 2-3 working days</p>
-            <button class="px-6 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600"><a href="dist_dash.html">Done</a></button>
+            <button class="px-6 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600"><a href="../user/distributor/dist_dash.php">Done</a></button>
         </div>
     </div>
 </body>

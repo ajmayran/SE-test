@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distributors Orders</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 
     <style>
@@ -28,7 +28,7 @@
     <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
         <div class="container flex items-center justify-between px-4 py-4 mx-auto">
             <div class="flex items-center">
-                <img alt="PConnect Logo" class="w-8 h-8" src="../img/Pconnect Logo.png"/>
+                <img alt="PConnect Logo" class="w-8 h-8" src="../../resources/img/Pconnect Logo.png"/>
                 <span class="ml-2 text-xl font-bold">
                 PConnect
                 </span>
@@ -45,71 +45,71 @@
         <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
             <ul class="m-10 ml-10 space-y-2">
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_dashboard.html"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Dashboard</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_orders.html"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Orders</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_return.html"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Return | Refund</span>
                     </a>
                 </li>
                 <li class="group active">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_cancellation.html"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_delivery.html"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_products.html"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_products.php"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                       <span class="ml-2 font-normal">My Products</span>
                   </a>
               </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_inventory.html"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_inventory.php"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Inventory</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_messages.html"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Messages</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_blocking.html"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Blocking</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_income.html"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_income.php"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Income</span>
                     </a>
                 </li>
                 <li class="group">
-                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_insights.html"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
                       <span class="ml-2 font-normal">Business Insights</span>
                   </a>
               </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_voucher.html"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_settings.html"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
@@ -346,7 +346,7 @@
         {
           id: "246000EVG4AXL",
           products: [
-            { name: "Magnolia Ready to Cook Cheesy Chicken Fingers", price: 250, qty: 10, image: "../img/Products/rtc-cheesy-chicken-fingers.png", reason: "Wrong order, this order is no longer needed"},
+            { name: "Magnolia Ready to Cook Cheesy Chicken Fingers", price: 250, qty: 10, image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png", reason: "Wrong order, this order is no longer needed"},
           ],
           subtotal: 2500,
           voucher: "--",
@@ -357,7 +357,7 @@
         {
           id: "000911VGA2ZIA",
           products: [
-            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 20, image: "../img/Products/rtc-chicken-siomai.png" ,reason:"Sorry i bought already on the other shop" },
+            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 20, image: "../../resources/img/Products/rtc-chicken-siomai.png" ,reason:"Sorry i bought already on the other shop" },
           ],
           subtotal: 4000,
           voucher: "--",
@@ -370,7 +370,7 @@
         {
           id: "563829HJV3AK",
           products: [
-            { name: "Magnolia Ready to Cook Chicken Tocino", price: 250, qty: 10, image: "../img/Products/rtc-chicken-tocino.png", reason:"Suspicious of Fraudulent Activity" },
+            { name: "Magnolia Ready to Cook Chicken Tocino", price: 250, qty: 10, image: "../../resources/img/Products/rtc-chicken-tocino.png", reason:"Suspicious of Fraudulent Activity" },
           ],
           subtotal: 2500,
           voucher: "₱50.00",

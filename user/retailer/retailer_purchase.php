@@ -6,15 +6,15 @@
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/src/output.css">
-    <link rel="stylesheet" href="/src/user_dash.css">
+    <link rel="stylesheet" href="../../src/output.css">
+    <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
 <body class="min-h-screen flex flex-col">
     <header class="bg-white shadow-sm">
         <nav class="flex items-center justify-between w-full px-20 py-4 bg-white shadow-sm min-h-20">
             <div class="flex items-center" >
-                <img src="../img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
+                <img src="../../resources/img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
                 <span class="text-2xl font-semibold text-black-700">PConnect</span>
                 <div class="relative flex items-center px-10">
                     <select class="px-3 py-2 ml-64 mr-2 bg-gray-200 border border-gray-300 rounded-md">
@@ -29,14 +29,14 @@
                 </div>
             </div>
             <div class="flex items-center">
-                <a href="user_cart.html" class="mr-4 text-gray-500 hover:text-gray-700 ">
+                <a href="./retailer_cart.php" class="mr-4 text-gray-500 hover:text-gray-700 ">
                     <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
                 </a>
                 <a href="#" class="mr-4 text-gray-500 hover:text-gray-700">
                     <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
                 </a>
                 <div class="flex items-center">
-                    <img src="../img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
+                    <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
                     <span class="font-medium text-gray-700">Michael Jordan</span>
                 </div>
             </div>
@@ -44,7 +44,7 @@
         <nav class="flex items-center justify-between bg-white shadow-sm">
             <div class="w-full px-20 py-2 text-white bg-gray-900">
                 <ul class="flex justify-center space-x-20 ">
-                    <li class=" hover:text-green-500"><a href="user_dash.html">HOME</a></li>
+                    <li class=" hover:text-green-500"><a href="./retailer_dash.php">HOME</a></li>
                     <li class=" hover:text-green-500"><a href="#">DISTRIBUTORS</a></li>
                     <li class=" hover:text-green-500"><a href="#">PRODUCTS</a></li>
                     <li class=" hover:text-green-500"><a href="#">CATEGORY</a></li>
@@ -56,7 +56,7 @@
     <section class="mt-12 container px-4 mx-auto">
     <div class="flex container px-4 mx-auto">
         <div class="flex-shrink-0 mr-4">
-            <img src="https://via.placeholder.com/50/000000/ffffff?text=MJ" alt="Profile Picture" class="rounded-full">
+        <img src="../../resources/img/avatar.png.jpeg" alt="Profile Picture" class="w-8 h-8 mr-2 rounded-full">
         </div>
         <div>
             <p class="text-gray-900 font-semibold">Micheal Jordan</p>

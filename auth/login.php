@@ -14,7 +14,7 @@
         if($accountObj->login($email, $password)){
             $data = $accountObj->fetch($email);
             $_SESSION['user'] = $data;
-            header('location: ./user_dash.html');
+            header('location: ../user/retailer/retailer_dash.php');
         }else{
             $loginErr = 'Invalid username/password';
     }
@@ -30,9 +30,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/..img/Pconnect Logo.png">
+    <link rel="icon" href="../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../src/output.css">
-    <script src="../loader.js"></script>
+    <script src="../js/tailwind/loader.js"></script>
     <style>
         body {
             font-family: 'Lexend', sans-serif;
@@ -49,7 +49,7 @@
 
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-center bg-cover" style="background-image: url('../img/loginbg.png');">
+<body class="flex items-center justify-center min-h-screen bg-center bg-cover" style="background-image: url('../resources/img/loginbg.png');">
     <div class="w-full max-w-lg p-8 mx-4 bg-white rounded-lg shadow-lg">
         <h2 class="mb-6 text-2xl font-semibold text-center">Login</h2>
         <form method="POST">
@@ -96,7 +96,7 @@
         showLoader();
         setTimeout(() => {
             hideLoader();
-            window.location.href = 'signup.php';
+            window.location.href = './signup.php';
         }, 3000);
     }
 
@@ -105,7 +105,7 @@
         showLoader();
         setTimeout(() => {
             hideLoader();
-            window.location.href = 'user_dash.html';
+            window.location.href = '../user/retailer/retailer_dash.php';
         }, 3000);
     }
     </script>

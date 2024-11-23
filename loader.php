@@ -21,7 +21,7 @@
 </head>
 <body class="min-h-screen flex justify-center items-center" style="background-color: #ABEBC6;">
     <div class="flex flex-row gap-2">
-        <img src="../img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 spin-animation">
+        <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 spin-animation">
         <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.1s]" >P</div>
         <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.2s]">C</div>
         <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.3s]">o</div>

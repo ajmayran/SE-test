@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <title>Dashboard</title>
 </head>
@@ -38,7 +38,7 @@
     <!-- Sidebar -->
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu" style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="../img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
+            <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
             <span class="ml-3 text-lg font-bold">PConnect</span>
         </a>
         <ul class="mt-4">
@@ -56,16 +56,16 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./products/acceptedProducts.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
+                        <a href="./products/acceptedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
                     </li>
                     <li class="mb-4">
                         <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured Products</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="./products/pendingProducts.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
+                        <a href="./products/pendingProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="./products/rejectedProducts.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
+                        <a href="./products/rejectedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
                     </li> 
                 </ul>
             </li>
@@ -77,10 +77,10 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./transactions/completedOrders.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
+                        <a href="./transactions/completedOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="./transactions/CancelledOrders.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled order</a>
+                        <a href="./transactions/CancelledOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled order</a>
                     </li> 
                 </ul>
             </li>
@@ -92,16 +92,16 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./retailers/pending.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Retailers</a>
+                        <a href="./retailers/pending.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Retailers</a>
                     </li> 
                     <li class="mb-4">
                         <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Retailers</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="./retailers/restricted.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted Retailers</a>
+                        <a href="./retailers/restricted.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted Retailers</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="./retailers/banned.html" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned Retailers</a>
+                        <a href="./retailers/banned.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned Retailers</a>
                     </li> 
                 </ul>
             </li>
@@ -1166,6 +1166,6 @@
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../dashboard.js"></script>
+    <script src="../../js/tailwind/dashboard.js"></script>
 </body>
 </html>

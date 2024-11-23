@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
+    <link rel="icon" href="../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../src/output.css">
     <style>
         body {
@@ -14,7 +14,7 @@
     </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-cover" style="background-image: url('../img/Registration\ Stepsbg.png');">
+<body class="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-cover" style="background-image: url('../resources/img/Registration\ Stepsbg.png');">
     <div class="w-full max-w-4xl p-8 bg-white border border-gray-100 rounded-lg shadow-lg">
         <h1 class="mb-6 text-2xl font-bold">Distributor Registration</h1>
         <div class="flex items-center">
@@ -85,8 +85,8 @@
                 <p class="text-gray-500 text-[10px] font-light mt-1 text-center mr-32">Distributor Login Password</p>
             </div>
                 <div class="flex justify-end mt-6">
-                    <button type="button" class="px-4 py-2 mr-2 border border-gray-300 rounded-md hover:bg-gray-100"><a href="login.html">Cancel</a></button>
-                    <button type="button" class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600"><a href="registration_step2.html">Next</a></button>
+                    <button type="button" class="px-4 py-2 mr-2 border border-gray-300 rounded-md hover:bg-gray-100"><a href="./login.php">Cancel</a></button>
+                    <button type="button" class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600"><a href="./registration_step2.php">Next</a></button>
                 </div>
         </form>
     </div>

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distriution Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 
     <style>
@@ -48,7 +48,7 @@
 
     <!-- Background video -->
     <video id="background-video" class="absolute top-0 left-0 z-0 object-cover w-full h-full" autoplay muted>
-        <source src="../Blue Cargo Truck Green Screen 39310814 Stock Video at Vecteezy.mp4" type="video/mp4">
+        <source src="../../resources/img/vids/dist_loginBG.mp4" type="video/mp4">
     </video>
 
     <!-- Appearing text -->
@@ -91,7 +91,7 @@
             </div>
             <div class="flex justify-between item-center">
                 <a href="#" class="text-sm text-gray-300 hover:text-white">Forgot Password?</a>
-                <a href="dist_registration.html" class="text-sm text-gray-300 hover:text-white">Register</a>
+                <a href="./dist_registration.php" class="text-sm text-gray-300 hover:text-white">Register</a>
             </div>
         </form>
     </div>
@@ -99,7 +99,7 @@
     <script>
 
     function redirectToDashboard() {
-            window.location.href = 'dist_dash.html'; // Redirect to dist_dash.html
+            window.location.href = './dist_dash.php'; // Redirect to dist_dash.html
         }
 
     // Move the login form when the text appears

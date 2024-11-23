@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distributors Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -76,7 +76,7 @@
     <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
         <div class="container flex items-center justify-between px-4 py-4 mx-auto">
             <div class="flex items-center">
-                <img alt="PConnect Logo" class="w-8 h-8" src="../img/Pconnect Logo.png"/>
+                <img alt="PConnect Logo" class="w-8 h-8" src="../../resources/img/Pconnect Logo.png"/>
                 <span class="ml-2 text-xl font-bold">
                 PConnect
                 </span>
@@ -84,8 +84,8 @@
             <div class="flex items-center space-x-2">
                 <span class="p-1 mb-1">Logo</span>
                 <span class="p-1 mb-1">Shop Name</span>
-                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
-                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
+                <a href="#" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
+                <a href="#" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
             </div>
          </div>
     </header>
@@ -93,33 +93,33 @@
         <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
             <ul class="m-10 ml-10 space-y-2">
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_dashboard.html"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Dashboard</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_orders.html"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Orders</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_return.html"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Return | Refund</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_cancellation.html"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_delivery.html"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_products.html"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_products.php"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Products</span>
                     </a>
                 </li>
@@ -130,23 +130,23 @@
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_messages.html"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Messages</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_blocking.html"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Blocking</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_income.html"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_income.php"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Income</span>
                     </a>
                 </li>
                 <li class="group">
-                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_insights.html"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
                       <span class="ml-2 font-normal">Business Insights</span>
                   </a>
               </li>
@@ -154,12 +154,12 @@
                 <hr class="border-gray-300 shadow-sm"/>
 
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_voucher.html"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_settings.html"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
@@ -247,7 +247,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00124</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-inasal.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-inasal.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Inasal</span>
                                 </div>
                             </td> 
@@ -267,7 +267,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00567</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-bbq.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-bbq.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken BBQ</span>
                                 </div>
                             </td>
@@ -287,7 +287,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00839</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-siomai.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-siomai.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Siomai</span>
                                 </div>
                             </td>
@@ -307,7 +307,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00218</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-longanisa.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-longanisa.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Longanisa</span>
                                 </div>
                             </td>
@@ -327,7 +327,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00987</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-cheesy-chicken-fingers.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Cheesy Fingers</span>
                                 </div>
                             </td>
@@ -347,7 +347,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00456</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-lumpia.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-lumpia.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Lumpia</span>
                                 </div>
                             </td>
@@ -367,7 +367,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00329</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-tapa.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-tapa.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Tapa</span>
                                 </div>
                             </td>
@@ -387,7 +387,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00743</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-korean-chicken-bbq.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-korean-chicken-bbq.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Korean Chicken BBQ</span>
                                 </div>
                             </td>
@@ -407,7 +407,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00185</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-teriyaki.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-teriyaki.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Teriyaki</span>
                                 </div>
                             </td>
@@ -427,7 +427,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00621</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-mideterranian.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-mideterranian.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Middeterranian</span>
                                 </div>
                             </td>
@@ -448,7 +448,7 @@
                             </td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-fried-chicken.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-fried-chicken.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Fried Chicken</span>
                                 </div>
                             </td>
@@ -468,7 +468,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00267</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-chicken-tocino.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-chicken-tocino.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Tocino</span>
                                 </div>
                             </td>
@@ -488,7 +488,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00892</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-vanilla-chicken-finger.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-vanilla-chicken-finger.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Vanilla Chicken Finger</span>
                                 </div>
                             </td>
@@ -508,7 +508,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00498</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-spicy-wings.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-spicy-wings.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Spicy Wings</span>
                                 </div>
                             </td>
@@ -528,7 +528,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00149</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-spicy-fried-chicken.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-spicy-fried-chicken.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Spicy Fried Chicken</span>
                                 </div>
                             </td>
@@ -548,7 +548,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00583</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-oriental-wings.png" class="w-12 h-12 rounded-xl" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-oriental-wings.png" class="w-12 h-12 rounded-xl" alt=""/>
                                     <span class="ml-3">Ready to Cook Oriental WIngs</span>
                                 </div>
                             </td>
@@ -568,7 +568,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00711</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/rtc-pepper-steak.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/rtc-pepper-steak.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Pepper Steak</span>
                                 </div>
                             </td>
@@ -588,7 +588,7 @@
                             <td class="px-4 py-2 text-[12px] font-normal">PROD-00358</td>
                             <td class="font-light text-[12px] py-2 px-4">
                                 <div class="flex items-center">
-                                    <img src="../img/Products/Chicken-lumpia-shanghai-mix.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
+                                    <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" class="w-10 h-10 ml-1 rounded-sm" alt=""/>
                                     <span class="ml-3">Ready to Cook Chicken Lumpia Shanghai Mix</span>
                                 </div>
                             </td>

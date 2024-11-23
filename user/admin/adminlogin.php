@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <style>
       body {
         font-family: 'Lexend', sans-serif;
@@ -29,11 +29,11 @@
   </head>
 
   <body class="flex items-center justify-center min-h-screen bg-center bg-no-repeat bg-cover"
-  style="background-image: url(/img/loginbg.png);">
+  style="background-image: url(../../resources/img/loginbg.png);">
   <div class="flex w-3/4 mb-20 h-3/4">
     <div class="flex items-center justify-center w-1/2">
       <div class="flex items-center text-center">
-        <img src="../img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 mr-4" />
+        <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 mr-4" />
         <h1 class="text-3xl font-semibold">Diggers - PConnect</h1>
       </div>
     </div>
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <script src="../loader.js"></script>
+    <script src="../../js/tailwind/loader.js"></script>
     <script>
     document.getElementById('loginForm').addEventListener('submit', function (e) {
       e.preventDefault();
@@ -70,7 +70,7 @@
       // Simulate login (replace with actual authentication logic)
       setTimeout(() => {
         // Redirect to dashboard
-        window.location.href = 'dashboard.html';
+        window.location.href = './dashboard.php';
       }, 2500);
     });
     </script>

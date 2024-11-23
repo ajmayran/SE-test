@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
     <style>
@@ -33,7 +33,7 @@
     <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
         <div class="container flex items-center justify-between px-4 py-4 mx-auto">
             <div class="flex items-center">
-                <img alt="PConnect Logo" class="w-8 h-8" src="../img/Pconnect Logo.png"/>
+                <img alt="PConnect Logo" class="w-8 h-8" src="../../resources/img/Pconnect Logo.png"/>
                 <span class="ml-2 text-xl font-bold">
                 PConnect
                 </span>
@@ -50,72 +50,72 @@
         <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
             <ul class="m-10 ml-10 space-y-2">
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_dashboard.html"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Dashboard</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_orders.html"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Orders</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_return.html"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Return | Refund</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_cancellation.html"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_delivery.html"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_products.html"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_products.php"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                       <span class="ml-2 font-normal">My Products</span>
                   </a>
               </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_inventory.html"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_inventory.php"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Inventory</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group active">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_messages.html"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Messages</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_blocking.html"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Blocking</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_income.html"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_income.php"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Income</span>
                     </a>
                 </li>
                 <li class="group">
-                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_insights.html"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
                       <span class="ml-2 font-normal">Business Insights</span>
                   </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
 
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_voucher.html"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_settings.html"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
@@ -137,7 +137,7 @@
                     <!-- Message Thread 1 -->
                     <li class="border-b-2 border-gray-200 cursor-pointer" onclick="selectMessage(1)">
                       <div class="flex items-center p-4">
-                        <img src="../img/Avatar/avatar-5.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
+                        <img src="../../resources/img/Avatar/avatar-5.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
                         <div>
                           <p class="font-normal text-gray-800">Anthon Zuckerberg</p>
                           <p class="text-sm text-gray-500 truncate">Good morning, may I ask about...</p>
@@ -149,7 +149,7 @@
                     <!-- Message Thread 2 -->
                     <li class="border-b-2 border-gray-200 cursor-pointer" onclick="selectMessage(2)">
                       <div class="flex items-center p-4">
-                        <img src="../img/Avatar/avatar-1.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
+                        <img src="../../resources/img/Avatar/avatar-1.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
                         <div>
                           <p class="font-normal text-gray-800">Elon Mask</p>
                           <p class="text-sm font-light text-gray-500 truncate">Thank you so much for the update.</p>
@@ -375,7 +375,7 @@
                 `;
             conversationContent.innerHTML = `
               <div class="flex justify-start">
-                <img src="../img/avatar/avatar-5.jpg" alt="User   Avatar" class="w-10 h-10 mr-3 rounded-full">
+                <img src="../../resources/img/avatar/avatar-5.jpg" alt="User   Avatar" class="w-10 h-10 mr-3 rounded-full">
                 <div class="max-w-xs px-4 py-3 bg-gray-200 rounded-lg">
                   <p class="text-sm text-gray-700">Good morning, may I ask about...</p>
                 </div>
@@ -488,7 +488,7 @@
                 `;
             conversationContent.innerHTML = `
               <div class="flex justify-start">
-                <img src="../img/avatar/avatar-1.jpg" alt="User   Avatar" class="w-10 h-10 mr-3 rounded-full">
+                <img src="../../resources/img/avatar/avatar-1.jpg" alt="User   Avatar" class="w-10 h-10 mr-3 rounded-full">
                 <div class="max-w-xs px-4 py-3 bg-gray-200 rounded-lg">
                   <p class="text-sm text-gray-700">Thank you so much for the update.</p>
                 </div>

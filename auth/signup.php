@@ -55,7 +55,7 @@
         // Attempt to add the product to the database.
         if($AccountObj->add()){
             // If successful, redirect to the product listing page.
-            header('Location: login.php');
+            header('Location: ./login.php');
         } else {
             // If an error occurs during insertion, display an error message.
             echo 'Something went wrong when adding new account.';
@@ -74,7 +74,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
+    <link rel="icon" href="../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../src/output.css">
     <style>
         body {
@@ -84,7 +84,7 @@
 
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-center bg-cover" style="background-image: url('../img/loginbg.png');">
+<body class="flex items-center justify-center min-h-screen bg-center bg-cover" style="background-image: url('../resources/img/loginbg.png');">
     <div class="w-full max-w-xl p-8 mx-4 bg-white rounded-lg shadow-lg">
         <h2 class="mb-5 text-2xl font-semibold text-center">Signup</h2>
         <form method="POST">

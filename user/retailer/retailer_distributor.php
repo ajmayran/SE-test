@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/src/output.css">
-    <link rel="stylesheet" href="/src/user_dash.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
+    <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen">
     <header class="bg-white shadow-sm">
         <nav class="flex items-center justify-between w-full px-20 py-4 bg-white shadow-sm min-h-20">
             <div class="flex items-center" >
-                <img src="../img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
+                <img src="../../resources/img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
                 <span class="text-2xl font-semibold text-black-700">PConnect</span>
                 <div class="relative flex items-center px-10">
                     <select class="px-3 py-2 ml-64 mr-2 bg-gray-200 border border-gray-300 rounded-md">
@@ -29,14 +29,14 @@
                 </div>
             </div>
             <div class="flex items-center">
-                <a href="user_cart.html" class="mr-4 text-gray-500 hover:text-gray-700 ">
+                <a href="./retailer_cart.php" class="mr-4 text-gray-500 hover:text-gray-700">
                     <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
                 </a>
                 <a href="#" class="mr-4 text-gray-500 hover:text-gray-700">
                     <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
                 </a>
                 <div class="flex items-center">
-                    <img src="../img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
+                    <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
                     <span class="font-medium text-gray-700">Michael Jordan</span>
                 </div>
             </div>
@@ -44,7 +44,7 @@
         <nav class="flex items-center justify-between bg-white shadow-sm">
             <div class="w-full px-20 py-2 text-white bg-gray-900">
                 <ul class="flex justify-center space-x-20 ">
-                    <li class=" hover:text-green-500"><a href="user_dash.html">HOME</a></li>
+                    <li class=" hover:text-green-500"><a href="./retailer_dash.php">HOME</a></li>
                     <li class=" hover:text-green-500"><a href="#">DISTRIBUTORS</a></li>
                     <li class=" hover:text-green-500"><a href="#">PRODUCTS</a></li>
                     <li class=" hover:text-green-500"><a href="#">CATEGORY</a></li>
@@ -52,77 +52,109 @@
             </div>
         </nav>
     </header>
-    
-    <section class="mt-12 container px-4 mx-auto">
-    <div class="flex container px-4 mx-auto">
-        <div class="flex-shrink-0 mr-4">
-            <img src="https://via.placeholder.com/50/000000/ffffff?text=MJ" alt="Profile Picture" class="rounded-full">
-        </div>
-        <div>
-            <p class="text-gray-900 font-semibold">Micheal Jordan</p>
-            
-            <p class="text-green-500 text-xl font-medium">My Purchases</p>
-        </div>
-    </div>
-    <hr class="my-4 border-gray-200">
-    </section>
 
-    <div class="tabsrounded-lg container mx-auto  bg-gray-50 h-screen mb-24">
-        <ul class="tab-list flex border-b border-gray-200">
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">All</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">To Pay</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">To Receive</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Completed</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Cancelled</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Return/Refund</li>
-        </ul>
-        <div class="tab-content p-4">
-          <div class="tab-pane">
-            <div class="bg-white p-6 rounded-lg shadow-md mb-24">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-semibold">Magnolia Chicken</h2>
-                    <p class="text-sm font-semibold text-yellow-500">Order Status: Waiting Approval</p>
-                </div>
-            
-                <div class="border-b border-gray-200 mb-4">
-                    <div class="flex items-center mb-2">
-                        <img src="../img/Products/rtc-chicken-tocino.png" alt="Product Image" class="w-16 h-16 mr-4">
-                        <div>
-                            <p class="text-gray-700">Tocino Chicken</p>
-                            <p class="text-gray-500">x10</p>
-                        </div>
-                        <p class="text-gray-700 text-right ml-auto">₱2,000.00</p>
+    <main class="flex-1">
+        <div class="mx-20 my-10 container mx-auto">
+            <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
+                Go back
+            </a>
+        </div>
+        <section class="p-20 mx-20 mb-4 bg-yellow-400 rounded-lg container mx-auto">
+            <div class="flex justify-between">
+                <div class="flex items-center">
+                    <div class="flex items-center justify-center w-24 h-24 bg-white rounded-lg">
+                        <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor Photo" class="w-24 h-24">
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-2xl font-bold">Jacob</h2>
+                        <p class="text-gray-800">Monkey Drive, Guiwan, Zamboanga City 7000</p>
                     </div>
                 </div>
-            
-                <div class="flex justify-between mb-4">
-                    <p class="text-gray-700">Subtotal Total:</p>
-                    <p class="text-gray-700">₱2,000.00</p>
-                </div>
-                <div class="flex justify-between mb-4">
-                    <p class="text-gray-700">Shipping Fee:</p>
-                    <p class="text-gray-700">₱60.00</p>
-                </div>
-    
-                <div class="flex justify-between mb-4">
-                    <p class="text-gray-700 font-bold">Total COD Payment:</p>
-                    <p class="text-gray-700 font-bold">₱2,060.00</p>
-                </div>
-            
-                <div class="flex justify-end">
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">Cancel Order</button>
-                    <a href="user_purchase.html"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Details</button></a>
+                <div class="flex items-center">
+                    <div class="relative inline-block">
+                        <button class="px-4 py-2 font-bold text-white bg-gray-400 rounded hover:bg-gray-500">
+                            Actions
+                        </button>
+                    </div>
+                    <button class="px-4 py-2 ml-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+                        View Info
+                    </button>
                 </div>
             </div>
-          </div>
-          <div class="tab-pane hidden"></div>
-          <div class="tab-pane hidden"></div>
-          <div class="tab-pane hidden"></div>
-          <div class="tab-pane hidden"></div>
-          <div class="tab-pane hidden"></div>
-          
-        </div>
-      </div>                    
+        </section>
+        <nav class="p-2 mx-20 bg-gray-100 container mx-auto">
+            <ul class="flex justify-between px-10 space-x-2">
+                <li><a href="#" class=" hover:text-green-500">Home</a></li>
+                <li><a href="#" class=" hover:text-green-500">All Products</a></li>
+                <li><a href="#" class=" hover:text-green-500">Watsons Baby Care</a></li>
+                <li><a href="#" class=" hover:text-green-500">Fresh Bodycare</a></li>
+                <li><a href="#" class=" hover:text-green-500">Gift of Beauty</a></li>
+                <li><a href="#" class=" hover:text-green-500">Dove & Joy</a></li>
+            </ul>
+        </nav>
+
+        <section class="py-5 bg-white h-screen">
+            <h2 class="text-2xl font-bold container mx-auto">Distributors Products</h2>
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
+
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 1" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>10 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 2" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>20 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 3" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>15 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 4" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>10 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 5" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>22 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 5" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>22 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 3" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>15 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 4" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>10 Items</p>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 5" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>22 Items</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <img src="https://via.placeholder.com/150" alt="Distributor 5" class="mb-4">
+                        <h3 class="text-lg font-bold">Product Name</h3>
+                        <p>22 Items</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
     <footer class="py-8" style="background-color: #282424;">
         <div class="container px-4 mx-auto mt-10">
             <div class="flex justify-between">
@@ -177,20 +209,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        const tabItems = document.querySelectorAll('.tab-item');
-        const tabPanes = document.querySelectorAll('.tab-pane');
-        
-        tabItems.forEach((item, index) => {
-          item.addEventListener('click', () => {
-            tabItems.forEach(item => item.classList.remove('active'));
-            tabPanes.forEach(pane => pane.classList.add('hidden'));
-        
-            item.classList.add('active');
-            tabPanes[index].classList.remove('hidden');
-          });
-        });
-    </script>
 </body>
-
-  
+</html>

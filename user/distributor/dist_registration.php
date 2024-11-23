@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <style>
         body {
             font-family: 'Lexend', sans-serif;
@@ -60,7 +60,7 @@
         }
     </style>
 </head>
-<body class="bg-cover" style="background-image: url('../img/Registration.png');">
+<body class="bg-cover" style="background-image: url('../../resources/img/Registration.png');">
     <div class="relative flex items-center justify-center min-h-screen">
         
         <div class="relative z-10 flex flex-col items-center px-4 text-center text-white">
@@ -81,24 +81,21 @@
             <div class="flip-container">
                 <div class="flipper">
                     <div class="front">
-                        <img src="../img/dist_reg_mockup.png" alt="MockupImage1">
+                        <img src="../../resources/img/dist_reg_mockup.png" alt="MockupImage1">
                     </div>
                     <div class="back">
-                        <img src="../img/dist_reg_mockup2.png" alt="MockupImage2">
+                        <img src="../../resources/img/dist_reg_mockup2.png" alt="MockupImage2">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../loader.js"></script>
+    <script src="../../js/tailwind/loader.js"></script>
     <script>
         function Proceed() {
-            
             showLoader();
-            
-            
             setTimeout(function() {
-                window.location.href = 'registration_step1.html';
+                window.location.href = '../../auth/registration_step1.php';
             }, 2500); 
         }
     </script>

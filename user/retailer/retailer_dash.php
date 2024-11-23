@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
-    <link rel="stylesheet" href="../src/user_dash.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
+    <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <style>
         body {
@@ -18,7 +18,7 @@
 <body>
     <nav class="flex items-center justify-between w-full px-20 py-4 bg-white shadow-sm min-h-20">
         <div class="flex items-center" >
-            <img src="../img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
+            <img src="../../resources/img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
             <span class="text-2xl font-semibold text-black-700">PConnect</span>
             <div class="relative flex items-center px-10">
                 <select class="px-3 py-2 ml-64 mr-2 bg-gray-200 border border-gray-300 rounded-md">
@@ -31,14 +31,14 @@
             </div>
         </div>
         <div class="flex items-center">
-            <a href="user_cart.html" class="mr-4 text-gray-500 hover:text-gray-700">
+            <a href="./retailer_cart.php" class="mr-4 text-gray-500 hover:text-gray-700">
                 <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
             </a>
             <a href="#" class="mr-4 text-gray-500 hover:text-gray-700">
                 <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
             </a>
             <div class="flex items-center">
-                <img src="../img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
+                <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
                 <span class="font-medium text-gray-700">Michael Jordan</span>
             </div>
         </div>
@@ -46,7 +46,7 @@
     <nav class="flex items-center justify-between bg-white shadow-sm">
         <div class="w-full px-20 py-2 text-white bg-gray-900">
             <ul class="flex justify-center space-x-20 ">
-                <li class=" hover:text-green-00"><a href="user_dash.html">HOME</a></li>
+                <li class=" hover:text-green-00"><a href="./retailer_dash.php">HOME</a></li>
                 <li class=" hover:text-green-500"><a href="#">DISTRIBUTORS</a></li>
                 <li class=" hover:text-green-500"><a href="#">PRODUCTS</a></li>
                 <li class=" hover:text-green-500"><a href="#">CATEGORY</a></li>
@@ -58,7 +58,7 @@
             <!-- Design 1 -->
             <div class="flex flex-row items-center justify-between w-full text-white section active" style="background-color: #D8F1E5;">
               <div class="relative flex flex-col items-center justify-center w-1/2">
-                    <img src="../img/sec1-des1.png" class="object-cover w-[550px] h-[380px] p-2" alt="Background Image">
+                    <img src="../../resources/img/sec1-des1.png" class="object-cover w-[550px] h-[380px] p-2" alt="Background Image">
                     <div class="absolute text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"> 
                         <h1 class="mt-2 ml-2 text-3xl font-bold">Welcome to Our Store</h1>
                         <p class="mb-10 text-sm">Discover amazing products just for you!</p>
@@ -66,7 +66,7 @@
                     </div>
               </div>
               <div class="w-1/2"> 
-                 <img src="../img/sec1-des2.png" class="object-cover w-3/4 p-2 h-3/4"></img> 
+                 <img src="../../resources/img/sec1-des2.png" class="object-cover w-3/4 p-2 h-3/4"></img> 
               </div>
             </div>
           
@@ -117,28 +117,28 @@
             </div>
 
             <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
-                <a href="user_distributor.html" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
-                  <img src="../img/Distrubutors/alaska.png" alt="Distributor 1" class="mb-4">
+                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                  <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor 1" class="mb-4">
                   <h3 class="text-lg font-bold">Jacob</h3>
                   <p>10 Items</p>
                 </a>
-                <a href="user_distributor.html" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
-                  <img src="../img/Distrubutors/ph.png" alt="Distributor 2" class="mb-4">
+                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                  <img src="../../resources/img/Distrubutors/ph.png" alt="Distributor 2" class="mb-4">
                   <h3 class="text-lg font-bold">Zambasulta</h3>
                   <p>20 Items</p>
                 </a>
-                <a href="user_distributor.html" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
-                  <img src="../img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
+                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                  <img src="../../resources/img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
                   <h3 class="text-lg font-bold">Glenmark Trading</h3>
                   <p>15 Items</p>
                 </a>
-                <a href="user_distributor.html" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
-                  <img src="../img/Distrubutors/bass.png" alt="Distributor 4" class="mb-4">
+                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                  <img src="../../resources/img/Distrubutors/bass.png" alt="Distributor 4" class="mb-4">
                   <h3 class="text-lg font-bold">Boss Jim Grocery </h3>
                   <p>10 Items</p>
                 </a>
-                <a href="user_distributor.html" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
-                  <img src="../img/Distrubutors/primus.png" alt="Distributor 5" class="mb-4">
+                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                  <img src="../../resources/img/Distrubutors/primus.png" alt="Distributor 5" class="mb-4">
                   <h3 class="text-lg font-bold">Primus</h3>
                   <p>22 Items</p>
                 </a>
@@ -152,9 +152,9 @@
                 <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 py-10">
-               <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+               <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-chicken-tocino.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Chicken Tocino Templados</h3>
@@ -167,9 +167,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Chicken lumpia shanghai mix</h3>
@@ -182,9 +182,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Cheesy Chicken Fingers</h3>
@@ -197,9 +197,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-pepper-steak.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-pepper-steak.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Pepper Steak</h3>
@@ -212,9 +212,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-mideterranian.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-mideterranian.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">mideterranian</h3>
@@ -227,9 +227,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-chicken-siomai.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Chicken Siomai</h3>
@@ -242,9 +242,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Spicy Wings</h3>
@@ -257,9 +257,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-oriental-wings.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-oriental-wings.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Oriental Wings</h3>
@@ -272,9 +272,9 @@
                         </button>
                     </div>
                 </a>
-                <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-chicken-tapa.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-chicken-tapa.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Chicken Tapa</h3>
@@ -287,9 +287,9 @@
                         </button>
                     </div>
                 </a>
-                  <a href="single_product_view.html" class="bg-white rounded-lg shadow-md p-6 ">
+                  <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
                     <div class="flex justify-center">
-                        <img src="../img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Spicy Wings</h3>
@@ -369,6 +369,6 @@
             </div>
         </div>
     </footer>
-<script src="../user_dash.js"></script>
+<script src="../src/tailwind/user_dash.js"></script>
 </body>
 </html>

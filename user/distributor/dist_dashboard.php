@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distributors Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -28,7 +28,7 @@
     <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
         <div class="container flex items-center justify-between px-4 py-4 mx-auto">
             <div class="flex items-center">
-                <img alt="PConnect Logo" class="w-8 h-8" src="../img/Pconnect Logo.png"/>
+                <img alt="PConnect Logo" class="w-8 h-8" src="../../resources/img/Pconnect Logo.png"/>
                 <span class="ml-2 text-xl font-bold">
                 PConnect
                 </span>
@@ -36,8 +36,8 @@
             <div class="flex items-center space-x-2">
                 <span class="p-1 mb-1">Logo</span>
                 <span class="p-1 mb-1">Shop Name</span>
-                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
-                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
+                <a href="#" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
+                <a href="#" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
             </div>
          </div>
     </header>
@@ -50,67 +50,67 @@
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_orders.html"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Orders</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_return.html"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Return | Refund</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_cancellation.html"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_delivery.html"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_products.html"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_products.php"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Products</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_inventory.html"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_inventory.php"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Inventory</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_messages.html"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Messages</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_blocking.html"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Blocking</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_income.html"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_income.php"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Income</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_insights.html"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Business Insights</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
 
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_voucher.html"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_settings.html"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
@@ -157,13 +157,13 @@
                     </thead>
                     <tbody>
                     <tr class="border-b">
-                        <td class="py-2"><img src="../img/Products/rtc-fried-chicken.png" alt="" class="w-16 h-16 rounded"></td>
+                        <td class="py-2"><img src="../../resources/img/Products/rtc-fried-chicken.png" alt="" class="w-16 h-16 rounded"></td>
                         <td class="py-2 text-[12px] font-light">Magnolia Ready to Cook Fried Chicken</td>
                         <td class="py-2 text-[12px] font-light">Frozen Products</td>
                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                     </tr>
                     <tr class="border-b">
-                        <td class="py-2"><img src="../img/Products/Chicken-lumpia-shanghai-mix.png" alt="" class="ml-1 rounded h-14 w-14"></td>
+                        <td class="py-2"><img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="" class="ml-1 rounded h-14 w-14"></td>
                         <td class="py-2 text-[12px] font-light">Magnolia Ready to Cook Chicken Lumpia  Shanghai Mix</td>
                         <td class="py-2 text-[12px] font-light">Frozen Products</td>
                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
@@ -203,14 +203,14 @@
                     <tbody>
                     <tr class="border-b">
                         <td class="px-2 py-2">1</td>
-                        <td class="py-2"><img src="../img/Products/rtc-chicken-siomai.png" alt="" class="w-16 h-16 rounded"></td>
+                        <td class="py-2"><img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="" class="w-16 h-16 rounded"></td>
                         <td class="py-2 text-[12px] font-light">Ready to Cook Chicken Siomai</td>
                         <td class="py-2 text-[12px] font-light">Frozen Products</td>
                         <td class="py-2 text-right text-[12px] font-light">314</td>
                     </tr>
                     <tr class="border-b">
                         <td class="px-2">2</td>
-                        <td class="py-2"><img src="../img/Products/rtc-chicken-lumpia.png" alt="" class="w-16 h-16 rounded"></td>
+                        <td class="py-2"><img src="../../resources/img/Products/rtc-chicken-lumpia.png" alt="" class="w-16 h-16 rounded"></td>
                         <td class="py-2 text-[12px] font-light">Ready to Cook Chicken Lumpia</td>
                         <td class="py-2 text-[12px] font-light">Frozen Products</td>
                         <td class="py-2 text-right text-[12px] font-light">290</td>
@@ -276,6 +276,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../dist_dashboard.js"></script>
+    <script src="../../js/tailwind/dist_dashboard.js"></script>
 </body>
 </html>
