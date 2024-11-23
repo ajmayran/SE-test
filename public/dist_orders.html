@@ -171,7 +171,7 @@
                               <img src="../img/Products/rtc-cheesy-chicken-fingers.png" alt="Product" class="mr-2 rounded w-14 h-14">
                               Magnolia Ready to Cook Cheesy Chicken Fingers<span class="ml-2 text-sm font-light text-gray-500"> + 2 more products</span>
                             </td>
-                            <td class="px-4 py-2 text-[12px] font-light text-right">₱800.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light text-right">₱8000.00</td>
                             <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
                             <td class="px-4 py-2 text-[12px] font-light">Julies Beykshap</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
@@ -184,7 +184,7 @@
                               <img src="../img/Products/rtc-chicken-siomai.png" alt="Product" class="w-12 h-12 mr-2 rounded">
                                 Magnolia Ready to Cook Chicken Siomai
                             </td>
-                            <td class="px-4 py-2 text-[12px] font-light text-right">₱400.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light text-right">₱4000.00</td>
                             <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
                             <td class="px-4 py-2 text-[12px] font-light">Sinto Ron</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
@@ -218,7 +218,7 @@
                               <img src="/img/Products/rtc-chicken-tocino.png" alt="Product" class="w-12 h-12 mr-2 rounded">
                               Magnolia Ready to Cook Chicken Tocino
                             </td>
-                            <td class="px-4 py-2 text-[12px] font-light text-right">₱500.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light text-right">₱2500.00</td>
                             <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
                             <td class="px-4 py-2 text-[12px] font-light">Anna Reyes</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
@@ -319,10 +319,15 @@
           <!-- Payment Summary -->
           <div class="flex justify-between mt-4 ">
             <div class="flex flex-col">
-              <span>Subtotal: <span id="order-subtotal">₱0.00</span></span>
-              <span>Voucher: <span id="order-voucher">--</span></span>
-              <span>Discount: <span id="order-discount">--</span></span>
-              <span>Total: <span id="order-total">₱0.00</span></span>
+              <span class="">Customer Name: <span id="order-customer-name" class="text-sm font-light">--</span></span>
+              <span>Delivery Address: <span id="order-customer-address" class="text-sm font-light">--</span></span>
+              <span>Customer Contact: <span id="order-customer-contact" class="text-sm font-light">--</span></span>
+            </div>
+            <div class="flex flex-col">
+              <span>Subtotal: <span id="order-subtotal" class="text-sm font-light">₱0.00</span></span>
+              <span>Voucher: <span id="order-voucher" class="text-sm font-light">--</span></span>
+              <span>Discount: <span id="order-discount" class="text-sm font-light">--</span></span>
+              <span>Total: <span id="order-total" class="text-sm font-light">₱0.00</span></span>
             </div>
             <div class="flex items-center space-x-4">
               <button class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600">Reject Order</button>
@@ -358,25 +363,31 @@
         {
           id: "346819EVG4ZUO",
           products: [
-            { name: "Magnolia Ready to Cook Cheesy Chicken Fingers", price: 200, qty: 2, image: "/img/Products/rtc-cheesy-chicken-fingers.png" },
-            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 1, image: "/img/Products/rtc-chicken-siomai.png" },
-            { name: "Magnolia Ready to Cook Lumpia Shanghai Mix", price: 200, qty: 1, image: "/img/Products/rtc-chicken-tocino.png" },
+            { name: "Magnolia Ready to Cook Cheesy Chicken Fingers", price: 200, qty: 20, image: "/img/Products/rtc-cheesy-chicken-fingers.png" },
+            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 10, image: "/img/Products/rtc-chicken-siomai.png" },
+            { name: "Magnolia Ready to Cook Lumpia Shanghai Mix", price: 200, qty: 10, image: "/img/Products/rtc-chicken-tocino.png" },
           ],
-          subtotal: 800,
+          customername: "Julies Beykshap",
+          customeraddress: "1st Street, Southcom Village, Zamboanga City",
+          customercontact: "09265007819",
+          subtotal: 8000,
           voucher: "--",
           discount: "--",
-          total: 800,
+          total: 8000,
         },
 
         {
           id: "241911VGA2VIP",
           products: [
-            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 2, image: "/img/Products/rtc-chicken-siomai.png" },
+            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 20, image: "/img/Products/rtc-chicken-siomai.png" },
           ],
-          subtotal: 400,
+          customername: "Sinto Ron",
+          customeraddress: "Aquino Drive, Baliwasan Grande, Zamboanga City",
+          customercontact: "09918701234",
+          subtotal: 4000,
           voucher: "--",
           discount: "--",
-          total: 400,
+          total: 4000,
         },
       ];
 
@@ -384,12 +395,15 @@
         {
           id: "563829HJV3AK",
           products: [
-            { name: "Magnolia Ready to Cook Chicken Tocino", price: 250, qty: 2, image: "/img/Products/rtc-chicken-tocino.png" },
+            { name: "Magnolia Ready to Cook Chicken Tocino", price: 250, qty: 10, image: "/img/Products/rtc-chicken-tocino.png" },
           ],
-          subtotal: 500,
-          voucher: "₱50.00",
-          discount: "₱20.00",
-          total: 430,
+          customername: "Anna Reyes",
+          customeraddress: "Nuñez Extension, KCC MALL, Zamboanga City",
+          customercontact: "09234567890",
+          subtotal: 2500,
+          voucher: "₱100.00",
+          discount: "₱100.00",
+          total: 2300,
         },
       ];
 
@@ -402,7 +416,7 @@
           document.getElementById("order-id").textContent = orderData.id;
 
           const productsTable = document.getElementById("order-products");
-          productsTable.innerHTML = ""; // Clear existing rows
+          productsTable.innerHTML = ""; 
 
           orderData.products.forEach((product) => {
             const row = `
@@ -418,6 +432,11 @@
             `;
             productsTable.innerHTML += row;
           });
+
+          //Update Customer details
+          document.getElementById("order-customer-name").textContent = orderData.customername;
+          document.getElementById("order-customer-address").textContent = orderData.customeraddress;
+          document.getElementById("order-customer-contact").textContent = orderData.customercontact;
 
           // Update payment details
           document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
