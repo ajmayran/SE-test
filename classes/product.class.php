@@ -1,13 +1,12 @@
 <?php
 
-require_once '../database/connect.php';
-
-// The Product class handles operations related to products in the database.
+require_once __DIR__ . '../../database/connect.php';
 class Product {
     // These properties represent the columns in the 'product' table.
     public $id = '';   
     public $img = '';
     public $product_name = '';          // The name of the product.
+    public $product_code = '';    
     public $description = '';
     public $category = '';
     public $price = '';
@@ -15,7 +14,6 @@ class Product {
     public $stock = '';
     public $min_qty = '';
     public $max_qty = '';
-
     protected $db; // This will hold an instance of the Database class for database operations.
 
     // The constructor method initializes the Product class by creating a new Database object.
