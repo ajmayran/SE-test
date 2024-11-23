@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 03:20 PM
+-- Generation Time: Nov 23, 2024 at 08:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -26,10 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `distributor_business_information`
 --
-
-CREATE DATABASE pconnect;
-
-USE pconnect;
 
 CREATE TABLE `distributor_business_information` (
   `id` int(11) NOT NULL,
@@ -56,6 +52,33 @@ CREATE TABLE `distributor_information` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `product_code` varchar(255) NOT NULL,
+  `product_desc` varchar(255) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `min_qty` int(11) DEFAULT NULL,
+  `max_qty` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `img`, `product_name`, `product_code`, `product_desc`, `category`, `price`, `tags`, `stock`, `min_qty`, `max_qty`) VALUES
+(1, 'alot.jpg', 'Nigga', 'NIGGER1234', 'Nigger niggerest', 'Nigger', 123, 'Nigga', 123, 1, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -75,9 +98,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `middle_name`, `last_name`, `email`, `permit`, `password`, `created_at`) VALUES
-(1, 'Emmanuel John', '', 'Nunez', 'emmanuel@gmail.com', '', '123', '2024-11-19 09:30:50'),
-(2, 'Daniela', '', 'Alpez', 'dan@gmail.com', '', '123', '2024-11-19 09:45:26'),
-(3, 'AJ', '', 'Mayran', 'aj@gmail.com', '', '123', '2024-11-19 09:50:15');
+(4, 'Emmanuel John', '', 'Nunez', 'emmanuel@gmail.com', 'alot.jpg', '123', '2024-11-23 19:38:29');
 
 --
 -- Indexes for dumped tables
@@ -93,6 +114,12 @@ ALTER TABLE `distributor_business_information`
 -- Indexes for table `distributor_information`
 --
 ALTER TABLE `distributor_information`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -118,10 +145,16 @@ ALTER TABLE `distributor_information`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
