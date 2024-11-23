@@ -1,3 +1,6 @@
+<?php
+    require_once './products/addproduct.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -502,30 +505,35 @@
             </div>
         </div>     
     </footer>
-        
+    
+    <form action="#" method="POST">
     <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
         <div class="relative w-full max-w-3xl max-h-screen p-8 overflow-y-auto bg-white rounded-lg">
             <button onclick="closeproductModal()" class="absolute text-blue-600 top-4 right-4 hover:underline">
                 Close
             </button>
             <div class="relative flex items-center justify-center w-1/4 h-40 mx-auto mb-6 ml-4 border-2 border-gray-400 border-dashed">
-                <input type="file" class="absolute inset-0 opacity-0 cursor-pointer">
+                <input type="file" id="img" class="absolute inset-0 opacity-0 cursor-pointer">
                 <span class="text-gray-500">+ Add Photo</span>
             </div>
             <div class="flex">
                 <div class="w-1/2 pr-4">
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Product Name</label>
-                        <input type="text" placeholder="Enter Name of your Product" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="text" placeholder="Enter Name of your Product Name" id="product_name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-gray-700">Product Code</label>
+                        <input type="text" placeholder="Enter Name of your Product Code" id="product_code" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Product Description</label>
-                        <textarea placeholder="Enter Description" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        <textarea placeholder="Enter Description" id="description" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Category</label>
                         <div class="relative">
-                            <select class="w-full px-3 py-2 border rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <select id="category" class="w-full px-3 py-2 border rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-green-500">
                                 <option>Choose Category</option>
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -535,25 +543,25 @@
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Price</label>
-                        <input type="number" placeholder="Set Price" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:green-blue-500">
+                        <input type="number" placeholder="Set Price" id="price" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:green-blue-500">
                     </div>
                 </div>
                 <div class="w-1/2 pl-4">
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Tags</label>
-                        <input type="text" placeholder="Set a Keyword for this product" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="text" placeholder="Set a Keyword for this product" id="tags" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Stock</label>
-                        <input type="number" placeholder="Set Number of Stocks" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="number" placeholder="Set Number of Stocks" id="stock" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Minimum Purchase Quantity</label>
-                        <input type="number" placeholder="Set minimum qty." class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="number" placeholder="Set minimum qty." id="min_qty" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Maximum Purchase Quantity</label>
-                        <input type="number" placeholder="Set maximum qty." class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="number" placeholder="Set maximum qty." id="max_qty" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                 </div>
             </div>
@@ -562,6 +570,7 @@
                 <button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-gray-700 bg-white border rounded-lg hover:bg-gray-100">Cancel</button>
                 <button class="px-6 py-2 text-white bg-green-500 border rounded-lg hover:bg-green-600">Save and Publish</button>
             </div>
+            </form>
         </div>
     </div>
     <script>
