@@ -171,12 +171,12 @@
                               <img src="../img/Products/rtc-cheesy-chicken-fingers.png" alt="Product" class="mr-2 rounded w-14 h-14">
                               Magnolia Ready to Cook Cheesy Chicken Fingers<span class="ml-2 text-sm font-light text-gray-500"> + 2 more products</span>
                             </td>
-                            <td class="px-4 py-2 text-[12px] font-light text-right">₱800.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light text-right">₱8000.00</td>
                             <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
                             <td class="px-4 py-2 text-[12px] font-light">Julies Beykshap</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
                             <td>
-                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="346819EVG4ZUO" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
+                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="346819EVG4ZUO" onclick="togglePendingModal(true, pendingOrdersData[0])">Details</button>
                             </td>
                           </tr>
                           <tr>
@@ -184,12 +184,12 @@
                               <img src="../img/Products/rtc-chicken-siomai.png" alt="Product" class="w-12 h-12 mr-2 rounded">
                                 Magnolia Ready to Cook Chicken Siomai
                             </td>
-                            <td class="px-4 py-2 text-[12px] font-light text-right">₱400.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light text-right">₱4000.00</td>
                             <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
                             <td class="px-4 py-2 text-[12px] font-light">Sinto Ron</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
                             <td>
-                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="241911VGA2VIP" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
+                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="241911VGA2VIP" onclick="togglePendingModal(true, pendingOrdersData[0])">Details</button>
                             </td>
                           </tr>
                         </tbody>
@@ -218,12 +218,12 @@
                               <img src="/img/Products/rtc-chicken-tocino.png" alt="Product" class="w-12 h-12 mr-2 rounded">
                               Magnolia Ready to Cook Chicken Tocino
                             </td>
-                            <td class="px-4 py-2 text-[12px] font-light text-right">₱500.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light text-right">₱2500.00</td>
                             <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
                             <td class="px-4 py-2 text-[12px] font-light">Anna Reyes</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
                             <td>
-                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline"  data-order-id="563829HJV3AK" onclick="toggleModal(true, completedOrdersData[0])">Details</button>
+                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline"  data-order-id="563829HJV3AK" onclick="toggleCompleteModal(true, completedOrdersData[0])">Details</button>
                             </td>
                           </tr>
                         </tbody>
@@ -289,13 +289,13 @@
           </div>
       </div>
   </footer>
-    <!-- Modal -->
+    <!-- Pending Order Modal -->
     <div id="order-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
       <div class="absolute inset-0 flex items-center justify-center">
         <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
           <div class="flex items-center justify-between">
             <h2 class="text-lg font-bold">Order ID: <span id="order-id">--</span></h2>
-            <button class="text-blue-600 hover:underline" onclick="toggleModal(false)">Close</button>
+            <button class="text-blue-600 hover:underline" onclick="togglePendingModal(false)">Close</button>
           </div>
           <hr class="my-4 border-gray-300">
           
@@ -319,10 +319,15 @@
           <!-- Payment Summary -->
           <div class="flex justify-between mt-4 ">
             <div class="flex flex-col">
-              <span>Subtotal: <span id="order-subtotal">₱0.00</span></span>
-              <span>Voucher: <span id="order-voucher">--</span></span>
-              <span>Discount: <span id="order-discount">--</span></span>
-              <span>Total: <span id="order-total">₱0.00</span></span>
+              <span class="">Customer Name: <span id="order-customer-name" class="text-sm font-light">--</span></span>
+              <span>Delivery Address: <span id="order-customer-address" class="text-sm font-light">--</span></span>
+              <span>Customer Contact: <span id="order-customer-contact" class="text-sm font-light">--</span></span>
+            </div>
+            <div class="flex flex-col">
+              <span>Subtotal: <span id="order-subtotal" class="text-sm font-light">₱0.00</span></span>
+              <span>Voucher: <span id="order-voucher" class="text-sm font-light">--</span></span>
+              <span>Discount: <span id="order-discount" class="text-sm font-light">--</span></span>
+              <span>Total: <span id="order-total" class="text-sm font-light">₱0.00</span></span>
             </div>
             <div class="flex items-center space-x-4">
               <button class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600">Reject Order</button>
@@ -332,6 +337,89 @@
         </div>
       </div>
     </div>
+
+    <!-- Complete Order Modal-->
+    <div id="complete-order-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold">Order ID: <span id="complete-order-id">--</span></h2>
+            <button class="text-blue-600 hover:underline" onclick="toggleCompleteModal(false)">Close</button>
+          </div>
+          <hr class="my-4 border-gray-300">
+
+          <!-- Order Details Table -->
+           <div class="overflow-x-auto">
+            <table class="w-full border-b border-gray-200 table-auto">
+              <thead>
+                <tr class="text-left border-b">
+                  <th class="px-4 py-2">Products</th>
+                  <th class="px-4 py-2">Price</th>
+                  <th class="px-4 py-2">Quantity</th>
+                  <th class="px-4 py-2">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="complete-order-products">
+                <!-- Content -->
+              </tbody>
+            </table>
+           </div>
+
+           <!-- Payment Summary -->
+          <div class="flex justify-between mt-4 ">
+            <div class="flex flex-col">
+              <span class="">Customer Name: <span id="complete-order-customer-name" class="text-sm font-light">--</span></span>
+              <span>Delivery Address: <span id="complete-order-customer-address" class="text-sm font-light">--</span></span>
+              <span>Customer Contact: <span id="complete-order-customer-contact" class="text-sm font-light">--</span></span>
+              <span>Order Date: <span id="complete-order-date" class="text-sm font-light">--</span></span>
+            </div>
+            <div class="flex flex-col">
+              <span>Subtotal: <span id="complete-order-subtotal" class="text-sm font-light">₱0.00</span></span>
+              <span>Voucher: <span id="complete-order-voucher" class="text-sm font-light">--</span></span>
+              <span>Discount: <span id="complete-order-discount" class="text-sm font-light">--</span></span>
+              <span>Total: <span id="complete-order-total" class="text-sm font-light">₱0.00</span></span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <button class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600" onclick="toggleCompleteModal(false)">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+
+    <!-- Reject Order Modal -->
+<div id="reject-order-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+  <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <iconify-icon icon="entypo:warning" class="text-xl text-green-500"></iconify-icon><h2 class="ml-2 text-lg font-normal">Are you certain about rejecting this order? If so, please provide a reason.</h2>
+            </div>
+              <button class="text-blue-600 hover:underline" onclick="toggleRejectModal(false)">Close</button>
+          </div>
+          <hr class="my-4 border-gray-300">
+
+          <form id="reject-order-form">
+              <div class="mb-4">
+                  <div class="mt-2">
+                      <label><input type="radio" name="reject-reason" value="Out of Stock"> Out of Stock</label><br>
+                      <label><input type="radio" name="reject-reason" value="Customer Request"> Customer Request</label><br>
+                      <label><input type="radio" name="reject-reason" value="Payment Issues"> Fraudulent Order</label><br>
+                      <label><input type="radio" name="reject-reason" value="Shipping Delays"> Incorrect Delivery Address</label><br>
+                      <label><input type="radio" name="reject-reason" value="Other"> Other, Specify</label>
+                  </div>
+              </div>
+              <div class="mb-4">
+                  <textarea id="reject-specific" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Please provide more details..."></textarea>
+              </div>
+              <div class="flex justify-end">
+                  <button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600">Reject Order</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
 
     <script>
         const pendingTab = document.getElementById('tab-pending');
@@ -358,25 +446,31 @@
         {
           id: "346819EVG4ZUO",
           products: [
-            { name: "Magnolia Ready to Cook Cheesy Chicken Fingers", price: 200, qty: 2, image: "/img/Products/rtc-cheesy-chicken-fingers.png" },
-            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 1, image: "/img/Products/rtc-chicken-siomai.png" },
-            { name: "Magnolia Ready to Cook Lumpia Shanghai Mix", price: 200, qty: 1, image: "/img/Products/rtc-chicken-tocino.png" },
+            { name: "Magnolia Ready to Cook Cheesy Chicken Fingers", price: 200, qty: 20, image: "/img/Products/rtc-cheesy-chicken-fingers.png" },
+            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 10, image: "/img/Products/rtc-chicken-siomai.png" },
+            { name: "Magnolia Ready to Cook Lumpia Shanghai Mix", price: 200, qty: 10, image: "/img/Products/rtc-chicken-tocino.png" },
           ],
-          subtotal: 800,
+          customername: "Julies Beykshap",
+          customeraddress: "1st Street, Southcom Village, Zamboanga City",
+          customercontact: "09265007819",
+          subtotal: 8000,
           voucher: "--",
           discount: "--",
-          total: 800,
+          total: 8000,
         },
 
         {
           id: "241911VGA2VIP",
           products: [
-            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 2, image: "/img/Products/rtc-chicken-siomai.png" },
+            { name: "Magnolia Ready to Cook Chicken Siomai", price: 200, qty: 20, image: "/img/Products/rtc-chicken-siomai.png" },
           ],
-          subtotal: 400,
+          customername: "Sinto Ron",
+          customeraddress: "Aquino Drive, Baliwasan Grande, Zamboanga City",
+          customercontact: "09918701234",
+          subtotal: 4000,
           voucher: "--",
           discount: "--",
-          total: 400,
+          total: 4000,
         },
       ];
 
@@ -384,27 +478,35 @@
         {
           id: "563829HJV3AK",
           products: [
-            { name: "Magnolia Ready to Cook Chicken Tocino", price: 250, qty: 2, image: "/img/Products/rtc-chicken-tocino.png" },
+            { name: "Magnolia Ready to Cook Chicken Tocino", price: 250, qty: 10, image: "/img/Products/rtc-chicken-tocino.png" },
           ],
-          subtotal: 500,
-          voucher: "₱50.00",
-          discount: "₱20.00",
-          total: 430,
+          customername: "Anna Reyes",
+          customeraddress: "Nuñez Extension, KCC MALL, Zamboanga City",
+          customercontact: "09234567890",
+          subtotal: 2500,
+          voucher: "₱100.00",
+          discount: "₱100.00",
+          total: 2300,
         },
       ];
 
-      function toggleModal(show, orderData = null) {
-        const modal = document.getElementById("order-details-modal");
-        modal.classList.toggle("hidden", !show);
+    function togglePendingModal(show, orderData = null) {
+    const pendingModal = document.getElementById("order-details-modal");
+    const completeModal = document.getElementById("complete-order-modal");
+    
+    // Hide complete modal if it is open
+    completeModal.classList.add("hidden");
+    
+    pendingModal.classList.toggle("hidden", !show);
 
-        if (orderData) {
-          // Update modal content
-          document.getElementById("order-id").textContent = orderData.id;
+    if (orderData) {
+        // Update modal content for pending order
+        document.getElementById("order-id").textContent = orderData.id;
 
-          const productsTable = document.getElementById("order-products");
-          productsTable.innerHTML = ""; // Clear existing rows
+        const productsTable = document.getElementById("order-products");
+        productsTable.innerHTML = ""; 
 
-          orderData.products.forEach((product) => {
+        orderData.products.forEach((product) => {
             const row = `
               <tr>
                 <td class="flex items-center px-4 py-2">
@@ -417,15 +519,65 @@
               </tr>
             `;
             productsTable.innerHTML += row;
-          });
+        });
 
-          // Update payment details
-          document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-          document.getElementById("order-voucher").textContent = orderData.voucher;
-          document.getElementById("order-discount").textContent = orderData.discount;
-          document.getElementById("order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-        }
-      }
+        // Update Customer details
+        document.getElementById("order-customer-name").textContent = orderData.customername;
+        document.getElementById("order-customer-address").textContent = orderData.customeraddress;
+        document.getElementById("order-customer-contact").textContent = orderData.customercontact;
+
+        // Update payment details
+        document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
+        document.getElementById("order-voucher").textContent = orderData.voucher;
+        document.getElementById("order-discount").textContent = orderData.discount;
+        document.getElementById("order-total").textContent = `₱${orderData.total.toFixed(2)}`;
+    }
+}
+
+    function toggleCompleteModal(show, orderData = null) {
+    const pendingModal = document.getElementById("order-details-modal");
+    const completeModal = document.getElementById("complete-order-modal");
+
+    // Hide pending modal if it is open
+    pendingModal.classList.add("hidden");
+    
+    completeModal.classList.toggle("hidden", !show);
+
+    if (orderData) {
+        // Update modal content for completed order
+        document.getElementById("complete-order-id").textContent = orderData.id;
+
+        const productsTable = document.getElementById("complete-order-products");
+        productsTable.innerHTML = ""; 
+
+        orderData.products.forEach((product) => {
+            const row = `
+              <tr>
+                <td class="flex items-center px-4 py-2">
+                  <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
+                  ${product.name}
+                </td>
+                <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
+                <td class="px-4 py-2">${product.qty}</td>
+                <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
+              </tr>
+            `;
+            productsTable.innerHTML += row;
+        });
+
+        // Update Customer details
+        document.getElementById("complete-order-customer-name").textContent = orderData.customername;
+        document.getElementById("complete-order-customer-address").textContent = orderData.customeraddress;
+        document.getElementById("complete-order-customer-contact").textContent = orderData.customercontact;
+        document.getElementById("complete-order-date").textContent = "September 29, 2024"; // Update accordingly
+
+        // Update payment details
+        document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
+        document.getElementById("complete-order-voucher").textContent = orderData.voucher;
+        document.getElementById("complete-order-discount"). textContent = orderData.discount;
+        document.getElementById("complete-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
+    }
+}
 
       // Example: Attach toggleModal to the "Details" button
       document.querySelectorAll("[data-order-id]").forEach((button) => {
@@ -435,6 +587,64 @@
           toggleModal(true, orderData);
         });
       });
+
+      function toggleRejectModal(show) {
+    const modal = document.getElementById("reject-order-modal");
+    modal.classList.toggle("hidden", !show);
+}
+
+// Attach the reject modal to the "Reject Order" button
+document.querySelectorAll(".bg-red-500").forEach((button) => {
+    button.addEventListener("click", (e) => {
+        toggleRejectModal(true);
+    });
+});
+
+document.querySelectorAll(".bg-red-500").forEach((button) => {
+    button.addEventListener("click", (e) => {
+        // Close any open modals (pending or complete) before opening the reject modal
+        togglePendingModal(false);
+        toggleCompleteModal(false);
+        
+        // Now open the reject modal
+        toggleRejectModal(true);
+    });
+});
+
+// Function to toggle the reject modal
+function toggleRejectModal(show) {
+    const modal = document.getElementById("reject-order-modal");
+    modal.classList.toggle("hidden", !show);
+}
+
+// Handle form submission for rejection
+document.getElementById("reject-order-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const reason = document.querySelector('input[name="reject-reason"]:checked');
+    const specificReason = document.getElementById("reject-specific").value;
+
+    if (reason) {
+        console.log("Order Rejected for reason:", reason.value);
+    }
+    if (specificReason) {
+        console.log("Specific Reason:", specificReason);
+    }
+
+    // Close the reject modal after submission
+    toggleRejectModal(false);
+});
+
+// Close reject modal when user clicks outside of it
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById("reject-order-modal");
+    if (event.target === modal) {
+        toggleRejectModal(false);
+    }
+});
+
+  
+
+
       </script>
     </body>
     
