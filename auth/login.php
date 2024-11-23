@@ -86,7 +86,7 @@
             <p class="ml-2">Continue with Google</p>
         </button>
         <div class="mt-6 text-center">
-            <p class="text-gray-500">Don't have an account? <a href="signup.html" onclick="handleSignup(event)" class="text-green-500 transition duration-500 ease-in-out hover:text-green-400">Create Account</a></p>
+            <p class="text-gray-500">Don't have an account? <a href="./signup.php" onclick="handleSignup(event)" class="text-green-500 transition duration-500 ease-in-out hover:text-green-400">Create Account</a></p>
         </div>
     </div>
 </body>

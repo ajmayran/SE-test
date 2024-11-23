@@ -4,7 +4,7 @@ function showLoader() {
     <div id="loader" class="fixed inset-0 flex justify-center items-center" style="background-color: #ABEBC6; z-index: 9999;">
         <div class="flex flex-col items-center gap-4"> 
             <div class="flex flex-row gap-2">
-                <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 spin-animation">
+                <img src="../resources/img/Pconnect Logo.png" alt="Logo" class="w-12 h-12 spin-animation">
                 <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.1s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">P</div>
                 <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.2s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">C</div>
                 <div class="text-5xl text-white font-bold animate-bounce [animation-delay:.3s]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">o</div>

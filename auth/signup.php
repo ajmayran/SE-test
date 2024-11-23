@@ -117,14 +117,13 @@
             <input type="submit" name="signup" class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">
             <div class="flex justify-between w-full m-2">
                 <p class="text-sm text-left">Already have an account? <a href="login.php" class="text-green-500 transition duration-500 ease-in-out hover:text-green-400">Login</a></p>
-                <a href="dist_registration.html" class="text-sm text-right text-green-500 hover:text-green-400">Register as Distributor &rarr;</a>
+                <a href="../user/distributor/dist_registration.php" class="text-sm text-right text-green-500 hover:text-green-400">Register as Distributor &rarr;</a>
             </div>
         </form>
 
     </div>
 
 </body>
-
 <script>
     document.getElementById('fileInput').addEventListener('change', function() {
       var fileName = this.value.split('\\').pop();
