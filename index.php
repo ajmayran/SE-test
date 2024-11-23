@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-    <link rel="icon" href="img/Pconnect Logo.png">
-    <link rel="stylesheet" href="src/output.css">
-    <link rel="stylesheet" href="src/user_dash.css">
-=======
     <link rel="icon" href="./img/Pconnect Logo.png">
     <link rel="stylesheet" href="./src/output.css">
     <link rel="stylesheet" href="./src/user_dash.css">
->>>>>>> 33051b3859c7bb108d88366a53942898817136de
+
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <style>
         body {
@@ -146,11 +141,8 @@
                   <p>20 Items</p>
                 </a>
                 <a href="./public/login.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
-<<<<<<< HEAD
-                  <img src="img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
-=======
-                  <img src="./img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
->>>>>>> 33051b3859c7bb108d88366a53942898817136de
+                  <img src="./resources/img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
+
                   <h3 class="text-lg font-bold">Glenmark Trading</h3>
                   <p>15 Items</p>
                 </a>
