@@ -1,13 +1,13 @@
 <?php
 
-require_once __DIR__ . '../../database/connect.php';
+require_once '../../database/connect.php';
 class Product {
     // These properties represent the columns in the 'product' table.
     public $id = '';   
     public $img = '';
     public $product_name = '';          // The name of the product.
     public $product_code = '';    
-    public $description = '';
+    public $product_description = '';
     public $category = '';
     public $price = '';
     public $tags = '';
@@ -24,7 +24,7 @@ class Product {
     // The add() method is used to add a new product to the database.
     function add() {
         // SQL query to insert a new product into the 'product' table.
-        $sql = "INSERT INTO product (img, product_name, description, category, price, tags, stock, min_qty, max_qty) VALUES (:img, :product_name, :description, :category, :price, :tags, :stock, :min_qty, :max_qty)";
+        $sql = "INSERT INTO product (img, product_name, product_code, product_description, category, price, tags, stock, min_qty, max_qty) VALUES (:img, :product_name, :product_code, :product_description, :category, :price, :tags, :stock, :min_qty, :max_qty)";
 
         // Prepare the SQL statement for execution.
         $query = $this->db->connect()->prepare($sql);
@@ -32,8 +32,9 @@ class Product {
         // Bind the product properties to the named placeholders in the SQL statement.
         $query->bindParam(':img', $this->img);
         $query->bindParam(':product_name', $this->product_name);
-        $query->bindParam(':description', $this->description);
-        $query->bindParam(':category', $this->category);
+        $query->bindParam(':product_code)', $this->product_code);
+        $query->bindParam(':product_description', $this->product_description);
+        $query->bindParam(':category', $this->category); 
         $query->bindParam(':price', $this->price);
         $query->bindParam(':tags', $this->tags);
         $query->bindParam(':stock', $this->stock);
@@ -98,9 +99,9 @@ class Product {
 
     // The codeExists() method checks if a product code already exists in the database.
     // It can exclude a specific product ID when performing the check (useful during updates).
-    function codeExists($code, $excludeID = null) {
+    function codeExists($product_code, $excludeID = null) {
         // SQL query to check if the product code exists.
-        $sql = "SELECT COUNT(*) FROM product WHERE code = :code";
+        $sql = "SELECT COUNT(*) FROM product WHERE product_code = :product_code";
 
         // If $excludeID is provided, modify the SQL query to exclude the record with this ID.
         if ($excludeID) {
@@ -111,7 +112,7 @@ class Product {
         $query = $this->db->connect()->prepare($sql);
 
         // Bind the parameters.
-        $query->bindParam(':code', $code);
+        $query->bindParam(':product_code', $product_code);
 
         if ($excludeID) {
             $query->bindParam(':excludeID', $excludeID);
