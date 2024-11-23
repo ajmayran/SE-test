@@ -129,18 +129,18 @@
         </aside>
         
         <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
-            <h1 class="mb-4 text-2xl font-bold">Inventory</h1>
+            <h1 class="mb-4 text-2xl font-bold">Products</h1>
             <div class="p-6 bg-white rounded-lg shadow-sm">
                 <!-- Header Section -->
                 
-                <div class="flex items-center mb-4 space-x-4">
+                <div class="flex items-center justify-between mb-4 space-x-4">
                   <!-- Search Bar -->
                   <div class="flex items-center w-full max-w-md">
                     <input type="text" placeholder="Search product" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"/>
                     <button class="w-12 p-2 text-white bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none">
                         <iconify-icon icon="material-symbols:search" class="items-center p-1 text-xl align-middle"></iconify-icon>
                     </button>
-                </div>
+                  </div>
                 
                   <!-- Category Filter -->
                   <div class="flex items-center space-x-2">
@@ -155,7 +155,6 @@
                             </div>
                         </div>
                   </div>
-                  <!--  adasd--->
                     <button type="" onclick="openproductModal()"  class="px-2 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Add Product</button>        
                 </div>
               
@@ -179,7 +178,7 @@
                     <tbody>
                       <!-- Data Rows -->     
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-inasal.png" class="w-12 h-12 my-1 ml-3 " alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-inasal.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Inasal</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -189,12 +188,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>            
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-bbq.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-bbq.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken BBQ</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -204,12 +203,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-siomai.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-siomai.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Siomai</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">400</td>
@@ -219,12 +218,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-longanisa.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-longanisa.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Longanisa</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">300</td>
@@ -234,12 +233,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-cheesy-chicken-fingers.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-cheesy-chicken-fingers.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Cheesy Fingers</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -249,12 +248,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-lumpia.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-lumpia.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Lumpia</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">250</td>
@@ -264,12 +263,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-tapa.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-tapa.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Tapa</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -279,12 +278,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-korean-chicken-bbq.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-korean-chicken-bbq.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Korean Chicken BBQ</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -294,12 +293,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-teriyaki.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-teriyaki.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Teriyaki</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -309,12 +308,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-mideterranian.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-mideterranian.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Middeterranian</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -324,12 +323,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-fried-chicken.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-fried-chicken.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Fried Chicken</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">250</td>
@@ -339,12 +338,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-chicken-tocino.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-chicken-tocino.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Tocino</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">200</td>
@@ -354,12 +353,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-vanilla-chicken-finger.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-vanilla-chicken-finger.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Vanilla Chicken Finger</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -369,12 +368,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-spicy-wings.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-spicy-wings.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Spicy Wings</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">250</td>
@@ -384,12 +383,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-spicy-fried-chicken.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-spicy-fried-chicken.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Spicy Fried Chicken</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">150</td>
@@ -399,12 +398,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-oriental-wings.png" class="w-12 h-12 my-1 ml-3" alt=""></td>
+                        <td><img src="/img/Products/rtc-oriental-wings.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Oriental Wings</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -414,12 +413,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/rtc-pepper-steak.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/rtc-pepper-steak.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Pepper Steak</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
@@ -429,12 +428,12 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
                       <tr class="border-b border-gray-200 shadow-sm">
-                        <td><img src="/img/Products/Chicken-lumpia-shanghai-mix.png" class="w-10 h-10 my-1 ml-4" alt=""></td>
+                        <td><img src="/img/Products/Chicken-lumpia-shanghai-mix.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Lumpia Shanghai Mix</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">200</td>
@@ -444,7 +443,7 @@
                         <td class="px-4 py-2 text-[12px] font-light text-left">250.00</td>
                         <td class="px-4 py-2 text-[12px] font-light text-center">2024-11-20</td>
                         <td class="px-4 py-2 text-[12px] font-light text-left">
-                            <button class="px-2 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
+                            <button class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-400">Edit</button>
                             <button class="px-2 py-2 text-white bg-red-600 rounded-md hover:bg-red-500">Delete</button>
                         </td>
                       </tr>
