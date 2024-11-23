@@ -7,7 +7,7 @@ class Product {
     public $img = '';
     public $product_name = '';          // The name of the product.
     public $product_code = '';    
-    public $product_description = '';
+    public $product_desc = '';
     public $category = '';
     public $price = '';
     public $tags = '';
@@ -24,7 +24,7 @@ class Product {
     // The add() method is used to add a new product to the database.
     function add() {
         // SQL query to insert a new product into the 'product' table.
-        $sql = "INSERT INTO product (img, product_name, product_code, product_description, category, price, tags, stock, min_qty, max_qty) VALUES (:img, :product_name, :product_code, :product_description, :category, :price, :tags, :stock, :min_qty, :max_qty)";
+        $sql = "INSERT INTO product (img, product_name, product_code, product_desc, category, price, tags, stock, min_qty, max_qty) VALUES (:img, :product_name, :product_code, :product_desc, :category, :price, :tags, :stock, :min_qty, :max_qty)";
 
         // Prepare the SQL statement for execution.
         $query = $this->db->connect()->prepare($sql);
@@ -32,8 +32,8 @@ class Product {
         // Bind the product properties to the named placeholders in the SQL statement.
         $query->bindParam(':img', $this->img);
         $query->bindParam(':product_name', $this->product_name);
-        $query->bindParam(':product_code)', $this->product_code);
-        $query->bindParam(':product_description', $this->product_description);
+        $query->bindParam(':product_code', $this->product_code);
+        $query->bindParam(':product_desc', $this->product_desc);
         $query->bindParam(':category', $this->category); 
         $query->bindParam(':price', $this->price);
         $query->bindParam(':tags', $this->tags);

@@ -8,13 +8,13 @@ $productObj = new Product();
 // Check if the form was submitted using the POST method.
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    $img = $product_name = $product_code = $product_description = $category = $price = $tags = $stock = $min_qty = $max_qty = '';
-    $imgErr = $product_nameErr = $product_codeErr = $product_descriptionErr =  $categoryErr = $priceErr = $tagsErr = $stockErr = $min_qtyErr = $max_qtyErr = '';
+    $img = $product_name = $product_code = $product_desc = $category = $price = $tags = $stock = $min_qty = $max_qty = '';
+    $imgErr = $product_nameErr = $product_codeErr = $product_descErr =  $categoryErr = $priceErr = $tagsErr = $stockErr = $min_qtyErr = $max_qtyErr = '';
 
     $img = clean_input($_POST['img']);
     $product_name = clean_input($_POST['product_name']);
     $product_code = clean_input($_POST['product_code']);
-    $product_description = clean_input($_POST['product_description']);
+    $product_desc = clean_input($_POST['product_desc']);
     $category = clean_input($_POST['category']);
     $price = clean_input($_POST['price']);
     $tags = clean_input($_POST['tags']);
@@ -37,11 +37,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if (isset($_POST["product_description"])) {
-        $description = filter_var($_POST["product_description"], FILTER_SANITIZE_STRING); //Sanitize!
-        $productObj->product_description = $description;
+        $product_description = filter_var($_POST["product_description"], FILTER_SANITIZE_STRING); //Sanitize!
+        $productObj->product_desc= $product_desc;
     } else {
         // Handle the missing key appropriately (e.g., set a default value, display an error message).
-        $productObj->product_description = ''; // or some other default 
+        $productObj->product_desc = ''; // or some other default 
         // OR: echo "Error: product_description is missing"; //Show error to the user
         // OR:  die("Error: product_description is missing."); //Stop execution
     }
@@ -61,13 +61,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     // If there are no validation errors, proceed to add the product to the database.
-    if(empty($imgErr) && empty($product_nameErr) && empty($product_codeErr) && empty($product_descriptionErr) && empty($categoryErr) && empty($priceErr )
+    if(empty($imgErr) && empty($product_nameErr) && empty($product_codeErr) && empty($product_descErr) && empty($categoryErr) && empty($priceErr )
     && empty($tagsErr) && empty($stockErr) && empty($min_qtyErr) && empty($max_qtyErr)){
         // Assign the sanitized inputs to the product object.
         $productObj->img = $img;
         $productObj->product_name = $product_name;
         $productObj->product_code = $product_code;
-        $productObj->product_description = $product_description;
+        $productObj->product_desc = $product_desc;
         $productObj->category = $category;
         $productObj->price = $price;
         $productObj->tags = $tags;
@@ -615,7 +615,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Product Description</label>
-                        <text placeholder="Enter Description" name="product_description" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        <textarea placeholder="Enter Description" name="product_desc" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Category</label>
