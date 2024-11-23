@@ -63,30 +63,35 @@
                 </div>
                 <p class="text-[10px] ml-4 text-gray-500 font-light text-right mr-16">Your 9 digit tin and 3-5 digit branch code, Please Use "000" as your branch code if you don't have one</p>
             </div>
+            <!-- For BIR Certificate of Registration -->
             <div class="mb-2">
                 <div class="flex items-center">
                     <label class="block w-1/2 pb-2 mr-4 text-sm font-bold text-right text-gray-500" for="BIR">
                         BIR Certifcate of Registration
                     </label>
-                    <div class="w-full py-1.5    border rounded-lg">
-                        <input type="file" class="hidden" id="fileInput">
-                        <label for="fileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label><span class="ml-1" id="fileName"></span>
+                    <div class="w-full py-1.5 border rounded-lg">
+                        <input type="file" class="hidden" id="birFileInput" onchange="displayFileName(this, 'birFileName')">
+                        <label for="birFileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label>
+                        <span class="ml-1 text-[12px] font-light" id="birFileName"></span>
                     </div>
                 </div>    
             </div>
+
+            <!-- For SEC Certificate for Incorporation -->
             <div class="mb-4">
                 <div class="flex items-center">
                     <label class="block w-1/2 pb-3 mr-4 text-sm font-bold text-right text-gray-500" for="SEC">
                         SEC Certificate for Incorporation
                     </label>
                     <div class="w-full py-1.5 border rounded-lg">
-                        <input type="file" class="hidden" id="fileInput">
-                        <label for="fileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label><span class="ml-1" id="fileName"></span>
+                        <input type="file" class="hidden" id="secFileInput" onchange="displayFileName(this, 'secFileName')">
+                        <label for="secFileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label>
+                        <span class="ml-1 text-[12px] font-light" id="secFileName"></span>
                     </div>
                 </div>    
                 <div class="flex justify-between">
-                <p class="text-[10px] ml-72 text-gray-500 font-light text-center">BIR Form 2303 and SEC Certificate</p>
-                <p class="text-[10px] text-gray-500 font-light text-right mr-8">JPG, JPEG, PNG, PDF support. Maximum of 20MB</p>
+                    <p class="text-[10px] ml-72 text-gray-500 font-light text-center">BIR Form 2303 and SEC Certificate</p>
+                    <p class="text-[10px] text-gray-500 font-light text-right mr-8">JPG, JPEG, PNG, PDF support. Maximum of 20MB</p>
                 </div>
             </div>
             <div class="flex items-center mb-2 bg-gray-100">
@@ -102,5 +107,11 @@
             </div>
         </form>
     </div>
+    <script>
+        function displayFileName(input, labelId) {
+            const fileName = input.files[0] ? input.files[0].name : '';
+            document.getElementById(labelId).textContent = fileName;
+        }
+    </script>
 </body>
 </html>
