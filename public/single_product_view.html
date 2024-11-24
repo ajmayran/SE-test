@@ -29,11 +29,11 @@
                 </div>
             </div>
             <div class="flex items-center">
-                <a href="#" class="mr-4 text-gray-500 hover:text-gray-700">
-                    <iconify-icon icon="mdi:cart" class="text-lg"></iconify-icon> 
+                <a href="user_cart.html" class="mr-4 text-gray-500 hover:text-gray-700 ">
+                    <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
                 </a>
                 <a href="#" class="mr-4 text-gray-500 hover:text-gray-700">
-                    <iconify-icon icon="mdi:notifications" class="text-lg"></iconify-icon> 
+                    <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
                 </a>
                 <div class="flex items-center">
                     <img src="../img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
@@ -44,7 +44,7 @@
         <nav class="flex items-center justify-between bg-white shadow-sm">
             <div class="w-full px-20 py-2 text-white bg-gray-900">
                 <ul class="flex justify-center space-x-20 ">
-                    <li class=" hover:text-green-500"><a href="#">HOME</a></li>
+                    <li class=" hover:text-green-500"><a href="user_dash.html">HOME</a></li>
                     <li class=" hover:text-green-500"><a href="#">DISTRIBUTORS</a></li>
                     <li class=" hover:text-green-500"><a href="#">PRODUCTS</a></li>
                     <li class=" hover:text-green-500"><a href="#">CATEGORY</a></li>
@@ -52,25 +52,23 @@
             </div>
         </nav>
     </header>
-    <div class="mx-20 my-10">
+    <div class="mx-20 my-10 container mx-auto">
         <a href="user_dash.html" class="text-green-500 hover:text-green-700">
             Go back
         </a>
     </div>
-    <div class="flex my-11 items-center">
-        <div class="bg-white  mx-auto p-10 flex justify-center">
-            <div class="mx-10">
-                <div class="flex justify-center py-5 px-5 m-5 border border-gray-300 rounded-lg">
+    <div class="flex items-center border border-gray-400 container px-4 mx-auto py-5">
+        <div class="bg-white mx-auto p-5 flex justify-center ">
+            <div class="mx-10 rounded-lg">
+                <div class="flex justify-center py-5 px-5 m-5 ">
                     <img src="../img/Products/rtc-chicken-tocino.png" alt="Product Image" class="h-48 object-cover ">
                 </div>
-                <div class="bg-white">
-                    <div class="">
-                        <div class="flex">
-                            <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 1" class="w-24 h-24 object-cover p-1 mr-4 bg-gray-100 border border-green-500 rounded-lg">
-                            <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 2" class="w-24 h-24 object-cover p-1 mr-4 border border-gray-300 rounded-lg">
-                            <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 3" class="w-24 h-24 object-cover p-1 mr-4 border border-gray-300 rounded-lg">
-                            <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 4" class="w-24 h-24 object-cover p-1 mr-4 border border-gray-300 rounded-lg">
-                        </div>
+                <div>
+                    <div class="justify-center flex ">
+                        <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 1" class="w-24 h-24 object-cover p-1 m-2 bg-gray-100 border border-green-500 rounded-lg">
+                        <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 2" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg">
+                        <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 3" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg">
+                        <img src="../img/Products/rtc-chicken-tocino.png" alt="Image 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg">
                     </div>
                 </div>
             </div>
@@ -84,12 +82,12 @@
               
                 </div>
                 <div class="flex items-center mb-4">
-                    <label for="quantity">Size/Weight:</label>
+                    <label for="quantity">Min Order Quantity:</label>
                     <select id="quantity" class="border border-gray-300 rounded-md px-2 py-1 ml-2">
-                        <option value="50g">5kg</option>
-                        <option value="80g">10kg</option>
-                        <option value="100g">50kg</option>
-                        <option value="150g">100kg</option>
+                        <option value="50g">10</option>
+                        <option value="80g">25</option>
+                        <option value="100g">50</option>
+                        <option value="150g">100</option>
                     </select>
                 </div>
                 <div class="flex items-center">
@@ -113,6 +111,22 @@
             </div>
         </div>
     </div>
+    <section class="p-2  mb-4 border border-t-0 border-gray-400 container px-4 mx-auto">
+        <div class="px-10 flex justify-between">
+            <div class="flex items-center">
+                <div class="flex items-center justify-center w-24 h-24 bg-white rounded-lg">
+                    <img src="../img/Distrubutors/alaska.png" alt="Distributor Photo" class="w-24 h-24">
+                </div>
+                <div class="ml-4">
+                    <h2 class="text-2xl font-bold">Jacob</h2>
+                    <a href="user_distributor.html">
+                        <button class="px-4 py-2  font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        View Shop
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="py-5 bg-white">
         <div class="container px-4 mx-auto">
             <div class="flex items-center justify-between">
@@ -199,7 +213,7 @@
             <hr class="my-6">
             <div class="flex justify-center mt-6">
                 <button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-white bg-gray-400 border rounded-lg hover:bg-gray-300 hover:text-gray-700">Close</button>
-                <button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-gray-700 bg-white border rounded-lg hover:bg-gray-100">View Cart</button>
+                <a href="user_cart.html"><button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-gray-700 bg-white border rounded-lg hover:bg-gray-100">View Cart</button></a>
             </div>
         </div>
     </div>
