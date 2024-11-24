@@ -64,7 +64,7 @@
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
-                <li class="group">
+                <li class="group active">
                     <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="dist_delivery.html"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
@@ -122,7 +122,77 @@
         </aside>
         <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
             <h1 class="mb-4 text-2xl font-bold">Delivery</h1>
+            <div class="p-4 bg-white rounded-lg shadow-md">
+                <!-- Tabs -->
+                <div class="flex mb-4 space-x-4 border-b">
+                  <button id="tab-standard" class="px-4 py-2 font-semibold text-green-600 border-b-4 border-green-600 focus:outline-none">
+                    Standard Delivery
+                  </button>
+                  <button id="tab-pickup" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
+                    Local/Store Pickup
+                  </button>
+                </div>
 
+                
+                <div class="flex items-center justify-between w-full h-10">
+                    <!-- Search -->
+                    <div class="flex items-center w-full max-w-md">
+                        <input type="text" placeholder="Search order" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"/>
+                        <button class="w-12 p-2 text-white bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none">
+                            <iconify-icon icon="material-symbols:search" class="items-center p-1 text-xl align-middle"></iconify-icon>
+                        </button>
+                    </div>
+                    <!-- Export Reports Button -->
+                    <button class="p-2 bg-green-500 rounded-md hover:bg-gray-200 hover:text-white group">
+                        <iconify-icon icon="fa:download" class="px-1 pb-1 text-lg text-white align-middle group-hover:text-black hover:border-green-500"></iconify-icon>
+                        <span class="pr-1 text-sm text-white group-hover:text-black">Export Reports</span>
+                    </button>
+                </div>
+                
+                <!-- Standard Delivery Table -->
+                <div id="cust-cancel-orders" class="block mt-6">
+                <h2 class="mb-2 font-light text-gray-500"> Order for Delivery: 2 </h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                        <th class="px-4 py-2 text-left" >Order ID</th>
+                        <th class="px-4 py-2 text-left">Recipient</th>
+                        <th class="px-4 py-2 text-left ">Contact Number</th>
+                        <th class="px-4 py-2 text-left ">Delivery Address</th>
+                        <th class="px-4 py-2 text-left ">Status</th>
+                        <th class="px-4 py-2 text-left "></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-sm border-b-2 border-gray-100">
+                        <td class="px-4 py-2 text-[12px] font-semibold">246000EVG4AXL</td>
+                        <td class="px-4 py-2 text-[12px] font-light">₱2500.00</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Kuku Paal</td>
+                        <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
+                        <td>
+                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="246000EVG4AXL" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
+                        </td>
+                        </tr>
+                        <tr>  
+                        <td class="px-4 py-2 text-[12px] font-semibold">000911VGA2ZIA</td>
+                        <td class="px-4 py-2 text-[12px] font-light">₱4000.00</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Depo Ngal</td>
+                        <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
+                        <td>
+                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="000911VGA2ZIA" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                </div>               
+
+
+            
+            
             
 
 
