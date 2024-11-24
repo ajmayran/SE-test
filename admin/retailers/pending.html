@@ -8,7 +8,7 @@
     <link rel="icon" href="../../img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Accepted Products</title>
+    <title>Pending Retailers</title>
 </head>
 <style>
     body {
@@ -54,7 +54,7 @@
                     <span class="text-sm">Dashboard</span>
                 </a>
             </li>
-            <li class="mb-1 group active">
+            <li class="mb-1 group">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon>
@@ -64,7 +64,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../products/acceptedProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
                             Products</a>
                     </li>
@@ -74,12 +74,12 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="pendingProducts.html"
+                        <a href="../products/pendingProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="rejectedProducts.html"
+                        <a href="../products/rejectedProducts.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
                             Products</a>
                     </li>
@@ -106,7 +106,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group">
+            <li class="mb-1 group active">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
@@ -116,7 +116,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../retailers/pending.html"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
@@ -212,10 +212,10 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Products</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Retailers</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Accepted</li>
+                <li class="mr-2 font-medium text-gray-600">Pending</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -342,51 +342,46 @@
             </ul>
         </div>
 
-        <!-- Accepted Products Content -->
+        <!-- Pending retailers Content -->
         <div class="p-6">
             <div class="mb-6 flex flex-row justify-between space-x-4">
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">68</h2>
+                    <p class="text-gray-600">All Retailers</p>
+                    <h2 class="text-2xl font-bold text-green-700">560</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Featured Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">5</h2>
+                    <p class="text-gray-600">Reported Retailers</p>
+                    <h2 class="text-2xl font-bold text-green-700">12</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Pending Request</p>
-                    <h2 class="text-2xl font-bold text-green-700">20</h2>
+                    <p class="text-gray-600">Restricted Retailers</p>
+                    <h2 class="text-2xl font-bold text-green-700">4</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Rejected Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">6</h2>
+                    <p class="text-gray-600">Banned Retailers</p>
+                    <h2 class="text-2xl font-bold text-green-700">2</h2>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow mb-6">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Accepted Products
-                    </div>
 
-                    <div class="flex space-x-2">
-                        <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
-                    </div>
+            <div class="p-6 bg-white rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4">Pending Retailers</h2>
+                <div class="flex items-center mb-4 justify-end">
+                    <button class="ml-2 p-2 bg-red-500 text-white rounded"><iconify-icon icon="mdi:trash-can"></iconify-icon></button>
                 </div>
-                <div class="overflow-x-auto"> </div>
-                <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
+                <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
-                        <tr class="bg-gray-100 text-gray-600 text-left">
-                             <th class="p-2">Product Code</th>
-                             <th class="p-2">Product</th>
-                             <th class="p-2">Distributor</th>
-                             <th class="p-2">Price</th>
-                             <th class="p-2">Date Approved</th>
-                             <th class="p-2">Action</th>  
+                        <tr class="bg-gray-100">
+                            <th class="p-2 border text-left">User ID</th>
+                            <th class="p-2 border text-left">Name</th>
+                            <th class="p-2 border text-left">Email</th>
+                            <th class="p-2 border text-left">Date Created</th>
+                            <th class="p-2 border text-left">Status</th>
+                            <th class="p-2 border">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                       <!-- Data will be populated by DataTables --> 
+                        <!-- Data will be populated by DataTables -->
                     </tbody>
                 </table>
             </div>
@@ -397,24 +392,45 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="../../dashboard.js"></script>
     <script>
-        $(document).ready( function () {
-            $('#productTable').DataTable({  
-                data: [ 
-                    ['PRC001', '<img src="../../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['PRC002', '<img src="../../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    
-                ],
-                columns: [  
-                    { title: "Product Code" },
-                    { title: "Product" },         
-                    { title: "Distributor" },
-                    { title: "Price" },
-                    { title: "Date Approved" },
-                    { title: "Action" }            
+        $(document).ready(function() {
+            const retailerData = [
+                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending"],
+                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
+            ];
+
+            $('#retailerTable').DataTable({
+                data: retailerData,
+                columns: [
+                    { title: "User ID", data: 0 },
+                    { title: "Name", data: 1 },
+                    { title: "Email", data: 2 },
+                    { title: "Date Created", data: 3 },
+                    { title: "Status", data: 4 },
+                    {"data": null,
+                        "render": function (data, type, row) {
+                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Accept</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button></div>';
+                        }
+                    }
                 ]
             });
-        } );
+        });
     </script>
 </body>
-
 </html>
