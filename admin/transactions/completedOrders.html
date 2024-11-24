@@ -116,7 +116,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../retailers/pending.html"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
@@ -342,7 +342,7 @@
             </ul>
         </div>
 
-        <!-- Accepted Products Content -->
+        <!-- Completed orders Content -->
         <div class="p-6">
             <div class="mb-6 flex flex-row justify-between space-x-4">
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
@@ -364,14 +364,33 @@
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow mb-6">
+                <div class="mb-6 flex flex-row justify-between space-x-4">
+                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                        <p class="text-2xl text-gray-600">Jacob Traiding</p>
+                        
+                        
+                        <h2 class="text-1xl font-bold text-green-700">Date Added: </h2>
+                        <h3 class="text-1xl font-bold text-green-700">12,689</h3>
+                        <button class="bg-green-500 text-white p-1 mt-2 rounded hover:bg-green-700">Show all</button>
+                        
+                    </div>
+                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                        <p class="text-gray-600">Successful Transactions</p>
+                        <h2 class="text-2xl font-bold text-green-700">10,102</h2>
+                    </div>
+                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                        <p class="text-gray-600">Pending Transactions</p>
+                        <h2 class="text-2xl font-bold text-green-700">2,960</h2>
+                    </div>
+                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                        <p class="text-gray-600">Failed Transactions</p>
+                        <h2 class="text-2xl font-bold text-green-700">920</h2>
+                    </div>
+                </div>
+
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
                         Distributors
-                    </div>
-
-                    <div class="flex space-x-2">
-                        <button class="bg-green-500 hover:bg-green-700 text-white p-2 rounded"><iconify-icon icon="mdi:pencil" /></button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
                     </div>
                 </div>
                 <div class="overflow-x-auto"> </div>
@@ -388,9 +407,11 @@
                        <!-- Data will be populated by DataTables --> 
                     </tbody>
                 </table>
+            </div>
+        </div>
 
-                <div class="overflow-x-auto"> </div>
-                
+        <div class="p-6">
+            <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
                         Completed Orders
@@ -421,9 +442,9 @@
         $(document).ready( function () {
             $('#distTable').DataTable({  
                 data: [ 
-                    ['dist001', '<img src="../../img/distributors/glenmark.png" alt="distributor 1" class="w-20 h-20 inline-block mr-2"> New Horizon Distribution Corporation', '11/14/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
-                    ['dist002', '<img src="../../img/distributors/jacob.png" alt="distributor 2" class="w-20 h-20 inline-block mr-2"> Jacob Trading', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
-                    ['dist003', '<img src="../../img/distributors/primus.png" alt="distributor 3" class="w-20 h-20 inline-block mr-2"> Primus', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>']
+                    ['dist001', '<img src="../../img/distributors/glenmark.png" alt="distributor 1" class="w-12 h-12 inline-block mr-2"> New Horizon Distribution Corporation', '11/14/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
+                    ['dist002', '<img src="../../img/distributors/jacob.png" alt="distributor 2" class="w-12 h-12 inline-block mr-2"> Jacob Trading', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
+                    ['dist003', '<img src="../../img/distributors/primus.png" alt="distributor 3" class="w-12 h-12 inline-block mr-2"> Primus', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>']
                     
                 ],
                 columns: [  
