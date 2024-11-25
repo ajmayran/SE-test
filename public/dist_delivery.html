@@ -299,7 +299,7 @@
                 <span>Total: <span id="order-total" class="text-sm font-light">₱0.00</span></span>
               </div>
               <div class="flex items-center space-x-4">
-                <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Change Status</button>
+                <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 change-status-button-process">Change Status</button>
               </div>
             </div>
           </div>
@@ -348,7 +348,7 @@
                 <span>Total: <span id="transit-order-total" class="text-sm font-light">₱0.00</span></span>
               </div>
               <div class="flex items-center space-x-4">
-                <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Change Status</button>
+                <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 change-status-button-process">Change Status</button>
               </div>
             </div>
           </div>
@@ -401,6 +401,31 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Change Status Modal -->
+          <div id="change-status-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-1/3 p-6 bg-white rounded-md shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-bold">Change Delivery Status</h2>
+                        <button class="text-blue-600 hover:underline" onclick="toggleChangeStatusModal(false)">Close</button>
+                    </div>
+                    <hr class="my-4 border-gray-300">
+
+                    <div class="mb-4">
+                        <label for="new-status" class="block text-sm font-medium text-gray-700">Select New Status</label>
+                        <select id="new-status" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option value="Processing">Processing</option>
+                            <option value="On-Transit">On-Transit</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-end">
+                        <button class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 " onclick="changeStatus()">Confirm</button>
+                    </div>
+                </div>
             </div>
           </div>
 
@@ -720,9 +745,33 @@
         });
       });
 
+        // In toggleProcessModal function
+      document.querySelector(".change-status-button-process").addEventListener("click", () => {
+          toggleChangeStatusModal(true);
+      });
 
+        // In toggleTransitModal function
+        document.querySelector(".change-status-button-transit").addEventListener("click", () => {
+            toggleChangeStatusModal(true);
+        });
       
 
+        function toggleChangeStatusModal(show) {
+    const changeStatusModal = document.getElementById("change-status-modal");
+    changeStatusModal.classList.toggle("hidden", !show);
+    }
+
+    function changeStatus() {
+        const newStatus = document.getElementById("new-status").value;
+        
+        // You can add logic here to update the status in your data
+        // For example, if you have the current order ID, you can find it in your data and update it
+
+        console.log("New Status:", newStatus);
+        
+        // Close the modal after changing the status
+        toggleChangeStatusModal(false);
+    }
     </script>
 </body>
 </html>
