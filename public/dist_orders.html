@@ -128,7 +128,7 @@
                 <div class="p-4 bg-white rounded-lg shadow-md">
                   <!-- Tabs -->
                   <div class="flex mb-4 space-x-4 border-b">
-                    <button id="tab-pending" class="px-4 py-2 text-gray-600 border-b-4 border-green-600 focus:outline-none">
+                    <button id="tab-pending" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
                       Pending
                     </button>
                     <button id="tab-completed" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
@@ -189,7 +189,7 @@
                             <td class="px-4 py-2 text-[12px] font-light">Sinto Ron</td>
                             <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
                             <td>
-                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="241911VGA2VIP" onclick="togglePendingModal(true, pendingOrdersData[0])">Details</button>
+                              <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="241911VGA2VIP" onclick="togglePendingModal(true, pendingOrdersData[1])">Details</button>
                             </td>
                           </tr>
                         </tbody>
@@ -439,6 +439,7 @@
           pendingOrders.classList.add('hidden');
           completedTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
           pendingTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+          pendingTab.classList.add('text-gray-600');
         });
         
 
@@ -490,94 +491,94 @@
         },
       ];
 
-    function togglePendingModal(show, orderData = null) {
-    const pendingModal = document.getElementById("order-details-modal");
-    const completeModal = document.getElementById("complete-order-modal");
+    function togglePendingModal(show, orderData = null){
+      const pendingModal = document.getElementById("order-details-modal");
+      const completeModal = document.getElementById("complete-order-modal");
     
-    // Hide complete modal if it is open
-    completeModal.classList.add("hidden");
-    
-    pendingModal.classList.toggle("hidden", !show);
+      // Hide complete modal if it is open
+      completeModal.classList.add("hidden");
+      pendingModal.classList.toggle("hidden", !show);
 
-    if (orderData) {
-        // Update modal content for pending order
-        document.getElementById("order-id").textContent = orderData.id;
+      if (orderData) {
+          // Update modal content for pending order
+          document.getElementById("order-id").textContent = orderData.id;
 
-        const productsTable = document.getElementById("order-products");
-        productsTable.innerHTML = ""; 
+          const productsTable = document.getElementById("order-products");
+          productsTable.innerHTML = ""; 
 
-        orderData.products.forEach((product) => {
-            const row = `
-              <tr>
-                <td class="flex items-center px-4 py-2">
-                  <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                  ${product.name}
-                </td>
-                <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                <td class="px-4 py-2">${product.qty}</td>
-                <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-              </tr>
-            `;
-            productsTable.innerHTML += row;
-        });
+          orderData.products.forEach((product) => {
+              const row = `
+                <tr>
+                  <td class="flex items-center px-4 py-2">
+                    <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
+                    ${product.name}
+                  </td>
+                  <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
+                  <td class="px-4 py-2">${product.qty}</td>
+                  <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
+                </tr>
+              `;
+              productsTable.innerHTML += row;
+         });
 
-        // Update Customer details
-        document.getElementById("order-customer-name").textContent = orderData.customername;
-        document.getElementById("order-customer-address").textContent = orderData.customeraddress;
-        document.getElementById("order-customer-contact").textContent = orderData.customercontact;
+          // Update Customer details
+          document.getElementById("order-customer-name").textContent = orderData.customername;
+          document.getElementById("order-customer-address").textContent = orderData.customeraddress;
+          document.getElementById("order-customer-contact").textContent = orderData.customercontact;
 
-        // Update payment details
-        document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("order-voucher").textContent = orderData.voucher;
-        document.getElementById("order-discount").textContent = orderData.discount;
-        document.getElementById("order-total").textContent = `₱${orderData.total.toFixed(2)}`;
+          // Update payment details
+          document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
+          document.getElementById("order-voucher").textContent = orderData.voucher;
+          document.getElementById("order-discount").textContent = orderData.discount;
+          document.getElementById("order-total").textContent = `₱${orderData.total.toFixed(2)}`;
+      }
     }
-}
 
-    function toggleCompleteModal(show, orderData = null) {
-    const pendingModal = document.getElementById("order-details-modal");
-    const completeModal = document.getElementById("complete-order-modal");
+      function toggleCompleteModal(show, orderData = null) 
+      {
+        const pendingModal = document.getElementById("order-details-modal");
+        const completeModal = document.getElementById("complete-order-modal");
 
-    // Hide pending modal if it is open
-    pendingModal.classList.add("hidden");
-    
-    completeModal.classList.toggle("hidden", !show);
+        // Hide pending modal if it is open
+        pendingModal.classList.add("hidden");
+        
+        completeModal.classList.toggle("hidden", !show);
 
-    if (orderData) {
-        // Update modal content for completed order
-        document.getElementById("complete-order-id").textContent = orderData.id;
+       if (orderData) {
+          // Update modal content for completed order
+          document.getElementById("complete-order-id").textContent = orderData.id;
 
-        const productsTable = document.getElementById("complete-order-products");
-        productsTable.innerHTML = ""; 
+          const productsTable = document.getElementById("complete-order-products");
+          productsTable.innerHTML = ""; 
 
-        orderData.products.forEach((product) => {
-            const row = `
-              <tr>
-                <td class="flex items-center px-4 py-2">
-                  <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                  ${product.name}
-                </td>
-                <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                <td class="px-4 py-2">${product.qty}</td>
-                <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-              </tr>
-            `;
-            productsTable.innerHTML += row;
-        });
+          orderData.products.forEach((product) => {
+              const row = `
+                <tr>
+                  <td class="flex items-center px-4 py-2">
+                    <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
+                    ${product.name}
+                  </td>
+                  <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
+                  <td class="px-4 py-2">${product.qty}</td>
+                  <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
+                </tr>
+              `;
+              productsTable.innerHTML += row;
+          });
 
-        // Update Customer details
-        document.getElementById("complete-order-customer-name").textContent = orderData.customername;
-        document.getElementById("complete-order-customer-address").textContent = orderData.customeraddress;
-        document.getElementById("complete-order-customer-contact").textContent = orderData.customercontact;
-        document.getElementById("complete-order-date").textContent = "September 29, 2024"; // Update accordingly
+          // Update Customer details
+          document.getElementById("complete-order-customer-name").textContent = orderData.customername;
+          document.getElementById("complete-order-customer-address").textContent = orderData.customeraddress;
+          document.getElementById("complete-order-customer-contact").textContent = orderData.customercontact;
+          document.getElementById("complete-order-date").textContent = "September 29, 2024"; // Update accordingly
 
-        // Update payment details
-        document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("complete-order-voucher").textContent = orderData.voucher;
-        document.getElementById("complete-order-discount"). textContent = orderData.discount;
-        document.getElementById("complete-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-    }
-}
+          // Update payment details
+          document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
+          document.getElementById("complete-order-voucher").textContent = orderData.voucher;
+          document.getElementById("complete-order-discount"). textContent = orderData.discount;
+          document.getElementById("complete-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
+        }
+      }
 
       // Example: Attach toggleModal to the "Details" button
       document.querySelectorAll("[data-order-id]").forEach((button) => {
@@ -589,58 +590,58 @@
       });
 
       function toggleRejectModal(show) {
-    const modal = document.getElementById("reject-order-modal");
-    modal.classList.toggle("hidden", !show);
-}
+      const modal = document.getElementById("reject-order-modal");
+      modal.classList.toggle("hidden", !show);
+      }
 
-// Attach the reject modal to the "Reject Order" button
-document.querySelectorAll(".bg-red-500").forEach((button) => {
-    button.addEventListener("click", (e) => {
-        toggleRejectModal(true);
-    });
-});
+      // Attach the reject modal to the "Reject Order" button
+      document.querySelectorAll(".bg-red-500").forEach((button) => {
+          button.addEventListener("click", (e) => {
+              toggleRejectModal(true);
+          });
+      });
 
-document.querySelectorAll(".bg-red-500").forEach((button) => {
-    button.addEventListener("click", (e) => {
-        // Close any open modals (pending or complete) before opening the reject modal
-        togglePendingModal(false);
-        toggleCompleteModal(false);
-        
-        // Now open the reject modal
-        toggleRejectModal(true);
-    });
-});
+      document.querySelectorAll(".bg-red-500").forEach((button) => {
+          button.addEventListener("click", (e) => {
+              // Close any open modals (pending or complete) before opening the reject modal
+              togglePendingModal(false);
+              toggleCompleteModal(false);
+              
+              // Now open the reject modal
+              toggleRejectModal(true);
+          });
+      });
 
-// Function to toggle the reject modal
-function toggleRejectModal(show) {
-    const modal = document.getElementById("reject-order-modal");
-    modal.classList.toggle("hidden", !show);
-}
+      // Function to toggle the reject modal
+      function toggleRejectModal(show) {
+          const modal = document.getElementById("reject-order-modal");
+          modal.classList.toggle("hidden", !show);
+      }
 
-// Handle form submission for rejection
-document.getElementById("reject-order-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const reason = document.querySelector('input[name="reject-reason"]:checked');
-    const specificReason = document.getElementById("reject-specific").value;
+      // Handle form submission for rejection
+      document.getElementById("reject-order-form").addEventListener("submit", (e) => {
+          e.preventDefault();
+          const reason = document.querySelector('input[name="reject-reason"]:checked');
+          const specificReason = document.getElementById("reject-specific").value;
 
-    if (reason) {
-        console.log("Order Rejected for reason:", reason.value);
-    }
-    if (specificReason) {
-        console.log("Specific Reason:", specificReason);
-    }
+          if (reason) {
+              console.log("Order Rejected for reason:", reason.value);
+          }
+          if (specificReason) {
+              console.log("Specific Reason:", specificReason);
+          }
 
-    // Close the reject modal after submission
-    toggleRejectModal(false);
-});
+          // Close the reject modal after submission
+          toggleRejectModal(false);
+      });
 
-// Close reject modal when user clicks outside of it
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById("reject-order-modal");
-    if (event.target === modal) {
-        toggleRejectModal(false);
-    }
-});
+      // Close reject modal when user clicks outside of it
+      window.addEventListener('click', function(event) {
+          const modal = document.getElementById("reject-order-modal");
+          if (event.target === modal) {
+              toggleRejectModal(false);
+          }
+      });
 
   
 

@@ -128,7 +128,7 @@
                 <div class="p-4 bg-white rounded-lg shadow-md">
                   <!-- Tabs -->
                   <div class="flex mb-4 space-x-4 border-b">
-                    <button id="tab-cust-cancel" class="px-4 py-2 font-semibold text-green-600 border-b-4 border-green-600 focus:outline-none">
+                    <button id="tab-cust-cancel" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
                       Customer Cancellation
                     </button>
                     <button id="tab-my-cancel" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
@@ -344,6 +344,7 @@
           pendingOrders.classList.add('hidden');
           myTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
           custTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+          custTab.classList.add('text-gray-600');
         });
         
 
@@ -420,7 +421,6 @@
         }
       }
 
-      // Example: Attach toggleModal to the "Details" button
       document.querySelectorAll("[data-order-id]").forEach((button) => {
         button.addEventListener("click", (e) => {
           const orderId = e.target.getAttribute("data-order-id");
