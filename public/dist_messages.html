@@ -156,7 +156,7 @@
                       <div class="flex items-center p-4">
                         <img src="../img/Avatar/avatar-1.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
                         <div>
-                          <p class="font-normal text-gray-800">Ratbu Salakam</p>
+                          <p class="font-normal text-gray-800">Elon Mask</p>
                           <p class="text-sm font-light text-gray-500 truncate">Thank you so much for the update.</p>
                         </div>
                         <span class="ml-auto text-[10px] text-gray-400">9:00 AM</span>
@@ -166,7 +166,7 @@
                 </div>
               
                 <!-- Right Side: Conversation View -->
-                <div class="flex flex-col flex-1 bg-gray-50">
+                <div class="flex flex-col flex-1 rounded-br-lg bg-gray-50">
                   <!-- Conversation Header -->
                   <div id="conversation-header" class="p-4 bg-white border-b">
                     <h2 class="text-lg font-normal">Anthon Zuckerberg</h2>
@@ -188,7 +188,7 @@
                   </div>
               
                   <!-- Message Input -->
-                  <div class="flex items-center p-4 space-x-2 bg-white border-t">
+                  <div class="flex items-center p-4 space-x-2 bg-white border-t rounded-br-lg">
                     <label class="cursor-pointer">
                     <iconify-icon icon="akar-icons:attach" class="text-xl text-green-500"></iconify-icon>
                     <input type="file" class="hidden" accept="image/*">
@@ -199,7 +199,7 @@
 
                     <video id="video" width="640" height="480" autoplay style="display: none;"></video>
                     <input type="text" placeholder="Type your message here" class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300">
-                    <button class="px-4 py-2 text-white bg-green-500 rounded-lg">Send</button>
+                    <button type="submit"><iconify-icon icon="majesticons:send" class="pb-1 text-2xl text-green-500 align-middle"></iconify-icon></button>
                   </div>
                 </div>
               </div>
@@ -282,7 +282,102 @@
       
           // Change conversation content based on selected message
           if (messageId === 1) {
-            conversationHeader.innerHTML = '<h2 class="text-lg font-normal">Anthon Zuckerberg</h2>';
+            conversationHeader.innerHTML = `<div class="relative">
+              <!-- Header with Name and Icon -->
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-normal">Anthon Zuckerberg</h2>
+                <!-- Icon -->
+                <iconify-icon 
+                  icon="heroicons-solid:exclamation-circle" 
+                  class="text-2xl text-green-500 cursor-pointer" 
+                  onclick="togglePopper(event)">
+                </iconify-icon>
+              </div>
+
+              <!-- Popper Menu -->
+              <div id="popper-menu" 
+                  class="absolute right-0 z-50 hidden w-40 mt-2 bg-white border rounded-lg shadow-lg">
+                <ul class="py-1 text-sm text-gray-700">
+                  <li>
+                    <button 
+                      onclick="showReportModal()" 
+                      class="block w-full px-4 py-2 text-left hover:bg-gray-100">
+                      Report User
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onclick="blockUser()" 
+                      class="block w-full px-4 py-2 text-left hover:bg-gray-100">
+                      Block User
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Report Modal -->
+              <div id="report-modal" 
+                  class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+                <div class="p-6 bg-white rounded-lg shadow-lg w-96">
+                  <h2 class="mb-4 text-xl font-semibold">Report User</h2>
+                  <p class="mb-4 text-gray-600">Why are you reporting this user?</p>
+                  <!-- Radio Button Options -->
+                  <form id="report-form" class="space-y-4">
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Spam" class="text-red-500 form-radio">
+                        <span>Spam</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Inappropriate Behavior" class="text-red-500 form-radio">
+                        <span>Inappropriate Behavior</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Harassment" class="text-red-500 form-radio">
+                        <span>Harassment</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Fraudulent Activity" class="text-red-500 form-radio">
+                        <span>Fraudulent Activity</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Other" class="text-red-500 form-radio">
+                        <span>Other</span>
+                      </label>
+                    </div>
+                    <!-- Text Area for Additional Details -->
+                    <textarea 
+                      id="report-details" 
+                      class="w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-red-300"
+                      rows="3" 
+                      placeholder="Please provide more details (optional)">
+                    </textarea>
+                  </form>
+                  <!-- Modal Actions -->
+                  <div class="flex justify-end mt-4 space-x-2">
+                    <button 
+                      onclick="closeModal()" 
+                      class="px-4 py-2 text-gray-700 bg-gray-300 rounded-lg">
+                      Cancel
+                    </button>
+                    <button 
+                      onclick="submitReport()" 
+                      class="px-4 py-2 text-white bg-red-500 rounded-lg">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                `;
             conversationContent.innerHTML = `
               <div class="flex justify-start">
                 <img src="../img/avatar/avatar-5.jpg" alt="User   Avatar" class="w-10 h-10 mr-3 rounded-full">
@@ -300,7 +395,102 @@
               </div>
             `;
           } else if (messageId === 2) {
-            conversationHeader.innerHTML = '<h2 class="text-lg font-normal">Ratbu Salakam</h2>';
+            conversationHeader.innerHTML = `<div class="relative">
+              <!-- Header with Name and Icon -->
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-normal">Elon Mask</h2>
+                <!-- Icon -->
+                <iconify-icon 
+                  icon="heroicons-solid:exclamation-circle" 
+                  class="text-2xl text-green-500 cursor-pointer" 
+                  onclick="togglePopper(event)">
+                </iconify-icon>
+              </div>
+
+              <!-- Popper Menu -->
+              <div id="popper-menu" 
+                  class="absolute right-0 z-50 hidden w-40 mt-2 bg-white border rounded-lg shadow-lg">
+                <ul class="py-1 text-sm text-gray-700">
+                  <li>
+                    <button 
+                      onclick="showReportModal()" 
+                      class="block w-full px-4 py-2 text-left hover:bg-gray-100">
+                      Report User
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onclick="blockUser()" 
+                      class="block w-full px-4 py-2 text-left hover:bg-gray-100">
+                      Block User
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Report Modal -->
+              <div id="report-modal" 
+                  class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+                <div class="p-6 bg-white rounded-lg shadow-lg w-96">
+                  <h2 class="mb-4 text-xl font-semibold">Report User</h2>
+                  <p class="mb-4 text-gray-600">Why are you reporting this user?</p>
+                  <!-- Radio Button Options -->
+                  <form id="report-form" class="space-y-4">
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Spam" class="text-red-500 form-radio">
+                        <span>Spam</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Inappropriate Behavior" class="text-red-500 form-radio">
+                        <span>Inappropriate Behavior</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Harassment" class="text-red-500 form-radio">
+                        <span>Harassment</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Fraudulent Activity" class="text-red-500 form-radio">
+                        <span>Fraudulent Activity</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="flex items-center space-x-2">
+                        <input type="radio" name="reason" value="Other" class="text-red-500 form-radio">
+                        <span>Other</span>
+                      </label>
+                    </div>
+                    <!-- Text Area for Additional Details -->
+                    <textarea 
+                      id="report-details" 
+                      class="w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-red-300"
+                      rows="3" 
+                      placeholder="Please provide more details (optional)">
+                    </textarea>
+                  </form>
+                  <!-- Modal Actions -->
+                  <div class="flex justify-end mt-4 space-x-2">
+                    <button 
+                      onclick="closeModal()" 
+                      class="px-4 py-2 text-gray-700 bg-gray-300 rounded-lg">
+                      Cancel
+                    </button>
+                    <button 
+                      onclick="submitReport()" 
+                      class="px-4 py-2 text-white bg-red-500 rounded-lg">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                `;
             conversationContent.innerHTML = `
               <div class="flex justify-start">
                 <img src="../img/avatar/avatar-1.jpg" alt="User   Avatar" class="w-10 h-10 mr-3 rounded-full">
@@ -344,6 +534,60 @@
             }
         }
 
+          // Toggle the visibility of the popper menu
+          function togglePopper(event) {
+            const popperMenu = document.getElementById('popper-menu');
+            popperMenu.classList.toggle('hidden');
+            event.stopPropagation(); // Prevent event bubbling
+
+            // Close the popper when clicking outside
+            document.addEventListener('click', (e) => {
+              if (!popperMenu.contains(e.target) && e.target !== event.target) {
+                popperMenu.classList.add('hidden');
+              }
+            }, { once: true });
+          }
+
+          // Show the report modal
+          function showReportModal() {
+            const modal = document.getElementById('report-modal');
+            modal.classList.remove('hidden');
+          }
+
+          // Close the modal
+          function closeModal() {
+            const modal = document.getElementById('report-modal');
+            modal.classList.add('hidden');
+          }
+
+          // Submit the report
+          function submitReport() {
+            // Get the selected reason
+            const reason = document.querySelector('input[name="reason"]:checked');
+            const details = document.getElementById('report-details').value.trim();
+
+            if (!reason) {
+              alert('Please select a reason for reporting.');
+              return;
+            }
+
+            // Prepare report data
+            const reportData = {
+              reason: reason.value,
+              details: details || 'No additional details provided.',
+            };
+
+            // Simulate sending the report (replace with real API logic)
+            console.log('Report submitted:', reportData);
+            alert('Thank you for your report.');
+
+            closeModal(); // Close the modal
+          }
+
+          // Placeholder for block user functionality
+          function blockUser() {
+            alert('User has been blocked.');
+          }
     
       </script>
 </body>
