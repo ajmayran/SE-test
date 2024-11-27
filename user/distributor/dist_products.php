@@ -15,7 +15,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
     $distributorAddress = htmlspecialchars($distributorInfo['address']);
 } else {
     // If no session exists, redirect to the login page
-    header("Location: dist_login.php");
+    header("Location: ./dist_login.php");
     exit;
 }
 
@@ -27,7 +27,7 @@ $productObj = new Product();
 // Check if the form was submitted using the POST method.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $img = $product_name = $product_code = $product_desc = $category = $price = $tags = $stock = $min_qty = $max_qty = '';
+    $img = $product_name = $product_code = $product_desc = $category = $price = $tags = $stock = $min_qty = $max_qty = $distributor_id = '';
     $imgErr = $product_nameErr = $product_codeErr = $product_descErr =  $categoryErr = $priceErr = $tagsErr = $stockErr = $min_qtyErr = $max_qtyErr = '';
 
     $img = clean_input($_POST['img']);
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tags = clean_input($_POST['tags']);
     $stock = clean_input($_POST['stock']);
     $min_qty = clean_input($_POST['min_qty']);
-    $max_qty = clean_input($_POST['max_qty']);
+
 
 
 
@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $productObj->tags = $tags;
         $productObj->stock = $stock;
         $productObj->min_qty = $min_qty;
+        $productObj->distributor_id = $_SESSION['distributor_id'];
 
 
         // Attempt to add the product to the database.
@@ -503,10 +504,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="mb-4">
                             <label class="block mb-2 text-gray-700">Minimum Purchase Quantity</label>
                             <input type="number" placeholder="Set minimum qty." name="min_qty" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                        </div>
-                        <div class="mb-4">
-                            <label class="block mb-2 text-gray-700">Maximum Purchase Quantity</label>
-                            <input type="number" placeholder="Set maximum qty." name="max_qty" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                         </div>
                     </div>
                 </div>
