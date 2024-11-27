@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category = clean_input($_POST['category']);
     $price = clean_input($_POST['price']);
     $tags = clean_input($_POST['tags']);
-    $stock = clean_input($_POST['stock']);
     $min_qty = clean_input($_POST['min_qty']);
 
 
@@ -92,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $productObj->category = $category;
         $productObj->price = $price;
         $productObj->tags = $tags;
-        $productObj->stock = $stock;
         $productObj->min_qty = $min_qty;
         $productObj->distributor_id = $_SESSION['distributor_id'];
 
@@ -496,10 +494,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="mb-4">
                             <label class="block mb-2 text-gray-700">Tags</label>
                             <input type="text" placeholder="Set a Keyword for this product" name="tags" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                        </div>
-                        <div class="mb-4">
-                            <label class="block mb-2 text-gray-700">Stock</label>
-                            <input type="number" placeholder="Set Number of Stocks" name="stock" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                         </div>
                         <div class="mb-4">
                             <label class="block mb-2 text-gray-700">Minimum Purchase Quantity</label>

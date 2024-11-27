@@ -12,7 +12,6 @@ class Product {
     public $category = '';
     public $price = '';
     public $tags = '';
-    public $stock = '';
     public $min_qty = '';
     public $distributor_id = '';
 
@@ -26,7 +25,7 @@ class Product {
     // The add() method is used to add a new product to the database.
     function add() {
         // SQL query to insert a new product into the 'product' table.
-        $sql = "INSERT INTO product (img, product_name, product_code, product_desc, category, price, tags, stock, min_qty, distributor_id) VALUES (:img, :product_name, :product_code, :product_desc, :category, :price, :tags, :stock, :min_qty, :distributor_id)";
+        $sql = "INSERT INTO product (img, product_name, product_code, product_desc, category, price, tags, min_qty, distributor_id) VALUES (:img, :product_name, :product_code, :product_desc, :category, :price, :tags, :min_qty, :distributor_id)";
 
         // Prepare the SQL statement for execution.
         $query = $this->db->connect()->prepare($sql);
@@ -39,7 +38,6 @@ class Product {
         $query->bindParam(':category', $this->category); 
         $query->bindParam(':price', $this->price);
         $query->bindParam(':tags', $this->tags);
-        $query->bindParam(':stock', $this->stock);
         $query->bindParam(':min_qty', $this->min_qty);
         $query->bindParam(':distributor_id', $this->distributor_id);
         
