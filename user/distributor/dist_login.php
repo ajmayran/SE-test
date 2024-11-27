@@ -1,28 +1,29 @@
 <?php
-    require_once '../../classes/account.class.php';
-    
-    session_start();
+require_once '../../classes/account.class.php';
 
-    $email = $password = '';
-    $accountObj = new Account();
-    $loginErr = '';
+session_start();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $email = (($_POST['email']));
-        $password = ($_POST['password']);
+$email = $password = '';
+$accountObj = new Account();
+$loginErr = '';
 
-        if($accountObj->loginDistributor($email, $password)){
-            $data = $accountObj->fetch($email);
-            $_SESSION['user'] = $data;
-            header('location: ../distributor/dist_dashboard.php');
-        }else{
-            $loginErr = 'Invalid email/password';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = (($_POST['email']));
+    $password = ($_POST['password']);
+
+    if ($accountObj->loginDistributor($email, $password)) {
+        $data = $accountObj->fetch($email);
+        $_SESSION['user'] = $data;
+        header('location: ../distributor/dist_dashboard.php');
+    } else {
+        $loginErr = 'Invalid email/password';
     }
 }
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,30 +35,37 @@
 
     <style>
         body {
-        font-family: 'Lexend', sans-serif;
+            font-family: 'Lexend', sans-serif;
         }
+
         .login-container {
-            transition: transform 3s; /* Smooth transition for moving the form */
+            transition: transform 1.5s;
+            /* Smooth transition for moving the form */
         }
 
         .move-right {
-            transform: translateX(60%); /* Move the form to the right */
-        }   
+            transform: translateX(60%);
+            /* Move the form to the right */
+        }
 
         .letter {
             display: inline-block;
             opacity: 0;
-            transform: translateY(500px) rotateY(20deg) translateZ(0); ;
-            animation: fadeIn 0.5s forwards;
+            transform: translateY(500px) rotateY(20deg) translateZ(0);
+            ;
+            animation: fadeIn 1.5s forwards;
             font-size: 5em;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            color: white; 
+            color: white;
         }
+
         .platform-text {
-        display: block; /* Ensure it takes up its own line */
-        margin-top: 20px; /* Adjust as needed */
-        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-    }
+            display: block;
+            /* Ensure it takes up its own line */
+            margin-top: 20px;
+            /* Adjust as needed */
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
 
         @keyframes fadeIn {
             to {
@@ -67,6 +75,7 @@
         }
     </style>
 </head>
+
 <body class="flex items-center justify-center h-screen" style="background-color: lightgreen;">
 
     <!-- Background video -->
@@ -77,18 +86,18 @@
     <!-- Appearing text -->
     <!-- Appearing text -->
     <div class="absolute ml-40 text-white transform -translate-y-1/2 left-20 top-1/2">
-        <span class="font-bold letter" style="animation-delay: 5s;">W</span>
-        <span class="font-bold letter" style="animation-delay: 5.2s;">e</span>
-        <span class="font-bold letter" style="animation-delay: 5.4s;">l</span>
-        <span class="font-bold letter" style="animation-delay: 5.6s;">c</span>
-        <span class="font-bold letter" style="animation-delay: 5.8s;">o</span>
-        <span class="font-bold letter" style="animation-delay: 6s;">m</span>
-        <span class="font-bold letter" style="animation-delay: 6.2s;">e</span>
-        <span class="px-2 font-bold letter" style="animation-delay: 6.4s;"> </span>
+        <span class="font-bold letter" style="animation-delay: 2s;">W</span>
+        <span class="font-bold letter" style="animation-delay: 2.2s;">e</span>
+        <span class="font-bold letter" style="animation-delay: 2.3s;">l</span>
+        <span class="font-bold letter" style="animation-delay: 2.4s;">c</span>
+        <span class="font-bold letter" style="animation-delay: 2.5s;">o</span>
+        <span class="font-bold letter" style="animation-delay: 2.6s;">m</span>
+        <span class="font-bold letter" style="animation-delay: 2.7s;">e</span>
+        <span class="px-2 font-bold letter" style="animation-delay: 2.8s;"> </span>
 
         <!-- Wrap "Platform" in a new span -->
         <div class="distributor">
-            <span class="font-bold letter" style="animation-delay: 7s;">Distributors</span>
+            <span class="font-bold letter" style="animation-delay: 3s;">Distributors</span>
         </div>
     </div>
 
@@ -119,9 +128,11 @@
         </form>
         <div class="p-6"><a href="../../auth/login.php" class=""><button class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">Sign in as Retailer</button></a></div>
     </div>
-    
+
 </body>
 <script>
+    const video = document.getElementById('background-video');
+    video.playbackRate = 2.5;
     // Move the login form when the text appears
     window.onload = function() {
         const loginContainer = document.querySelector('.login-container');
@@ -131,5 +142,6 @@
             loginContainer.classList.add('move-right');
         }, 8000); // Adjust this value to sync with the text animation duration
     };
-    </script>
+</script>
+
 </html>

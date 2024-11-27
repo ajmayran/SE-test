@@ -1,6 +1,6 @@
 <?php
 
-$currentPage = basename($_SERVER['PHP_SELF']); 
+$currentPage = basename($_SERVER['PHP_SELF']);
 
 session_start();
 require_once '../../classes/account.class.php'; // 
@@ -39,14 +39,17 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
     body {
       font-family: 'Lexend', sans-serif;
     }
+
     .sidebar-menu .group.active a {
       background-color: #27AE60;
       color: white;
       border-radius: 5px;
     }
+
     .sidebar-menu .group.active .icon {
       color: white;
     }
+
     .scroll-hide::-webkit-scrollbar {
       display: none;
     }
@@ -92,74 +95,31 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
               Number of Orders: <?php echo count($pendingOrders); ?>
             </h2>
             <div class="overflow-x-auto">
-              <table class="w-full mt-4 bg-white border border-gray-200 table-auto">
-                <thead>
-                  <tr class="bg-gray-100">
-                    <th class="px-4 py-2 text-left ">Order ID</th>
-                    <th class="px-4 py-2 text-left ">Product</th>
-                    <th class="px-4 py-2 text-left ">Total Amount</th>
-                    <th class="px-4 py-2 text-left">Retailer</th>
-                    <th class="px-4 py-2 text-left ">Order Date</th>
-                    <th class="px-4 py-2 text-left ">Address</th>
-                    <th class="px-4 py-2 ">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($pendingOrders as $order): ?>
-
-                    <tr class="text-sm border-b-2 border-gray-100">
-                      <!-- Order ID Column -->
-                      <td class="px-4 py-2 text-gray-600">
-                        <?php echo $order['order_id']; ?>
-                      </td>
-                      <!-- Product Column -->
-                      <td class="flex items-center px-4 py-2 text-[12px] font-light">
-                        <?php foreach ($order['details'] as $detail): ?>
-                          <div class="flex items-center space-x-2">
-                            <img src="" alt="Product" class="mr-2 rounded w-14 h-14">
-                            <span class="font-medium"><?php echo htmlspecialchars($detail['product_name']); ?></span>
-                          </div>
-                        <?php endforeach; ?>
-                      </td>
-
-                      <!-- Total Amount Column -->
-                      <td class="px-4 py-2 text-[12px] font-light">
-                        ₱<?php echo number_format($order['total_amount'], 2); ?>
-                      </td>
-
-                      <!-- Retailer Column -->
-                      <td class="px-4 py-2 text-[12px] font-light">
-                        <?php echo htmlspecialchars($order['first_name'] . ' ' . $order['last_name']); ?>
-                      </td>
-
-                      <!-- Order Date Column -->
-                      <td class="px-4 py-2 text-[12px] font-light">
-                        <?php echo htmlspecialchars($order['date']); ?>
-                      </td>
-
-                      <!-- Address Column -->
-                      <td class="px-4 py-2 text-[12px] font-light">
-                        <?php echo htmlspecialchars($order['retailer_address']); ?>
-                      </td>
-
-                      <!-- Actions Column -->
-                      <td class="px-4 py-2 text-[12px] font-light">
-                        <div class="flex items-center p-2">
-                          <button class="px-2 py-1 mr-2 text-white bg-green-500 rounded hover:bg-green-600"
-                            data-order-id="<?php echo htmlspecialchars($order['order_id']); ?>"
-                            onclick="approveOrder(this)">
-                            Accept
-                          </button>
-                          <button class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-600"
-                            data-order-id="<?php echo htmlspecialchars($order['order_id']); ?>"
-                            onclick="rejectOrder(this)">
-                            Reject
-                          </button>
-                        </div>
-                      </td>
+              <div class="overflow-x-auto">
+                <table class="w-full mt-4 bg-white table-auto">
+                  <thead>
+                    <tr class="bg-gray-200 border">
+                      <th class="px-4 py-2 text-left">Order ID</th>
+                      <th class="px-4 py-2 text-left">Product</th>
+                      <th class="px-4 py-2 text-left">Total Amount</th>
+                      <th class="px-4 py-2 text-left">Retailer</th>
+                      <th class="px-4 py-2 text-left">Order Date</th>
                     </tr>
-                  <?php endforeach; ?>
-                </tbody>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($pendingOrders as $order): ?>
+                      <tr
+                        class="text-sm border-b-2 border-gray-200 cursor-pointer hover:bg-gray-50"
+                        onclick="showOrderDetails(<?php echo htmlspecialchars(json_encode($order)); ?>)">
+                        <td class="px-4 py-3 text-gray-600"><?php echo $order['order_id']; ?></td>
+                        <td class="px-4 py-3 text-[12px] font-light"><?php echo htmlspecialchars($order['details'][0]['product_name']); ?>...</td>
+                        <td class="px-4 py-3 text-[12px] font-light">₱<?php echo number_format($order['total_amount'], 2); ?></td>
+                        <td class="px-4 py-3 text-[12px] font-light"><?php echo htmlspecialchars($order['first_name'] . ' ' . $order['last_name']); ?></td>
+                        <td class="px-4 py-3 text-[12px] font-light"><?php echo htmlspecialchars($order['date']); ?></td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
               </table>
             </div>
           </div>
@@ -169,85 +129,64 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
   </div>
   </main>
   </div>
+  <div id="order-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-bold">Order ID: <span id="order-id">--</span></h2>
+          <button class="text-blue-600 hover:underline" onclick="toggleModal(false)">Close</button>
+        </div>
+        <hr class="my-4 border-gray-300">
+
+        <!-- Order Details Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full border-b border-gray-200 table-auto">
+            <thead>
+              <tr class="text-left border-b">
+                <th class="px-4 py-2">Products</th>
+                <th class="px-4 py-2">Price</th>
+                <th class="px-4 py-2">Qty</th>
+                <th class="px-4 py-2">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="order-products">
+              <!-- Content -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="flex justify-between mt-4">
+          <div class="flex flex-col">
+            <span>Retailer Name: <span id="order-customer-name" class="text-sm font-light">--</span></span>
+            <span>Delivery Address: <span id="order-customer-address" class="text-sm font-light">--</span></span>
+            <span>Retailer Contact: <span id="order-customer-contact" class="text-sm font-light">--</span></span>
+          </div>
+          <div class="flex flex-col">
+            <span>Subtotal: <span id="order-subtotal" class="text-sm font-light"></span></span>
+            <span>Total: <span id="order-total" class="text-sm font-light"></span></span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+              onclick="updateOrderStatus('reject')">
+              Reject Order
+            </button>
+            <button
+              class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600"
+              onclick="updateOrderStatus('approve')">
+              Accept Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </div>
   <?php include_once '../../includes/retailer_footer.php'; ?>
-  <script>
-    //Notif and account 
-    document.getElementById('notificationButton').addEventListener('click', function() {
-      const dropdown = document.getElementById('notificationDropdown');
-      dropdown.classList.toggle('hidden');
-    });
+  <script src="../../js/tailwind/dist_order.js"></script>
 
-    document.getElementById('accountButton').addEventListener('click', function() {
-      const popper = document.getElementById('accountPopper');
-      popper.classList.toggle('hidden');
-    });
-
-
-    window.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('notificationDropdown');
-      const popper = document.getElementById('accountPopper');
-
-      if (!event.target.closest('#notificationButton')) {
-        dropdown.classList.add('hidden');
-      }
-      if (!event.target.closest('#accountButton')) {
-        popper.classList.add('hidden');
-      }
-    });
-
-
-    function approveOrder(button) {
-      var orderId = button.getAttribute('data-order-id');
-
-      // Create a new XMLHttpRequest to call the PHP function
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "./accept_reject_order.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var response = xhr.responseText.trim();
-          if (response === 'success') {
-            // Update the status on the UI or refresh the page
-            alert("Order Approved!");
-            window.location.reload(); // Refresh the page after approval
-          } else {
-            alert("Failed to approve order.");
-          }
-        }
-      };
-
-      // Send the request with the order_id
-      xhr.send("order_id=" + orderId + "&action=approve");
-    }
-
-    function rejectOrder(button) {
-      var orderId = button.getAttribute('data-order-id');
-
-      // Create a new XMLHttpRequest to call the PHP function
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "./accept_reject_order.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var response = xhr.responseText.trim();
-          if (response === 'success') {
-            // Update the status on the UI or refresh the page
-            alert("Order Rejected!");
-            window.location.reload(); // Refresh the page after rejection
-          } else {
-            alert("Failed to reject order.");
-          }
-        }
-      };
-
-      // Send the request with the order_id
-      xhr.send("order_id=" + orderId + "&action=reject");
-    }
-  </script>
 </body>
 
 </html>
