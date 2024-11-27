@@ -388,6 +388,40 @@
                        <!-- Data will be populated by DataTables --> 
                     </tbody>
                 </table>
+
+                <!-- Modal accept -->
+                <div id="product-details-modal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                    <div class="bg-white p-6 rounded shadow-lg max-w-sm w-full">
+                        <h2 class="text-xl font-bold mb-4">Product Details</h2>
+                        <div class="flex items-center mb-4">
+                            <img id="modal-product-image" src="" alt="Product Image" class="w-16 h-16 rounded mr-4">
+                            <div>
+                                <p><strong>Product Code:</strong> <span id="modal-product-code"></span></p>
+                                <p><strong>Product Name:</strong> <span id="modal-product-name"></span></p>
+                            </div>
+                        </div>
+                        <p><strong>Description:</strong> <span id="modal-product-description"></span></p>
+                        <div class="flex justify-end mt-4">
+                            <button id="cancel-modal" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
+                            <button id="confirm-product" class="bg-green-500 text-white px-4 py-2 rounded">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- modal reject -->
+                <div id="reject-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+                    <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                      <h2 class="text-xl font-bold mb-4">Reject Product</h2>
+                      <p id="reject-modal-product-name" class="mb-4"></p>
+                      <label for="reject-reason" class="block text-gray-700 mb-2">Reason for Rejection:</label>
+                      <textarea id="reject-reason" class="w-full border rounded p-2 mb-4" rows="3" placeholder="Enter rejection reason..."></textarea>
+                      <div class="flex justify-end space-x-4">
+                        <button id="cancel-reject" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                        <button id="confirm-reject" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Confirm Reject</button>
+                      </div>
+                    </div>
+                  </div>
+  
             </div>
         </div>
     </main>
@@ -396,23 +430,130 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="../../dashboard.js"></script>
     <script>
-        $(document).ready( function () {
-            $('#productTable').DataTable({  
-                data: [ 
-                    ['PRC001', '<img src="../../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['PRC002', '<img src="../../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    
+       $(document).ready(function () {
+    // Initialize DataTable
+            $('#productTable').DataTable({
+                data: [
+                    [
+                        'PRC001',
+                        '<img src="../../img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia',
+                        'Magnolia',
+                        '250.00',
+                        '11/14/2024',
+                        '<button class="approve-btn bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'
+                    ],
+                    [
+                        'PRC002',
+                        '<img src="../../img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ',
+                        'Timplados',
+                        '120.50',
+                        '11/15/2024',
+                        '<button class="approve-btn bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'
+                    ],
                 ],
-                columns: [  
+                columns: [
                     { title: "Product Code" },
-                    { title: "Product" },         
+                    { title: "Product" },
                     { title: "Distributor" },
                     { title: "Price" },
                     { title: "Date Approved" },
-                    { title: "Action" }            
+                    { title: "Action" }
                 ]
             });
-        } );
+
+            // Modal and button setup
+            const productModal = document.getElementById("product-details-modal");
+            const modalProductCode = document.getElementById("modal-product-code");
+            const modalProductName = document.getElementById("modal-product-name");
+            const modalProductImage = document.getElementById("modal-product-image");
+            const modalProductDescription = document.getElementById("modal-product-description");
+            const confirmButton = document.getElementById("confirm-product");
+            const cancelButton = document.getElementById("cancel-modal");
+
+            // Open Modal and Populate Details
+            $('#productTable').on('click', '.approve-btn', function () {
+                const row = $(this).closest('tr');
+                const productCode = row.find('td:eq(0)').text();
+                const productName = row.find('td:eq(1)').text().trim();
+                const productDistributor = row.find('td:eq(2)').text();
+                const productDescription = `${productName} is a premium product from ${productDistributor}.`;
+
+                // Extract image URL from the first image tag in the second column
+                const imgTag = row.find('td:eq(1) img').attr('src');
+
+                // Update modal content
+                modalProductCode.textContent = productCode;
+                modalProductName.textContent = productName;
+                modalProductDescription.textContent = productDescription;
+
+                // Set the product image in the modal
+                modalProductImage.setAttribute('src', imgTag);
+
+                productModal.classList.remove("hidden");
+            });
+
+            // Confirm Button Action
+            confirmButton.addEventListener("click", () => {
+                alert("Product Approved!");
+                productModal.classList.add("hidden");
+            });
+
+            // Cancel Button Action
+            cancelButton.addEventListener("click", () => {
+                productModal.classList.add("hidden");
+            });
+
+            // Close Modal when clicking outside
+            window.addEventListener("click", (event) => {
+                if (event.target === productModal) {
+                    productModal.classList.add("hidden");
+                }
+            });
+
+
+            const rejectModal = document.getElementById('reject-modal');
+            const rejectModalProductName = document.getElementById('reject-modal-product-name');
+            const rejectReasonInput = document.getElementById('reject-reason');
+            const confirmRejectButton = document.getElementById('confirm-reject');
+            const cancelRejectButton = document.getElementById('cancel-reject');
+
+            // Open Reject Modal
+            document.querySelectorAll('.bg-red-500').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const row = e.target.closest('tr');
+                const productName = row.children[1].textContent.trim();
+                rejectModalProductName.textContent = `Are you sure you want to reject "${productName}"?`;
+                rejectModal.classList.remove('hidden');
+            });
+            });
+
+            // Confirm Reject Action
+            confirmRejectButton.addEventListener('click', () => {
+            const reason = rejectReasonInput.value.trim();
+            if (!reason) {
+                alert('Please provide a reason for rejection.');
+                return;
+            }
+            alert(`Product Rejected! Reason: ${reason}`);
+            rejectModal.classList.add('hidden');
+            rejectReasonInput.value = ''; // Clear input
+            });
+
+            // Cancel Reject Action
+            cancelRejectButton.addEventListener('click', () => {
+            rejectModal.classList.add('hidden');
+            rejectReasonInput.value = ''; // Clear input
+            });
+
+            // Close Modal when clicking outside
+            window.addEventListener('click', (event) => {
+            if (event.target === rejectModal) {
+                rejectModal.classList.add('hidden');
+                rejectReasonInput.value = ''; // Clear input
+            }
+            });
+        });
+
     </script>
 </body>
 </html>
