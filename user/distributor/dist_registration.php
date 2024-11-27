@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        
+        .flip-container {
+            perspective: 1000px;
+            width: 500px;
+            height: 400px; 
+        }
+
+        .flip-container:hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .flipper {
+            transition: 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; 
+        }
+
+        .front {
+            z-index: 2;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        .front img, .back img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+        }
+        .spin-animation {
+            animation: spin 2s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-cover" style="background-image: url('../../resources/img/Registration.png');">
+    <div class="relative flex items-center justify-center min-h-screen">
+        
+        <div class="relative z-10 flex flex-col items-center px-4 text-center text-white">
+            <h1 class="mb-4 text-xl font-bold text-right md:text-4xl">
+                Your first step on <br> becoming a Distributor
+            </h1>
+            <p class="max-w-lg px-4 mb-6 mr-2 text-sm font-light text-justify md:text-base">
+                Welcome to our distribution network! To start selling your products on our website, please register with us. This simple process will enable you to showcase your offerings to a vast customer base, increasing your sales and revenue.
+                <br>
+                To register, please provide us with some essential information. This includes your company profile, product details, and contact information. We will review your submission and verify your products to ensure they meet our quality standards. Once approved, you'll receive access to our distributor dashboard, where you can manage your product listings, track orders, and monitor sales performance.
+            </p>
+            <button type="submit"  onclick="Proceed()" class="w-full px-4 py-2 font-bold text-white bg-gray-700 rounded-lg hover:bg-slate-500">
+                Proceed
+            </button>
+        </div>
+
+        <div class="relative z-10 mt-8">
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="../../resources/img/dist_reg_mockup.png" alt="MockupImage1">
+                    </div>
+                    <div class="back">
+                        <img src="../../resources/img/dist_reg_mockup2.png" alt="MockupImage2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/tailwind/loader.js"></script>
+    <script>
+        function Proceed() {
+            showLoader();
+            setTimeout(function() {
+                window.location.href = '../../auth/registration_step1.php';
+            }, 2500); 
+        }
+    </script>
+</body>
+</html>
