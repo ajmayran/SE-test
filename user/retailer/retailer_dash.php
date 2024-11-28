@@ -95,14 +95,14 @@ if (isset($_SESSION['error_message'])) {
             <div class="flex items-center justify-between">
                 <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
             </div>
-            <div class="flex flex-wrap gap-4 py-10">
+            <div class="grid grid-cols-5 gap-4 py-10">
                 <?php if (!empty($allProducts)): ?>
                     <?php foreach ($allProducts as $product): ?>
                         <div
                             class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md basis-1/5 w-[20] border bordr-gray-100">
                             <div class="flex justify-center mb-4">
                                 <!-- Use get_image() to fetch the correct path for the product image -->
-                                <img class="mb-4" src="<?= get_image('products', $product['img']) ?>" alt="Product Image">
+                                <img class="w-24 h-24 object-cover rounded mb-4" src="<?= get_image('products', $product['img']) ?>" alt="Product Image">
                             </div>
                             <div class="text-left">
                                 <h3 class="text-lg font-bold"><?php echo htmlspecialchars($product['product_name']); ?></h3>
@@ -120,7 +120,7 @@ if (isset($_SESSION['error_message'])) {
                                             value="<?php echo htmlspecialchars($product['min_qty']); ?>" min="10"
                                             class="w-16 text-center border border-gray-300 rounded focus:ring focus:ring-green-200">
                                         <button type="submit"
-                                            class="px-4 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                                            class="text-[12px] px-1 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
                                             Add to Cart
                                         </button>
                                     </form>
