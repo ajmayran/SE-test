@@ -321,8 +321,8 @@
                 <!-- Form for Shop Voucher (Initially Hidden) -->
                 <div id="shopVoucherForm" class="hidden space-y-4">
                     <div>
-                        <label for="voucherCode" class="block text-gray-700">Voucher Code</label>
-                        <input type="text" id="voucherCode" class="w-full p-1 mt-2 border border-gray-300 rounded-lg" placeholder="Enter voucher code">
+                        <label for="voucherName" class="block text-gray-700">Voucher Name</label>
+                        <input type="text" id="voucherName" class="w-full p-1 mt-2 border border-gray-300 rounded-lg" placeholder="Enter voucher name">
                     </div>
 
                     <div>
@@ -412,8 +412,8 @@
                     </div>
 
                     <div>
-                        <label for="productVoucherCode" class="block text-gray-700">Voucher Code</label>
-                        <input type="text" id="productVoucherCode" class="w-full p-1 mt-2 border border-gray-300 rounded-lg" placeholder="Enter voucher code">
+                        <label for="productVoucherName" class="block text-gray-700">Voucher Name</label>
+                        <input type="text" id="productVoucherName" class="w-full p-1 mt-2 border border-gray-300 rounded-lg" placeholder="Enter voucher name">
                     </div>
 
                     <div>
