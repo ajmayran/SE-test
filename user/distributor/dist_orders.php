@@ -98,14 +98,14 @@
                     </a>
                 </li>
                 <li class="group">
-                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                       <span class="ml-2 font-normal">Business Insights</span>
                   </a>
               </li>
                 <hr class="border-gray-300 shadow-sm"/>
 
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
@@ -565,7 +565,7 @@
           document.getElementById("complete-order-customer-name").textContent = orderData.customername;
           document.getElementById("complete-order-customer-address").textContent = orderData.customeraddress;
           document.getElementById("complete-order-customer-contact").textContent = orderData.customercontact;
-          document.getElementById("complete-order-date").textContent = "September 29, 2024"; // Update accordingly
+          document.getElementById("complete-order-date").textContent = "September 29, 2024"; 
 
           // Update payment details
           document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;

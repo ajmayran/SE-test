@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributors Dashboard</title>
+    <title>Distributors Inventory</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
@@ -224,6 +224,14 @@
                             <iconify-icon icon="material-symbols:search" class="items-center p-1 text-xl align-middle"></iconify-icon>
                         </button>
                     </div>
+                    <div class="flex items-center">
+                    <span class="mr-1 font-sans text-sm">Restock Alert</span>
+                    <label class="p-1 switch">
+                                    <input type="checkbox" class="hidden" id="toggle">
+                                    <span class="slider round"></span>
+                    </label>
+                    </div>
+                   
                     <button type="" onclick="openstocksModal()"  class="px-2 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Manage Stocks</button> 
                 </div>
               

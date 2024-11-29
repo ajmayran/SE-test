@@ -14,6 +14,38 @@
         body {
         font-family: 'Lexend', sans-serif;
         }
+        .pagination {
+            display: flex;
+            align-items: center;
+        }
+
+        .page-button,
+        .prev-button,
+        .next-button,
+        .last-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+        .page-button.active {
+            background-color: #4CAF50; /* Active button background color */
+            color: white; /* Active button text color */
+        }
+
+        .prev-button:disabled,
+        .next-button:disabled {
+            background-color: #ddd; /* Disabled button background */
+            cursor: not-allowed; /* Not allowed cursor */
+        }
+        .pagination span {
+        margin: 0 5px;
+        font-weight: bold;
+        cursor: default; /* Not clickable */
+    }
     </style>
 </head>
 <body>
@@ -165,7 +197,7 @@
                 <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
             </div>
             <div class="grid grid-cols-2 gap-4 py-10 md:grid-cols-5">
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="h-20 mb-4 w-30">
                     </div>
@@ -180,7 +212,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -195,7 +227,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -210,7 +242,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-pepper-steak.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -225,7 +257,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-mideterranian.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -240,7 +272,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-chicken-siomai.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -255,7 +287,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -270,7 +302,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-oriental-wings.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -285,7 +317,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-chicken-tapa.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -300,7 +332,7 @@
                         Add to Cart
                     </button>
                 </a>
-                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md">
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
                         <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
                     </div>
@@ -315,17 +347,439 @@
                         Add to Cart
                     </button>
                 </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
+                    <div class="flex justify-center">
+                        <img src="./resources/img/Products/rtc-korean-chicken-bbq.png" alt="Product Image" class="w-20 h-20 mb-4 rounded-lg ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-normal">Korean Chicken Barbeque</h3>
+                        <p class="text-sm text-gray-500">By Magnolia</p>
+                    </div>
+                    <div class="flex items-center justify-center mt-4">
+                        <span class="font-sans text-xl">₱250.00</span>
+                    </div>
+                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </a>
+                
               </div>
         </div>
     </section>
-    <div class="flex justify-center gap-2 my-6">
-        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">←</button>
-        <button class="px-3 py-1 font-medium text-white bg-green-500 rounded-full">1</button>
-        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">2</button>
-        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">3</button>
+    <div class="flex justify-center gap-2 my-6 pagination">
+        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300 prev-button">←</button>
+        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full page-button">1</button>
+        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300 page-button">2</button>
+        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300 page-button">3</button>
         <span class="text-gray-400">...</span>
-        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">6</button>
-        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">→</button>
+        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300 page-button">6</button>
+        <button class="px-3 py-1 font-medium text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300 next-button">→</button>
     </div>
     
     <footer class="py-8" style="background-color: #282424;">
@@ -382,6 +836,6 @@
             </div>
         </div>
     </footer>
-<script src="./user_dash.js"></script>
+<script src="./js/tailwind/user_dash.js"></script>
 </body>
 </html>
