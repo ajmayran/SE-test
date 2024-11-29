@@ -186,10 +186,6 @@
                         <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">K</a>
-                    </li>
                 </ul>
             </li>
             <li class="mt-20 mb-1 group">

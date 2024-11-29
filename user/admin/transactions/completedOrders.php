@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <title>Completed Orders</title>
@@ -41,6 +41,8 @@
 </style>
 
 <body class="text-gray-800">
+    
+    <!-- Sidebar -->
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
@@ -100,7 +102,7 @@
                             order</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../transactions/cancelledOrders.php"
+                        <a href="cancelledOrders.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled
                             order</a>
                     </li>
@@ -185,10 +187,6 @@
                     <li class="mb-4">
                         <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">K</a>
                     </li>
                 </ul>
             </li>
@@ -437,7 +435,7 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="../../../dashboard.js"></script>
+    <script src="../../../js/tailwind/dashboard.js"></script>
     <script>
         $(document).ready( function () {
             $('#distTable').DataTable({  

@@ -44,12 +44,12 @@
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="../../../img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
+            <img src="../../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
             <span class="ml-3 text-lg font-bold">PConnect</span>
         </a>
         <ul class="mt-4">
             <li class="mb-1 group">
-                <a href="../dashboard.html" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
+                <a href="../dashboard.php" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
                     <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Dashboard</span>
                 </a>
@@ -185,10 +185,6 @@
                     <li class="mb-4">
                         <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">K</a>
                     </li>
                 </ul>
             </li>
