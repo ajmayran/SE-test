@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Pending Retailers</title>
+    <title>Distributor Orders</title>
 </head>
 <style>
     body {
@@ -41,6 +41,8 @@
 </style>
 
 <body class="text-gray-800">
+    
+    <!-- Sidebar -->
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
@@ -85,8 +87,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group">
-                <a href="#"
+            <li class="mb-1 group active">
+                <a href="#" id="active-link"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Transactions</span>
@@ -100,13 +102,13 @@
                             order</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../transactions/cancelledOrders.php"
+                        <a href="cancelledOrders.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled
                             order</a>
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group active">
+            <li class="mb-1 group">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
@@ -116,22 +118,22 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../retailers/pending.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./activeRetailers.php"
+                        <a href="../retailers/activeRetailers.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./restricted.php"
+                        <a href="../retailers/restricted.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./banned.php"
+                        <a href="../retailers/banned.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned
                             Retailers</a>
                     </li>
@@ -208,10 +210,10 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Retailers</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Transactions</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Pending</li>
+                <li class="mr-2 font-medium text-gray-600">Completed</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -338,90 +340,93 @@
             </ul>
         </div>
 
-        <!-- Pending retailers Content -->
+        <!-- Completed orders Content -->
         <div class="p-6">
-            <div class="mb-6 flex flex-row justify-between space-x-4">
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">560</h2>
+            <div class="mb-6 flex flex-row justify-between space-x-3">
+                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/3">
+                    <p class="text-gray-600">All Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">672</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Reported Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">12</h2>
+                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/3">
+                    <p class="text-gray-600">Successful Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">562</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Restricted Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">4</h2>
+                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/3">
+                    <p class="text-gray-600">Failed Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">110</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Banned Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">2</h2>
+            </div>
+        </div>
+        <div class="ml-6">
+                    <a href="./completedOrders.php" class="items-center bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition duration-300 inline-block">
+                        <iconify-icon icon="mdi:arrow-left" class="text-lg"></iconify-icon> <!-- Back Icon -->
+                        Back
+                    </a>
+                </div>
+        <div class="p-6">
+            <div class="bg-gray-200 p-6 rounded-lg shadow mb-6">
+                
+                <div class="flex items-center gap-4">
+                    <img src="../../../resources/img/distributors/jacob.png" alt="Distributor img" class="w-30 h-30 inline-block">
+                    <p class="text-3xl font-bold">Jacob Trading</p>
                 </div>
             </div>
 
-
-            <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-6">Pending Retailers</h2>
-                <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
+            <div class="bg-white p-6 rounded-lg shadow mb-6">
+                <div class="flex gap-6 items-center mb-4">
+                    <p><iconify-icon icon="mdi:filter" class="text-lg"></iconify-icon> Filter by:</p>
+                    <select id="statusFilter" class="bg-green-600 text-white font-bold py-3 px-6 rounded">
+                        <option value="">All Status</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <table id="orderTable" class="w-full table-auto">
                     <thead>
-                        <tr class="bg-gray-100">
-                            <th class="p-2 border text-left">User ID</th>
-                            <th class="p-2 border text-left">Name</th>
-                            <th class="p-2 border text-left">Email</th>
-                            <th class="p-2 border text-left">Date Created</th>
-                            <th class="p-2 border text-left">Status</th>
-                            <th class="p-2 border">Action</th>
+                        <tr class="bg-gray-100 text-gray-600 text-left">
+                            <th class="p-2">Order ID</th>
+                            <th class="p-2">Retailer ID</th>
+                            <th class="p-2">Retailer Name</th>
+                            <th class="p-2">Distributor</th>
+                            <th class="p-2">Date</th>
+                            <th class="p-2">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Data will be populated by DataTables -->
+                        <!-- datatable -->
                     </tbody>
                 </table>
             </div>
         </div>
+
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="../../../js/tailwind/dashboard.js"></script>
     <script>
-        $(document).ready(function() {
-            const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
-            ];
-
-            $('#retailerTable').DataTable({
-                data: retailerData,
+        $(document).ready(function () {
+            var table = $('#orderTable').DataTable({
+                data: [
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading', '11/14/2024', 'Completed'],
+                    ['order002', 'user007', 'Rudeee Abao', 'Primus', '11/15/2024', 'Cancelled'],
+                    ['order003', 'user004', 'BuggerMan Emman', 'Jacob Trading', '11/15/2024', 'Completed'],
+                    ['order004', 'user010', 'No sleep AJ', 'New Horizon Distribution Corporation', '11/16/2024', 'Cancelled']
+                ],
                 columns: [
-                    { title: "User ID", data: 0 },
-                    { title: "Name", data: 1 },
-                    { title: "Email", data: 2 },
-                    { title: "Date Created", data: 3 },
-                    { title: "Status", data: 4 },
-                    {"data": null,
-                        "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Approve</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Reject</button></div>';
-                        }
-                    }
+                    { title: "Order ID" },
+                    { title: "Retailer ID" },
+                    { title: "Retailer Name" },
+                    { title: "Distributor" },
+                    { title: "Date" },
+                    { title: "Status" }
                 ]
+            });
+
+            // Add filter by Status
+            $('#statusFilter').on('change', function () {
+                var status = $(this).val(); // Get selected value
+                table.column(5).search(status).draw(); // Apply column-specific filter
             });
         });
     </script>

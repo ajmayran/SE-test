@@ -41,128 +41,7 @@
 </style>
 
 <body class="text-gray-800">
-
     <!-- Sidebar -->
-    <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu" style="background-color: #abebc6;">
-        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
-            <span class="ml-3 text-lg font-bold">PConnect</span>
-        </a>
-        <ul class="mt-4">
-            <li class="mb-1 group active">
-                <a href="#" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
-                    <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon> 
-                    <span class="text-sm">Dashboard</span>
-                </a>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon> 
-                    <span class="text-sm">Products</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="./products/acceptedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured Products</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./products/pendingProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./products/rejectedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon> 
-                    <span class="text-sm">Transactions</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="./transactions/completedOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./transactions/CancelledOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled order</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Retailers</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="./retailers/pending.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Retailers</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Retailers</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./retailers/restricted.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted Retailers</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./retailers/banned.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned Retailers</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:truck" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Distributors</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Distributor</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="bx:support" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Support</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Ticket</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">K</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mt-20 mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <iconify-icon icon="mdi:settings" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Settings</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
@@ -186,7 +65,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./acceptedProducts.php"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
                             Products</a>
                     </li>
@@ -243,8 +122,8 @@
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All
+                        <a href="../retailers/activeRetailers.php"
+                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
@@ -269,19 +148,19 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../distributors/pendingDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Distributor</a>
+                        <a href="../distributors/activeDist.php"
+                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Distributor</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../distributors/restrictedDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../distributors/bannedDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
                     </li>
                 </ul>
@@ -319,7 +198,6 @@
             </li>
         </ul>
     </div>
-
     <div class="fixed top-0 left-0 z-40 w-full h-full bg-black/50 md:hidden sidebar-overlay"></div>
     
     <!-- Main -->
@@ -492,7 +370,6 @@
                         <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
                     </div>
                 </div>
-                <div class="overflow-x-auto"> </div>
                 <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">

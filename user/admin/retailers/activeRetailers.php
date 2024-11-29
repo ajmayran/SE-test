@@ -8,7 +8,7 @@
     <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Pending Retailers</title>
+    <title>Active Retailers</title>
 </head>
 <style>
     body {
@@ -116,12 +116,12 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="./pending.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./activeRetailers.php"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
@@ -211,7 +211,7 @@
                     <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Retailers</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Pending</li>
+                <li class="mr-2 font-medium text-gray-600">Active</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -361,14 +361,14 @@
 
 
             <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-6">Pending Retailers</h2>
+                <h2 class="text-2xl font-bold mb-6">Active Retailers</h2>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
                             <th class="p-2 border text-left">User ID</th>
                             <th class="p-2 border text-left">Name</th>
                             <th class="p-2 border text-left">Email</th>
-                            <th class="p-2 border text-left">Date Created</th>
+                            <th class="p-2 border text-left">Date Restricted</th>
                             <th class="p-2 border text-left">Status</th>
                             <th class="p-2 border">Action</th>
                         </tr>
@@ -387,25 +387,18 @@
     <script>
         $(document).ready(function() {
             const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
+                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "July 12, 2024", "Active"],
+                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "July 12, 2024", "Active"],
+                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Active",],
+                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Active"],
+                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Active"]
             ];
 
             $('#retailerTable').DataTable({
@@ -414,11 +407,11 @@
                     { title: "User ID", data: 0 },
                     { title: "Name", data: 1 },
                     { title: "Email", data: 2 },
-                    { title: "Date Created", data: 3 },
+                    { title: "Date Registered", data: 3 },
                     { title: "Status", data: 4 },
                     {"data": null,
                         "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Approve</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Reject</button></div>';
+                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Restrict</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Ban</button></div>';
                         }
                     }
                 ]

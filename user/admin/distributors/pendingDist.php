@@ -8,7 +8,7 @@
     <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Pending Retailers</title>
+    <title>Pending Distributors</title>
 </head>
 <style>
     body {
@@ -106,7 +106,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group active">
+            <li class="mb-1 group">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
@@ -116,28 +116,28 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../retailers/pending.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./activeRetailers.php"
+                        <a href="../retailers/activeRetailers.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./restricted.php"
+                        <a href="../retailers/restricted.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./banned.php"
+                        <a href="../retailers/banned.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned
                             Retailers</a>
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group">
+            <li class="mb-1 group active">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:truck" class="mr-3 text-xl"></iconify-icon>
@@ -147,19 +147,19 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../distributors/pendingDist.php"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../distributors/activeDist.php"
+                        <a href="./activeDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Distributor</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../distributors/restrictedDist.php"
+                        <a href="./restrictedDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../distributors/bannedDist.php"
+                        <a href="./bannedDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
                     </li>
                 </ul>
@@ -208,7 +208,7 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Retailers</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Distributors</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
                 <li class="mr-2 font-medium text-gray-600">Pending</li>
@@ -338,34 +338,34 @@
             </ul>
         </div>
 
-        <!-- Pending retailers Content -->
+        <!-- Pending distri Content -->
         <div class="p-6">
             <div class="mb-6 flex flex-row justify-between space-x-4">
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">560</h2>
+                    <p class="text-gray-600">All Distributors</p>
+                    <h2 class="text-2xl font-bold text-green-700">16</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Reported Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">12</h2>
+                    <p class="text-gray-600">Reported Distributors</p>
+                    <h2 class="text-2xl font-bold text-green-700">6</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Restricted Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">4</h2>
+                    <p class="text-gray-600">Restricted Distributors</p>
+                    <h2 class="text-2xl font-bold text-green-700">2</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Banned Retailers</p>
+                    <p class="text-gray-600">Banned Distributors</p>
                     <h2 class="text-2xl font-bold text-green-700">2</h2>
                 </div>
             </div>
 
 
             <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-6">Pending Retailers</h2>
+                <h2 class="text-2xl font-bold mb-6">Pending Distributors</h2>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
-                            <th class="p-2 border text-left">User ID</th>
+                            <th class="p-2 border text-left">Distributor ID</th>
                             <th class="p-2 border text-left">Name</th>
                             <th class="p-2 border text-left">Email</th>
                             <th class="p-2 border text-left">Date Created</th>
@@ -387,31 +387,31 @@
     <script>
         $(document).ready(function() {
             const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
+                ["DistA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending"],
+                ["DistA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
             ];
 
             $('#retailerTable').DataTable({
                 data: retailerData,
                 columns: [
-                    { title: "User ID", data: 0 },
+                    { title: "Distributor ID", data: 0 },
                     { title: "Name", data: 1 },
                     { title: "Email", data: 2 },
                     { title: "Date Created", data: 3 },
