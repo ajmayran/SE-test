@@ -101,7 +101,7 @@
                 <input type="email" name="email" placeholder="Email Address" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div class="mb-3 w-full py-1.5 border rounded-lg">
-                <input type="file" name="permit" class="hidden" id="fileInput">
+                <input type="file" name="permit" class="hidden" id="fileInput" accept=".jpeg, .jpg, .png">
                 <label for="fileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label><span class="ml-1" id="fileName"></span>
             </div>
             <div class="text-right m-2 text-[8px]">
