@@ -41,7 +41,6 @@
 </style>
 
 <body class="text-gray-800">
-    
     <!-- Sidebar -->
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
@@ -123,8 +122,8 @@
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All
+                        <a href="../retailers/activeRetailers.php"
+                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
@@ -149,19 +148,19 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../distributors/pendingDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Distributor</a>
+                        <a href="../distributors/activeDist.php"
+                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Distributor</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../distributors/restrictedDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../distributors/bannedDist.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
                     </li>
                 </ul>
@@ -202,7 +201,7 @@
     <div class="fixed top-0 left-0 z-40 w-full h-full bg-black/50 md:hidden sidebar-overlay"></div>
 
     <!-- Main -->
-    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main ">
         <!-- Topbar -->
         <div class="sticky top-0 left-0 z-30 flex items-center px-6 py-2 bg-white shadow-md shadow-black/5">
             <button type="button" class="text-lg text-gray-600 sidebar-toggle">
@@ -340,9 +339,8 @@
             </ul>
         </div>
 
-        <!-- Completed orders Content -->
         <div class="p-6">
-            <div class="mb-6 flex flex-row justify-between space-x-4">
+            <div class="flex flex-row justify-between space-x-4">
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
                     <p class="text-gray-600">All Transactions</p>
                     <h2 class="text-2xl font-bold text-green-700">12,689</h2>
@@ -360,38 +358,16 @@
                     <h2 class="text-2xl font-bold text-green-700">920</h2>
                 </div>
             </div>
+        </div>
 
-            <div class="bg-white p-6 rounded-lg shadow mb-6">
-                <div class="mb-6 flex flex-row justify-between space-x-4">
-                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                        <p class="text-2xl text-gray-600">Jacob Traiding</p>
-                        
-                        
-                        <h2 class="text-1xl font-bold text-green-700">Date Added: </h2>
-                        <h3 class="text-1xl font-bold text-green-700">12,689</h3>
-                        <button class="bg-green-500 text-white p-1 mt-2 rounded hover:bg-green-700">Show all</button>
-                        
-                    </div>
-                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                        <p class="text-gray-600">Successful Transactions</p>
-                        <h2 class="text-2xl font-bold text-green-700">10,102</h2>
-                    </div>
-                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                        <p class="text-gray-600">Pending Transactions</p>
-                        <h2 class="text-2xl font-bold text-green-700">2,960</h2>
-                    </div>
-                    <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                        <p class="text-gray-600">Failed Transactions</p>
-                        <h2 class="text-2xl font-bold text-green-700">920</h2>
-                    </div>
-                </div>
-
+        <!-- Completed orders Content -->
+        <div class="p-6 bg-gray-200">
+            <div class="bg-white p-6 rounded-lg shadow">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
                         Distributors
                     </div>
                 </div>
-                <div class="overflow-x-auto"> </div>
                 <table id="distTable" class="w-full table-auto"> <!--- Added id to the table --->
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">
@@ -408,7 +384,7 @@
             </div>
         </div>
 
-        <div class="p-6">
+        <div class="p-6 bg-gray-200">
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
@@ -440,9 +416,9 @@
         $(document).ready( function () {
             $('#distTable').DataTable({  
                 data: [ 
-                    ['dist001', '<img src="../../../resources/img/distributors/glenmark.png" alt="distributor 1" class="w-12 h-12 inline-block mr-2"> New Horizon Distribution Corporation', '11/14/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
-                    ['dist002', '<img src="../../../resources/img/distributors/jacob.png" alt="distributor 2" class="w-12 h-12 inline-block mr-2"> Jacob Trading', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>'],
-                    ['dist003', '<img src="../../../resources/img/distributors/primus.png" alt="distributor 3" class="w-12 h-12 inline-block mr-2"> Primus', '11/15/2024', '<button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button>']
+                    ['dist001', '<img src="../../../resources/img/distributors/glenmark.png" alt="distributor 1" class="w-12 h-12 inline-block mr-2"> New Horizon Distribution Corporation', '11/14/2024', '<a href="./distributorOrders.php"><button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button></a>'],
+                    ['dist002', '<img src="../../../resources/img/distributors/jacob.png" alt="distributor 2" class="w-12 h-12 inline-block mr-2"> Jacob Trading', '11/15/2024', '<a href="./distributorOrders.php"><button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button></a>'],
+                    ['dist003', '<img src="../../../resources/img/distributors/primus.png" alt="distributor 3" class="w-12 h-12 inline-block mr-2"> Primus', '11/15/2024', '<a href="./distributorOrders.php"><button class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Show all</button></a>']
                     
                 ],
                 columns: [  
