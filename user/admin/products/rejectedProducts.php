@@ -369,7 +369,6 @@
                         <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
                     </div>
                 </div>
-                <div class="overflow-x-auto"> </div>
                 <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">

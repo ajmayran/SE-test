@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Accepted Products</title>
+    <title>Distributor Orders</title>
 </head>
 <style>
     body {
@@ -41,128 +41,8 @@
 </style>
 
 <body class="text-gray-800">
-
+    
     <!-- Sidebar -->
-    <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu" style="background-color: #abebc6;">
-        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
-            <span class="ml-3 text-lg font-bold">PConnect</span>
-        </a>
-        <ul class="mt-4">
-            <li class="mb-1 group active">
-                <a href="#" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
-                    <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon> 
-                    <span class="text-sm">Dashboard</span>
-                </a>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon> 
-                    <span class="text-sm">Products</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="./products/acceptedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured Products</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./products/pendingProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./products/rejectedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon> 
-                    <span class="text-sm">Transactions</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="./transactions/completedOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./transactions/CancelledOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled order</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Retailers</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="./retailers/pending.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Retailers</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Retailers</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./retailers/restricted.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted Retailers</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="./retailers/banned.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned Retailers</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:truck" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Distributors</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Distributor</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="bx:support" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Support</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Ticket</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">K</a>
-                    </li> 
-                </ul>
-            </li>
-            <li class="mt-20 mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <iconify-icon icon="mdi:settings" class="mr-3 text-xl"></iconify-icon>
-                    <span class="text-sm">Settings</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
@@ -176,7 +56,7 @@
                     <span class="text-sm">Dashboard</span>
                 </a>
             </li>
-            <li class="mb-1 group active">
+            <li class="mb-1 group">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon>
@@ -186,7 +66,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./acceptedProducts.php"
+                        <a href="../products/acceptedProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
                             Products</a>
                     </li>
@@ -196,19 +76,19 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./pendingProducts.php"
+                        <a href="../products/pendingProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./rejectedProducts.php"
+                        <a href="../products/rejectedProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
                             Products</a>
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group">
-                <a href="#"
+            <li class="mb-1 group active">
+                <a href="#" id="active-link"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Transactions</span>
@@ -222,7 +102,7 @@
                             order</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../transactions/cancelledOrders.php"
+                        <a href="cancelledOrders.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled
                             order</a>
                     </li>
@@ -319,9 +199,8 @@
             </li>
         </ul>
     </div>
-
     <div class="fixed top-0 left-0 z-40 w-full h-full bg-black/50 md:hidden sidebar-overlay"></div>
-    
+
     <!-- Main -->
     <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
         <!-- Topbar -->
@@ -331,10 +210,10 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Products</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Transactions</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Accepted</li>
+                <li class="mr-2 font-medium text-gray-600">Completed</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -461,78 +340,95 @@
             </ul>
         </div>
 
-        <!-- Accepted Products Content -->
+        <!-- Completed orders Content -->
         <div class="p-6">
-            <div class="mb-6 flex flex-row justify-between space-x-4">
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">68</h2>
+            <div class="mb-6 flex flex-row justify-between space-x-3">
+                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/3">
+                    <p class="text-gray-600">All Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">672</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Featured Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">5</h2>
+                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/3">
+                    <p class="text-gray-600">Successful Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">562</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Pending Request</p>
-                    <h2 class="text-2xl font-bold text-green-700">20</h2>
+                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/3">
+                    <p class="text-gray-600">Failed Transactions</p>
+                    <h2 class="text-2xl font-bold text-green-700">110</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Rejected Products</p>
-                    <h2 class="text-2xl font-bold text-green-700">6</h2>
+            </div>
+        </div>
+        <div class="ml-6">
+                    <a href="./completedOrders.php" class="items-center bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition duration-300 inline-block">
+                        <iconify-icon icon="mdi:arrow-left" class="text-lg"></iconify-icon> <!-- Back Icon -->
+                        Back
+                    </a>
+                </div>
+        <div class="p-6">
+            <div class="bg-gray-200 p-6 rounded-lg shadow mb-6">
+                
+                <div class="flex items-center gap-4">
+                    <img src="../../../resources/img/distributors/jacob.png" alt="Distributor img" class="w-30 h-30 inline-block">
+                    <p class="text-3xl font-bold">Jacob Trading</p>
                 </div>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow mb-6">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
-                        Accepted Products
-                    </div>
-
-                    <div class="flex space-x-2">
-                        <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
-                    </div>
+                <div class="flex gap-6 items-center mb-4">
+                    <p><iconify-icon icon="mdi:filter" class="text-lg"></iconify-icon> Filter by:</p>
+                    <select id="statusFilter" class="bg-green-600 text-white font-bold py-3 px-6 rounded">
+                        <option value="">All Status</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
                 </div>
-                <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
+                <table id="orderTable" class="w-full table-auto">
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">
-                             <th class="p-2">Product Code</th>
-                             <th class="p-2">Product</th>
-                             <th class="p-2">Distributor</th>
-                             <th class="p-2">Price</th>
-                             <th class="p-2">Date Approved</th>
-                             <th class="p-2">Action</th>  
+                            <th class="p-2">Order ID</th>
+                            <th class="p-2">Retailer ID</th>
+                            <th class="p-2">Retailer Name</th>
+                            <th class="p-2">Distributor</th>
+                            <th class="p-2">Date</th>
+                            <th class="p-2">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                       <!-- Data will be populated by DataTables --> 
+                        <!-- datatable -->
                     </tbody>
                 </table>
             </div>
         </div>
+
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="../../../js/tailwind/dashboard.js"></script>
     <script>
-        $(document).ready( function () {
-            $('#productTable').DataTable({  
-                data: [ 
-                    ['PRC001', '<img src="../../../resources/img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['PRC002', '<img src="../../../resources/img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    
+        $(document).ready(function () {
+            var table = $('#orderTable').DataTable({
+                data: [
+                    ['order001', 'user001', 'Jazzer Onggoy', 'Jacob Trading', '11/14/2024', 'Completed'],
+                    ['order002', 'user007', 'Rudeee Abao', 'Primus', '11/15/2024', 'Cancelled'],
+                    ['order003', 'user004', 'BuggerMan Emman', 'Jacob Trading', '11/15/2024', 'Completed'],
+                    ['order004', 'user010', 'No sleep AJ', 'New Horizon Distribution Corporation', '11/16/2024', 'Cancelled']
                 ],
-                columns: [  
-                    { title: "Product Code" },
-                    { title: "Product" },         
+                columns: [
+                    { title: "Order ID" },
+                    { title: "Retailer ID" },
+                    { title: "Retailer Name" },
                     { title: "Distributor" },
-                    { title: "Price" },
-                    { title: "Date Approved" },
-                    { title: "Action" }            
+                    { title: "Date" },
+                    { title: "Status" }
                 ]
             });
-        } );
+
+            // Add filter by Status
+            $('#statusFilter').on('change', function () {
+                var status = $(this).val(); // Get selected value
+                table.column(5).search(status).draw(); // Apply column-specific filter
+            });
+        });
     </script>
 </body>
-
 </html>

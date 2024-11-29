@@ -368,7 +368,6 @@
                         <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
                     </div>
                 </div>
-                <div class="overflow-x-auto"> </div>
                 <table id="productTable" class="w-full table-auto">
                     <thead>
                         <tr class="bg-gray-100 text-gray-600 text-left">
@@ -436,7 +435,7 @@
                         'Magnolia',
                         '250.00',
                         '11/14/2024',
-                        '<button class="approve-btn bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'
+                        '<button class="approve-btn bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Reject</button>'
                     ],
                     [
                         'PRC002',
@@ -444,7 +443,7 @@
                         'Timplados',
                         '120.50',
                         '11/15/2024',
-                        '<button class="approve-btn bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'
+                        '<button class="approve-btn bg-green-500 text-white p-2 rounded hover:bg-green-600">Approve</button> <button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Reject</button>'
                     ],
                 ],
                 columns: [
