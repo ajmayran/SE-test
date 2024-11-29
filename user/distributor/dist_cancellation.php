@@ -121,15 +121,19 @@
             <div class="container mx-auto">
                 <div class="p-4 bg-white rounded-b-lg shadow-md min-h-[600px]">
                   <!-- Tabs -->
-                  <div class="flex mb-4 space-x-4 border-b">
-                    <button id="tab-cust-cancel" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
-                      Customer Cancellation
-                    </button>
-                    <button id="tab-my-cancel" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
-                      My Cancellation
-                    </button>
-                  </div>
-                  
+                  <div class="flex justify-between mb-4 border-b">
+                    <div class="flex space-x-4">
+                        <button id="tab-cust-cancel" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
+                            Customer Cancellation
+                        </button>
+                        <button id="tab-my-cancel" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
+                            My Cancellation
+                        </button>
+                    </div>
+                        <button id="tab-records" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
+                            Records >
+                        </button>
+                    </div>             
                   <div class="flex items-center justify-between w-full h-10">
                         <div class="flex items-center w-full max-w-md">
                             <input type="text" placeholder="Search order" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"/>

@@ -565,7 +565,7 @@
           document.getElementById("complete-order-customer-name").textContent = orderData.customername;
           document.getElementById("complete-order-customer-address").textContent = orderData.customeraddress;
           document.getElementById("complete-order-customer-contact").textContent = orderData.customercontact;
-          document.getElementById("complete-order-date").textContent = "September 29, 2024"; // Update accordingly
+          document.getElementById("complete-order-date").textContent = "September 29, 2024"; 
 
           // Update payment details
           document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
