@@ -10,64 +10,82 @@
   <link rel="stylesheet" href="../../src/user_dash.css">
   <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col">
+
+<body>
   <?php
-    $page_title = 'Dashboard';
-    require_once '../../includes/retailer_topnav.php';
+    require_once '../../includes/retailer_topnav_2.php';
   ?>
-  <div class="flex flex-row">
-    <div class="w-1/4 bg-gray-200 p-4">
-      <ul class="space-y-4">
-        <li class="text-gray-700 hover:bg-gray-300 hover:text-gray-900 cursor-pointer sidebar-item" data-target="profile">Profile</li>
-        <li class="text-gray-700 hover:bg-gray-300 hover:text-gray-900 cursor-pointer sidebar-item" data-target="address">Address</li>
-        <li class="text-gray-700 hover:bg-gray-300 hover:text-gray-900 cursor-pointer sidebar-item" data-target="change-password">Change Password</li>
-        <li class="text-gray-700 hover:bg-gray-300 hover:text-gray-900 cursor-pointer sidebar-item" data-target="my-purchases">My Purchases</li>
-        <li class="text-gray-700 hover:bg-gray-300 hover:text-gray-900 cursor-pointer sidebar-item" data-target="notifications">Notifications</li>
-        <li class="text-gray-700 hover:bg-gray-300 hover:text-gray-900 cursor-pointer sidebar-item" data-target="my-vouchers">My Vouchers</li>
-      </ul>
+ 
+  <div class="flex h-screen container mx-auto m-10 gap-2">
+    <div class="w-1/4 pt-5 border shadow-md h-full">
+      <h2 class="text-xl font-bold mb-4 p-4 text-center">Account</h2>
+        <ul class="tab-list space-y text-center">
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Profile</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Address</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Change Password</li>
+            <a href="retailer_purchase_status.php"><li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Purchase</li></a>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Notifications</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Voucher</li>
+        </ul>
     </div>
-    <div class="w-3/4 p-4">
-      <div id="profile" class="hidden">
-        <p>This is the profile content.</p>
-      </div>
-      <div id="address" class="hidden">
-        <p>This is the address content.</p>
-      </div>
-      <div id="change-password" class="hidden">
-        <p>This is the change password content.</p>
-      </div>
-      <div id="my-purchases" class="hidden">
-        <p>This is the my purchases content.</p>
-      </div>
-      <div id="notifications" class="hidden">
-        <p>This is the notifications content.</p>
-      </div>
-      <div id="my-vouchers" class="hidden">
-        <p>This is the my vouchers content.</p>
-      </div>
+    <div class="w-3/4 p-4 pt-5 border shadow-md">
+        <div class="tab-content">
+
+            <div class="tab-pane">
+            <?php
+              require_once '../../includes/retailer_profile_form.php';
+            ?>               
+            </div>
+
+            <div class="tab-pane hidden">
+            <?php
+              require_once '../../includes/retailer_address.php';
+            ?>  
+            </div>
+
+            <div class="tab-pane hidden">
+            <?php
+              require_once '../../includes/retailer_password.php';
+            ?>  
+            </div>
+
+            <div class="tab-pane hidden"></div>
+
+            <div class="tab-pane hidden" >
+            <?php
+              require_once '../../includes/retailer_notif.php';
+            ?>  
+            </div>
+            
+            <div class="tab-pane hidden">
+            <?php
+              require_once '../../includes/retailer_voucher.php';
+            ?>               
+            </div>
+
+        </div>
     </div>
   </div>
-
-  <?php
+<?php
     require_once '../../includes/retailer_footer.php';
-  ?> 
-  <script>
-    const sidebarItems = document.querySelectorAll('.sidebar-item');
-
-    sidebarItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const targetId = item.dataset.target;
-        const contentSections = document.querySelectorAll('.content-section');
-
-        contentSections.forEach(section => {
-          if (section.id === targetId) {
-            section.classList.remove('hidden');
-          } else {
-            section.classList.add('hidden');
-          }
-        });
-      });
-    });
-  </script> 
+?> 
 </body>
 </html>
+<script>
+const tabItems = document.querySelectorAll('.tab-item');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+// Set the first tab as active by default
+tabItems[0].classList.add('active');
+tabPanes[0].classList.remove('hidden');
+
+tabItems.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    tabItems.forEach(item => item.classList.remove('active'));
+    tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+    item.classList.add('active');
+    tabPanes[index].classList.remove('hidden');
+  });
+});
+</script>

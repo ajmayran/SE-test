@@ -15,13 +15,14 @@
         $page_title = 'Dashboard';
         require_once '../../includes/retailer_topnav.php';
     ?>
-    <div class="mx-20 my-10 container mx-auto">
+    <div class="my-10 container mx-auto">
         <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
             Go back
         </a>
     </div>
    
     <section class="bg-white py-6 container mx-auto h-screen">
+        
         <h2 class="text-2xl font-bold mb-4">Order Cart</h2>
         <table class="w-full table-auto">
             <thead>
