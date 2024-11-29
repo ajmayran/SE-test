@@ -19,19 +19,35 @@
             <a href="#" class="mr-4 text-gray-500 hover:text-gray-700">
                 <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
             </a>
-            <div class="flex items-center">
-                <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full">
+
+
+            <div class="relative flex items-center cursor-pointer hover:bg-gray-200">
+                <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full profile-button">
                 <span class="font-medium text-gray-700">Michael Jordan</span>
+                <div class="hidden absolute bg-white shadow-md rounded mt-2 w-48 dropdown-menu">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">My Account</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">My Purchases</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Log Out</a>
+                </div>
             </div>
         </div>
     </nav>
     <nav class="flex items-center justify-between bg-white shadow-sm">
         <div class="w-full px-20 py-2 text-white bg-gray-900">
             <ul class="flex justify-center space-x-20 ">
-                <li class=" hover:text-green-00"><a href="./retailer_dash.php">HOME</a></li>
-                <li class=" hover:text-green-500"><a href="#">DISTRIBUTORS</a></li>
-                <li class=" hover:text-green-500"><a href="#">PRODUCTS</a></li>
-                <li class=" hover:text-green-500"><a href="#">CATEGORY</a></li>
+                <li class=" hover:text-green-500 "><a href="retailer_dash.php">HOME</a></li>
+                <li class=" hover:text-green-500 "><a href="#">DISTRIBUTORS</a></li>
+                <li class=" hover:text-green-500 "><a href="#">PRODUCTS</a></li>
+                <li class=" hover:text-green-500 "><a href="#">CATEGORY</a></li>
             </ul>
         </div>
     </nav>
+    <script>
+        const profileContainer = document.querySelector('.relative');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        profileContainer.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+        });
+    </script>
+   
