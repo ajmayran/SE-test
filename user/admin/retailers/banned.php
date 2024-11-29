@@ -121,8 +121,8 @@
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./allRetailers.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All
+                        <a href="./activeRetailers.php"
+                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
@@ -131,7 +131,7 @@
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./banned.php"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned
                             Retailers</a>
                     </li>
@@ -361,10 +361,7 @@
 
 
             <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-xl font-bold mb-4">Banned Retailers</h2>
-                <div class="flex items-center mb-4 justify-end">
-                    <button class="ml-2 p-2 bg-red-500 text-white rounded"><iconify-icon icon="mdi:trash-can"></iconify-icon></button>
-                </div>
+                <h2 class="text-2xl font-bold mb-6">Banned Retailers</h2>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">

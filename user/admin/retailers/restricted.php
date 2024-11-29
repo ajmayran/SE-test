@@ -121,12 +121,12 @@
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./allRetailers.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All
+                        <a href="./activeRetailers.php"
+                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./restricted.php"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted
                             Retailers</a>
                     </li>
@@ -361,10 +361,7 @@
 
 
             <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-xl font-bold mb-4">Restricted Retailers</h2>
-                <div class="flex items-center mb-4 justify-end">
-                    <button class="ml-2 p-2 bg-red-500 text-white rounded"><iconify-icon icon="mdi:trash-can"></iconify-icon></button>
-                </div>
+                <h2 class="text-2xl font-bold mb-6">Restricted Retailers</h2>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
@@ -391,24 +388,17 @@
     <script>
         $(document).ready(function() {
             const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Restricted", "Abuse of checkout"],
+                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "July 12, 2024", "Restricted", "Abuse of checkout"],
                 ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Restricted", "Abuse in contact"],
                 ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Restricted", "Malicious image"],
                 ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Restricted", "Rating abuse"],
                 ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Restricted", "Wrong Credentials"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Restricted", "Continued harassment of users"],
+                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "July 12, 2024", "Restricted", "Continued harassment of users"],
                 ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
                 ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
                 ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
                 ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
                 ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
                 ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"]
             ];
 
