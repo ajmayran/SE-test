@@ -73,40 +73,40 @@
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_inventory.php"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_inventory.php"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Inventory</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Messages</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Blocking</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Income</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Business Insights</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
