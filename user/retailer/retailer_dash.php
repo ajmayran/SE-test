@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="../../src/output.css">
     <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <style>
-        body {
-        font-family: 'Lexend', sans-serif;
-        }
-    </style>
 </head>
 <body>
     <?php
