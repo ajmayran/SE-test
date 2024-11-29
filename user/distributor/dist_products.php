@@ -1,3 +1,93 @@
+<?php
+    require_once '../../classes/product.class.php';
+    require_once '../../function/util.php';
+// Initialize variables to hold form input values and error messages.
+// Create an instance of the Product class for database interaction.
+$productObj = new Product();
+
+// Check if the form was submitted using the POST method.
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    $img = $product_name = $product_code = $product_desc = $category = $price = $tags = $stock = $min_qty = $max_qty = '';
+    $imgErr = $product_nameErr = $product_codeErr = $product_descErr =  $categoryErr = $priceErr = $tagsErr = $stockErr = $min_qtyErr = $max_qtyErr = '';
+
+    $img = clean_input($_POST['img']);
+    $product_name = clean_input($_POST['product_name']);
+    $product_code = clean_input($_POST['product_code']);
+    $product_desc = clean_input($_POST['product_desc']);
+    $category = clean_input($_POST['category']);
+    $price = clean_input($_POST['price']);
+    $tags = clean_input($_POST['tags']);
+    $stock = clean_input($_POST['stock']);
+    $min_qty = clean_input($_POST['min_qty']);
+    $max_qty = clean_input($_POST['max_qty']);
+
+
+
+    // Validate the 'code' field: check if it's empty or if the code already exists in the database.
+    if(empty($product_code)){
+        $product_codeErr = 'Product Code is required';
+    } else if ($productObj->codeExists($product_code)){
+        $product_codeErr = 'Product Code already exists';
+    }
+
+    // Validate the 'name' field: it must not be empty.
+    if(empty($product_name)){
+        $product_nameErr = 'Name is required';
+    }
+
+    if (isset($_POST["product_description"])) {
+        $product_description = filter_var($_POST["product_description"], FILTER_SANITIZE_STRING); //Sanitize!
+        $productObj->product_desc= $product_desc;
+    } else {
+        // Handle the missing key appropriately (e.g., set a default value, display an error message).
+        $productObj->product_desc = ''; // or some other default 
+        // OR: echo "Error: product_description is missing"; //Show error to the user
+        // OR:  die("Error: product_description is missing."); //Stop execution
+    }
+
+    // Validate the 'category' field: it must not be empty.
+    if(empty($category)){
+        $categoryErr = 'Category is required';
+    }
+
+    // Validate the 'price' field: it must not be empty, must be a number, and greater than 0.
+    if(empty($price)){
+        $priceErr = 'Price is required';
+    } else if (!is_numeric($price)){
+        $priceErr = 'Price should be a number';
+    } else if ($price < 1){
+        $priceErr = 'Price must be greater than 0';
+    }
+
+    // If there are no validation errors, proceed to add the product to the database.
+    if(empty($imgErr) && empty($product_nameErr) && empty($product_codeErr) && empty($product_descErr) && empty($categoryErr) && empty($priceErr )
+    && empty($tagsErr) && empty($stockErr) && empty($min_qtyErr) && empty($max_qtyErr)){
+        // Assign the sanitized inputs to the product object.
+        $productObj->img = $img;
+        $productObj->product_name = $product_name;
+        $productObj->product_code = $product_code;
+        $productObj->product_desc = $product_desc;
+        $productObj->category = $category;
+        $productObj->price = $price;
+        $productObj->tags = $tags;
+        $productObj->stock = $stock;
+        $productObj->min_qty = $min_qty;
+        $productObj->max_qty = $max_qty;
+
+
+        // Attempt to add the product to the database.
+        if($productObj->add()){
+            // If successful, redirect to the product listing page.
+            header('Location: ./dist_dashboard.php');
+        } else {
+            // If an error occurs during insertion, display an error message.
+            echo 'Something went wrong when adding the new product.';
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -502,58 +592,56 @@
             </div>
         </div>     
     </footer>
-        
+    
+    <form action="#" method="POST">
     <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
         <div class="relative w-full max-w-3xl max-h-screen p-8 overflow-y-auto bg-white rounded-lg">
             <button onclick="closeproductModal()" class="absolute text-blue-600 top-4 right-4 hover:underline">
                 Close
             </button>
             <div class="relative flex items-center justify-center w-1/4 h-40 mx-auto mb-6 ml-4 border-2 border-gray-400 border-dashed">
-                <input type="file" class="absolute inset-0 opacity-0 cursor-pointer">
+                <input type="file" name="img" class="absolute inset-0 opacity-0 cursor-pointer" accept=".jpeg, .jpg, .png">
                 <span class="text-gray-500">+ Add Photo</span>
             </div>
             <div class="flex">
                 <div class="w-1/2 pr-4">
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Product Name</label>
-                        <input type="text" placeholder="Enter Name of your Product" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="text" placeholder="Enter Name of your Product Name" name="product_name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-gray-700">Product Code</label>
+                        <input type="text" placeholder="Enter Name of your Product Code" name="product_code" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Product Description</label>
-                        <textarea placeholder="Enter Description" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        <textarea placeholder="Enter Description" name="product_desc" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Category</label>
-                        <div class="relative">
-                            <select class="w-full px-3 py-2 border rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-green-500">
-                                <option>Choose Category</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                                <iconify-icon icon="mdi:arrow-down-drop" class="w-4 h-4 text-xl"></iconify-icon>
-                            </div>
-                        </div>
+                        <input type="text" placeholder="Enter Category" name="category" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Price</label>
-                        <input type="number" placeholder="Set Price" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:green-blue-500">
+                        <input type="number" placeholder="Set Price" name="price" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:green-blue-500">
                     </div>
                 </div>
                 <div class="w-1/2 pl-4">
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Tags</label>
-                        <input type="text" placeholder="Set a Keyword for this product" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="text" placeholder="Set a Keyword for this product" name="tags" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Stock</label>
-                        <input type="number" placeholder="Set Number of Stocks" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="number" placeholder="Set Number of Stocks" name="stock" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Minimum Purchase Quantity</label>
-                        <input type="number" placeholder="Set minimum qty." class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="number" placeholder="Set minimum qty." name="min_qty" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-gray-700">Maximum Purchase Quantity</label>
-                        <input type="number" placeholder="Set maximum qty." class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="number" placeholder="Set maximum qty." name="max_qty" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
                 </div>
             </div>
@@ -562,6 +650,7 @@
                 <button onclick="closeproductModal()" class="px-6 py-2 mr-4 text-gray-700 bg-white border rounded-lg hover:bg-gray-100">Cancel</button>
                 <button class="px-6 py-2 text-white bg-green-500 border rounded-lg hover:bg-green-600">Save and Publish</button>
             </div>
+            </form>
         </div>
     </div>
     <script>
