@@ -17,13 +17,14 @@ class Account{
     }
 
     function add(){
-        $sql = "INSERT INTO user (first_name, middle_name, last_name, email, password) VALUES (:first_name, :middle_name, :last_name, :email, :password);";
+        $sql = "INSERT INTO user (first_name, middle_name, last_name, email, permit, password) VALUES (:first_name, :middle_name, :last_name, :email, :permit, :password);";
         $query = $this->db->connect()->prepare($sql);
 
         $query->bindParam(':first_name', $this->first_name);
         $query->bindParam(':middle_name', $this->middle_name);
         $query->bindParam(':last_name', $this->last_name);
         $query->bindParam(':email', $this->email);
+        $query->bindParam(':permit', $this->permit);
         $query->bindParam(':password', $this->password);    
 
         return $query->execute();

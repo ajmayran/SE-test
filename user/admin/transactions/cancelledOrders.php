@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="icon" href="../../img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
     <title>Cancelled Orders</title>
 </head>
@@ -44,12 +44,12 @@
     <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
         style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="../../img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
+            <img src="../../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
             <span class="ml-3 text-lg font-bold">PConnect</span>
         </a>
         <ul class="mt-4">
             <li class="mb-1 group">
-                <a href="../dashboard.html" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
+                <a href="../dashboard.php" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
                     <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Dashboard</span>
                 </a>
@@ -64,7 +64,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../products/acceptedProducts.html"
+                        <a href="../products/acceptedProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
                             Products</a>
                     </li>
@@ -74,12 +74,12 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../products/pendingProducts.html"
+                        <a href="../products/pendingProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../products/rejectedProducts.html"
+                        <a href="../products/rejectedProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
                             Products</a>
                     </li>
@@ -95,7 +95,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="completedOrders.html"
+                        <a href="completedOrders.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed
                             order</a>
                     </li>
@@ -116,7 +116,7 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../retailers/pending.html"
+                        <a href="../retailers/pending.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
@@ -126,12 +126,12 @@
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../retailers/restricted.html"
+                        <a href="../retailers/restricted.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../retailers/banned.html"
+                        <a href="../retailers/banned.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned
                             Retailers</a>
                     </li>
@@ -185,10 +185,6 @@
                     <li class="mb-4">
                         <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">K</a>
                     </li>
                 </ul>
             </li>
@@ -389,7 +385,7 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="../../dashboard.js"></script>
+    <script src="../../../js/tailwind/dashboard.js"></script>
     <script>
         $(document).ready( function () {
             $('#orderTable').DataTable({  
