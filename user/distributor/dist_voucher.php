@@ -128,7 +128,7 @@
             <div class="container mx-auto">
                 <div class="p-4 bg-white rounded-b-lg shadow-md min-h-[600px]">
                     <!-- Tabs -->
-                    <div class="flex items-center justify-between mb-4 border-b">
+                    <div class="flex items-center mb-4 border-b">
                         <button id="tab-active" class="px-4 py-2 mx-auto text-green-600 border-b-4 border-green-600 focus:outline-none">
                             Active
                         </button>

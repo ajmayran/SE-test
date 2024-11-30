@@ -26,7 +26,7 @@
 </head>
 <body class="bg-gray-100">
     <header class="sticky top-0 z-10 bg-white border-b border-gray-300 drop-shadow-sm">
-        <div class="container flex items-center justify-between px-4 py-4 mx-auto">
+        <div class="container flex items-center justify-between px-4 py-4 mx-auto"> 
             <div class="flex items-center">
                 <img alt="PConnect Logo" class="w-8 h-8" src="../../resources/img/Pconnect Logo.png"/>
                 <span class="ml-2 text-xl font-bold">
