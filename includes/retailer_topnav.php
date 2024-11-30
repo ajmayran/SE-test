@@ -1,4 +1,4 @@
-<nav class="flex justify-between py-4 bg-white shadow-sm min-h-20 container mx-auto">
+<nav class="flex justify-between py-4 bg-white min-h-20 container mx-auto">
         <div class="flex items-center " >
             <img src="../../resources/img/Pconnect Logo.png" alt="PC Connect Logo" class="h-10 mr-4">
             <span class="text-2xl font-semibold text-black-700">PConnect</span>

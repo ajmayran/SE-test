@@ -15,7 +15,7 @@
         $page_title = 'Dashboard';
         require_once '../../includes/retailer_topnav.php';
     ?>
-    <div class="mx-20 mt-10 container mx-auto">
+    <div class="mt-10 container mx-auto">
         <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
             Go back
         </a>
