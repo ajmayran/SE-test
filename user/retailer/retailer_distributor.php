@@ -33,25 +33,18 @@
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <div class="relative inline-block">
-                        <button class="px-4 py-2 font-bold text-white bg-gray-400 rounded hover:bg-gray-500">
-                            Actions
-                        </button>
-                    </div>
-                    <button class="px-4 py-2 ml-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
-                        View Info
-                    </button>
+                    
                 </div>
             </div>
         </section>
         <nav class="p-2 mx-20 bg-gray-100 container mx-auto">
             <ul class="flex justify-between px-10 space-x-2">
-                <li><a href="#" class=" hover:text-green-500">Home</a></li>
                 <li><a href="#" class=" hover:text-green-500">All Products</a></li>
-                <li><a href="#" class=" hover:text-green-500">Watsons Baby Care</a></li>
-                <li><a href="#" class=" hover:text-green-500">Fresh Bodycare</a></li>
-                <li><a href="#" class=" hover:text-green-500">Gift of Beauty</a></li>
-                <li><a href="#" class=" hover:text-green-500">Dove & Joy</a></li>
+                <li><a href="#" class=" hover:text-green-500">etc</a></li>
+                <li><a href="#" class=" hover:text-green-500">etc</a></li>
+                <li><a href="#" class=" hover:text-green-500">etc</a></li>
+                <li><a href="#" class=" hover:text-green-500">etc</a></li>
+                <li><a href="#" class=" hover:text-green-500">etc</a></li>
             </ul>
         </nav>
 

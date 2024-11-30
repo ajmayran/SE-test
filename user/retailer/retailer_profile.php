@@ -24,7 +24,7 @@
             <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Address</li>
             <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Change Password</li>
             <a href="retailer_purchase_status.php"><li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Purchase</li></a>
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Notifications</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2" >Notifications</li>
             <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Voucher</li>
         </ul>
     </div>
@@ -72,6 +72,31 @@
 </body>
 </html>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tabItems = document.querySelectorAll('.tab-item');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  const queryParams = new URLSearchParams(window.location.search);
+  const activeTab = queryParams.get('tab'); // Get 'tab' parameter from the URL
+
+  // Default behavior: Set the first tab as active
+  let activeIndex = 0;
+
+  // If there's a tab parameter, find the matching tab and set it as active
+  if (activeTab) {
+    tabItems.forEach((item, index) => {
+      if (item.textContent.trim().toLowerCase() === activeTab.toLowerCase()) {
+        activeIndex = index;
+      }
+    });
+  }
+
+  // Activate the determined tab
+  tabItems.forEach(item => item.classList.remove('active'));
+  tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+  tabItems[activeIndex].classList.add('active');
+  tabPanes[activeIndex].classList.remove('hidden');
+});
 const tabItems = document.querySelectorAll('.tab-item');
 const tabPanes = document.querySelectorAll('.tab-pane');
 

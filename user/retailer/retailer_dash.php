@@ -68,13 +68,7 @@
             <div class="flex items-center justify-between">
                 <h2 class="mr-4 text-2xl font-bold">Explore Distributors</h2>
                 <div class="flex items-center">
-                    <i class="mr-2 fa-solid fa-angle-left"></i>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">All</button>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Drinks</button>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Frozen Products</button>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Instant Drink</button>
-                    <button class="px-4 py-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Toiletries</button>
-                    <i class="ml-2 fa-solid fa-angle-right"></i>
+                    <a href=""><h1 class="text-green-500">see all</h1></a>
                 </div>
             </div>
 
@@ -108,165 +102,11 @@
         </div>
     </section>
 
-    <section class="py-5 bg-white">
-        <div class="container px-4 mx-auto">
-            <div class="flex items-center justify-between">
-                <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 py-10">
-               <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Chicken Tocino Templados</h3>
-                        <p class="text-gray-500">By Magnolia</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Chicken lumpia shanghai mix</h3>
-                        <p class="text-gray-500">By NestFood</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Cheesy Chicken Fingers</h3>
-                        <p class="text-gray-500">By Magnolia</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-pepper-steak.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Pepper Steak</h3>
-                        <p class="text-gray-500">By NestFood</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-mideterranian.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">mideterranian</h3>
-                        <p class="text-gray-500">By NestFood</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Chicken Siomai</h3>
-                        <p class="text-gray-500">By NestFood</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Spicy Wings</h3>
-                        <p class="text-gray-500">By Magnolia</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-oriental-wings.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Oriental Wings</h3>
-                        <p class="text-gray-500">By Magnolia</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-chicken-tapa.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Chicken Tapa</h3>
-                        <p class="text-gray-500">By NestFood</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-                  <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
-                    <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold">Spicy Wings</h3>
-                        <p class="text-gray-500">By Magnolia</p>
-                    </div>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
-                    </div>
-                </a>
-              </div>
-        </div>
-    </section>
+    <?php
+        $page_title = 'Dashboard';
+        require_once '../../includes/popular_products.php';
+    ?>
+
     <div class="flex justify-center gap-2 my-6">
         <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-full px-3 py-1">←</button>
         <button class="bg-green-500 text-white font-medium rounded-full px-3 py-1">1</button>
