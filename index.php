@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -207,9 +207,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -222,9 +219,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -237,9 +231,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -252,9 +243,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -267,9 +255,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -282,9 +267,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -297,9 +279,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -312,9 +291,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -327,9 +303,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -342,9 +315,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -357,9 +327,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -372,9 +339,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -387,9 +351,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -402,9 +363,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -417,9 +375,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -432,9 +387,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -447,9 +399,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -462,9 +411,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -477,9 +423,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -492,9 +435,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -507,9 +447,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -522,9 +459,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
 
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
@@ -538,9 +472,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -553,9 +484,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -568,9 +496,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -583,9 +508,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -598,9 +520,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -613,9 +532,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -628,9 +544,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -643,9 +556,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -658,9 +568,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -673,9 +580,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -688,9 +592,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -703,9 +604,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -718,9 +616,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -733,9 +628,7 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
+
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -748,9 +641,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 <a href="./auth/login.php" class="p-6 text-center bg-white border-2 border-gray-100 rounded-lg shadow-md product">
                     <div class="flex justify-center">
@@ -763,9 +653,6 @@
                     <div class="flex items-center justify-center mt-4">
                         <span class="font-sans text-xl">₱250.00</span>
                     </div>
-                    <button class="w-full px-4 py-2 mt-10 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                        Add to Cart
-                    </button>
                 </a>
                 
               </div>

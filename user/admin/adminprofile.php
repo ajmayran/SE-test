@@ -7,6 +7,9 @@
     <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../src/user_dash.css">
     <title>Settings</title>
 </head>
 <style>
@@ -138,7 +141,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="mt-20 mb-1 group active">
+            <li class="mt-20 mb-1 group">
                 <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     <iconify-icon icon="mdi:settings" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Settings</span>
@@ -161,7 +164,7 @@
                     <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Admin</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Settings</li>
+                <li class="mr-2 font-medium text-gray-600">Profile</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -275,10 +278,10 @@
                     </button>
                     <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
                         <li>
-                        <a href="../admin/adminprofile.php" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
+                            <a href="../admin/adminprofile.php" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
                         </li>
                         <li>
-                            <a href="../admin/settings.php" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
+                        <a href="../admin/settings.php" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
                         </li>
                         <li>
                             <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Logout</a>
@@ -287,95 +290,150 @@
                 </li>
             </ul>
         </div>
-        
-        <!-- Settings content -->
-        <section class="p-6 bg-gray-50">
-            <h1 class="text-2xl font-bold text-gray-700">Settings</h1>
-            <div class="mt-6">
-                <!-- Theme Selection Section -->
-                <h2 class="text-lg font-semibold text-gray-700">Theme Selection</h2>
-                <p class="text-sm text-gray-500">Choose your preferred theme for the system.</p>
-                <div class="flex gap-10 space-x-6 mt-4">
-                    <!-- Light Theme -->
-                    <div class="flex items-center p-4 border rounded-lg hover:shadow-lg">
-                        <img src="../../resources/img/light-theme-preview.png" alt="Light Theme" class="w-20 h-16 object-cover rounded-md">
-                        <div class="ml-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="theme" value="light" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
-                                <span class="ml-2 text-sm text-gray-700">Light Theme</span>
-                            </label>
-                        </div>
-                    </div>
-                    <!-- Dark Theme -->
-                    <div class="flex items-center p-4 border rounded-lg hover:shadow-lg">
-                        <img src="../../resources/img/dark-theme-preview.png" alt="Dark Theme" class="w-20 h-16 object-cover rounded-md">
-                        <div class="ml-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="theme" value="dark" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
-                                <span class="ml-2 text-sm text-gray-700">Dark Theme</span>
-                            </label>
-                        </div>
-                    </div>
-                    <!-- System Preference -->
-                    <div class="flex items-center p-4 border rounded-lg hover:shadow-lg">
-                        <img src="../../resources/img/system-theme-preview.png" alt="System Preference" class="w-20 h-16 object-cover rounded-md">
-                        <div class="ml-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="theme" value="system" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
-                                <span class="ml-2 text-sm text-gray-700">System Preference</span>
-                            </label>
-                        </div>
-                    </div>
+
+<body>
+
+ 
+  <div class="flex h-screen container mx-auto m-10 gap-2">
+    <div class="w-1/4 pt-5 border shadow-md h-full">
+      <h2 class="text-xl font-bold mb-4 p-4 text-center">Account</h2>
+        <ul class="tab-list space-y text-center">
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Profile</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Change Password</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2" >Notifications</li>
+        </ul>
+    </div>
+    <div class="w-3/4 p-4 pt-5 border shadow-md">
+        <div class="tab-content">
+
+            <div class="tab-pane">
+            <div class="">
+            <h1 class="text-2xl font-bold mb-6">Manage Profile</h1>
+
+                <div class="mt-6 flex justify-center">
+                <div class="flex flex-col items-center">
+                    <img class="h-24 w-24 rounded-full" src="https://via.placeholder.com/150" alt="Profile Picture">
+                    <label for="imageUpload" class="mt-4 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-md cursor-pointer">
+                    Select Image
+                    </label>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="updateImageDisplay(this)">
                 </div>
+                </div>
+                <div>
+                    <form>
+                        <div class="grid grid-cols-1 gap-4 ">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Username</label>
+                                <input type="text" id="username" name="username" value="EmmanuelJohn69" class="mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-full" disabled>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Emmanuel John</label>
+                                <input type="text" id="first_name" name="first_name" value="Michael" class="mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 w-full">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Middle Name</label>
+                                <input type="text" id="middle_name" name="middle_name" placeholder="(Optional)" class="mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-greeen-500 focus:border-green-500 w-full">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                                <input type="text" id="last_name" name="last_name" value="Nunez" class="mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 w-full">
+                            </div>
+
+
+  
+                        </div>
+
+                        <div class="mt-6 flex justify-center">
+                            <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-md">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>  
             </div>
 
-
-
-            <!-- Notification Settings Section -->
-            <div class="mt-8">
-                <h2 class="text-lg font-semibold text-gray-700">Notification Settings</h2>
-                <p class="text-sm text-gray-500">Manage how you receive notifications from the system.</p>
-                <div class="flex items-center mt-4">
-                    <label class="flex items-center mr-6">
-                        <span class="mr-2 text-sm text-gray-700">Email Notifications</span>
-                        <input type="checkbox" name="email_notifications" class="toggle-checkbox">
-                    </label>
-                    <label class="flex items-center">
-                        <span class="mr-2 text-sm text-gray-700">Enable SMS Notifications</span>
-                        <input type="checkbox" name="sms_notifications" class="toggle-checkbox">
-                    </label>
-                </div>
+            <div class="tab-pane hidden">
+            <?php
+              require_once '../../includes/retailer_password.php';
+            ?>  
             </div>
+            
+            <div class="tab-pane hidden" >
+            <div class="container mx-auto px-4 py-8">
+                <h2 class="text-2xl font-bold mb-4">Notifications</h2>
 
-            <!-- Date and Time Settings Section -->
-            <div class="mt-8">
-                <h2 class="text-lg font-semibold text-gray-700">Date and Time Settings</h2>
-                <p class="text-sm text-gray-500">Set your preferred time zone and display format.</p>
-                <div class="mt-4">
-                    <label class="block text-sm text-gray-700">
-                        Set Time Zone
-                        <select name="time_zone" class="block w-full mt-1 border rounded-lg focus:ring-green-400">
-                            <option value="UTC-08:00">UTC-08:00</option>
-                            <option value="UTC-05:00">UTC-05:00</option>
-                            <option value="UTC+00:00">UTC+00:00</option>
-                            <option value="UTC+08:00">UTC+08:00</option>
-                        </select>
-                    </label>
-                    <div class="flex items-center mt-4">
-                        <label class="flex items-center mr-6">
-                            <input type="radio" name="time_display" value="12-hour" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
-                            <span class="ml-2 text-sm text-gray-700">12 Hour Display</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="radio" name="time_display" value="24-hour" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
-                            <span class="ml-2 text-sm text-gray-700">24 Hour Display</span>
-                        </label>
+                <div class="bg-white rounded shadow p-4 mb-4">
+                    <div class="flex items-center mb-2">
+                        <img src="../../resources/img/avatar.png.jpeg" alt="Order Completed" class="w-12 h-12 mr-4 rounded-full">
+                        <div>
+                        <h3 class="text-lg font-bold">Request Acces From User</h3>
+                        <p></p>
+                        <p class="text-gray-500">10/01/2024 09:20</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="bg-white rounded shadow p-4">
+                    <div class="flex items-center mb-2">
+                        <img src="../../resources/img/avatar.png.jpeg" alt="Welcome" class="w-12 h-12 mr-4 rounded-full">
+                        <div>
+                        <h3 class="text-lg font-bold">Request Acces From User</h3>
+                        <p></p>
+                        <p class="text-gray-500">09/025/2024 07:25</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div>          
 
-        
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tabItems = document.querySelectorAll('.tab-item');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  const queryParams = new URLSearchParams(window.location.search);
+  const activeTab = queryParams.get('tab'); // Get 'tab' parameter from the URL
+
+  // Default behavior: Set the first tab as active
+  let activeIndex = 0;
+
+  // If there's a tab parameter, find the matching tab and set it as active
+  if (activeTab) {
+    tabItems.forEach((item, index) => {
+      if (item.textContent.trim().toLowerCase() === activeTab.toLowerCase()) {
+        activeIndex = index;
+      }
+    });
+  }
+
+  // Activate the determined tab
+  tabItems.forEach(item => item.classList.remove('active'));
+  tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+  tabItems[activeIndex].classList.add('active');
+  tabPanes[activeIndex].classList.remove('hidden');
+});
+const tabItems = document.querySelectorAll('.tab-item');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+// Set the first tab as active by default
+tabItems[0].classList.add('active');
+tabPanes[0].classList.remove('hidden');
+
+tabItems.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    tabItems.forEach(item => item.classList.remove('active'));
+    tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+    item.classList.add('active');
+    tabPanes[index].classList.remove('hidden');
+  });
+});
+</script>  
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

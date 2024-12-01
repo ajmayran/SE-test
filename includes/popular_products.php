@@ -4,7 +4,7 @@
                 <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 py-10">
-               <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+               <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6 border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -13,13 +13,10 @@
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -28,13 +25,10 @@
                         <p class="text-gray-500">By NestFood</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -43,13 +37,10 @@
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-pepper-steak.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -58,13 +49,10 @@
                         <p class="text-gray-500">By NestFood</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-mideterranian.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -73,13 +61,10 @@
                         <p class="text-gray-500">By NestFood</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -88,13 +73,10 @@
                         <p class="text-gray-500">By NestFood</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -103,13 +85,10 @@
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-oriental-wings.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -118,13 +97,10 @@
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-chicken-tapa.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -133,13 +109,10 @@
                         <p class="text-gray-500">By NestFood</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
-                  <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                  <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6  border ">
                     <div class="flex justify-center">
                         <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="Product Image" class="just mb-4 ">
                     </div>
@@ -148,10 +121,7 @@
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
-                        <span class="text-lg font-bold">$28.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+                        <span class="text-lg font-bold">₱250.00</span>
                     </div>
                 </a>
               </div>

@@ -31,7 +31,7 @@
         // For demonstration purposes, we'll simply show an alert message:
         alert('Password changed successfully!');
       });
-    </script>z
+    </script>
 
     <script>
       const showNewPasswordFormButton = document.getElementById('showNewPasswordForm');
