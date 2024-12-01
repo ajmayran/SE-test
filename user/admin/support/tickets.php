@@ -380,6 +380,23 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Ticket Modal -->
+            <div id="ticketModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <h2 class="text-lg font-bold mb-4">Ticket Details</h2>
+                    <p id="ticket-id" class="text-gray-700 mb-2"></p>
+                    <p id="ticket-type" class="text-gray-700 mb-2"></p>
+                    <p id="ticket-subject" class="text-gray-700 mb-2"></p>
+                    <p id="ticket-description" class="text-gray-700 mb-2"></p>
+                    <p id="ticket-link" class="text-blue-500 mb-4"></p>
+                    <div class="flex justify-end space-x-4">
+                        <button id="closeTicketModal" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Close</button>
+                        <button id="resolveTicket" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Resolve</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -420,8 +437,8 @@
                     render: function (data, type, row) {
                         return `
                             <div class="flex justify-center space-x-2">
-                                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded">Open</button>
-                                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Resolve</button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded open-btn" data-id="${row[0]}" data-type="${row[1]}" data-subject="${row[4]}" data-description="Description for ${row[4]}" data-link="${row[7]}">Open</button>
+                                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded resolve-btn" data-id="${row[0]}">Resolve</button>
                             </div>`;
                     }
                 }
@@ -432,6 +449,40 @@
         $('#typeFilter').on('change', function () {
             const selectedType = $(this).val();
             table.column(1).search(selectedType).draw(); // Column 1 is "Type"
+        });
+
+        // Open Ticket Modal
+        $(document).on('click', '.open-btn', function () {
+            const ticketId = $(this).data('id');
+            const ticketType = $(this).data('type');
+            const ticketSubject = $(this).data('subject');
+            const ticketDescription = $(this).data('description');
+            const ticketLink = $(this).data('link');
+
+            $('#ticket-id').text(`Ticket ID: ${ticketId}`);
+            $('#ticket-type').text(`Type: ${ticketType}`);
+            $('#ticket-subject').text(`Subject: ${ticketSubject}`);
+            $('#ticket-description').text(`Description: ${ticketDescription}`);
+            if (ticketLink) {
+                $('#ticket-link').html(`Reported Product: <a href="${ticketLink}" target="_blank" class="text-blue-500">${ticketLink}</a>`);
+            } else {
+                $('#ticket-link').text('');
+            }
+
+            $('#ticketModal').removeClass('hidden');
+        });
+
+        // Resolve Ticket Modal
+        $(document).on('click', '.resolve-btn', function () {
+            const ticketId = $(this).data('id');
+            if (confirm(`Are you sure the issue with Ticket ${ticketId} has been resolved?`)) {
+                alert(`Ticket ${ticketId} has been resolved.`);
+            }
+        });
+
+        // Close Ticket Modal
+        $('#closeTicketModal').on('click', function () {
+            $('#ticketModal').addClass('hidden');
         });
     });
     </script>
