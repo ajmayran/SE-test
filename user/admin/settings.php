@@ -43,7 +43,7 @@
         </a>
         <ul class="mt-4">
             <li class="mb-1 group">
-                <a href="#" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
+                <a href="./dashboard.php" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
                     <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon> 
                     <span class="text-sm">Dashboard</span>
                 </a>
