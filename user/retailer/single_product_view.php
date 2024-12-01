@@ -39,16 +39,20 @@
         </label>
         
         <label class="flex items-center space-x-2">
-            <input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 2" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+            <input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_back.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_back.jpg" alt="product img variant 2" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
 
-        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 3" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_left.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_left.jpg" alt="product img variant 3" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
 
-        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_right.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_right.jpg" alt="product img variant 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+        </label>
+
+        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_alaska.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_alaska.jpg" alt="product img variant 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
         </div>
     </div>
@@ -120,7 +124,7 @@
                 </div>
                 <div class="ml-4">
                     <h2 class="text-2xl font-bold">Jacob</h2>
-                    <a href="./retailer_distributor.php">
+                    <a href="../retailer/retailer_distributor.php">
                         <button class="px-4 py-2  font-bold text-white bg-green-500 rounded hover:bg-green-700">
                         View Shop
                     </button></a>

@@ -53,14 +53,15 @@
                 <span class="font-medium text-gray-700">Michael Jordan</span>
             </div>
         </a>
+
     </div>
 </nav>
 
 <nav class="flex items-center justify-between bg-white shadow-sm">
     <div class="w-full px-20 py-2 text-white bg-gray-900">
         <ul class="flex justify-center space-x-20">
-            <li class="hover:text-green-500"><a href="retailer_dash.php">HOME</a></li>
-            <li class="hover:text-green-500"><a href="#">DISTRIBUTORS</a></li>
+            <li class="hover:text-green-500"><a href="../retailer/retailer_dash.php">HOME</a></li>
+            <li class="hover:text-green-500"><a href="../retailer/retailer_distributor_page.php">DISTRIBUTORS</a></li>
             <li class="hover:text-green-500"><a href="#">PRODUCTS</a></li>
             <li class="hover:text-green-500"><a href="#">CATEGORY</a></li>
         </ul>
@@ -80,6 +81,21 @@
         
         if (!popup.contains(event.target) && !notificationButton) {
             popup.classList.add('hidden');
+        }
+    });
+        // Select the dropdown button and the dropdown menu
+        const dropdownButton = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    // Toggle the dropdown visibility on button click
+    dropdownButton.addEventListener('click', function() {
+        dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Optional: Close dropdown if clicking outside of it
+    document.addEventListener('click', function(event) {
+        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
         }
     });
 </script>

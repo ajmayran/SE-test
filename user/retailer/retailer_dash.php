@@ -73,27 +73,27 @@
             </div>
 
             <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
-                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                <a href="../retailer/retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor 1" class="mb-4">
                   <h3 class="text-lg font-bold">Jacob</h3>
                   <p>10 Items</p>
                 </a>
-                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                <a href="../retailer/retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="../../resources/img/Distrubutors/ph.png" alt="Distributor 2" class="mb-4">
                   <h3 class="text-lg font-bold">Zambasulta</h3>
                   <p>20 Items</p>
                 </a>
-                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                <a href="../retailer/retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="../../resources/img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
                   <h3 class="text-lg font-bold">Glenmark Trading</h3>
                   <p>15 Items</p>
                 </a>
-                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                <a href="../retailer/retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="../../resources/img/Distrubutors/bass.png" alt="Distributor 4" class="mb-4">
                   <h3 class="text-lg font-bold">Boss Jim Grocery </h3>
                   <p>10 Items</p>
                 </a>
-                <a href="./retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                <a href="../retailer/retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="../../resources/img/Distrubutors/primus.png" alt="Distributor 5" class="mb-4">
                   <h3 class="text-lg font-bold">Primus</h3>
                   <p>22 Items</p>
@@ -120,6 +120,6 @@
     <?php
         require_once '../../includes/retailer_footer.php';
     ?>  
-<script src="../src/tailwind/user_dash.js"></script>
+<script src="../../js/tailwind/user_dash.js"></script>
 </body>
 </html>
