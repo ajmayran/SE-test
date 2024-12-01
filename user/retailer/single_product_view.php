@@ -15,49 +15,92 @@
         $page_title = 'Dashboard';
         require_once '../../includes/retailer_topnav.php';
     ?>
+
     <div class="my-10 container mx-auto">
         <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
             Go back
         </a>
     </div>
     <div class="flex items-center border border-gray-400 container px-4 mx-auto py-5">
-        <div class="bg-white mx-auto p-5 flex justify-center ">
-            <div class="mx-10 rounded-lg">
-                <div class="flex justify-center py-5 px-5 m-5 ">
-                    <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="h-48 object-cover ">
-                </div>
-                <div>
-                    <div class="justify-center flex ">
-                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Image 1" class="w-24 h-24 object-cover p-1 m-2 bg-gray-100 border border-green-500 rounded-lg">
-                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Image 2" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg">
-                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Image 3" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg">
-                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Image 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg">
-                    </div>
-                </div>
-            </div>
+    <div class="bg-white mx-auto p-5 flex justify-center ">
+
+<div>
+  <!-- Main Product Image -->
+    <div class="flex justify-center py-5 px-5 m-5">
+        <img id="main-product-image" src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="main product img" class="h-48 object-cover rounded-lg"/>
+    </div>
+
+    <!-- Product Variants -->
+    <div>
+        <div class="justify-center flex">
+        <label class="flex items-center space-x-2">
+            <input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg" checked/>
+            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 1" class="w-24 h-24 object-cover p-1 m-2 bg-gray-100 border rounded-lg peer-checked:border-green-500"/>
+        </label>
+        
+        <label class="flex items-center space-x-2">
+            <input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 2" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+        </label>
+
+        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 3" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+        </label>
+
+        <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg"/>
+            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+        </label>
+        </div>
+    </div>
+</div>
+
+    </div>
             <div class="w-1/3">
                 <div class="flex justify-between items-center mb-2">
-                    <h2 class="text-lg font-bold">Chicken Tocino</h2>
+                    <h2 class="text-lg font-bold">Krem-Top Coffee Creamer</h2>
                 </div>
                 <p class="text-gray-500 mb-4 w-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.</p>
+                <span class="text-2xl font-md mr-2">Size:</span>
+                <span class="text-2xl font-bold">24x5g</span>
                 <div class="flex items-center mb-4">
-                    <span class="text-2xl font-bold">₱150</span>
-              
+                    <span class="text-2xl font-md mr-2">Per Case:</span>
+                    <span class="text-2xl font-bold">₱840</span>
                 </div>
-                <div class="flex items-center">
-                    <div class="flex items-center mr-2">
-                        <label for="quantity" class="text-xl">Min Order Quantity:</label>
-                        <select id="quantity" class="border border-gray-300 rounded-md px-2 py-1 ml-2">
-                            <option value="50g">10</option>
-                            <option value="80g">25</option>
-                            <option value="100g">50</option>
-                            <option value="150g">100</option>
-                        </select>
-                    </div>
-                    <button type="" onclick="openproductModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">
-                        Add to Cart
-                    </button>
-                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded hover:bg-green-600 focus:outline-none" id="minus-btn">-</button>
+                    <input type="number" id="quantity-input" value="1" min="1" class="w-12 text-center border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none"/>
+                <button class="bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded hover:bg-green-600 focus:outline-none" id="plus-btn">+</button>
+            </div>
+
+            <!-- change variant code
+            <div class="flex space-x-2">
+            <label class="flex items-center mt-5">
+            <input type="radio" name="product-variant" value="Small" class="hidden peer"data-image="../../resources/img/alaska_products/krem_top_5g.jpg" />
+            <div class="px-4 py-2 border rounded-lg cursor-pointer peer-checked:border-green-500">24x5g</div>
+            </label>
+
+            <label class="flex items-center mt-5">
+            <input type="radio" name="product-variant" value="Medium" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_80g.jpg" 
+            />
+            <div class="px-4 py-2 border rounded-lg cursor-pointer peer-checked:border-green-500">80g</div>
+            </label>
+
+            <label class="flex items-center mt-5">
+            <input type="radio" name="product-variant" value="Large" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_250g.jpg"/>
+            <div class="px-4 py-2 border rounded-lg cursor-pointer peer-checked:border-green-500">250g</div>
+            </label>
+
+            <label class="flex items-center mt-5"><input type="radio" name="product-variant" value="Extra-large" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_450g.jpg"/>
+            <div class="px-4 py-2 border rounded-lg cursor-pointer peer-checked:border-green-500">450g</div>
+            </label>
+    </div> -->
+
+
+    <div class="rounded-lg">
+                <button type="" onclick="openproductModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2 mt-5">
+                     Add to Cart
+                </button>
+
                 <div class="mt-4">
                     <p>Type: Ready to Cook</p>
                     <p>SKU: FWM513VKT</p>
@@ -68,6 +111,7 @@
             </div>
         </div>
     </div>
+
     <section class="p-2  mb-4 border border-t-0 border-gray-400 container px-4 mx-auto">
         <div class="px-10 flex justify-between">
             <div class="flex items-center">
@@ -84,6 +128,7 @@
             </div>
         </div>
     </section>
+
     <section class="py-5 bg-white">
         <div class="container px-4 mx-auto">
             <div class="flex items-center justify-between">
@@ -100,9 +145,7 @@
                     </div>
                     <div class="flex justify-between items-center mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+
                     </div>
                 </a>
                 <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
@@ -115,9 +158,7 @@
                     </div>
                     <div class="flex justify-between items-center mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+
                     </div>
                 </a>
                 <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
@@ -130,9 +171,7 @@
                     </div>
                     <div class="flex justify-between items-center mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+
                     </div>
                 </a>
                 <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
@@ -145,9 +184,7 @@
                     </div>
                     <div class="flex justify-between items-center mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add to Cart
-                        </button>
+
                     </div>
                 </a>
               </div>
@@ -174,6 +211,7 @@
             </div>
         </div>
     </div>
+
     <?php
         require_once '../../includes/retailer_footer.php';
     ?>  
@@ -184,6 +222,34 @@
         function closeproductModal() {
             document.getElementById('productModal').classList.add('hidden');
         }
+    
+        document.getElementById('plus-btn').addEventListener('click', () => {
+        const input = document.getElementById('quantity-input');
+        input.value = parseInt(input.value) + 1;
+        });
+
+        document.getElementById('minus-btn').addEventListener('click', () => {
+        const input = document.getElementById('quantity-input');
+        if (parseInt(input.value) > 1) {
+            input.value = parseInt(input.value) - 1;
+        }
+        });
+        
+        // Select all radio buttons
+        const variantRadios = document.querySelectorAll('input[name="product-variant"]');
+
+        // Select the main product image element
+        const mainImage = document.getElementById('main-product-image');
+
+        // Add a change event listener to all radio buttons
+        variantRadios.forEach((radio) => {
+        radio.addEventListener('change', (event) => {
+            // Get the data-image attribute of the selected variant
+            const selectedImage = event.target.getAttribute('data-image');
+            // Update the src attribute of the main image
+            mainImage.src = selectedImage;
+        });
+        });
     </script>
 </body>
 

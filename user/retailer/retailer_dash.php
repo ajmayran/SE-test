@@ -68,7 +68,7 @@
             <div class="flex items-center justify-between">
                 <h2 class="mr-4 text-2xl font-bold">Explore Distributors</h2>
                 <div class="flex items-center">
-                    <a href=""><h1 class="text-green-500">see all</h1></a>
+                    <a href="../../resources/img/alaska_products/krem_top_5g.jpg"><h1 class="text-green-500">see all</h1></a>
                 </div>
             </div>
 
