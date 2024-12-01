@@ -293,7 +293,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Image</th>
                                 <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Name</th>
                                 <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Category</th>
-                                <th class="px-4 py-2 text-sm font-medium text-center text-gray-700">Stocks</th>
                                 <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Minimum Purchase Qty</th>
                                 <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Maximum Purchase Qty</th>
                                 <th class="px-4 py-2 text-sm font-medium text-left text-gray-700">Tags</th>
@@ -308,7 +307,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-inasal.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Inasal</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -323,7 +321,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-bbq.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken BBQ</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -338,7 +335,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-siomai.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Siomai</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">400</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -353,7 +349,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-longanisa.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Longanisa</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">300</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -368,7 +363,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Cheesy Fingers</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -383,7 +377,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-lumpia.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Lumpia</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">250</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -398,7 +391,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-tapa.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Tapa</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -413,7 +405,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-korean-chicken-bbq.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Korean Chicken BBQ</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -428,7 +419,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-teriyaki.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Teriyaki</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -443,7 +433,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-mideterranian.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Middeterranian</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -458,7 +447,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-fried-chicken.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Fried Chicken</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">250</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -473,7 +461,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-chicken-tocino.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Tocino</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">200</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -488,7 +475,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-vanilla-chicken-finger.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Vanilla Chicken Finger</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -503,7 +489,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-spicy-wings.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Spicy Wings</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">250</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -518,7 +503,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-spicy-fried-chicken.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Spicy Fried Chicken</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">150</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -533,7 +517,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-oriental-wings.png" class="w-12 h-12 my-1 ml-3 rounded-xl" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Oriental Wings</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -548,7 +531,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/rtc-pepper-steak.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Pepper Steak</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">100</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -563,7 +545,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" class="w-10 h-10 my-1 ml-4 rounded-md" alt=""></td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Ready to Cook Chicken Lumpia Shanghai Mix</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Frozen Goods</td>
-                                <td class="px-4 py-2 text-[12px] font-light text-center">200</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">10</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-center">20</td>
                                 <td class="px-4 py-2 text-[12px] font-light text-left">Food, Meat</td>
@@ -703,6 +684,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         function closeproductModal() {
             document.getElementById('productModal').classList.add('hidden');
         }
+
+        //Notif and account 
+        document.getElementById('notificationButton').addEventListener('click', function() {
+            const dropdown = document.getElementById('notificationDropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        document.getElementById('accountButton').addEventListener('click', function() {
+            const popper = document.getElementById('accountPopper');
+            popper.classList.toggle('hidden');
+        });
+
+
+        window.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('notificationDropdown');
+            const popper = document.getElementById('accountPopper');
+
+            if (!event.target.closest('#notificationButton')) {
+                dropdown.classList.add('hidden');
+            }
+            if (!event.target.closest('#accountButton')) {
+                popper.classList.add('hidden');
+            }
+        });
     </script>
 </body>
 

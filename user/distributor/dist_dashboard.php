@@ -314,6 +314,7 @@
         </div>
     </footer>
     <script>
+        //Notif and account 
         document.getElementById('notificationButton').addEventListener('click', function() {
             const dropdown = document.getElementById('notificationDropdown');
             dropdown.classList.toggle('hidden');
@@ -324,7 +325,7 @@
             popper.classList.toggle('hidden');
         });
 
-        // Close dropdowns and poppers if clicked outside
+      
         window.addEventListener('click', function(event) {
             const dropdown = document.getElementById('notificationDropdown');
             const popper = document.getElementById('accountPopper');

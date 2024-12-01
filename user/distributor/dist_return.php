@@ -656,6 +656,30 @@
             // Restore the original main content
             mainContent.innerHTML = originalMainContentHTML;
         });
+
+        //Notif and account 
+        document.getElementById('notificationButton').addEventListener('click', function() {
+            const dropdown = document.getElementById('notificationDropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        document.getElementById('accountButton').addEventListener('click', function() {
+            const popper = document.getElementById('accountPopper');
+            popper.classList.toggle('hidden');
+        });
+
+
+        window.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('notificationDropdown');
+            const popper = document.getElementById('accountPopper');
+
+            if (!event.target.closest('#notificationButton')) {
+                dropdown.classList.add('hidden');
+            }
+            if (!event.target.closest('#accountButton')) {
+                popper.classList.add('hidden');
+            }
+        });
     </script>
 </body>
 
