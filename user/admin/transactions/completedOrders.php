@@ -70,11 +70,6 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured
-                            Products</a>
-                    </li>
-                    <li class="mb-4">
                         <a href="../products/pendingProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
@@ -359,7 +354,7 @@
         <div class="p-6 bg-gray-200">
             <div class="bg-white p-6 rounded-lg shadow">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    <div class="text-2xl font-bold mb-6">
                         Distributors
                     </div>
                 </div>
@@ -382,7 +377,7 @@
         <div class="p-6 bg-gray-200">
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    <div class="text-2xl font-bold mb-6">
                         Completed Orders
                     </div>
                 </div>

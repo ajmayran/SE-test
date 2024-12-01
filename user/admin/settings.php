@@ -43,7 +43,7 @@
         </a>
         <ul class="mt-4">
             <li class="mb-1 group">
-                <a href="#" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
+                <a href="./dashboard.php" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
                     <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon> 
                     <span class="text-sm">Dashboard</span>
                 </a>
@@ -58,9 +58,6 @@
                     <li class="mb-4">
                         <a href="./products/acceptedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured Products</a>
-                    </li> 
                     <li class="mb-4">
                         <a href="./products/pendingProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
                     </li> 

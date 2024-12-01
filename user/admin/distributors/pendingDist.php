@@ -69,11 +69,6 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured
-                            Products</a>
-                    </li>
-                    <li class="mb-4">
                         <a href="../products/pendingProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
@@ -357,7 +352,7 @@
 
             <div class="p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-bold mb-6">Pending Distributors</h2>
-                <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
+                <table id="distributorTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
                             <th class="p-2 border text-left">Distributor ID</th>
@@ -373,6 +368,50 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Approve Modal -->
+            <div id="approveModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                <div class="bg-white rounded-lg p-6 w-2/3 shadow-lg">
+                    <h2 class="text-lg font-bold mb-4">Approve Distributor</h2>
+                    <div id="distributor-info" class="text-gray-700 mb-4">
+                        <!-- Distributor details will be dynamically added here -->
+                    </div>
+                    <div class="flex justify-between space-x-4 mb-4">
+                        <img id="tin-image" class="w-1/3 rounded shadow" alt="TIN Certificate">
+                        <img id="mayors-permit" class="w-1/3 rounded shadow" alt="Mayor's Permit">
+                        <img id="sec-certificate" class="w-1/3 rounded shadow" alt="SEC Certificate">
+                    </div>
+                    <div class="flex justify-end space-x-4">
+                        <button id="closeApproveModal" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Confirm Approve</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reject Modal -->
+            <div id="rejectModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <h2 class="text-xl font-bold mb-4">Reject Distributor</h2>
+                    <div id="reject-retailer-info" class="mb-4">
+                        <!-- Distributor details will be dynamically added here -->
+                    </div>
+                    <label for="reject-reason" class="block text-gray-700 mb-2">Select Reason:</label>
+                    <select id="reject-reason" class="w-full border rounded p-2 mb-4">
+                        <option value="" disabled selected>Select a reason</option>
+                        <option value="Fake documents">Fake documents</option>
+                        <option value="Suspicious activity">Suspicious activity</option>
+                        <option value="Invalid contact details">Invalid contact details</option>
+                        <option value="Incomplete requirements">Incomplete requirements</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea id="reject-other-reason" class="w-full border rounded p-2 mb-4 hidden" placeholder="Specify reason..."></textarea>
+                    <div class="flex justify-end space-x-4">
+                        <button id="closeRejectModal" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Confirm Reject</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -381,7 +420,7 @@
     <script src="../../../js/tailwind/dashboard.js"></script>
     <script>
         $(document).ready(function() {
-            const retailerData = [
+            const distributorData = [
                 ["DistA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
                 ["DistA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
                 ["DistA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
@@ -403,22 +442,55 @@
                 ["DistA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
             ];
 
-            $('#retailerTable').DataTable({
-                data: retailerData,
+            $('#distributorTable').DataTable({
+                data: distributorData,
                 columns: [
                     { title: "Distributor ID", data: 0 },
                     { title: "Name", data: 1 },
                     { title: "Email", data: 2 },
                     { title: "Date Created", data: 3 },
                     { title: "Status", data: 4 },
-                    {"data": null,
-                        "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Approve</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Reject</button></div>';
-                        }
-                    }
-                ]
+                    {
+                        data: null,
+                        render: function () {
+                            return `
+                                <div class="flex space-x-2">
+                                    <button class="approveBtn bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Approve</button>
+                                    <button class="rejectBtn bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Reject</button>
+                                </div>`;
+                        },
+                    },
+                ],
             });
+
+            // Modal functionality
+        $(document).on('click', '.approveBtn', function () {
+            $('#approveModal').removeClass('hidden');
+            const row = $(this).closest('tr');
+            const data = row.find('td').map(function () { return $(this).text(); }).get();
+            $('#distributor-info').html(`
+                <p><strong>ID:</strong> ${data[0]}</p>
+                <p><strong>Name:</strong> ${data[1]}</p>
+                <p><strong>Email:</strong> ${data[2]}</p>
+                <p><strong>Date Created:</strong> ${data[3]}</p>
+            `);
+            $('#tin-image').attr('src', '../../../resources/img/BIR/img1.jpg');
+            $('#mayors-permit').attr('src', '../../../resources/img/MP/img1.jpg');
+            $('#sec-certificate').attr('src', '../../../resources/img/SEC/img1.jpg');
         });
+
+        $(document).on('click', '.rejectBtn', function () {
+            $('#rejectModal').removeClass('hidden');
+        });
+
+        $('#closeApproveModal').on('click', function () {
+            $('#approveModal').addClass('hidden');
+        });
+
+        $('#closeRejectModal').on('click', function () {
+            $('#rejectModal').addClass('hidden');
+        });
+    });
     </script>
 </body>
 </html>
