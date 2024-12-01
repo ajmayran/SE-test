@@ -69,11 +69,6 @@
                             Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured
-                            Products</a>
-                    </li>
-                    <li class="mb-4">
                         <a href="../products/pendingProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
@@ -354,7 +349,6 @@
                 </div>
             </div>
 
-
             <div class="p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-bold mb-6">Active Retailers</h2>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
@@ -373,6 +367,50 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Restrict Modal -->
+        <div id="restrictModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                <h2 class="text-lg font-bold mb-4">Restrict User</h2>
+                <p id="restrict-user-info" class="text-gray-700 mb-4"></p>
+                <label for="restrict-days" class="block text-gray-700 mb-2">Restrict for:</label>
+                <select id="restrict-days" class="w-full border rounded p-2 mb-4">
+                    <option value="1">1 Day</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                    <option value="30">30 Days</option>
+                </select>
+                <label for="restrict-reason" class="block text-gray-700 mb-2">Reason:</label>
+                <textarea id="restrict-reason" class="w-full border rounded p-2 mb-4" placeholder="Enter reason..."></textarea>
+                <div class="flex justify-end space-x-4">
+                    <button id="closeRestrictModal" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                    <button id="confirmRestrict" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Confirm Restriction</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ban Modal -->
+        <div id="banModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                <h2 class="text-lg font-bold mb-4">Ban User</h2>
+                <p id="ban-user-info" class="text-gray-700 mb-4"></p>
+                <label for="ban-reason" class="block text-gray-700 mb-2">Reason for Ban:</label>
+                <select id="ban-reason" class="w-full border rounded p-2 mb-4">
+                    <option value="Fraudulent activities">Fraudulent activities</option>
+                    <option value="Violating terms of service">Violating terms of service</option>
+                    <option value="Abusive behavior">Abusive behavior</option>
+                    <option value="Fake identity">Fake identity</option>
+                    <option value="Other">Other</option>
+                </select>
+                <textarea id="ban-other-reason" class="w-full border rounded p-2 mb-4 hidden" placeholder="Specify reason..."></textarea>
+                <div class="flex justify-end space-x-4">
+                    <button id="closeBanModal" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                    <button id="confirmBan" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Confirm Ban</button>
+                </div>
+            </div>
+        </div>
+
         </div>
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -404,12 +442,57 @@
                     { title: "Email", data: 2 },
                     { title: "Date Registered", data: 3 },
                     { title: "Status", data: 4 },
-                    {"data": null,
-                        "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Restrict</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Ban</button></div>';
-                        }
-                    }
-                ]
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return `
+                                <div class="flex space-x-2">
+                                    <button class="restrict-btn bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded" data-user="${row[1]}" data-id="${row[0]}">Restrict</button>
+                                    <button class="ban-btn bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" data-user="${row[1]}" data-id="${row[0]}">Ban</button>
+                                </div>`;
+                        },
+                    },
+                ],
+            });
+
+            // Restrict button click handler
+            $(document).on('click', '.restrict-btn', function () {
+                const userId = $(this).data('id');
+                const userName = $(this).data('user');
+                $('#restrict-user-info').text(`Restricting: ${userName} (${userId})`);
+                $('#restrictModal').removeClass('hidden');
+            });
+
+            // Confirm Restriction
+            $('#confirmRestrict').on('click', function () {
+                const days = $('#restrict-days').val();
+                const reason = $('#restrict-reason').val();
+                alert(`User restricted for ${days} day(s). Reason: ${reason}`);
+                $('#restrictModal').addClass('hidden');
+            });
+
+            // Ban button click handler
+            $(document).on('click', '.ban-btn', function () {
+                const userId = $(this).data('id');
+                const userName = $(this).data('user');
+                $('#ban-user-info').text(`Banning: ${userName} (${userId})`);
+                $('#banModal').removeClass('hidden');
+            });
+
+            // Confirm Ban
+            $('#confirmBan').on('click', function () {
+                const reason = $('#ban-reason').val();
+                alert(`User banned. Reason: ${reason}`);
+                $('#banModal').addClass('hidden');
+            });
+
+            // Close Modals
+            $('#closeRestrictModal').on('click', function () {
+                $('#restrictModal').addClass('hidden');
+            });
+
+            $('#closeBanModal').on('click', function () {
+                $('#banModal').addClass('hidden');
             });
         });
     </script>

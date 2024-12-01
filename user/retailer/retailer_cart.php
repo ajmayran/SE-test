@@ -40,17 +40,17 @@
                     <td class="border px-4 py-2">
                         <div class="flex items-center">
                             <input type="checkbox" class="mr-2" />
-                            <img src="https://via.placeholder.com/50" alt="Product Image" class="w-16 h-16 mr-4">
+                            <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="w-16 h-16 mr-4">
                             <div>
                                 <p class="font-bold">Chicken Tocino</p>
-                                <p class="text-gray-600">1kg Cut-ups Premium Quality Wings</p>
+                                <p class="text-gray-600">1kg Premium Quality Tocino</p>
                             </div>
                         </div>
                     </td>
                     <td class="border px-4 py-2">₱200.00</td>
                     <td class="border px-4 py-2">
                         <div class="flex items-center justify-center">
-                            <input type="number" value="10" class="w-12 text-center border border-gray-300 rounded px-2 py-1">
+                            <input type="number" value="10" class="w-16 text-center border border-gray-300 rounded px-2 py-1">
                         </div>
                     </td>
                     <td class="border px-4 py-2">10 Kg</td>

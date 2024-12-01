@@ -54,9 +54,9 @@
                         </tr>
                         <tr>
                             <td class=" px-4 py-2 flex items-center">
-                                <img src="https://via.placeholder.com/50" alt="Product Image" class="w-16 h-16 mr-4">
+                                <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="w-16 h-16 mr-4">
                                 <div>
-                                    <p class="text-gray-700">1kg Cut-ups Premium Quality Wings</p>
+                                    <p class="text-gray-700">1kg Premium Quality Tocino</p>
                                 </div>
                             </td>
                             <td class=" px-4 py-2 text-right">10</td>

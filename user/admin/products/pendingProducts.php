@@ -70,11 +70,6 @@
                     </li>
                     <li class="mb-4">
                         <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured
-                            Products</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Products</a>
                     </li>
@@ -356,7 +351,7 @@
 
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">Pending Products</div>
+                    <div class="text-2xl font-bold mb-6">Pending Products</div>
 
                     <div class="flex space-x-2">
                         <button class="bg-green-500 hover:bg-green-700 text-white p-2 rounded"><iconify-icon icon="mdi:pencil" /></button>
