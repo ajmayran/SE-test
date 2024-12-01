@@ -116,7 +116,7 @@
                         <a href="./distributors/pendingDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="./distributors/activeDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Distributor</a>
+                        <a href="./distributors/activeDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Distributor</a>
                     </li> 
                     <li class="mb-4">
                         <a href="./distributors/restrictedDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
@@ -134,18 +134,15 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">All Ticket</a>
+                        <a href="./support/tickets.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Tickets</a>
                     </li> 
                     <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending</a>
-                    </li> 
-                    <li class="mb-4">
-                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Solved</a>
+                        <a href="./support/resolved.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Resolved</a>
                     </li>
                 </ul>
             </li>
             <li class="mt-20 mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                <a href="./settings.php" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     <iconify-icon icon="mdi:settings" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Settings</span>
                 </a>

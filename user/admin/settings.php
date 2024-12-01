@@ -4,26 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
-    <link rel="stylesheet" href="../../../src/output.css">
+    <link rel="icon" href="../../resources/img/Pconnect Logo.png">
+    <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Restricted Retailers</title>
+    <title>Settings</title>
 </head>
 <style>
     body {
-        font-family: 'Lexend', sans-serif;
-    }
-    .sidebar-menu .group a {
-        border-top-left-radius: 10px;
-        /* Added for all links */
-        border-bottom-left-radius: 10px;
-        /* Added for all links */
+    font-family: 'Lexend', sans-serif;
     }
     .sidebar-menu .group.active a {
-        /* Target selected group */
-        background-color: #f9fafb;
-        color: #1f2937;
+        /* Active state */
+        background-color: #f9fafb; 
+        color: #1f2937; 
         position: relative;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -31,169 +24,134 @@
     .sidebar-menu .group.active a::after {
         content: '';
         position: absolute;
-        right: -16px;
+        right: -16px; 
         top: 0;
         bottom: 0;
         width: 16px;
-        background-color: #f9fafb;
+        background-color: #f9fafb; 
         z-index: 10;
+        
     }
 </style>
-
 <body class="text-gray-800">
-    <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu"
-        style="background-color: #abebc6;">
+    
+    <!-- Sidebar -->
+    <div class="fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform sidebar-menu" style="background-color: #abebc6;">
         <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
-            <img src="../../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
+            <img src="../../resources/img/Pconnect Logo.png" alt="Logo" class="object-cover w-8 h-8">
             <span class="ml-3 text-lg font-bold">PConnect</span>
         </a>
         <ul class="mt-4">
             <li class="mb-1 group">
-                <a href="../dashboard.php" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
-                    <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon>
+                <a href="#" class="flex items-center px-4 py-2 hover:bg-green-400 hover:text-gray-100">
+                    <iconify-icon icon="mdi:home" class="mr-3 text-xl"></iconify-icon> 
                     <span class="text-sm">Dashboard</span>
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="#"
-                    class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon>
+                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                    <iconify-icon icon="mdi:package-variant-closed" class="mr-3 text-xl"></iconify-icon> 
                     <span class="text-sm">Products</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right"
-                        class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
+                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../products/acceptedProducts.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
-                            Products</a>
+                        <a href="./products/acceptedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted Products</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured
-                            Products</a>
-                    </li>
+                        <a href="#" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured Products</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../products/pendingProducts.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
-                            Products</a>
-                    </li>
+                        <a href="./products/pendingProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Products</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../products/rejectedProducts.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected
-                            Products</a>
-                    </li>
+                        <a href="./products/rejectedProducts.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Rejected Products</a>
+                    </li> 
                 </ul>
             </li>
             <li class="mb-1 group">
-                <a href="#"
-                    class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon>
+                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                    <iconify-icon icon="tdesign:undertake-transaction" class="mr-3 text-xl"></iconify-icon> 
                     <span class="text-sm">Transactions</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right"
-                        class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
+                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../transactions/completedOrders.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed
-                            order</a>
-                    </li>
+                        <a href="./transactions/completedOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Completed order</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../transactions/cancelledOrders.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled
-                            order</a>
-                    </li>
+                        <a href="./transactions/CancelledOrders.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Cancelled order</a>
+                    </li> 
                 </ul>
             </li>
-            <li class="mb-1 group active">
-                <a href="#"
-                    class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+            <li class="mb-1 group">
+                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Retailers</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right"
-                        class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
+                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./pending.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
-                            Retailers</a>
-                    </li>
+                        <a href="./retailers/pending.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Retailers</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="./activeRetailers.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
-                            Retailers</a>
-                    </li>
+                        <a href="./retailers/activeRetailers.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Retailers</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted
-                            Retailers</a>
-                    </li>
+                        <a href="./retailers/restricted.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted Retailers</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="./banned.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned
-                            Retailers</a>
-                    </li>
+                        <a href="./retailers/banned.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned Retailers</a>
+                    </li> 
                 </ul>
             </li>
             <li class="mb-1 group">
-                <a href="#"
-                    class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                <a href="#" class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:truck" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Distributors</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right"
-                        class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
+                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../distributors/pendingDist.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
-                    </li>
+                        <a href="./distributors/pendingDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending Distributor</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../distributors/activeDist.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Distributor</a>
-                    </li>
+                        <a href="./distributors/activeDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active Distributor</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../distributors/restrictedDist.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
-                    </li>
+                        <a href="./distributors/restrictedDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../distributors/bannedDist.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
-                    </li>
+                        <a href="./distributors/bannedDist.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned</a>
+                    </li> 
                 </ul>
             </li>
             <li class="mb-1 group">
-                <a href="#"
-                    class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="bx:support" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Support</span>
-                    <iconify-icon icon="mdi:keyboard-arrow-right"
-                        class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
+                    <iconify-icon icon="mdi:keyboard-arrow-right" class="ml-auto group-[.selected]:rotate-90"></iconify-icon>
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../support/tickets.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Tickets</a>
-                    </li>
+                        <a href="./support/tickets.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Tickets</a>
+                    </li> 
                     <li class="mb-4">
-                        <a href="../support/resolved.php"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Resolved</a>
+                        <a href="./support/resolved.php" class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Resolved</a>
                     </li>
                 </ul>
             </li>
-            <li class="mt-20 mb-1 group">
-                <a href="../settings.php"
-                    class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+            <li class="mt-20 mb-1 group active">
+                <a href="#" class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     <iconify-icon icon="mdi:settings" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Settings</span>
                 </a>
             </li>
         </ul>
     </div>
-    <div class="fixed top-0 left-0 z-40 w-full h-full bg-black/50 md:hidden sidebar-overlay"></div>
 
+    <div class="fixed top-0 left-0 z-40 w-full h-full bg-black/50 md:hidden sidebar-overlay"></div>
+    
     <!-- Main -->
     <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
         <!-- Topbar -->
@@ -203,10 +161,10 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Retailers</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Admin</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Restricted</li>
+                <li class="mr-2 font-medium text-gray-600">Settings</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -332,88 +290,98 @@
                 </li>
             </ul>
         </div>
-
-        <!-- Pending retailers Content -->
-        <div class="p-6">
-            <div class="mb-6 flex flex-row justify-between space-x-4">
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">560</h2>
-                </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Reported Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">12</h2>
-                </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Restricted Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">4</h2>
-                </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Banned Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">2</h2>
+        
+        <!-- Settings content -->
+        <section class="p-6 bg-gray-50">
+            <h1 class="text-2xl font-bold text-gray-700">Settings</h1>
+            <div class="mt-6">
+                <!-- Theme Selection Section -->
+                <h2 class="text-lg font-semibold text-gray-700">Theme Selection</h2>
+                <p class="text-sm text-gray-500">Choose your preferred theme for the system.</p>
+                <div class="flex gap-10 space-x-6 mt-4">
+                    <!-- Light Theme -->
+                    <div class="flex items-center p-4 border rounded-lg hover:shadow-lg">
+                        <img src="../../resources/img/light-theme-preview.png" alt="Light Theme" class="w-20 h-16 object-cover rounded-md">
+                        <div class="ml-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="theme" value="light" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
+                                <span class="ml-2 text-sm text-gray-700">Light Theme</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Dark Theme -->
+                    <div class="flex items-center p-4 border rounded-lg hover:shadow-lg">
+                        <img src="../../resources/img/dark-theme-preview.png" alt="Dark Theme" class="w-20 h-16 object-cover rounded-md">
+                        <div class="ml-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="theme" value="dark" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
+                                <span class="ml-2 text-sm text-gray-700">Dark Theme</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- System Preference -->
+                    <div class="flex items-center p-4 border rounded-lg hover:shadow-lg">
+                        <img src="../../resources/img/system-theme-preview.png" alt="System Preference" class="w-20 h-16 object-cover rounded-md">
+                        <div class="ml-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="theme" value="system" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
+                                <span class="ml-2 text-sm text-gray-700">System Preference</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
-            <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-6">Restricted Retailers</h2>
-                <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="p-2 border text-left">User ID</th>
-                            <th class="p-2 border text-left">Name</th>
-                            <th class="p-2 border text-left">Email</th>
-                            <th class="p-2 border text-left">Date Restricted</th>
-                            <th class="p-2 border text-left">Status</th>
-                            <th class="p-2 border text-left">Reason</th>
-                            <th class="p-2 border">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Data will be populated by DataTables -->
-                    </tbody>
-                </table>
+
+            <!-- Notification Settings Section -->
+            <div class="mt-8">
+                <h2 class="text-lg font-semibold text-gray-700">Notification Settings</h2>
+                <p class="text-sm text-gray-500">Manage how you receive notifications from the system.</p>
+                <div class="flex items-center mt-4">
+                    <label class="flex items-center mr-6">
+                        <span class="mr-2 text-sm text-gray-700">Email Notifications</span>
+                        <input type="checkbox" name="email_notifications" class="toggle-checkbox">
+                    </label>
+                    <label class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-700">Enable SMS Notifications</span>
+                        <input type="checkbox" name="sms_notifications" class="toggle-checkbox">
+                    </label>
+                </div>
             </div>
-        </div>
+
+            <!-- Date and Time Settings Section -->
+            <div class="mt-8">
+                <h2 class="text-lg font-semibold text-gray-700">Date and Time Settings</h2>
+                <p class="text-sm text-gray-500">Set your preferred time zone and display format.</p>
+                <div class="mt-4">
+                    <label class="block text-sm text-gray-700">
+                        Set Time Zone
+                        <select name="time_zone" class="block w-full mt-1 border rounded-lg focus:ring-green-400">
+                            <option value="UTC-08:00">UTC-08:00</option>
+                            <option value="UTC-05:00">UTC-05:00</option>
+                            <option value="UTC+00:00">UTC+00:00</option>
+                            <option value="UTC+08:00">UTC+08:00</option>
+                        </select>
+                    </label>
+                    <div class="flex items-center mt-4">
+                        <label class="flex items-center mr-6">
+                            <input type="radio" name="time_display" value="12-hour" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
+                            <span class="ml-2 text-sm text-gray-700">12 Hour Display</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="time_display" value="24-hour" class="w-4 h-4 text-green-500 border-gray-300 focus:ring-green-400">
+                            <span class="ml-2 text-sm text-gray-700">24 Hour Display</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="../../../js/tailwind/dashboard.js"></script>
-    <script>
-        $(document).ready(function() {
-            const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "July 12, 2024", "Restricted", "Abuse of checkout"],
-                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Restricted", "Abuse in contact"],
-                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Restricted", "Malicious image"],
-                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Restricted", "Rating abuse"],
-                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Restricted", "Wrong Credentials"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "July 12, 2024", "Restricted", "Continued harassment of users"],
-                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"]
-            ];
-
-            $('#retailerTable').DataTable({
-                data: retailerData,
-                columns: [
-                    { title: "User ID", data: 0 },
-                    { title: "Name", data: 1 },
-                    { title: "Email", data: 2 },
-                    { title: "Date Restricted", data: 3 },
-                    { title: "Status", data: 4 },
-                    { title: "Reason", data: 5 },
-                    {"data": null,
-                        "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Unrestrict</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button></div>';
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/tailwind/dashboard.js"></script>
 </body>
 </html>

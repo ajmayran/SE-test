@@ -8,7 +8,7 @@
     <link rel="icon" href="../../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
-    <title>Restricted Retailers</title>
+    <title>Tickets</title>
 </head>
 <style>
     body {
@@ -106,7 +106,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group active">
+            <li class="mb-1 group">
                 <a href="#"
                     class="flex items-center py-2 px-4  hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="mdi:users" class="mr-3 text-xl"></iconify-icon>
@@ -116,22 +116,22 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="./pending.php"
+                        <a href="../retailers/pending.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Pending
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./activeRetailers.php"
+                        <a href="../retailers/activeRetailers.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Active
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"
+                        <a href="../retailers/restricted.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Restricted
                             Retailers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="./banned.php"
+                        <a href="../retailers/banned.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Banned
                             Retailers</a>
                     </li>
@@ -164,7 +164,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="mb-1 group">
+            <li class="mb-1 group active">
                 <a href="#"
                     class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-green-400 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <iconify-icon icon="bx:support" class="mr-3 text-xl"></iconify-icon>
@@ -174,11 +174,11 @@
                 </a>
                 <ul class="pl-7 mt-2 hidden group-[.selected]:block">
                     <li class="mb-4">
-                        <a href="../support/tickets.php"
+                        <a href="#"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Tickets</a>
                     </li>
                     <li class="mb-4">
-                        <a href="../support/resolved.php"
+                        <a href="./resolved.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Resolved</a>
                     </li>
                 </ul>
@@ -203,10 +203,10 @@
             </button>
             <ul class="flex items-center ml-4 text-sm">
                 <li class="mr-2">
-                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Retailers</a>
+                    <a href="#" class="font-medium text-gray-400 hover:text-gray-600">Support</a>
                 </li>
                 <li class="mr-2 font-thin text-gray-400">|</li>
-                <li class="mr-2 font-medium text-gray-600">Restricted</li>
+                <li class="mr-2 font-medium text-gray-600">Tickets</li>
             </ul>
             <ul class="flex items-center ml-auto">
                 <li class="mr-1 dropdown">
@@ -333,40 +333,51 @@
             </ul>
         </div>
 
-        <!-- Pending retailers Content -->
+        <!-- Tickets Content -->
         <div class="p-6">
             <div class="mb-6 flex flex-row justify-between space-x-4">
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">All Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">560</h2>
+                    <p class="text-gray-600">All Tickets</p>
+                    <h2 class="text-2xl font-bold text-green-700">22</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Reported Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">12</h2>
+                    <p class="text-gray-600">Opened Tickets</p>
+                    <h2 class="text-2xl font-bold text-green-700">17</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Restricted Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">4</h2>
+                    <p class="text-gray-600">Pending Tickets</p>
+                    <h2 class="text-2xl font-bold text-green-700">8</h2>
                 </div>
                 <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
-                    <p class="text-gray-600">Banned Retailers</p>
-                    <h2 class="text-2xl font-bold text-green-700">2</h2>
+                    <p class="text-gray-600">Resolved Tickets</p>
+                    <h2 class="text-2xl font-bold text-green-700">15</h2>
                 </div>
             </div>
 
-
             <div class="p-6 bg-white rounded-lg shadow">
-                <h2 class="text-2xl font-bold mb-6">Restricted Retailers</h2>
+                <h2 class="text-2xl font-bold mb-6">Tickets</h2>
+                <div class="flex justify-between items-center mb-4">
+                    <!-- Filter Dropdown -->
+                    <div>
+                        <label for="typeFilter" class="mr-2 font-medium">Filter by Type:</label>
+                        <select id="typeFilter" class="border border-gray-300 rounded px-2 py-1">
+                            <option value="">All</option>
+                            <option value="Issue">Issue</option>
+                            <option value="Report">Report</option>
+                        </select>
+                    </div>
+                </div>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
-                            <th class="p-2 border text-left">User ID</th>
-                            <th class="p-2 border text-left">Name</th>
+                            <th class="p-2 border text-left">Ticket ID</th>
+                            <th class="p-2 border text-left">Type</th>
+                            <th class="p-2 border text-left">Requested by</th>
                             <th class="p-2 border text-left">Email</th>
-                            <th class="p-2 border text-left">Date Restricted</th>
+                            <th class="p-2 border text-left">Subject</th>
+                            <th class="p-2 border text-left">Date Requested</th>
                             <th class="p-2 border text-left">Status</th>
-                            <th class="p-2 border text-left">Reason</th>
-                            <th class="p-2 border">Action</th>
+                            <th class="p-2 border text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -381,39 +392,53 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="../../../js/tailwind/dashboard.js"></script>
     <script>
-        $(document).ready(function() {
-            const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "July 12, 2024", "Restricted", "Abuse of checkout"],
-                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Restricted", "Abuse in contact"],
-                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Restricted", "Malicious image"],
-                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Restricted", "Rating abuse"],
-                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Restricted", "Wrong Credentials"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "July 12, 2024", "Restricted", "Continued harassment of users"],
-                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"],
-                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Restricted", "Naunsa man na ngalan bai"]
-            ];
+        $(document).ready(function () {
+        const retailerData = [
+            ["Ticket001", "Issue", "Vicente De Leon", "VicenteDeLeon@gmail.com", "System error on checkout", "January 12, 2024", "Pending"],
+            ["Ticket002", "Report", "Teodoro Medina", "TeodoroMedina@gmail.com", "Abuse in contact", "January 13, 2024", "Pending"],
+            ["Ticket001", "Issue", "Vicente De Leon", "VicenteDeLeon@gmail.com", "System error on checkout", "January 12, 2024", "Pending"],
+            ["Ticket002", "Report", "Teodoro Medina", "TeodoroMedina@gmail.com", "Abuse in contact", "January 13, 2024", "Pending"],
+            ["Ticket003", "Issue", "Roberto Cruz", "RobertoCruz@gmail.com", "Login issue", "January 14, 2024", "Opened"],
+            ["Ticket003", "Issue", "Roberto Cruz", "RobertoCruz@gmail.com", "Login issue", "January 14, 2024", "Opened"],
+            ["Ticket004", "Report", "Julio Reyes", "JulioReyes@gmail.com", "Harassment report", "January 15, 2024", "Opened"],
+            ["Ticket001", "Issue", "Vicente De Leon", "VicenteDeLeon@gmail.com", "System error on checkout", "January 12, 2024", "Pending"],
+            ["Ticket002", "Report", "Teodoro Medina", "TeodoroMedina@gmail.com", "Abuse in contact", "January 13, 2024", "Pending"],
+            ["Ticket003", "Issue", "Roberto Cruz", "RobertoCruz@gmail.com", "Login issue", "January 14, 2024", "Opened"],
+            ["Ticket005", "Issue", "Pedro Santos", "PedroSantos@gmail.com", "Payment not reflected", "January 16, 2024", "Opened"],
+            ["Ticket006", "Report", "Nestor De Leon", "NestorDeLeon@gmail.com", "Account abuse", "January 17, 2024", "Pending"],
+            ["Ticket007", "Issue", "Abigail Cruz", "AbigailCruz@gmail.com", "API integration error", "January 18, 2024", "Pending"]
+        ];
 
-            $('#retailerTable').DataTable({
-                data: retailerData,
-                columns: [
-                    { title: "User ID", data: 0 },
-                    { title: "Name", data: 1 },
-                    { title: "Email", data: 2 },
-                    { title: "Date Restricted", data: 3 },
-                    { title: "Status", data: 4 },
-                    { title: "Reason", data: 5 },
-                    {"data": null,
-                        "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Unrestrict</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</button></div>';
-                        }
+        // Initialize DataTable
+        const table = $('#retailerTable').DataTable({
+            data: retailerData,
+            columns: [
+                { title: "Ticket ID", data: 0 },
+                { title: "Type", data: 1 },
+                { title: "Requested by", data: 2 },
+                { title: "Email", data: 3 },
+                { title: "Subject", data: 4 },
+                { title: "Date Requested", data: 5 },
+                { title: "Status", data: 6 },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        return `
+                            <div class="flex justify-center space-x-2">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded">Open</button>
+                                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Resolve</button>
+                            </div>`;
                     }
-                ]
-            });
+                }
+            ]
         });
+
+        // Filter by Type
+        $('#typeFilter').on('change', function () {
+            const selectedType = $(this).val();
+            table.column(1).search(selectedType).draw(); // Column 1 is "Type"
+        });
+    });
     </script>
 </body>
 </html>
