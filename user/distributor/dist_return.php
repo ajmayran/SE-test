@@ -37,11 +37,51 @@
                 </span>
             </div>
             <div class="flex items-center space-x-2">
-                <span class="p-1 mb-1">Logo</span>
-                <span class="p-1 mb-1">Shop Name</span>
-                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
-                <a href="" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
+                <span><img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" /></span>
+                <span class="p-1 mb-1 font-sans">Zambasulta</span>
+
+                <!-- Notification Button -->
+                <div class="relative">
+                    <button class="p-1 rounded-lg hover:bg-gray-100" id="notificationButton">
+                        <iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon>
+                    </button>
+                    <div id="notificationDropdown" class="absolute right-0 z-10 hidden w-64 p-2 bg-white border border-gray-200 rounded-lg shadow-lg">
+                        <div class="flex justify-between p-2">
+                            <span class="text-lg font-semibold">Notifications</span>
+                            <iconify-icon icon="proicons:more" class="mt-1 text-xl text-gray-500"></iconify-icon>
+                        </div>
+                        <hr class="border-gray-300 shadow-sm" />
+                        <ul class="py-2 mb-2">
+                            <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Notification 1</li>
+                            <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Notification 2</li>
+                            <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Notification 3</li>
+                        </ul>
+                        <button class="w-full px-1 py-2 mx-auto text-white bg-green-500 rounded-md text-[12px] hover:bg-green-400">See previous notifications</button>
+                    </div>
+                </div>
+
+                <!-- Account Button -->
+                <div class="relative">
+                    <button class="p-1 rounded-lg hover:bg-gray-100" id="accountButton">
+                        <iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon>
+                    </button>
+                    <div id="accountPopper" class="absolute right-0 z-10 hidden w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
+                        <div class="flex items-center p-4 mx-2 my-2 border border-gray-200 rounded-lg shadow-sm">
+                            <img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" />
+                            <span class="ml-2 text-sm font-normal">Zambasulta</span>
+                        </div>
+                        <ul class="py-2">
+                            <a href="./dist_settings.php">
+                                <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Settings</li>
+                            </a>
+                            <a href="../../auth/logout.php">
+                                <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Logout</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
     </header>
     <div class="flex">
@@ -412,7 +452,7 @@
                             <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
                             <td class="px-4 py-2 text-[12px] font-light">Compensated</td>
                             <td>
-                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" onclick="toggleRecordModal(true)">View Details</button>
+                                <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" onclick="toggleRecordModal(true)">View Details</button>
                             </td>
                         </tr>
                         <tr>
@@ -421,7 +461,7 @@
                             <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
                             <td class="px-4 py-2 text-[12px] font-light">Refunded</td>
                             <td>
-                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" onclick="toggleRecordModal(true)">View Details</button>
+                                <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" onclick="toggleRecordModal(true)">View Details</button>
                             </td>
                         </tr>
                     </tbody>
@@ -430,97 +470,97 @@
         </div>
     </div>
 
-        <script>
-            const returnTab = document.getElementById('tab-return');
-            const refundTab = document.getElementById('tab-refund');
-            const returnOrders = document.getElementById('return-orders-table');
-            const refundOrders = document.getElementById('refund-orders-table');
+    <script>
+        const returnTab = document.getElementById('tab-return');
+        const refundTab = document.getElementById('tab-refund');
+        const returnOrders = document.getElementById('return-orders-table');
+        const refundOrders = document.getElementById('refund-orders-table');
 
-            returnTab.addEventListener('click', () => {
-                returnOrders.classList.remove('hidden');
-                refundOrders.classList.add('hidden');
-                returnTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-                refundTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-            });
+        returnTab.addEventListener('click', () => {
+            returnOrders.classList.remove('hidden');
+            refundOrders.classList.add('hidden');
+            returnTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+            refundTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        });
 
-            refundTab.addEventListener('click', () => {
-                refundOrders.classList.remove('hidden');
-                returnOrders.classList.add('hidden');
-                refundTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-                returnTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-                returnTab.classList.add('text-gray-600');
-            });
+        refundTab.addEventListener('click', () => {
+            refundOrders.classList.remove('hidden');
+            returnOrders.classList.add('hidden');
+            refundTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+            returnTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+            returnTab.classList.add('text-gray-600');
+        });
 
 
-            const returnOrdersData = [{
-                    id: "355001VGA4QWE",
-                    products: [{
-                        name: "Magnolia Ready to Cook Cheesy Chicken Fingers",
-                        price: 250,
-                        qty: 10,
-                        image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png",
-                        reason: "Incomplete order"
-                    }, ],
-                    customername: "Shu Nga",
-                    customeraddress: "Air Force Base, Sta. Maria, Zamboanga City",
-                    customercontact: "09996969969",
-                    subtotal: 2500,
-                    voucher: "--",
-                    discount: "--",
-                    total: 2500,
-                },
-
-                {
-                    id: "CR391MVGA2PIE",
-                    products: [{
-                        name: "Magnolia Ready to Cook Chicken Siomai",
-                        price: 200,
-                        qty: 20,
-                        image: "../../resources/img/Products/rtc-chicken-siomai.png",
-                        reason: "The product are scam"
-                    }, ],
-                    customername: "Thanks Beyonce",
-                    customeraddress: "Putik Camputatan, Zamboanga City",
-                    customercontact: "09709495810",
-                    subtotal: 4000,
-                    voucher: "--",
-                    discount: "--",
-                    total: 4000,
-                },
-            ];
-
-            const refundOrdersData = [{
-                id: "563829HJV3AK",
+        const returnOrdersData = [{
+                id: "355001VGA4QWE",
                 products: [{
-                    name: "Magnolia Ready to Cook Chicken Tocino",
+                    name: "Magnolia Ready to Cook Cheesy Chicken Fingers",
                     price: 250,
                     qty: 10,
-                    image: "../../resources/img/Products/rtc-chicken-tocino.png",
-                    reason: "The product is damage"
+                    image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png",
+                    reason: "Incomplete order"
                 }, ],
-                customername: "De Lulu",
-                customeraddress: "5th Street, Southcom Village, Zamboanga City",
-                customercontact: "09102030401",
+                customername: "Shu Nga",
+                customeraddress: "Air Force Base, Sta. Maria, Zamboanga City",
+                customercontact: "09996969969",
                 subtotal: 2500,
-                voucher: "₱50.00",
-                discount: "₱20.00",
-                total: 2430,
-            }, ];
+                voucher: "--",
+                discount: "--",
+                total: 2500,
+            },
 
-            // Return order
-            function toggleReturnModal(show, orderData = null) {
-                const modal = document.getElementById("return-details-modal");
-                modal.classList.toggle("hidden", !show);
+            {
+                id: "CR391MVGA2PIE",
+                products: [{
+                    name: "Magnolia Ready to Cook Chicken Siomai",
+                    price: 200,
+                    qty: 20,
+                    image: "../../resources/img/Products/rtc-chicken-siomai.png",
+                    reason: "The product are scam"
+                }, ],
+                customername: "Thanks Beyonce",
+                customeraddress: "Putik Camputatan, Zamboanga City",
+                customercontact: "09709495810",
+                subtotal: 4000,
+                voucher: "--",
+                discount: "--",
+                total: 4000,
+            },
+        ];
 
-                if (orderData) {
-                    // Update modal content
-                    document.getElementById("return-order-id").textContent = orderData.id;
+        const refundOrdersData = [{
+            id: "563829HJV3AK",
+            products: [{
+                name: "Magnolia Ready to Cook Chicken Tocino",
+                price: 250,
+                qty: 10,
+                image: "../../resources/img/Products/rtc-chicken-tocino.png",
+                reason: "The product is damage"
+            }, ],
+            customername: "De Lulu",
+            customeraddress: "5th Street, Southcom Village, Zamboanga City",
+            customercontact: "09102030401",
+            subtotal: 2500,
+            voucher: "₱50.00",
+            discount: "₱20.00",
+            total: 2430,
+        }, ];
 
-                    const productsTable = document.getElementById("return-order-products");
-                    productsTable.innerHTML = ""; // Clear existing rows
+        // Return order
+        function toggleReturnModal(show, orderData = null) {
+            const modal = document.getElementById("return-details-modal");
+            modal.classList.toggle("hidden", !show);
 
-                    orderData.products.forEach((product) => {
-                        const row = `
+            if (orderData) {
+                // Update modal content
+                document.getElementById("return-order-id").textContent = orderData.id;
+
+                const productsTable = document.getElementById("return-order-products");
+                productsTable.innerHTML = ""; // Clear existing rows
+
+                orderData.products.forEach((product) => {
+                    const row = `
               <tr>
                 <td class="flex items-center px-4 py-2">
                   <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
@@ -531,37 +571,37 @@
                 <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
               </tr>
             `;
-                        productsTable.innerHTML += row;
-                    });
+                    productsTable.innerHTML += row;
+                });
 
-                    document.getElementById("return-order-customer-name").textContent = orderData.customername;
-                    document.getElementById("return-order-customer-address").textContent = orderData.customeraddress;
-                    document.getElementById("return-order-customer-contact").textContent = orderData.customercontact;
-                    document.getElementById("return-order-date").textContent = "September 29, 2024";
+                document.getElementById("return-order-customer-name").textContent = orderData.customername;
+                document.getElementById("return-order-customer-address").textContent = orderData.customeraddress;
+                document.getElementById("return-order-customer-contact").textContent = orderData.customercontact;
+                document.getElementById("return-order-date").textContent = "September 29, 2024";
 
-                    document.getElementById("return-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-                    document.getElementById("return-order-voucher").textContent = orderData.voucher;
-                    document.getElementById("return-order-discount").textContent = orderData.discount;
-                    document.getElementById("return-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
+                document.getElementById("return-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
+                document.getElementById("return-order-voucher").textContent = orderData.voucher;
+                document.getElementById("return-order-discount").textContent = orderData.discount;
+                document.getElementById("return-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
 
-                    document.getElementById("return-order-reason").textContent = orderData.products[0].reason;
-                }
+                document.getElementById("return-order-reason").textContent = orderData.products[0].reason;
             }
+        }
 
-            //Refund order
-            function toggleRefundModal(show, orderData = null) {
-                const modal = document.getElementById("refund-details-modal");
-                modal.classList.toggle("hidden", !show);
+        //Refund order
+        function toggleRefundModal(show, orderData = null) {
+            const modal = document.getElementById("refund-details-modal");
+            modal.classList.toggle("hidden", !show);
 
-                if (orderData) {
-                    // Update modal content
-                    document.getElementById("refund-order-id").textContent = orderData.id;
+            if (orderData) {
+                // Update modal content
+                document.getElementById("refund-order-id").textContent = orderData.id;
 
-                    const productsTable = document.getElementById("refund-order-products");
-                    productsTable.innerHTML = ""; // Clear existing rows
+                const productsTable = document.getElementById("refund-order-products");
+                productsTable.innerHTML = ""; // Clear existing rows
 
-                    orderData.products.forEach((product) => {
-                        const row = `
+                orderData.products.forEach((product) => {
+                    const row = `
               <tr>
                 <td class="flex items-center px-4 py-2">
                   <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
@@ -572,51 +612,51 @@
                   <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
                   </tr>
                   `
-                        productsTable.innerHTML += row;
-                    });
-
-                    document.getElementById("refund-order-customer-name").textContent = orderData.customername;
-                    document.getElementById("refund-order-customer-address").textContent = orderData.customeraddress;
-                    document.getElementById("refund-order-customer-contact").textContent = orderData.customercontact;
-                    document.getElementById("refund-order-date").textContent = "September 29, 2024";
-
-                    document.getElementById("refund-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-                    document.getElementById("refund-order-voucher").textContent = orderData.voucher;
-                    document.getElementById("refund-order-discount").textContent = orderData.discount;
-                    document.getElementById("refund-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-
-                    document.getElementById("refund-order-reason").textContent = orderData.products[0].reason;
-                }
-            }
-
-            document.querySelectorAll("[data-order-id]").forEach((button) => {
-                button.addEventListener("click", (e) => {
-                    const orderId = e.target.getAttribute("data-order-id");
-                    const orderData = [...returnOrdersData, ...refundOrdersData].find((order) => order.id === orderId);
-                    toggleModal(true, orderData);
+                    productsTable.innerHTML += row;
                 });
-            });
 
+                document.getElementById("refund-order-customer-name").textContent = orderData.customername;
+                document.getElementById("refund-order-customer-address").textContent = orderData.customeraddress;
+                document.getElementById("refund-order-customer-contact").textContent = orderData.customercontact;
+                document.getElementById("refund-order-date").textContent = "September 29, 2024";
 
-            const mainContent = document.querySelector('main');
-            const recordsTable = document.getElementById('records-table');
+                document.getElementById("refund-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
+                document.getElementById("refund-order-voucher").textContent = orderData.voucher;
+                document.getElementById("refund-order-discount").textContent = orderData.discount;
+                document.getElementById("refund-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
 
-            // Store the original HTML of the main content
-            const originalMainContentHTML = mainContent.innerHTML;
-
-            // Function to show the records and swap the content
-            function showRecords() {
-                // Swap the content
-                mainContent.innerHTML = recordsTable.innerHTML;
-                recordsTable.classList.remove('hidden'); // Ensure records table is visible
+                document.getElementById("refund-order-reason").textContent = orderData.products[0].reason;
             }
+        }
 
-            // Back function to return to the main content
-            backButton.addEventListener('click', () => {
-                // Restore the original main content
-                mainContent.innerHTML = originalMainContentHTML;
+        document.querySelectorAll("[data-order-id]").forEach((button) => {
+            button.addEventListener("click", (e) => {
+                const orderId = e.target.getAttribute("data-order-id");
+                const orderData = [...returnOrdersData, ...refundOrdersData].find((order) => order.id === orderId);
+                toggleModal(true, orderData);
             });
-        </script>
+        });
+
+
+        const mainContent = document.querySelector('main');
+        const recordsTable = document.getElementById('records-table');
+
+        // Store the original HTML of the main content
+        const originalMainContentHTML = mainContent.innerHTML;
+
+        // Function to show the records and swap the content
+        function showRecords() {
+            // Swap the content
+            mainContent.innerHTML = recordsTable.innerHTML;
+            recordsTable.classList.remove('hidden'); // Ensure records table is visible
+        }
+
+        // Back function to return to the main content
+        backButton.addEventListener('click', () => {
+            // Restore the original main content
+            mainContent.innerHTML = originalMainContentHTML;
+        });
+    </script>
 </body>
 
 </html>
