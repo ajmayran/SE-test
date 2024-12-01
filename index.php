@@ -62,7 +62,7 @@
             </div>
             <div class="flex items-center">
                 <div class="flex items-center">
-                <a href="#" class="font-sans text-sm text-gray-800 hover:text-green-500"><iconify-icon icon="material-symbols:help" class="pb-1 text-lg text-green-500 align-middle"></iconify-icon>Help</a><span class="px-4 font-light text-gray-500 opacity-50">|</span>
+                <a href="./support-index.php" class="font-sans text-sm text-gray-800 hover:text-green-500"><iconify-icon icon="material-symbols:help" class="pb-1 text-lg text-green-500 align-middle"></iconify-icon>Help</a><span class="px-4 font-light text-gray-500 opacity-50">|</span>
                 </div>  
                 <div class="flex items-center">
                 <a href="./auth/login.php" class="font-sans text-sm text-gray-800 hover:text-green-500"><iconify-icon icon="mdi:notifications" class="pb-1 text-lg text-green-500 align-middle"></iconify-icon>Notifications</a><span class="px-4 font-light text-gray-500 opacity-50">|</span>
@@ -91,7 +91,7 @@
     <nav class="flex items-center justify-between bg-white shadow-sm">
         <div class="w-full px-20 py-2 text-white bg-gray-900">
             <ul class="flex justify-center space-x-20 ">
-                <li class=" hover:text-green-00"><a href="#">HOME</a></li>
+                <li class=" hover:text-green-00"><a href="./index.php">HOME</a></li>
                 <li class=" hover:text-green-500"><a href="./auth/login.php">DISTRIBUTORS</a></li>
                 <li class=" hover:text-green-500"><a href="./auth/login.php">PRODUCTS</a></li>
                 <li class=" hover:text-green-500"><a href="./auth/login.php">CATEGORY</a></li>
@@ -164,17 +164,16 @@
             <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
                 <a href="./auth/login.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="./resources/img/Distrubutors/alaska.png" alt="Distributor 1" class="mb-4">
-                  <h3 class="text-lg font-bold">Jacob</h3>
+                  <h3 class="text-lg font-bold">Jacob Trading</h3>
                   <p>10 Items</p>
                 </a>
                 <a href="./auth/login.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="./resources/img/Distrubutors/ph.png" alt="Distributor 2" class="mb-4">
-                  <h3 class="text-lg font-bold">Zambasulta</h3>
+                  <h3 class="text-lg font-bold">Reachwell</h3>
                   <p>20 Items</p>
                 </a>
                 <a href="./auth/login.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="./resources/img/Distrubutors/gm.png" alt="Distributor 3" class="mb-4">
-
                   <h3 class="text-lg font-bold">Glenmark Trading</h3>
                   <p>15 Items</p>
                 </a>
