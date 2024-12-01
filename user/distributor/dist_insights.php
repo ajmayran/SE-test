@@ -28,7 +28,6 @@
 
         #dataSeriesChart {
             height: 500px;
-            /* or any height you prefer */
         }
     </style>
 </head>
@@ -101,11 +100,6 @@
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm" />
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_income.php"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">My Income</span>
-                    </a>
-                </li>
                 <li class="group active">
                     <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Business Insights</span>
@@ -130,7 +124,7 @@
             <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Business Insights</h1>
             <div class="p-4 bg-white rounded-b-lg shadow-md">
                 <!-- Tabs -->
-                <div class="flex space-x-4 border-b mb-4">
+                <div class="flex mb-4 space-x-4 border-b">
                     <button id="tab-overview" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
                         Overview
                     </button>
@@ -153,43 +147,43 @@
 
                 <div id="tab-content-overview" class="mb-10">
                     <div class="grid grid-cols-5 gap-4 mb-10">
-                        <div class="rounded-lg p-2 flex flex-col bg-gray-100">
+                        <div class="flex flex-col p-2 bg-gray-100 rounded-lg">
                             <div class="flex mb-4">
                                 <iconify-icon icon="icon-park-solid:sales-report" class="text-xl text-green-500"></iconify-icon>
-                                <span class="font-semibold text-gray-700 ml-1">Sales</span>
+                                <span class="ml-1 font-semibold text-gray-700">Sales</span>
                             </div>
                             <div class="flex items-center">
-                                <span class="text-3xl font-sans">₱13,190</span>
-                                <iconify-icon icon="raphael:arrowup" class="text-xl align-middle ml-4 text-green-500"></iconify-icon>
+                                <span class="font-sans text-3xl">₱13,190</span>
+                                <iconify-icon icon="raphael:arrowup" class="ml-4 text-xl text-green-500 align-middle"></iconify-icon>
                                 <p class="text-green-500">2%</p>
                             </div>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-2 flex flex-col">
+                        <div class="flex flex-col p-2 bg-gray-100 rounded-lg">
                             <div class="flex mb-4">
                                 <iconify-icon icon="lets-icons:order-fill" class="text-xl text-green-500"></iconify-icon>
-                                <span class="font-semibold text-gray-700 ml-1">Orders</span>
+                                <span class="ml-1 font-semibold text-gray-700">Orders</span>
                             </div>
                             <div class="flex items-center">
-                                <span class="text-blue-600 text-3xl font-sans ml-4">12</span>
-                                <iconify-icon icon="raphael:arrowup" class="text-xl align-middle ml-4 text-green-500"></iconify-icon>
+                                <span class="ml-4 font-sans text-3xl text-blue-600">12</span>
+                                <iconify-icon icon="raphael:arrowup" class="ml-4 text-xl text-green-500 align-middle"></iconify-icon>
                                 <p class="text-green-500">1%</p>
                             </div>
                         </div>
-                        <div class="bg-gray-100 rounded-lg p-2 flex flex-col">
-                            <div class="flex  mb-4">
+                        <div class="flex flex-col p-2 bg-gray-100 rounded-lg">
+                            <div class="flex mb-4">
                                 <iconify-icon icon="ion:people-sharp" class="text-xl text-green-500"></iconify-icon>
-                                <span class="font-semibold text-gray-700 ml-1">Visitors</span>
+                                <span class="ml-1 font-semibold text-gray-700">Visitors</span>
                             </div>
                             <div class="flex items-center">
-                                <span class="text-3xl font-sans ml-4">215</span>
-                                <iconify-icon icon="raphael:arrowdown" class="text-xl align-middle ml-4 text-red-500"></iconify-icon>
+                                <span class="ml-4 font-sans text-3xl">215</span>
+                                <iconify-icon icon="raphael:arrowdown" class="ml-4 text-xl text-red-500 align-middle"></iconify-icon>
                                 <p class="text-red-500">-32%</p>
                             </div>
                         </div>
                     </div>
                     <div class="mt-8">
-                        <h2 class="text-lg font-semibold mb-4 text-gray-900">Trend Chart</h2>
-                        <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="mb-4 text-lg font-semibold text-gray-900">Trend Chart</h2>
+                        <div class="p-6 bg-white rounded-lg shadow">
                             <div class="relative w-full h-64">
                                 <canvas id="dataSeriesChart"></canvas>
                             </div>
@@ -202,7 +196,7 @@
                 <div id="tab-content-products" class="hidden">
                     <div class="grid grid-cols-1 gap-4 mt-6 lg:grid-cols-3">
                         <!-- Most Selling Products Table -->
-                        <div class="col-span-1 p-4 bg-white rounded-lg shadow-md lg:col-span-2 border border-gray-100">
+                        <div class="col-span-1 p-4 bg-white border border-gray-100 rounded-lg shadow-md lg:col-span-2">
                             <h3 class="text-lg font-semibold">
                                 <iconify-icon icon="fa6-solid:ranking-star" class="pb-2 mr-1 text-3xl text-green-500 align-middle"></iconify-icon>
                                 Product Ranking
@@ -210,16 +204,16 @@
                             <table class="w-full mt-4 text-sm table-auto">
                                 <thead>
                                     <tr class="border-b">
-                                        <th class="py-2 px-1 text-left font-normal">Rank</th>
-                                        <th class="py-2 px-1 text-left font-normal">Preview</th>
-                                        <th class="py-2 px-1 text-left font-normal">Product</th>
-                                        <th class="py-2 px-1 text-left font-normal">Category</th>
-                                        <th class="py-2 px-1 text-right font-normal" >Price</th>
+                                        <th class="px-1 py-2 font-normal text-left">Rank</th>
+                                        <th class="px-1 py-2 font-normal text-left">Preview</th>
+                                        <th class="px-1 py-2 font-normal text-left">Product</th>
+                                        <th class="px-1 py-2 font-normal text-left">Category</th>
+                                        <th class="px-1 py-2 font-normal text-right">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">1</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">1</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-fried-chicken.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -228,7 +222,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-log font-semibold text-center text-green-500">2</td>
+                                        <td class="py-2 font-semibold text-center text-green-500 text-log">2</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="" class="ml-1 rounded h-14 w-14">
                                         </td>
@@ -237,7 +231,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2  text-lg font-semibold text-center text-green-500">3</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">3</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -246,7 +240,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">4</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">4</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="" class="ml-1 rounded h-14 w-14">
                                         </td>
@@ -255,7 +249,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">5</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">5</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -264,7 +258,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">6</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">6</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-oriental-wings.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -273,7 +267,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">7</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">7</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-longanisa.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -282,7 +276,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">8</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">8</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-teriyaki.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -291,7 +285,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">9</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">9</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-bbq.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -300,7 +294,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">10</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">10</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-mideterranian.png" alt="" class="ml-1 rounded h-14 w-14">
                                         </td>
@@ -309,7 +303,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">11</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">11</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-korean-chicken-bbq.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -318,7 +312,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
                                     <tr>
-                                    <td class="py-2 text-lg font-semibold text-center text-green-500">12</td>
+                                        <td class="py-2 text-lg font-semibold text-center text-green-500">12</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -326,7 +320,7 @@
                                         <td class="py-2 text-[12px] font-light">Frozen Products</td>
                                         <td class="py-2 text-right text-[12px] font-light">₱200</td>
                                     </tr>
-                                
+
                                 </tbody>
                             </table>
                         </div>
@@ -345,25 +339,41 @@
                 <!-- Sales Tab -->
                 <div id="tab-content-sales" class="hidden">
                     <div class="grid grid-cols-1 gap-4 mt-6">
+
+                        <div class="w-full p-8 mx-auto">
+
+                            <!-- Button Toggle for Weekly/Monthly -->
+                            <div class="mb-6 text-center">
+                                <button id="weeklyBtn" class="px-6 py-2 font-semibold text-white transition-all duration-300 bg-green-600 rounded-md focus:outline-none">Weekly Sales</button>
+                                <button id="monthlyBtn" class="px-6 py-2 ml-4 font-semibold transition-all duration-300 bg-gray-200 rounded-md focus:outline-none">Monthly Sales</button>
+                            </div>
+
+                            <!-- Card Container for the Chart -->
+                            <div class="p-6 bg-white rounded-lg shadow-lg">
+                                <h2 class="mb-6 text-2xl font-semibold text-center">Sales Overview</h2>
+                                <!-- Bar Chart Canvas -->
+                                <canvas id="salesChart"></canvas>
+                            </div>
+                        </div>
+
+
+
                         <!-- Sales Performance Table -->
                         <div class="col-span-1 p-4 bg-white rounded-lg shadow-md">
-                            <h3 class="text-lg font-semibold">
-                                <iconify-icon icon="icon-park-solid:sales-report " class="pb-1 mr-1 text-xl text-green-500 align-middle"></iconify-icon>
-                                Sales Performance
-                            </h3>
+                            <h3 class="text-lg font-semibold">Sales Performance</h3>
                             <table class="w-full mt-4 text-sm table-auto">
                                 <thead>
                                     <tr class="border-b">
-                                        <th class="py-2 text-left font-normal">Total Sales</th>
-                                        <th class="py-2 text-left font-normal">Preview</th>
-                                        <th class="py-2 text-left font-normal">Product</th>
-                                        <th class="py-2 text-left font-normal">Category</th>
-                                        <th class="py-2 text-right font-normal">Total Order</th>
+                                        <th class="py-2 font-normal text-left">Total Sales</th>
+                                        <th class="py-2 font-normal text-left">Preview</th>
+                                        <th class="py-2 font-normal text-left">Product</th>
+                                        <th class="py-2 font-normal text-left">Category</th>
+                                        <th class="py-2 font-normal text-right">Total Order</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱24000</td>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱24000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-fried-chicken.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -372,7 +382,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">120</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱9000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱9000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="" class="ml-1 rounded h-14 w-14">
                                         </td>
@@ -381,7 +391,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">45</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2  text-sm font-semibold text-left text-green-500">₱8000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱8000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -390,7 +400,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">40</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱8000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱8000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="" class="ml-1 rounded h-14 w-14">
                                         </td>
@@ -399,7 +409,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">40</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱7000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱7000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-spicy-wings.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -408,7 +418,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">35</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-oriental-wings.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -417,7 +427,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">30</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-longanisa.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -426,7 +436,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">30</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-teriyaki.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -435,7 +445,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">30</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱6000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-chicken-bbq.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -444,7 +454,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">30</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱5000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱5000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-mideterranian.png" alt="" class="ml-1 rounded h-14 w-14">
                                         </td>
@@ -453,7 +463,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">25</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱4000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱4000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-korean-chicken-bbq.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -462,7 +472,7 @@
                                         <td class="py-2 text-right text-[12px] font-light">20</td>
                                     </tr>
                                     <tr>
-                                    <td class="py-2 text-sm font-semibold text-left text-green-500">₱2000</td>
+                                        <td class="py-2 text-sm font-semibold text-left text-green-500">₱2000</td>
                                         <td class="py-2">
                                             <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="" class="w-16 h-16 rounded">
                                         </td>
@@ -475,6 +485,60 @@
                         </div>
         </main>
     </div>
+    <footer class="py-8" style="background-color: #282424;">
+        <div class="container px-4 mx-auto mt-10">
+            <div class="flex justify-between">
+                <div>
+                    <h3 class="mb-2 font-semibold text-gray-100">Information</h3>
+                    <ul>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">About Us</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Testimonial</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Blogs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-2 font-semibold text-gray-100">Helpful Links</h3>
+                    <ul>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Services</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Supports</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Terms of service</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-2 font-semibold text-gray-100">Our Services</h3>
+                    <ul>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Become seller</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Service Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-2 font-semibold text-gray-100">Contact us</h3>
+                    <ul>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Email Us</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Message Us</a></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-2 font-semibold text-gray-100">Get Social With Us</h3>
+                    <div class="flex space-x-2">
+                        <a href="#" class="text-gray-300"><svg xmlns="http://www.w3.org/2000/svg" class="text-xl" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M20.9 2H3.1A1.1 1.1 0 0 0 2 3.1v17.8A1.1 1.1 0 0 0 3.1 22h9.58v-7.75h-2.6v-3h2.6V9a3.64 3.64 0 0 1 3.88-4a20 20 0 0 1 2.33.12v2.7H17.3c-1.26 0-1.5.6-1.5 1.47v1.93h3l-.39 3H15.8V22h5.1a1.1 1.1 0 0 0 1.1-1.1V3.1A1.1 1.1 0 0 0 20.9 2" />
+                            </svg></a>
+                        <a href="#" class="text-gray-300"><iconify-icon icon="mdi:instagram" class="text-xl"></iconify-icon> </a>
+                        <a href="#" class="text-gray-300"><iconify-icon icon="mdi:linkedin" class="text-xl"></iconify-icon> </a>
+                        <a href="#" class="text-gray-300"><svg xmlns="http://www.w3.org/2000/svg" class="text-xl" width="0.88em" height="1em" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm297.1 84L257.3 234.6L379.4 396h-95.6L209 298.1L123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5l78.2-89.5zm-37.8 251.6L153.4 142.9h-28.3l171.8 224.7h26.3z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-36">
+                <p class="font-light text-gray-500">©2024 Pconnect | All rights reserved</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const overviewTab = document.getElementById('tab-overview');
@@ -688,6 +752,114 @@
                     },
                 },
             });
+
+            //Sales Charts
+            const weekly = document.getElementById('weeklyBtn');
+            const monthly = document.getElementById('monthlyBtn');
+
+            const weeklySalesData = [7000, 8500, 11200, 9000, 7000, 6000, 10200];
+            const weeklyLabels = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'];
+
+            // Monthly Sales Data
+            const monthlySalesData = [24000, 22500, 26200, 24500, 27000, 26000, 20800, 25250, 22500, 26400];
+            const monthlyLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'];
+
+            // Create a default chart with monthly sales data
+            const cty = document.getElementById('salesChart').getContext('2d');
+            let salesData = monthlySalesData;
+            let labels = monthlyLabels;
+
+            const salesChart = new Chart(cty, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Sales (₱)',
+                        data: salesData,
+                        backgroundColor: '#34D399', // Tailwind green color
+                        borderColor: '#10B981', // Darker green
+                        borderWidth: 1,
+                        hoverBackgroundColor: '#16A34A', // Hover effect color
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 16,
+                                    family: 'Inter, sans-serif',
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `₱${context.raw.toLocaleString()}`; // Format tooltip as currency
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return `₱${value.toLocaleString()}`; // Format Y axis as currency
+                                }
+                            },
+                            grid: {
+                                display: true
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Switch to Weekly Sales Chart
+            document.getElementById('weeklyBtn').addEventListener('click', function() {
+                salesData = weeklySalesData;
+                labels = weeklyLabels;
+                salesChart.data.labels = labels;
+                salesChart.data.datasets[0].data = salesData;
+                salesChart.update();
+                toggleButtonState('weekly');
+            });
+
+            // Switch to Monthly Sales Chart
+            document.getElementById('monthlyBtn').addEventListener('click', function() {
+                salesData = monthlySalesData;
+                labels = monthlyLabels;
+                salesChart.data.labels = labels;
+                salesChart.data.datasets[0].data = salesData;
+                salesChart.update();
+                toggleButtonState('monthly');
+            });
+
+            // Toggle active state of buttons
+            function toggleButtonState(active) {
+                if (active === 'weekly') {
+                    weekly.classList.add('bg-green-600', 'text-white');
+                    monthly.classList.remove('bg-green-600', 'text-white');
+                    monthly.classList.add('bg-gray-200');
+                } else {
+                    monthly.classList.add('bg-green-600', 'text-white');
+                    weekly.classList.remove('bg-green-600', 'text-white');
+                    weekly.classList.add('bg-gray-200');
+                }
+            }
+
+            // Initialize the monthly button as active
+            toggleButtonState('monthly');
+
 
         }
         window.onload = initializeChart;

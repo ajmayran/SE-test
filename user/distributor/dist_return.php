@@ -96,11 +96,6 @@
                 </li>
                 <hr class="border-gray-300 shadow-sm" />
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_income.php"><iconify-icon icon="solar:money-bag-bold" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">My Income</span>
-                    </a>
-                </li>
-                <li class="group">
                     <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Business Insights</span>
                     </a>

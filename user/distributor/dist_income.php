@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributors Dashboard</title>
+    <title>Distributors Income</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
@@ -12,13 +12,15 @@
         body {
         font-family: 'Lexend', sans-serif;
         }
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.9s ease-in; 
+        .sidebar-menu .group.active a{
+            background-color: #27AE60;
+            color: white;
+            border-radius: 5px;
         }
-        .fade-in-active {
-            opacity: 1;
+        .sidebar-menu .group.active .icon{
+            color: white;
         }
+        
     </style>
 </head>
 <body class="bg-gray-100">
@@ -31,38 +33,38 @@
                 </span>
             </div>
             <div class="flex items-center space-x-2">
-                <span class="p-1 mb-1">Logo</span>
-                <span class="p-1 mb-1">Shop Name</span>
+              <span class="p-1 mb-1">Logo</span>
+              <span class="p-1 mb-1">Shop Name</span>
                 <a href="#" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:notifications" class="text-xl text-green-500"></iconify-icon></a>
                 <a href="#" class="p-1 rounded-lg hover:bg-gray-100"><iconify-icon icon="mdi:account" class="text-xl text-green-500"></iconify-icon></a>
             </div>
          </div>
     </header>
     <div class="flex">
-        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sticky top-0"> 
+        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
             <ul class="m-10 ml-10 space-y-2">
                 <li class="group">
-                    <a href="./dist_dashboard.php" class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Dashboard</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Orders</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href=""><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Return | Refund</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
                 </li>
@@ -90,13 +92,14 @@
                 </li>
                 <hr class="border-gray-300 shadow-sm"/>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Business Insights</span>
-                    </a>
-                </li>
+                  <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                      <span class="ml-2 font-normal">Business Insights</span>
+                  </a>
+              </li>
                 <hr class="border-gray-300 shadow-sm"/>
+
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
@@ -107,45 +110,8 @@
                 </li>
             </ul>
         </aside>
-        <main class="w-3/4 p-8 overflow-y-auto fade-in">
-            <h1 class="p-3 text-2xl font-semibold">To do List</h1>
-            <div class="w-4/5 p-6 ml-20 bg-white rounded-lg shadow">
-                <p class="mb-4 text-2xl font-normal">
-                Congratulations your application have been approved!
-                </p>
-                <p class="mb-4 font-light">
-                This to do list is designed to guide you through the essential steps to set up and manage your online store successfully. By following these steps, you'll be well on your way to attracting customers and making sales.
-                </p>
-                <p class="mb-1 font-semibold">Set up your shop:
-                </p>
-                <p class="mb-4 font-light">
-                Customize your store's appearance, add products, and configure shipping and payment settings.
-                </p>
-                <p class="mb-1 font-semibold">
-                Optimize your listings:
-                </p>
-                <p class="mb-4 font-light">
-                Write compelling product descriptions, use high-quality images, and optimize your listings for search engines.
-                </p>
-                <p class="mb-1 font-semibold">
-                Promote your store:
-                </p>
-                <p class="mb-4 font-light">
-                Utilize marketing tools and social media to reach potential customers.
-                </p>
-                <p class="mb-1 font-semibold">
-                Manage orders and customer inquiries:
-                </p>
-                <p class="mb-4 font-light">
-                Process orders promptly and provide excellent customer service.
-                </p>
-                <p class="mb-1 font-semibold">
-                Monitor performance:
-                </p>
-                <p class="mb-4 font-light">
-                Track your sales, customer feedback, and website traffic to identify areas for improvement.
-                </p>
-            </div>
+        <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
+            <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Income</h1>
         </main>
     </div>
     <footer class="py-8" style="background-color: #282424;">
@@ -180,7 +146,7 @@
                     <ul>
                         <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Email Us</a></li>
                         <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Message Us</a></li>
-                        <li class="mb-1"><p class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</p></li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</a></li>
                     </ul>
                 </div>
                 <div>
@@ -202,11 +168,4 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const main = document.querySelector('main');
-            main.classList.add('fade-in-active'); // Add the active class to trigger the fade-in
-        });
-    </script>
 </body>
-</html>
