@@ -354,7 +354,7 @@
         <div class="p-6 bg-gray-200">
             <div class="bg-white p-6 rounded-lg shadow">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    <div class="text-2xl font-bold mb-6">
                         Distributors
                     </div>
                 </div>
@@ -377,7 +377,7 @@
         <div class="p-6 bg-gray-200">
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    <div class="text-2xl font-bold mb-6">
                         Completed Orders
                     </div>
                 </div>

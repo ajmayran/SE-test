@@ -351,7 +351,7 @@
 
             <div class="bg-white p-6 rounded-lg shadow mb-6">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    <div class="text-2xl font-bold mb-6">
                         Cancelled Orders
                     </div>
                 </div>
