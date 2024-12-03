@@ -53,10 +53,12 @@ $totalAmount = $cartsData['total'] ?? 0;
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../src/output.css">
     <link rel="stylesheet" href="../../src/user_dash.css">
+    <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
+<?php require_once '../../includes/retailer_topnav.php'; ?>
 
-<body class="flex flex-col min-h-screen">
-    <?php require_once '../../includes/retailer_topnav.php'; ?>
+<body>
+   
 
     <section class="container h-screen py-6 mx-auto bg-white">
         <h2 class="mb-4 text-2xl font-bold">Order Cart</h2>
@@ -115,8 +117,9 @@ $totalAmount = $cartsData['total'] ?? 0;
                 </form>
             </div>
         </section>
-
-        <?php require_once '../../includes/retailer_footer.php'; ?>
+    </section>
 </body>
-
+<?php
+    require_once '../../includes/retailer_footer.php';
+?> 
 </html>

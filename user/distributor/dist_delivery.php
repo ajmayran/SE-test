@@ -216,7 +216,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
           </button>
         </div>
 
-        <!-- Delivery Orders Table -->
+        <!-- Process Orders Table -->
         <div id="process-table" class="block mt-6">
           <h2 class="mb-2 font-light text-gray-500">Delivery Orders: <?php echo count($deliveryProcess); ?></h2>
           <div class="overflow-x-auto">
@@ -351,7 +351,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
   </div>
 
   <!-- Modal Structure -->
-
+    <!-- Processing-->
   <div id="processdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-xl p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -366,7 +366,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-
+    <!-- On-Transit-->
   <div id="transitdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -381,7 +381,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-
+    <!-- Delivered-->
   <div id="delivereddetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">

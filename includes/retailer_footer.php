@@ -1,4 +1,4 @@
-<footer class="py-8" style="background-color: #282424;">
+<footer class="py-8 " style="background-color: #282424;">
         <div class="container px-4 mx-auto mt-10">
             <div class="flex justify-between">
                 <div>
