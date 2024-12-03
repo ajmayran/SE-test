@@ -74,6 +74,7 @@ $totalAmount = $cartsData['total'] ?? 0;
             <thead class="border border-gray-100">
                 <tr>
                     <th class="px-4 py-2">Product</th>
+                    <th class="px-4 py-2">Product Code</th>
                     <th class="px-4 py-2">Price</th>
                     <th class="px-4 py-2">Quantity</th>
                     <th class="px-4 py-2">Total</th>
@@ -86,12 +87,13 @@ $totalAmount = $cartsData['total'] ?? 0;
                         <?php
                         $itemTotal = ($cart['price'] ?? 0) * ($cart['quantity'] ?? 0);
                         ?>
-                        <tr>
-                            <td class="px-4 py-2 "><?php echo htmlspecialchars($cart['product_name'] ?? 'N/A'); ?></td>
-                            <td class="px-4 py-2">₱<?php echo htmlspecialchars(number_format($cart['price'] ?? 0, 2)); ?></td>
-                            <td class="px-4 py-2 "><?php echo htmlspecialchars($cart['quantity'] ?? 0); ?></td>
-                            <td class="px-4 py-2 ">₱<?php echo htmlspecialchars(number_format($itemTotal, 2)); ?></td>
-                            <td class="px-4 py-2 ">
+                        <tr class="border">
+                            <td class="px-4 py-2 text-lg font-bold text-center"><?php echo htmlspecialchars($cart['product_name'] ?? 'N/A'); ?></td>
+                            <td class="px-4 py-2 text-lg text-center"><?php echo htmlspecialchars($cart['product_code'] ?? 'N/A'); ?></td>
+                            <td class="px-4 py-2 text-center">₱<?php echo htmlspecialchars(number_format($cart['price'] ?? 0, 2)); ?></td>
+                            <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($cart['quantity'] ?? 0); ?></td>
+                            <td class="px-4 py-2 text-center">₱<?php echo htmlspecialchars(number_format($itemTotal, 2)); ?></td>
+                            <td class="px-4 py-2 text-center">
                             <form action="" method="POST" style="display:inline;">
                                     <input type="hidden" name="cart_item_id" value="<?php echo htmlspecialchars($cart['id']); ?>">
                                     <button type="submit" class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Delete</button>
@@ -106,12 +108,12 @@ $totalAmount = $cartsData['total'] ?? 0;
                 <?php endif; ?>
             </tbody>
         </table>
-        <h4 class="m-2 text-lg font-semibold">Total Amount: ₱<?php echo htmlspecialchars(number_format($totalAmount, 2)); ?></h4>
-        <section class="container flex justify-end py-6 mx-auto mt-12 bg-white">
-            <div class="p-6 text-center">
-                <h3 class="mb-4 text-xl font-semibold">Ready to place your order?</h3>
+
+        <section class="container flex justify-end  mx-auto mt-12 bg-white border">
+            <div class="p-6 text-center flex">
+                <h4 class="m-2 text-lg font-semibold mr-5 text-green-500">Total Amount: ₱<?php echo htmlspecialchars(number_format($totalAmount, 2)); ?></h4>
                 <form action="" method="POST">
-                    <button type="submit" name="checkout" class="px-6 py-3 text-lg font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+                    <button type="submit" name="checkout" class="px-6 py-2 text-lg font-bold text-white bg-green-500 rounded-lg hover:bg-green-600">
                         Proceed to Checkout
                     </button>
                 </form>
