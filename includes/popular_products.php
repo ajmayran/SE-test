@@ -1,6 +1,8 @@
 <section class="py-5 bg-white">
         <div class="container px-4 mx-auto">
-            
+            <div class="flex items-center justify-between">
+                <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 py-10">
                <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6 border ">
                     <div class="flex justify-center">

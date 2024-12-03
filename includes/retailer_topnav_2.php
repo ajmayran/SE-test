@@ -1,4 +1,4 @@
-<nav class="flex justify-between py-4 bg-white min-h-20 px-40">
+<nav class="flex justify-between px-40 py-4 bg-white min-h-20">
         <div class="flex items-center " >
         <a href="retailer_dash.php"><img src="../../resources/img/Pconnect Logo.png" alt="PConnect Logo" class="h-10 mr-4"></a>
         <a href="retailer_dash.php"><span class="text-2xl font-semibold text-black-700">PConnect</span></a>
@@ -13,11 +13,11 @@
                     <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
                 </button>
                 <!-- Notification Popup -->
-                <div id="notification-popup" class="absolute right-0 z-10 hidden w-96 bg-white rounded-lg shadow-lg top-12">
+                <div id="notification-popup" class="absolute right-0 z-10 hidden bg-white rounded-lg shadow-lg w-96 top-12">
                     <div class="p-4 border-b border-gray-200">
                         <h4 class="font-semibold text-gray-800">Notifications</h4>
                     </div>
-                    <ul class="max-h-48 overflow-y-auto">
+                    <ul class="overflow-y-auto max-h-48">
                         <li class="p-4 border-b border-gray-200 hover:bg-gray-100">
                             <span class="text-gray-700">Your order #1234 has been shipped!</span>
                         </li>
@@ -46,7 +46,7 @@
     <nav class="flex items-center justify-between bg-white shadow-sm">
         <div class="w-full px-20 py-2 text-white bg-gray-900">
             <ul class="flex justify-center space-x-20 ">
-                <li class=" hover:text-green-500 "><a href="retailer_dash.php">HOME</a></li>
+                <li class=" hover:text-green-500"><a href="retailer_dash.php">HOME</a></li>
                 <li class="hover:text-green-500"><a href="../retailer/retailer_distributor_page.php">DISTRIBUTORS</a></li>
                 <li class="hover:text-green-500"><a href="../retailer/retailer_allproducts.php">PRODUCTS</a></li>
 

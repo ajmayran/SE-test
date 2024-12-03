@@ -1,3 +1,32 @@
+<?php
+session_start();
+require_once '../../classes/account.class.php'; // 
+require_once '../../classes/distributor.class.php';
+
+if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) {
+  // Retrieve distributor details from the session
+  $distributorInfo = $_SESSION['distributor_info'];
+
+  $distributorName = htmlspecialchars($distributorInfo['name']);
+  $distributorAddress = htmlspecialchars($distributorInfo['address']);
+} else {
+  // If no session exists, redirect to the login page
+  header("Location: dist_login.php");
+  exit;
+}
+
+
+// Fetching delivery details
+$distributorId = $_SESSION['distributor_id'];
+
+$distributor = new Order();
+
+$deliveryProcess = $distributor->fetchProcessOrders($distributorId);
+$deliveryTransit = $distributor->fetchTransitOrders($distributorId);
+$deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +38,8 @@
   <link rel="icon" href="../../resources/img/Pconnect Logo.png">
   <link rel="stylesheet" href="../../src/output.css">
   <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <style>
     body {
       font-family: 'Lexend', sans-serif;
@@ -37,7 +68,7 @@
       </div>
       <div class="flex items-center space-x-2">
         <span><img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" /></span>
-        <span class="p-1 mb-1 font-sans">Zambasulta</span>
+        <span class="p-1 mb-1 font-sans"><?php echo $distributorName; ?></span>
 
         <!-- Notification Button -->
         <div class="relative">
@@ -67,13 +98,13 @@
           <div id="accountPopper" class="absolute right-0 z-10 hidden w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
             <div class="flex items-center p-4 mx-2 my-2 border border-gray-200 rounded-lg shadow-sm">
               <img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" />
-              <span class="ml-2 text-sm font-normal">Zambasulta</span>
+              <span class="ml-2 text-sm font-normal"><?php echo $distributorName; ?></span>
             </div>
             <ul class="py-2">
               <a href="./dist_settings.php">
                 <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Settings</li>
               </a>
-              <a href="../../auth/logout.php">
+              <a href="./dist_logout.php">
                 <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Logout</li>
               </a>
             </ul>
@@ -185,104 +216,133 @@
           </button>
         </div>
 
-        <!-- Processing Orders Delivery -->
+        <!-- Delivery Orders Table -->
         <div id="process-table" class="block mt-6">
-          <h2 class="mb-2 font-light text-gray-500"> Orders for Delivery: 2 </h2>
+          <h2 class="mb-2 font-light text-gray-500">Delivery Orders: <?php echo count($deliveryProcess); ?></h2>
           <div class="overflow-x-auto">
-            <table class="w-full table-auto">
-              <thead>
-                <tr class="bg-gray-100">
+            <table class="min-w-full bg-white table-auto">
+              <thead class="bg-gray-100">
+                <tr>
                   <th class="px-4 py-2 text-left">Order ID</th>
                   <th class="px-4 py-2 text-left">Recipient</th>
-                  <th class="px-4 py-2 text-left ">Contact Number</th>
-                  <th class="px-4 py-2 text-left ">Delivery Address</th>
-                  <th class="px-4 py-2 text-left ">Status</th>
-                  <th class="px-4 py-2 text-left "></th>
+                  <th class="px-4 py-2 text-left">Contact</th>
+                  <th class="px-4 py-2 text-left">Address</th>
+                  <th class="px-4 py-2 text-left">Status</th>
+                  <th class="px-4 py-2 text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-sm border-b-2 border-gray-100">
-                  <td class="px-4 py-2 text-[12px] font-semibold">346819EVG4ZUO</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Julies Beykshap</td>
-                  <td class="px-4 py-2 text-[12px] font-light">09265007819</td>
-                  <td class="px-4 py-2 text-[12px] font-light">1st Street, Southcom Village, Zamboanga City</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Processing</td>
-                  <td>
-                    <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="346819EVG4ZUO" onclick="toggleProcessModal(true, processingData[0])">Details</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-2 text-[12px] font-semibold">241911VGA2VIP</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Sinto Ron</td>
-                  <td class="px-4 py-2 text-[12px] font-light">09918701234</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Aquino Drive, Baliwasan Grande, Zamboanga City</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Processing</td>
-                  <td>
-                    <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="241911VGA2VIP" onclick="toggleProcessModal(true, processingData[1])">Details</button>
-                  </td>
-                </tr>
+                <?php if (empty($deliveryProcess)): ?>
+                  <tr>
+                    <td colspan="6" class="px-4 py-20 text-center text-gray-500">You don't have orders recently</td>
+                  </tr>
+                <?php else: ?>
+                  <?php foreach ($deliveryProcess as $delivery): ?>
+                    <tr class="border-b">
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['order_id']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <?php echo htmlspecialchars($delivery['first_name']) . ' ' . htmlspecialchars($delivery['last_name']); ?>
+                      </td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['contact']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['address']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['status']); ?></td>
+                      <td class="px-4 py-2 text-center">
+                        <button class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
+                          onclick="viewProcess('<?php echo $delivery['order_id']; ?>')">
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php endif; ?>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- On-Transit Delivery Table -->
-        <div id="ontransit-table" class="hidden mt-6">
-          <h2 class="mb-2 font-light text-gray-500"> On-Transit Orders: 1 </h2>
+        <!-- On-Transit Orders Table -->
+        <div id="transit-table" class="hidden block mt-6">
+          <h2 class="mb-2 font-light text-gray-500">Delivery Orders: <?php echo count($deliveryTransit); ?></h2>
           <div class="overflow-x-auto">
-            <table class="w-full table-auto">
-              <thead>
-                <tr class="bg-gray-100">
+            <table class="min-w-full bg-white table-auto">
+              <thead class="bg-gray-100">
+                <tr>
                   <th class="px-4 py-2 text-left">Order ID</th>
                   <th class="px-4 py-2 text-left">Recipient</th>
-                  <th class="px-4 py-2 text-left ">Contact Number</th>
-                  <th class="px-4 py-2 text-left ">Delivery Address</th>
-                  <th class="px-4 py-2 text-left ">Status</th>
-                  <th class="px-4 py-2 text-left "></th>
+                  <th class="px-4 py-2 text-left">Contact</th>
+                  <th class="px-4 py-2 text-left">Address</th>
+                  <th class="px-4 py-2 text-left">Status</th>
+                  <th class="px-4 py-2 text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="px-4 py-2 text-[12px] font-semibold">100242ARKSOU</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Ramses Manalolo</td>
-                  <td class="px-4 py-2 text-[12px] font-light">09691236969</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Astoria Hotel, Pasonanca , Zamboanga City</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Completed</td>
-                  <td>
-                    <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="100242ARKSOU" onclick="toggleTransitModal(true, transitData[0])">Details</button>
-                  </td>
-                </tr>
+                <?php if (empty($deliveryTransit)): ?>
+                  <tr>
+                    <td colspan="6" class="px-4 py-20 text-center text-gray-500">You don't have orders recently</td>
+                  </tr>
+                <?php else: ?>
+                  <?php foreach ($deliveryTransit as $delivery): ?>
+                    <tr class="border-b">
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['order_id']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <?php echo htmlspecialchars($delivery['first_name']) . ' ' . htmlspecialchars($delivery['last_name']); ?>
+                      </td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['contact']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['address']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['status']); ?></td>
+                      <td class="px-4 py-2 text-center">
+                        <button class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
+                          onclick="viewDetails('<?php echo $delivery['order_id']; ?>')">
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php endif; ?>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Delivered Table -->
-        <div id="delivered-table" class="hidden mt-6">
-          <h2 class="mb-2 font-light text-gray-500"> Completed Orders: 1 </h2>
+        <!-- Delivered Orders Table -->
+        <div id="delivered-table" class="hidden block mt-6">
+          <h2 class="mb-2 font-light text-gray-500">Delivery Orders: <?php echo count($deliveryDelivered); ?></h2>
           <div class="overflow-x-auto">
-            <table class="w-full table-auto">
-              <thead>
-                <tr class="bg-gray-100">
+            <table class="min-w-full bg-white table-auto">
+              <thead class="bg-gray-100">
+                <tr>
                   <th class="px-4 py-2 text-left">Order ID</th>
                   <th class="px-4 py-2 text-left">Recipient</th>
-                  <th class="px-4 py-2 text-left ">Contact Number</th>
-                  <th class="px-4 py-2 text-left ">Delivery Address</th>
-                  <th class="px-4 py-2 text-left ">Status</th>
-                  <th class="px-4 py-2 text-left "></th>
+                  <th class="px-4 py-2 text-left">Contact</th>
+                  <th class="px-4 py-2 text-left">Address</th>
+                  <th class="px-4 py-2 text-left">Status</th>
+                  <th class="px-4 py-2 text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="px-4 py-2 text-[12px] font-semibold">100242ARKSOU</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Ramses Manalolo</td>
-                  <td class="px-4 py-2 text-[12px] font-light">09691236969</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Astoria Hotel, Pasonanca , Zamboanga City</td>
-                  <td class="px-4 py-2 text-[12px] font-light">Completed</td>
-                  <td>
-                    <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="100242ARKSOU" onclick="toggleDeliveredModal(true, deliveredData[0])">Details</button>
-                  </td>
-                </tr>
+                <?php if (empty($deliveryDelivered)): ?>
+                  <tr>
+                    <td colspan="6" class="px-4 py-20 text-center text-gray-500">You don't have orders recently</td>
+                  </tr>
+                <?php else: ?>
+                  <?php foreach ($deliveryDelivered as $delivery): ?>
+                    <tr class="border-b">
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['order_id']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <?php echo htmlspecialchars($delivery['first_name']) . ' ' . htmlspecialchars($delivery['last_name']); ?>
+                      </td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['contact']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['address']); ?></td>
+                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['status']); ?></td>
+                      <td class="px-4 py-2 text-center">
+                        <button class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
+                          onclick="viewDetails('<?php echo $delivery['order_id']; ?>')">
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php endif; ?>
               </tbody>
             </table>
           </div>
@@ -290,174 +350,46 @@
     </main>
   </div>
 
-  <!-- Processing Modal -->
-  <div id="process-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold">Order ID: <span id="order-id">--</span></h2>
-          <button class="text-blue-600 hover:underline" onclick="toggleProcessModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
+  <!-- Modal Structure -->
 
-        <!-- Order Details Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full border-b border-gray-200 table-auto">
-            <thead>
-              <tr class="text-left border-b">
-                <th class="px-4 py-2">Products</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Qty</th>
-                <th class="px-4 py-2">Amount</th>
-              </tr>
-            </thead>
-            <tbody id="order-products">
-              <!-- Content -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Order Summary -->
-        <div class="flex justify-between mt-4 ">
-          <div class="flex flex-col">
-            <span class="">Customer Name: <span id="order-customer-name" class="text-sm font-light">--</span></span>
-            <span>Delivery Address: <span id="order-customer-address" class="text-sm font-light">--</span></span>
-            <span>Customer Contact: <span id="order-customer-contact" class="text-sm font-light">--</span></span>
-            <span>Order Date: <span id="order-date" class="text-sm font-light">--</span></span>
-          </div>
-          <div class="flex flex-col">
-            <span>Subtotal: <span id="order-subtotal" class="text-sm font-light">₱0.00</span></span>
-            <span>Voucher: <span id="order-voucher" class="text-sm font-light">--</span></span>
-            <span>Discount: <span id="order-discount" class="text-sm font-light">--</span></span>
-            <span>Total: <span id="order-total" class="text-sm font-light">₱0.00</span></span>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 change-status-button-process">Change Status</button>
-          </div>
-        </div>
+  <div id="processdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+    <div class="relative w-full max-w-xl p-6 bg-white rounded shadow-lg">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="mb-4 text-xl font-semibold">Delivery Order No: <?php echo htmlspecialchars($delivery['id']); ?> </h2>
+        <button class="text-gray-500 underline hover:text-gray-700" onclick="closeModal()">Close</button>
+      </div>
+      <div id="processmodalContent" class="text-sm text-gray-700">
+        <!-- Order details will be loaded here -->
+      </div>
+      <div class="flex justify-end mt-4">
+        <button id="deliverButton" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Deliver</button>
       </div>
     </div>
   </div>
 
-  <!-- On-Transit Modal-->
-  <div id="transit-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold">Order ID: <span id="transit-order-id">--</span></h2>
-          <button class="text-blue-600 hover:underline" onclick="toggleTransitModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
-
-        <!-- Order Details Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full border-b border-gray-200 table-auto">
-            <thead>
-              <tr class="text-left border-b">
-                <th class="px-4 py-2">Products</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Quantity</th>
-                <th class="px-4 py-2">Amount</th>
-              </tr>
-            </thead>
-            <tbody id="transit-order-products">
-              <!-- Content -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Payment Summary -->
-        <div class="flex justify-between mt-4 ">
-          <div class="flex flex-col">
-            <span class="">Customer Name: <span id="transit-order-name" class="text-sm font-light">--</span></span>
-            <span>Delivery Address: <span id="transit-order-address" class="text-sm font-light">--</span></span>
-            <span>Customer Contact: <span id="transit-order-contact" class="text-sm font-light">--</span></span>
-            <span>Order Date: <span id="transit-order-date" class="text-sm font-light">--</span></span>
-          </div>
-          <div class="flex flex-col">
-            <span>Subtotal: <span id="transit-order-subtotal" class="text-sm font-light">₱0.00</span></span>
-            <span>Voucher: <span id="transit-order-voucher" class="text-sm font-light">--</span></span>
-            <span>Discount: <span id="transit-order-discount" class="text-sm font-light">--</span></span>
-            <span>Total: <span id="transit-order-total" class="text-sm font-light">₱0.00</span></span>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 change-status-button-transit">Change Status</button>
-          </div>
-        </div>
+  <div id="transitdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+    <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="mb-4 text-xl font-semibold">Delivery Order No: <?php echo htmlspecialchars($delivery['id']); ?> </h2>
+        <button class="text-gray-500 underline hover:text-gray-700" onclick="closeModal()">Close</button>
+      </div>
+      <div id="transitmodalContent" class="text-sm text-gray-700">
+        <!-- Order details will be loaded here -->
+      </div>
+      <div class="flex justify-end mt-4">
+        <button id="deliveredButton" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Delivered</button>
       </div>
     </div>
   </div>
 
-  <!-- Complete Delivery Modal-->
-  <div id="delivered-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold">Order ID: <span id="complete-order-id">--</span></h2>
-          <button class="text-blue-600 hover:underline" onclick="toggleDeliveredModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
-
-        <!-- Order Details Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full border-b border-gray-200 table-auto">
-            <thead>
-              <tr class="text-left border-b">
-                <th class="px-4 py-2">Products</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Quantity</th>
-                <th class="px-4 py-2">Amount</th>
-              </tr>
-            </thead>
-            <tbody id="complete-order-products">
-              <!-- Content -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Payment Summary -->
-        <div class="flex justify-between mt-4 ">
-          <div class="flex flex-col">
-            <span class="">Customer Name: <span id="complete-order-name" class="text-sm font-light">--</span></span>
-            <span>Delivery Address: <span id="complete-order-address" class="text-sm font-light">--</span></span>
-            <span>Customer Contact: <span id="complete-order-contact" class="text-sm font-light">--</span></span>
-            <span>Order Date: <span id="complete-order-date" class="text-sm font-light">--</span></span>
-          </div>
-          <div class="flex flex-col">
-            <span>Subtotal: <span id="complete-order-subtotal" class="text-sm font-light">₱0.00</span></span>
-            <span>Voucher: <span id="complete-order-voucher" class="text-sm font-light">--</span></span>
-            <span>Discount: <span id="complete-order-discount" class="text-sm font-light">--</span></span>
-            <span>Total: <span id="complete-order-total" class="text-sm font-light">₱0.00</span></span>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Completed</button>
-          </div>
-        </div>
+  <div id="delivereddetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+    <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="mb-4 text-xl font-semibold">Delivery Order No: <?php echo htmlspecialchars($delivery['id']); ?> </h2>
+        <button class="text-gray-500 underline hover:text-gray-700" onclick="closeModal()">Close</button>
       </div>
-    </div>
-  </div>
-
-  <!-- Change Status Modal -->
-  <div id="change-status-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-1/3 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold">Change Delivery Status</h2>
-          <button class="text-blue-600 hover:underline" onclick="toggleChangeStatusModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
-
-        <div class="mb-4">
-          <label for="new-status" class="block text-sm font-medium text-gray-700">Select New Status</label>
-          <select id="new-status" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500">
-            <option value="Processing">Processing</option>
-            <option value="On-Transit">On-Transit</option>
-            <option value="Delivered">Delivered</option>
-          </select>
-        </div>
-        <div class="flex justify-end">
-          <button class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 " onclick="changeStatus()">Confirm</button>
-        </div>
+      <div id="deliverdmodalContent" class="text-sm text-gray-700">
+        <!-- Order details will be loaded here -->
       </div>
     </div>
   </div>
@@ -518,323 +450,103 @@
     </div>
   </footer>
   <script>
-    const processTab = document.getElementById('tab-process');
-    const ontransitTab = document.getElementById('tab-ontransit');
-    const deliveredTab = document.getElementById('tab-delivered');
-    const processTable = document.getElementById('process-table');
-    const ontransitTable = document.getElementById('ontransit-table');
-    const deliveredTable = document.getElementById('delivered-table');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tabs
+      const processTab = document.getElementById('tab-process');
+      const transitTab = document.getElementById('tab-ontransit');
+      const deliveredTab = document.getElementById('tab-delivered');
+      const onProcess = document.getElementById('process-table');
+      const onTransit = document.getElementById('transit-table');
+      const onDelivered = document.getElementById('delivered-table');
 
 
-    processTab.addEventListener('click', () => {
-      processTable.classList.remove('hidden');
-      ontransitTable.classList.add('hidden');
-      deliveredTable.classList.add('hidden');
-      processTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-      ontransitTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      deliveredTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-    });
+      processTab.addEventListener('click', () => {
+        onProcess.classList.remove('hidden');
+        onTransit.classList.add('hidden');
+        onDelivered.classList.add('hidden');
+        processTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+        transitTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        deliveredTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+      });
 
-    ontransitTab.addEventListener('click', () => {
-      processTable.classList.add('hidden');
-      ontransitTable.classList.remove('hidden');
-      deliveredTable.classList.add('hidden');
-      processTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      ontransitTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-      deliveredTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      processTab.classList.add('text-gray-600');
-    });
+      transitTab.addEventListener('click', () => {
+        onProcess.classList.add('hidden');
+        onTransit.classList.remove('hidden');
+        onDelivered.classList.add('hidden');
+        processTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        transitTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+        deliveredTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        processTab.classList.add('text-gray-600');
+      });
 
-    deliveredTab.addEventListener('click', () => {
-      processTable.classList.add('hidden');
-      ontransitTable.classList.add('hidden');
-      deliveredTable.classList.remove('hidden');
-      processTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      ontransitTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      deliveredTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-      processTab.classList.add('text-gray-600');
-    });
-
-
-    const processingData = [{
-        id: "346819EVG4ZUO",
-        products: [{
-            name: "Magnolia Ready to Cook Cheesy Chicken Fingers",
-            price: 200,
-            qty: 20,
-            image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png"
-          },
-          {
-            name: "Magnolia Ready to Cook Chicken Siomai",
-            price: 200,
-            qty: 10,
-            image: "../../resources/img/Products/rtc-chicken-siomai.png"
-          },
-          {
-            name: "Magnolia Ready to Cook Lumpia Shanghai Mix",
-            price: 200,
-            qty: 10,
-            image: "../../resources/img/Products/rtc-chicken-tocino.png"
-          },
-        ],
-        customername: "Julies Beykshap",
-        customeraddress: "1st Street, Southcom Village, Zamboanga City",
-        customercontact: "09265007819",
-        subtotal: 8000,
-        voucher: "--",
-        discount: "--",
-        total: 8000,
-      },
-
-      {
-        id: "241911VGA2VIP",
-        products: [{
-          name: "Magnolia Ready to Cook Chicken Siomai",
-          price: 200,
-          qty: 20,
-          image: "../../resources/img/Products/rtc-chicken-siomai.png"
-        }, ],
-        customername: "Sinto Ron",
-        customeraddress: "Aquino Drive, Baliwasan Grande, Zamboanga City",
-        customercontact: "09918701234",
-        subtotal: 4000,
-        voucher: "--",
-        discount: "--",
-        total: 4000,
-      },
-    ];
-
-
-
-
-    const transitData = [{
-      id: "100242ARKSOU",
-      products: [{
-          name: "Magnolia Ready to Cook Cheesy Chicken Fingers",
-          price: 200,
-          qty: 20,
-          image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png"
-        },
-        {
-          name: "Magnolia Ready to Cook Chicken Siomai",
-          price: 200,
-          qty: 10,
-          image: "../../resources/img/Products/rtc-chicken-siomai.png"
-        },
-      ],
-      customername: "Ramses Manalolo",
-      customeraddress: "Astoria Hotel, Pasonanca , Zamboanga City",
-      customercontact: "09691236969",
-      subtotal: 6000,
-      voucher: "--",
-      discount: "--",
-      total: 6000,
-    }, ];
-
-    const deliveredData = [{
-      id: "100242ARKSOU",
-      products: [{
-          name: "Magnolia Ready to Cook Cheesy Chicken Fingers",
-          price: 200,
-          qty: 20,
-          image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png"
-        },
-        {
-          name: "Magnolia Ready to Cook Chicken Siomai",
-          price: 200,
-          qty: 10,
-          image: "../../resources/img/Products/rtc-chicken-siomai.png"
-        },
-      ],
-      customername: "Ramses Manalolo",
-      customeraddress: "Astoria Hotel, Pasonanca , Zamboanga City",
-      customercontact: "09691236969",
-      subtotal: 6000,
-      voucher: "--",
-      discount: "--",
-      total: 6000,
-    }, ];
-
-
-    //Process Modal
-    function toggleProcessModal(show, orderData = null) {
-      const processModal = document.getElementById("process-modal");
-      const transitModal = document.getElementById("transit-modal");
-      const deliveredModal = document.getElementById("delivered-modal");
-
-      // Hide complete modal if it is open
-      transitModal.classList.add("hidden");
-      deliveredModal.classList.add("hidden");
-      processModal.classList.toggle("hidden", !show);
-
-      if (orderData) {
-        // Update modal content for pending order
-        document.getElementById("order-id").textContent = orderData.id;
-
-        const productsTable = document.getElementById("order-products");
-        productsTable.innerHTML = "";
-
-        orderData.products.forEach((product) => {
-          const row = `
-                    <tr>
-                    <td class="flex items-center px-4 py-2">
-                        <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                        ${product.name}
-                    </td>
-                    <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                    <td class="px-4 py-2">${product.qty}</td>
-                    <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-                    </tr>
-                `;
-          productsTable.innerHTML += row;
-        });
-
-        // Update Customer details
-        document.getElementById("order-customer-name").textContent = orderData.customername;
-        document.getElementById("order-customer-address").textContent = orderData.customeraddress;
-        document.getElementById("order-customer-contact").textContent = orderData.customercontact;
-        document.getElementById("order-date").textContent = "September 29, 2024";
-
-        // Update payment details
-        document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("order-voucher").textContent = orderData.voucher;
-        document.getElementById("order-discount").textContent = orderData.discount;
-        document.getElementById("order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-      }
-    }
-
-    //Transit
-    function toggleTransitModal(show, orderData = null) {
-      const processModal = document.getElementById("process-modal");
-      const transitModal = document.getElementById("transit-modal");
-      const deliveredModal = document.getElementById("delivered-modal");
-
-      // Hide pending modal if it is open
-      processModal.classList.add("hidden");
-      deliveredModal.classList.add("hidden");
-      transitModal.classList.toggle("hidden", !show);
-
-      if (orderData) {
-        // Update modal content for completed order
-        document.getElementById("transit-order-id").textContent = orderData.id;
-
-        const productsTable = document.getElementById("transit-order-products");
-        productsTable.innerHTML = "";
-
-        orderData.products.forEach((product) => {
-          const row = `
-                    <tr>
-                    <td class="flex items-center px-4 py-2">
-                        <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                        ${product.name}
-                    </td>
-                    <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                    <td class="px-4 py-2">${product.qty}</td>
-                    <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-                    </tr>
-                `;
-          productsTable.innerHTML += row;
-        });
-
-        // Update Customer details
-        document.getElementById("transit-order-name").textContent = orderData.customername;
-        document.getElementById("transit-order-address").textContent = orderData.customeraddress;
-        document.getElementById("transit-order-contact").textContent = orderData.customercontact;
-        document.getElementById("transit-order-date").textContent = "September 29, 2024";
-
-        // Update payment details
-        document.getElementById("transit-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("transit-order-voucher").textContent = orderData.voucher;
-        document.getElementById("transit-order-discount").textContent = orderData.discount;
-        document.getElementById("transit-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-      }
-    }
-
-    //Delivered
-    function toggleDeliveredModal(show, orderData = null) {
-      const processModal = document.getElementById("process-modal");
-      const transitModal = document.getElementById("transit-modal");
-      const deliveredModal = document.getElementById("delivered-modal");
-
-      // Hide pending modal if it is open
-      processModal.classList.add("hidden");
-      transitModal.classList.add("hidden");
-      deliveredModal.classList.toggle("hidden", !show);
-
-      if (orderData) {
-        // Update modal content for completed order
-        document.getElementById("complete-order-id").textContent = orderData.id;
-
-        const productsTable = document.getElementById("complete-order-products");
-        productsTable.innerHTML = "";
-
-        orderData.products.forEach((product) => {
-          const row = `
-                    <tr>
-                    <td class="flex items-center px-4 py-2">
-                        <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                        ${product.name}
-                    </td>
-                    <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                    <td class="px-4 py-2">${product.qty}</td>
-                    <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-                    </tr>
-                `;
-          productsTable.innerHTML += row;
-        });
-
-        // Update Customer details
-        document.getElementById("complete-order-name").textContent = orderData.customername;
-        document.getElementById("complete-order-address").textContent = orderData.customeraddress;
-        document.getElementById("complete-order-contact").textContent = orderData.customercontact;
-        document.getElementById("complete-order-date").textContent = "September 29, 2024";
-
-        // Update payment details
-        document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("complete-order-voucher").textContent = orderData.voucher;
-        document.getElementById("complete-order-discount").textContent = orderData.discount;
-        document.getElementById("complete-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-      }
-    }
-
-
-
-    // Example: Attach toggleModal to the "Details" button
-    document.querySelectorAll("[data-order-id]").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        const orderId = e.target.getAttribute("data-order-id");
-        const orderData = [...processingData, ...transitData, ...deliveredData].find((order) => order.id === orderId);
-        toggleModal(true, orderData);
+      deliveredTab.addEventListener('click', () => {
+        onProcess.classList.add('hidden');
+        onTransit.classList.add('hidden');
+        onDelivered.classList.remove('hidden');
+        processTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        transitTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+        deliveredTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+        processTab.classList.add('text-gray-600');
       });
     });
 
-    // In toggleProcessModal function
-    document.querySelector(".change-status-button-process").addEventListener("click", () => {
-      toggleChangeStatusModal(true);
-    });
+    function viewProcess(orderId) {
+      // Open the modal
+      document.getElementById('processdetailsModal').classList.remove('hidden');
+      document.getElementById('processmodalContent').innerHTML = "Loading...";
 
-    // In toggleTransitModal function
-    document.querySelector(".change-status-button-transit").addEventListener("click", () => {
-      toggleChangeStatusModal(true);
-    });
+      // Set orderId for Deliver button
+      const deliverButton = document.getElementById('deliverButton');
+      deliverButton.setAttribute('data-order-id', orderId);
 
+      document.getElementById('deliverButton').addEventListener('click', function() {
+        const orderId = this.getAttribute('data-order-id');
 
-    function toggleChangeStatusModal(show) {
-      const changeStatusModal = document.getElementById("change-status-modal");
-      changeStatusModal.classList.toggle("hidden", !show);
+        fetch('update_delivery_transit.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              order_id: orderId
+            }),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert('Delivery status updated to On-transit.');
+              closeModal();
+              location.reload(); // Refresh the page to show updated status
+            } else {
+              alert('Failed to update status: ' + data.message);
+            }
+          })
+          .catch((error) => {
+            console.error('Error updating status:', error);
+            alert('Error updating status.');
+          });
+      });
+
+      // Fetch details via AJAX
+      $.ajax({
+        url: 'fetch_delivery_details.php',
+        type: 'GET',
+        data: {
+          order_id: orderId
+        },
+        success: function(response) {
+          document.getElementById('processmodalContent').innerHTML = response;
+        },
+        error: function() {
+          document.getElementById('processmodalContent').innerHTML = "Error fetching details.";
+        }
+      });
     }
 
-    function changeStatus() {
-      const newStatus = document.getElementById("new-status").value;
-
-      // You can add logic here to update the status in your data
-      // For example, if you have the current order ID, you can find it in your data and update it
-
-      console.log("New Status:", newStatus);
-
-      // Close the modal after changing the status
-      toggleChangeStatusModal(false);
+    function closeModal() {
+      document.getElementById('processdetailsModal').classList.add('hidden');
     }
+
 
 
     //Notif and account 

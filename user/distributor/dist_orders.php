@@ -1,3 +1,25 @@
+<?php
+session_start();
+require_once '../../classes/account.class.php'; // 
+require_once '../../classes/distributor.class.php';
+
+
+if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) {
+  // Retrieve distributor details from the session
+  $distributorInfo = $_SESSION['distributor_info'];
+
+  $distributorName = htmlspecialchars($distributorInfo['name']);
+  $distributorAddress = htmlspecialchars($distributorInfo['address']);
+} else {
+  // If no session exists, redirect to the login page
+  header("Location: dist_login.php");
+  exit;
+}
+
+$order = new Order();
+$pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +60,7 @@
       </div>
       <div class="flex items-center space-x-2">
         <span><img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" /></span>
-        <span class="p-1 mb-1 font-sans">Zambasulta</span>
+        <span class="p-1 mb-1 font-sans"><?php echo $distributorName; ?></span>
 
         <!-- Notification Button -->
         <div class="relative">
@@ -68,13 +90,13 @@
           <div id="accountPopper" class="absolute right-0 z-10 hidden w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
             <div class="flex items-center p-4 mx-2 my-2 border border-gray-200 rounded-lg shadow-sm">
               <img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" />
-              <span class="ml-2 text-sm font-normal">Zambasulta</span>
+              <span class="ml-2 text-sm font-normal"><?php echo $distributorName; ?></span>
             </div>
             <ul class="py-2">
               <a href="./dist_settings.php">
                 <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Settings</li>
               </a>
-              <a href="../../auth/logout.php">
+              <a href="../../user/distributor/dist_logout.php">
                 <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Logout</li>
               </a>
             </ul>
@@ -84,6 +106,7 @@
     </div>
     </div>
   </header>
+
   <div class="flex">
     <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
       <ul class="m-10 ml-10 space-y-2">
@@ -155,6 +178,7 @@
       </ul>
     </aside>
 
+
     <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
       <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">My Orders</h1>
       <div class="container mx-auto">
@@ -182,90 +206,89 @@
               <span class="pr-1 text-sm text-white group-hover:text-black">Export Reports</span>
             </button>
           </div>
-
           <!-- Pending Orders Table -->
           <div id="pending-orders" class="block mt-6">
-            <h2 class="mb-2 font-light text-gray-500"> Number of Orders: 2 </h2>
+            <h2 class="mb-2 font-light text-gray-500">
+              Number of Orders: <?php echo count($pendingOrders); ?>
+            </h2>
             <div class="overflow-x-auto">
-              <table class="w-full table-auto">
+              <table class="w-full mt-4 bg-white border border-gray-200 table-auto">
                 <thead>
                   <tr class="bg-gray-100">
-                    <th class="px-4 py-2 text-left">Product</th>
-                    <th class="px-4 py-2 text-right">Amount</th>
-                    <th class="px-4 py-2 text-left ">Delivery</th>
-                    <th class="px-4 py-2 text-left ">Customer</th>
-                    <th class="px-4 py-2 text-left ">Date</th>
-                    <th class="px-4 py-2 text-left "></th>
+                    <th class="px-4 py-2 text-left ">Order ID</th>
+                    <th class="px-4 py-2 text-left ">Product</th>
+                    <th class="px-4 py-2 text-left ">Total Amount</th>
+                    <th class="px-4 py-2 text-left">Retailer</th>
+                    <th class="px-4 py-2 text-left ">Order Date</th>
+                    <th class="px-4 py-2 text-left ">Address</th>
+                    <th class="px-4 py-2 ">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="text-sm border-b-2 border-gray-100">
-                    <td class="flex items-center px-4 py-2 text-[12px] font-light">
-                      <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product" class="mr-2 rounded w-14 h-14">
-                      Magnolia Ready to Cook Cheesy Chicken Fingers<span class="ml-2 text-sm font-light text-gray-500"> + 2 more products</span>
-                    </td>
-                    <td class="px-4 py-2 text-[12px] font-light text-right">₱8000.00</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Julies Beykshap</td>
-                    <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
-                    <td>
-                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="346819EVG4ZUO" onclick="togglePendingModal(true, pendingOrdersData[0])">Details</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="flex items-center px-4 py-2 text-[12px] font-light">
-                      <img src="../../resources/img/Products/rtc-chicken-siomai.png" alt="Product" class="w-12 h-12 mr-2 rounded">
-                      Magnolia Ready to Cook Chicken Siomai
-                    </td>
-                    <td class="px-4 py-2 text-[12px] font-light text-right">₱4000.00</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Sinto Ron</td>
-                    <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
-                    <td>
-                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="241911VGA2VIP" onclick="togglePendingModal(true, pendingOrdersData[1])">Details</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+                  <?php foreach ($pendingOrders as $order): ?>
 
-          <!-- Completed Orders Table -->
-          <div id="completed-orders" class="hidden mt-6">
-            <h2 class="mb-2 font-light text-gray-500"> Number of Orders: 1 </h2>
-            <div class="overflow-x-auto">
-              <table class="w-full table-auto">
-                <thead>
-                  <tr class="bg-gray-100">
-                    <th class="px-4 py-2 text-left">Product</th>
-                    <th class="px-4 py-2 text-right">Amount</th>
-                    <th class="px-4 py-2 text-left">Delivery</th>
-                    <th class="px-4 py-2 text-left">Customer</th>
-                    <th class="px-4 py-2 text-left">Date</th>
-                    <th class="px-4 py-2 text-left">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="flex items-center px-4 py-2 text-[12px] font-light">
-                      <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product" class="w-12 h-12 mr-2 rounded">
-                      Magnolia Ready to Cook Chicken Tocino
-                    </td>
-                    <td class="px-4 py-2 text-[12px] font-light text-right">₱2500.00</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Anna Reyes</td>
-                    <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
-                    <td>
-                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="563829HJV3AK" onclick="toggleCompleteModal(true, completedOrdersData[0])">Details</button>
-                    </td>
-                  </tr>
+                    <tr class="text-sm border-b-2 border-gray-100">
+                      <!-- Order ID Column -->
+                      <td class="px-4 py-2 text-gray-600">
+                        <?php echo $order['order_id']; ?>
+                      </td>
+                      <!-- Product Column -->
+                      <td class="flex items-center px-4 py-2 text-[12px] font-light">
+                        <?php foreach ($order['details'] as $detail): ?>
+                          <div class="flex items-center space-x-2">
+                            <img src="" alt="Product" class="mr-2 rounded w-14 h-14">
+                            <span class="font-medium"><?php echo htmlspecialchars($detail['product_name']); ?></span>
+                          </div>
+                        <?php endforeach; ?>
+                      </td>
+
+                      <!-- Total Amount Column -->
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        ₱<?php echo number_format($order['total_amount'], 2); ?>
+                      </td>
+
+                      <!-- Retailer Column -->
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <?php echo htmlspecialchars($order['first_name'] . ' ' . $order['last_name']); ?>
+                      </td>
+
+                      <!-- Order Date Column -->
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <?php echo htmlspecialchars($order['date']); ?>
+                      </td>
+
+                      <!-- Address Column -->
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <?php echo htmlspecialchars($order['retailer_address']); ?>
+                      </td>
+
+                      <!-- Actions Column -->
+                      <td class="px-4 py-2 text-[12px] font-light">
+                        <div class="flex items-center p-2">
+                          <button class="px-2 py-1 mr-2 text-white bg-green-500 rounded hover:bg-green-600"
+                            data-order-id="<?php echo htmlspecialchars($order['order_id']); ?>"
+                            onclick="approveOrder(this)">
+                            Accept
+                          </button>
+                          <button class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-600"
+                            data-order-id="<?php echo htmlspecialchars($order['order_id']); ?>"
+                            onclick="rejectOrder(this)">
+                            Reject
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-    </main>
+  </div>
+  </div>
+  </main>
+  </div>
 
   </div>
   <footer class="py-8" style="background-color: #282424;">
@@ -322,139 +345,6 @@
       </div>
     </div>
   </footer>
-  <!-- Pending Order Modal -->
-  <div id="order-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold">Order ID: <span id="order-id">--</span></h2>
-          <button class="text-blue-600 hover:underline" onclick="togglePendingModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
-
-        <!-- Order Details Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full border-b border-gray-200 table-auto">
-            <thead>
-              <tr class="text-left border-b">
-                <th class="px-4 py-2">Products</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Qty</th>
-                <th class="px-4 py-2">Amount</th>
-              </tr>
-            </thead>
-            <tbody id="order-products">
-              <!-- Content -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Payment Summary -->
-        <div class="flex justify-between mt-4 ">
-          <div class="flex flex-col">
-            <span class="">Customer Name: <span id="order-customer-name" class="text-sm font-light">--</span></span>
-            <span>Delivery Address: <span id="order-customer-address" class="text-sm font-light">--</span></span>
-            <span>Customer Contact: <span id="order-customer-contact" class="text-sm font-light">--</span></span>
-          </div>
-          <div class="flex flex-col">
-            <span>Subtotal: <span id="order-subtotal" class="text-sm font-light">₱0.00</span></span>
-            <span>Voucher: <span id="order-voucher" class="text-sm font-light">--</span></span>
-            <span>Discount: <span id="order-discount" class="text-sm font-light">--</span></span>
-            <span>Total: <span id="order-total" class="text-sm font-light">₱0.00</span></span>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600">Reject Order</button>
-            <button class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">Accept Order</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Complete Order Modal-->
-  <div id="complete-order-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold">Order ID: <span id="complete-order-id">--</span></h2>
-          <button class="text-blue-600 hover:underline" onclick="toggleCompleteModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
-
-        <!-- Order Details Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full border-b border-gray-200 table-auto">
-            <thead>
-              <tr class="text-left border-b">
-                <th class="px-4 py-2">Products</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Quantity</th>
-                <th class="px-4 py-2">Amount</th>
-              </tr>
-            </thead>
-            <tbody id="complete-order-products">
-              <!-- Content -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Payment Summary -->
-        <div class="flex justify-between mt-4 ">
-          <div class="flex flex-col">
-            <span class="">Customer Name: <span id="complete-order-customer-name" class="text-sm font-light">--</span></span>
-            <span>Delivery Address: <span id="complete-order-customer-address" class="text-sm font-light">--</span></span>
-            <span>Customer Contact: <span id="complete-order-customer-contact" class="text-sm font-light">--</span></span>
-            <span>Order Date: <span id="complete-order-date" class="text-sm font-light">--</span></span>
-          </div>
-          <div class="flex flex-col">
-            <span>Subtotal: <span id="complete-order-subtotal" class="text-sm font-light">₱0.00</span></span>
-            <span>Voucher: <span id="complete-order-voucher" class="text-sm font-light">--</span></span>
-            <span>Discount: <span id="complete-order-discount" class="text-sm font-light">--</span></span>
-            <span>Total: <span id="complete-order-total" class="text-sm font-light">₱0.00</span></span>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600" onclick="toggleCompleteModal(false)">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Reject Order Modal -->
-  <div id="reject-order-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <iconify-icon icon="entypo:warning" class="text-xl text-green-500"></iconify-icon>
-            <h2 class="ml-2 text-lg font-normal">Are you certain about rejecting this order? If so, please provide a reason.</h2>
-          </div>
-          <button class="text-blue-600 hover:underline" onclick="toggleRejectModal(false)">Close</button>
-        </div>
-        <hr class="my-4 border-gray-300">
-
-        <form id="reject-order-form">
-          <div class="mb-4">
-            <div class="mt-2">
-              <label><input type="radio" name="reject-reason" value="Out of Stock"> Out of Stock</label><br>
-              <label><input type="radio" name="reject-reason" value="Customer Request"> Customer Request</label><br>
-              <label><input type="radio" name="reject-reason" value="Payment Issues"> Fraudulent Order</label><br>
-              <label><input type="radio" name="reject-reason" value="Shipping Delays"> Incorrect Delivery Address</label><br>
-              <label><input type="radio" name="reject-reason" value="Other"> Other, Specify</label>
-            </div>
-          </div>
-          <div class="mb-4">
-            <textarea id="reject-specific" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Please provide more details..."></textarea>
-          </div>
-          <div class="flex justify-end">
-            <button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600">Reject Order</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <script>
     //Notif and account 
     document.getElementById('notificationButton').addEventListener('click', function() {
@@ -480,243 +370,57 @@
       }
     });
 
-    const pendingTab = document.getElementById('tab-pending');
-    const completedTab = document.getElementById('tab-completed');
-    const pendingOrders = document.getElementById('pending-orders');
-    const completedOrders = document.getElementById('completed-orders');
 
-    pendingTab.addEventListener('click', () => {
-      pendingOrders.classList.remove('hidden');
-      completedOrders.classList.add('hidden');
-      pendingTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-      completedTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-    });
+    function approveOrder(button) {
+      var orderId = button.getAttribute('data-order-id');
 
-    completedTab.addEventListener('click', () => {
-      completedOrders.classList.remove('hidden');
-      pendingOrders.classList.add('hidden');
-      completedTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-      pendingTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      pendingTab.classList.add('text-gray-600');
-    });
+      // Create a new XMLHttpRequest to call the PHP function
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "./accept_reject_order.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = xhr.responseText.trim();
+          if (response === 'success') {
+            // Update the status on the UI or refresh the page
+            alert("Order Approved!");
+            window.location.reload(); // Refresh the page after approval
+          } else {
+            alert("Failed to approve order.");
+          }
+        }
+      };
 
-    const pendingOrdersData = [{
-        id: "346819EVG4ZUO",
-        products: [{
-            name: "Magnolia Ready to Cook Cheesy Chicken Fingers",
-            price: 200,
-            qty: 20,
-            image: "../../resources/img/Products/rtc-cheesy-chicken-fingers.png"
-          },
-          {
-            name: "Magnolia Ready to Cook Chicken Siomai",
-            price: 200,
-            qty: 10,
-            image: "../../resources/img/Products/rtc-chicken-siomai.png"
-          },
-          {
-            name: "Magnolia Ready to Cook Lumpia Shanghai Mix",
-            price: 200,
-            qty: 10,
-            image: "../../resources/img/Products/rtc-chicken-tocino.png"
-          },
-        ],
-        customername: "Julies Beykshap",
-        customeraddress: "1st Street, Southcom Village, Zamboanga City",
-        customercontact: "09265007819",
-        subtotal: 8000,
-        voucher: "--",
-        discount: "--",
-        total: 8000,
-      },
-
-      {
-        id: "241911VGA2VIP",
-        products: [{
-          name: "Magnolia Ready to Cook Chicken Siomai",
-          price: 200,
-          qty: 20,
-          image: "../../resources/img/Products/rtc-chicken-siomai.png"
-        }, ],
-        customername: "Sinto Ron",
-        customeraddress: "Aquino Drive, Baliwasan Grande, Zamboanga City",
-        customercontact: "09918701234",
-        subtotal: 4000,
-        voucher: "--",
-        discount: "--",
-        total: 4000,
-      },
-    ];
-
-    const completedOrdersData = [{
-      id: "563829HJV3AK",
-      products: [{
-        name: "Magnolia Ready to Cook Chicken Tocino",
-        price: 250,
-        qty: 10,
-        image: "../../resources/img/Products/rtc-chicken-tocino.png"
-      }, ],
-      customername: "Anna Reyes",
-      customeraddress: "Nuñez Extension, KCC MALL, Zamboanga City",
-      customercontact: "09234567890",
-      subtotal: 2500,
-      voucher: "₱100.00",
-      discount: "₱100.00",
-      total: 2300,
-    }, ];
-
-    function togglePendingModal(show, orderData = null) {
-      const pendingModal = document.getElementById("order-details-modal");
-      const completeModal = document.getElementById("complete-order-modal");
-
-      // Hide complete modal if it is open
-      completeModal.classList.add("hidden");
-      pendingModal.classList.toggle("hidden", !show);
-
-      if (orderData) {
-        // Update modal content for pending order
-        document.getElementById("order-id").textContent = orderData.id;
-
-        const productsTable = document.getElementById("order-products");
-        productsTable.innerHTML = "";
-
-        orderData.products.forEach((product) => {
-          const row = `
-                <tr>
-                  <td class="flex items-center px-4 py-2">
-                    <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                    ${product.name}
-                  </td>
-                  <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                  <td class="px-4 py-2">${product.qty}</td>
-                  <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-                </tr>
-              `;
-          productsTable.innerHTML += row;
-        });
-
-        // Update Customer details
-        document.getElementById("order-customer-name").textContent = orderData.customername;
-        document.getElementById("order-customer-address").textContent = orderData.customeraddress;
-        document.getElementById("order-customer-contact").textContent = orderData.customercontact;
-
-        // Update payment details
-        document.getElementById("order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("order-voucher").textContent = orderData.voucher;
-        document.getElementById("order-discount").textContent = orderData.discount;
-        document.getElementById("order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-      }
+      // Send the request with the order_id
+      xhr.send("order_id=" + orderId + "&action=approve");
     }
 
-    function toggleCompleteModal(show, orderData = null) {
-      const pendingModal = document.getElementById("order-details-modal");
-      const completeModal = document.getElementById("complete-order-modal");
+    function rejectOrder(button) {
+      var orderId = button.getAttribute('data-order-id');
 
-      // Hide pending modal if it is open
-      pendingModal.classList.add("hidden");
+      // Create a new XMLHttpRequest to call the PHP function
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "./accept_reject_order.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-      completeModal.classList.toggle("hidden", !show);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = xhr.responseText.trim();
+          if (response === 'success') {
+            // Update the status on the UI or refresh the page
+            alert("Order Rejected!");
+            window.location.reload(); // Refresh the page after rejection
+          } else {
+            alert("Failed to reject order.");
+          }
+        }
+      };
 
-      if (orderData) {
-        // Update modal content for completed order
-        document.getElementById("complete-order-id").textContent = orderData.id;
-
-        const productsTable = document.getElementById("complete-order-products");
-        productsTable.innerHTML = "";
-
-        orderData.products.forEach((product) => {
-          const row = `
-                <tr>
-                  <td class="flex items-center px-4 py-2">
-                    <img src="${product.image}" alt="Product Image" class="w-12 h-12 mr-2 rounded">
-                    ${product.name}
-                  </td>
-                  <td class="px-4 py-2">₱${product.price.toFixed(2)}</td>
-                  <td class="px-4 py-2">${product.qty}</td>
-                  <td class="px-4 py-2">₱${(product.price * product.qty).toFixed(2)}</td>
-                </tr>
-              `;
-          productsTable.innerHTML += row;
-        });
-
-        // Update Customer details
-        document.getElementById("complete-order-customer-name").textContent = orderData.customername;
-        document.getElementById("complete-order-customer-address").textContent = orderData.customeraddress;
-        document.getElementById("complete-order-customer-contact").textContent = orderData.customercontact;
-        document.getElementById("complete-order-date").textContent = "September 29, 2024";
-
-        // Update payment details
-        document.getElementById("complete-order-subtotal").textContent = `₱${orderData.subtotal.toFixed(2)}`;
-        document.getElementById("complete-order-voucher").textContent = orderData.voucher;
-        document.getElementById("complete-order-discount").textContent = orderData.discount;
-        document.getElementById("complete-order-total").textContent = `₱${orderData.total.toFixed(2)}`;
-      }
+      // Send the request with the order_id
+      xhr.send("order_id=" + orderId + "&action=reject");
     }
-
-    // Example: Attach toggleModal to the "Details" button
-    document.querySelectorAll("[data-order-id]").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        const orderId = e.target.getAttribute("data-order-id");
-        const orderData = [...pendingOrdersData, ...completedOrdersData].find((order) => order.id === orderId);
-        toggleModal(true, orderData);
-      });
-    });
-
-    function toggleRejectModal(show) {
-      const modal = document.getElementById("reject-order-modal");
-      modal.classList.toggle("hidden", !show);
-    }
-
-    // Attach the reject modal to the "Reject Order" button
-    document.querySelectorAll(".bg-red-500").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        toggleRejectModal(true);
-      });
-    });
-
-    document.querySelectorAll(".bg-red-500").forEach((button) => {
-      button.addEventListener("click", (e) => {
-        // Close any open modals (pending or complete) before opening the reject modal
-        togglePendingModal(false);
-        toggleCompleteModal(false);
-
-        // Now open the reject modal
-        toggleRejectModal(true);
-      });
-    });
-
-    // Function to toggle the reject modal
-    function toggleRejectModal(show) {
-      const modal = document.getElementById("reject-order-modal");
-      modal.classList.toggle("hidden", !show);
-    }
-
-    // Handle form submission for rejection
-    document.getElementById("reject-order-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const reason = document.querySelector('input[name="reject-reason"]:checked');
-      const specificReason = document.getElementById("reject-specific").value;
-
-      if (reason) {
-        console.log("Order Rejected for reason:", reason.value);
-      }
-      if (specificReason) {
-        console.log("Specific Reason:", specificReason);
-      }
-
-      // Close the reject modal after submission
-      toggleRejectModal(false);
-    });
-
-    // Close reject modal when user clicks outside of it
-    window.addEventListener('click', function(event) {
-      const modal = document.getElementById("reject-order-modal");
-      if (event.target === modal) {
-        toggleRejectModal(false);
-      }
-    });
   </script>
 </body>
 
-</html>
+</html>xa

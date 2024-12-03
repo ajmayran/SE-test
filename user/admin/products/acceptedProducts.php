@@ -331,35 +331,35 @@
 
         <!-- Accepted Products Content -->
         <div class="p-6">
-            <div class="mb-6 flex flex-row justify-between space-x-4">
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+            <div class="flex flex-row justify-between mb-6 space-x-4">
+                <div class="w-1/4 p-4 rounded-lg shadow-md bg-abebc6">
                     <p class="text-gray-600">All Products</p>
                     <h2 class="text-2xl font-bold text-green-700">68</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                <div class="w-1/4 p-4 rounded-lg shadow-md bg-abebc6">
                     <p class="text-gray-600">Featured Products</p>
                     <h2 class="text-2xl font-bold text-green-700">5</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                <div class="w-1/4 p-4 rounded-lg shadow-md bg-abebc6">
                     <p class="text-gray-600">Pending Request</p>
                     <h2 class="text-2xl font-bold text-green-700">20</h2>
                 </div>
-                <div class="bg-abebc6 p-4 rounded-lg shadow-md w-1/4">
+                <div class="w-1/4 p-4 rounded-lg shadow-md bg-abebc6">
                     <p class="text-gray-600">Rejected Products</p>
                     <h2 class="text-2xl font-bold text-green-700">6</h2>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow mb-6">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="text-2xl font-bold mb-6">Accepted Products</div>
+            <div class="p-6 mb-6 bg-white rounded-lg shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="mb-6 text-2xl font-bold">Accepted Products</div>
                     <div class="flex space-x-2">
-                        <button class="bg-red-500 hover:bg-red-700 text-white p-2 rounded"><iconify-icon icon="mdi:delete" /></button>
+                        <button class="p-2 text-white bg-red-500 rounded hover:bg-red-700"><iconify-icon icon="mdi:delete" /></button>
                     </div>
                 </div>
                 <table id="productTable" class="w-full table-auto"> <!--- Added id to the table --->
                     <thead>
-                        <tr class="bg-gray-100 text-gray-600 text-left">
+                        <tr class="text-left text-gray-600 bg-gray-100">
                              <th class="p-2">Product Code</th>
                              <th class="p-2">Product</th>
                              <th class="p-2">Distributor</th>
@@ -383,8 +383,8 @@
         $(document).ready( function () {
             $('#productTable').DataTable({  
                 data: [ 
-                    ['PRC001', '<img src="../../../resources/img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="w-8 h-8 inline-block mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
-                    ['PRC002', '<img src="../../../resources/img/Products/rtc-chicken-bbq.png" alt="Product 2" class="w-8 h-8 inline-block mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="bg-red-500 text-white p-2 rounded hover:bg-red-700">Delete</button>'],
+                    ['PRC001', '<img src="../../../resources/img/Products/rtc-chicken-lumpia.png" alt="Product 1" class="inline-block w-8 h-8 mr-2"> RTC Chicken Lumpia', 'Magnolia', '250.00', '11/14/2024', '<button class="p-2 text-white bg-red-500 rounded hover:bg-red-700">Delete</button>'],
+                    ['PRC002', '<img src="../../../resources/img/Products/rtc-chicken-bbq.png" alt="Product 2" class="inline-block w-8 h-8 mr-2"> RTC Chicken BBQ', 'Timplados', '120.50', '11/15/2024', '<button class="p-2 text-white bg-red-500 rounded hover:bg-red-700">Delete</button>'],
                     
                 ],
                 columns: [  

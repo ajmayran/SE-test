@@ -1,4 +1,4 @@
-<nav class="flex justify-between py-4 bg-white min-h-20 container mx-auto">
+<nav class="container flex justify-between py-4 mx-auto bg-white min-h-20">
     <div class="flex items-center">
         <a href="retailer_dash.php"><img src="../../resources/img/Pconnect Logo.png" alt="PConnect Logo" class="h-10 mr-4"></a>
         <a href="retailer_dash.php"><span class="text-2xl font-semibold text-black-700">PConnect</span></a>
@@ -8,9 +8,9 @@
                 <option value="all">All Categories</option>
                 <option value="all">All Categories</option>
             </select>
-            <input type="text" placeholder="Search for items..." class="flex-1 px-3 py-2 bg-gray-200 border w-full">
+            <input type="text" placeholder="Search for items..." class="flex-1 w-full px-3 py-2 bg-gray-200 border">
             <button class="px-4 py-2 font-bold text-white bg-green-500 hover:bg-green-700">
-                <iconify-icon icon="mdi:search" class="text-lg flex items-center h-6"></iconify-icon> 
+                <iconify-icon icon="mdi:search" class="flex items-center h-6 text-lg"></iconify-icon> 
             </button>
         </div>
     </div>
@@ -24,11 +24,11 @@
                 <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
             </button>
             <!-- Notification Popup -->
-            <div id="notification-popup" class="absolute right-0 z-10 hidden w-96 bg-white rounded-lg shadow-lg top-12">
+            <div id="notification-popup" class="absolute right-0 z-10 hidden bg-white rounded-lg shadow-lg w-96 top-12">
                 <div class="p-4 border-b border-gray-200">
                     <h4 class="font-semibold text-gray-800">Notifications</h4>
                 </div>
-                <ul class="max-h-48 overflow-y-auto">
+                <ul class="overflow-y-auto max-h-48">
                     <li class="p-4 border-b border-gray-200 hover:bg-gray-100">
                         <span class="text-gray-700">Your order #1234 has been shipped!</span>
                     </li>

@@ -10,49 +10,49 @@
     <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen">
     <?php
         $page_title = 'Dashboard';
         require_once '../../includes/retailer_topnav.php';
     ?>
 
-    <div class="my-10 container mx-auto">
+    <div class="container mx-auto my-10">
         <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
             Go back
         </a>
     </div>
-    <div class="flex items-center border border-gray-400 container px-4 mx-auto py-5">
-    <div class="bg-white mx-auto p-5 flex justify-center ">
+    <div class="container flex items-center px-4 py-5 mx-auto border border-gray-400">
+    <div class="flex justify-center p-5 mx-auto bg-white ">
 
 <div>
   <!-- Main Product Image -->
-    <div class="flex justify-center py-5 px-5 m-5">
-        <img id="main-product-image" src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="main product img" class="h-48 object-cover rounded-lg"/>
+    <div class="flex justify-center px-5 py-5 m-5">
+        <img id="main-product-image" src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="main product img" class="object-cover h-48 rounded-lg"/>
     </div>
 
     <!-- Product Variants -->
     <div>
-        <div class="justify-center flex">
+        <div class="flex justify-center">
         <label class="flex items-center space-x-2">
             <input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_5g.jpg" checked/>
-            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 1" class="w-24 h-24 object-cover p-1 m-2 bg-gray-100 border rounded-lg peer-checked:border-green-500"/>
+            <img src="../../resources/img/alaska_products/krem_top_5g.jpg" alt="product img variant 1" class="object-cover w-24 h-24 p-1 m-2 bg-gray-100 border rounded-lg peer-checked:border-green-500"/>
         </label>
         
         <label class="flex items-center space-x-2">
             <input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_back.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_back.jpg" alt="product img variant 2" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+            <img src="../../resources/img/alaska_products/krem_top_back.jpg" alt="product img variant 2" class="object-cover w-24 h-24 p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
 
         <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_left.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_left.jpg" alt="product img variant 3" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+            <img src="../../resources/img/alaska_products/krem_top_left.jpg" alt="product img variant 3" class="object-cover w-24 h-24 p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
 
         <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_right.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_right.jpg" alt="product img variant 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+            <img src="../../resources/img/alaska_products/krem_top_right.jpg" alt="product img variant 4" class="object-cover w-24 h-24 p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
 
         <label class="flex items-center space-x-2"><input type="radio" name="product-variant" class="hidden peer" data-image="../../resources/img/alaska_products/krem_top_alaska.jpg"/>
-            <img src="../../resources/img/alaska_products/krem_top_alaska.jpg" alt="product img variant 4" class="w-24 h-24 object-cover p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
+            <img src="../../resources/img/alaska_products/krem_top_alaska.jpg" alt="product img variant 4" class="object-cover w-24 h-24 p-1 m-2 border border-gray-300 rounded-lg peer-checked:border-green-500"/>
         </label>
         </div>
     </div>
@@ -60,20 +60,20 @@
 
     </div>
             <div class="w-1/3">
-                <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center justify-between mb-2">
                     <h2 class="text-lg font-bold">Krem-Top Coffee Creamer</h2>
                 </div>
-                <p class="text-gray-500 mb-4 w-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.</p>
-                <span class="text-2xl font-md mr-2">Size:</span>
+                <p class="w-auto mb-4 text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.</p>
+                <span class="mr-2 text-2xl font-md">Size:</span>
                 <span class="text-2xl font-bold">24x5g</span>
                 <div class="flex items-center mb-4">
-                    <span class="text-2xl font-md mr-2">Per Case:</span>
+                    <span class="mr-2 text-2xl font-md">Per Case:</span>
                     <span class="text-2xl font-bold">₱840</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button class="bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded hover:bg-green-600 focus:outline-none" id="minus-btn">-</button>
+                    <button class="flex items-center justify-center w-8 h-8 text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none" id="minus-btn">-</button>
                     <input type="number" id="quantity-input" value="1" min="1" class="w-12 text-center border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none"/>
-                <button class="bg-green-500 text-white w-8 h-8 flex items-center justify-center rounded hover:bg-green-600 focus:outline-none" id="plus-btn">+</button>
+                <button class="flex items-center justify-center w-8 h-8 text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none" id="plus-btn">+</button>
             </div>
 
             <!-- change variant code
@@ -101,7 +101,7 @@
 
 
     <div class="rounded-lg">
-                <button type="" onclick="openproductModal()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2 mt-5">
+                <button type="" onclick="openproductModal()" class="px-4 py-2 mt-5 mr-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
                      Add to Cart
                 </button>
 
@@ -116,8 +116,8 @@
         </div>
     </div>
 
-    <section class="p-2  mb-4 border border-t-0 border-gray-400 container px-4 mx-auto">
-        <div class="px-10 flex justify-between">
+    <section class="container p-2 px-4 mx-auto mb-4 border border-t-0 border-gray-400">
+        <div class="flex justify-between px-10">
             <div class="flex items-center">
                 <div class="flex items-center justify-center w-24 h-24 bg-white rounded-lg">
                     <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor Photo" class="w-24 h-24">
@@ -125,7 +125,7 @@
                 <div class="ml-4">
                     <h2 class="text-2xl font-bold">Jacob</h2>
                     <a href="../retailer/retailer_distributor.php">
-                        <button class="px-4 py-2  font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        <button class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
                         View Shop
                     </button></a>
                 </div>
@@ -138,55 +138,55 @@
             <div class="flex items-center justify-between">
                 <h2 class="mr-4 text-2xl font-bold">Related Products</h2>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-10">
-               <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+            <div class="grid grid-cols-2 gap-4 py-10 md:grid-cols-4">
+               <a href="./single_product_view.php" class="p-6 bg-white rounded-lg shadow-md ">
                     <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="mb-4 just ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Chicken Tocino Templados</h3>
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
-                    <div class="flex justify-between items-center mt-4">
+                    <div class="flex items-center justify-between mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
 
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="p-6 bg-white rounded-lg shadow-md ">
                     <div class="flex justify-center">
-                        <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/Chicken-lumpia-shanghai-mix.png" alt="Product Image" class="mb-4 just ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Chicken lumpia shanghai mix</h3>
                         <p class="text-gray-500">By NestFood</p>
                     </div>
-                    <div class="flex justify-between items-center mt-4">
+                    <div class="flex items-center justify-between mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
 
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="p-6 bg-white rounded-lg shadow-md ">
                     <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-cheesy-chicken-fingers.png" alt="Product Image" class="mb-4 just ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Cheesy Chicken Fingers</h3>
                         <p class="text-gray-500">By Magnolia</p>
                     </div>
-                    <div class="flex justify-between items-center mt-4">
+                    <div class="flex items-center justify-between mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
 
                     </div>
                 </a>
-                <a href="./single_product_view.php" class="bg-white rounded-lg shadow-md p-6 ">
+                <a href="./single_product_view.php" class="p-6 bg-white rounded-lg shadow-md ">
                     <div class="flex justify-center">
-                        <img src="../../resources/img/Products/rtc-pepper-steak.png" alt="Product Image" class="just mb-4 ">
+                        <img src="../../resources/img/Products/rtc-pepper-steak.png" alt="Product Image" class="mb-4 just ">
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold">Pepper Steak</h3>
                         <p class="text-gray-500">By NestFood</p>
                     </div>
-                    <div class="flex justify-between items-center mt-4">
+                    <div class="flex items-center justify-between mt-4">
                         <span class="text-lg font-bold">₱150.85</span>
 
                     </div>
@@ -198,13 +198,13 @@
     <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
         <div class="relative w-full max-w-sm max-h-screen p-8 overflow-y-auto bg-white rounded-lg">   
             <div class="flex justify-center">
-                <div class="bg-green-500 text-white rounded-full p-2">
+                <div class="p-2 text-white bg-green-500 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
                     </svg>
                 </div>
             </div>
-            <p class="text-green-500 font-semibold text-2xl flex justify-center">Success!</p>
+            <p class="flex justify-center text-2xl font-semibold text-green-500">Success!</p>
             <div class="flex justify-center">
                     <p>Your item has been added to the cart.</p>
             </div>

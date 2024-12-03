@@ -110,7 +110,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 min-[550px]:gap-6 py-3 border-b border-gray-200 max-sm:max-w-xl max-xl:mx-auto">
                             <div class="flex items-center flex-col min-[550px]:flex-row gap-3 min-[550px]:gap-4 w-full max-sm:justify-center max-sm:max-w-xl max-xl:mx-auto">
                                 <div class="w-[120px] h-[120px] img-box bg-gray-50 rounded-xl justify-center items-center inline-flex">
-                                    <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Denim Shirt image" class="xl:w-[75px] object-cover">
+                                    <img src="../img/Products/rtc-chicken-tocino.png" alt="Denim Shirt image" class="xl:w-[75px] object-cover">
                                 </div>
                                 <div class="pro-data w-full max-w-sm flex-col justify-start items-start gap-2 inline-flex">
                                     <h4 class="w-full text-black text-lg font-medium leading-8 max-[550px]:text-center">Chicken Tocino</h4>
@@ -120,7 +120,7 @@
                             <div class="w-full flex items-center justify-between flex-col min-[550px]:flex-row w-full max-sm:max-w-xl max-xl:mx-auto gap-2">
                                 <h5 class="w-full max-w-[142px] text-center text-black text-lg font-medium leading-relaxed"></h5>
                                 <button class="max-w-[160px] flex items-center w-full mx-0 justify-center gap-5">
-                                    <input type="text" class="w-12 h-12 focus:outline-none text-gray-900 placeholder-gray-900 text-lg font-medium leading-relaxed px-2.5 bg-white rounded-full border border-gray-200 justify-center items-center flex" placeholder="10">     
+                                    <input type="text" class="w-12 h-12 focus:outline-none text-gray-900 placeholder-gray-900 text-lg font-medium leading-relaxed px-2.5 bg-white rounded-full border border-gray-200 justify-center items-center flex" placeholder="02">     
                                 </button>
                                 <h5 class="max-w-[142px] w-full text-center text-black text-lg font-medium leading-relaxed pl-5">₱2,000.00</h5>
                             </div>

@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) {
+    // Retrieve distributor details from the session
+    $distributorInfo = $_SESSION['distributor_info'];
+
+    $distributorName = htmlspecialchars($distributorInfo['name']);
+    $distributorAddress = htmlspecialchars($distributorInfo['address']);
+} else {
+    // If no session exists, redirect to the login page
+    header("Location: dist_login.php");
+    exit; 
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +54,7 @@
             </div>
             <div class="flex items-center space-x-2">
                 <span><img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" /></span>
-                <span class="p-1 mb-1 font-sans">Zambasulta</span>
+                <span class="p-1 mb-1 font-sans"><?php echo $distributorName; ?></span>
 
                 <!-- Notification Button -->
                 <div class="relative">
@@ -68,7 +84,7 @@
                     <div id="accountPopper" class="absolute right-0 z-10 hidden w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
                         <div class="flex items-center p-4 mx-2 my-2 border border-gray-200 rounded-lg shadow-sm">
                             <img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" />
-                            <span class="ml-2 text-sm font-normal">Zambasulta</span>
+                            <span class="ml-2 text-sm font-normal"><?php echo $distributorName; ?></span>
                         </div>
                         <ul class="py-2">
                             <a href="./dist_settings.php">

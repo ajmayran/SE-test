@@ -16,17 +16,17 @@
     require_once '../../includes/retailer_topnav_2.php';
   ?>
  
-  <div class="flex h-screen container mx-auto m-10 gap-2">
-    <div class="w-1/4 pt-5 border shadow-md h-full">
-      <h2 class="text-xl font-bold mb-4 p-4 text-center">Account</h2>
-        <ul class="tab-list space-y text-center">
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Profile</li>
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Address</li>
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">Change Password</li>
-            <a href="retailer_purchase_status.php"><li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Purchase</li></a>
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2" >Notifications</li>
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Voucher</li>
-            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2 text-red-500 font-bold mt-2">Log Out</li>
+  <div class="container flex gap-2 m-10 mx-auto">
+    <div class="w-1/4 h-screen pt-5 border shadow-md">
+      <h2 class="p-4 mb-4 text-xl font-bold text-center">Account</h2>
+        <ul class="text-center tab-list space-y">
+            <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">Profile</li>
+            <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">Address</li>
+            <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">Change Password</li>
+            <a href="retailer_purchase_status.php"><li class="p-2 cursor-pointer tab-item hover:bg-gray-200">My Purchase</li></a>
+            <li class="p-2 cursor-pointer tab-item hover:bg-gray-200" >Notifications</li>
+            <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">My Voucher</li>
+            <li class="p-2 mt-2 font-bold text-red-500 cursor-pointer tab-item hover:bg-gray-200">Log Out</li>
         </ul>
     </div>
     <div class="w-3/4 p-4 pt-5 border shadow-md">
@@ -38,27 +38,27 @@
             ?>               
             </div>
 
-            <div class="tab-pane hidden">
+            <div class="hidden tab-pane">
             <?php
               require_once '../../includes/retailer_address.php';
             ?>  
             </div>
 
-            <div class="tab-pane hidden">
+            <div class="hidden tab-pane">
             <?php
               require_once '../../includes/retailer_password.php';
             ?>  
             </div>
 
-            <div class="tab-pane hidden"></div>
+            <div class="hidden tab-pane"></div>
 
-            <div class="tab-pane hidden" >
+            <div class="hidden tab-pane" >
             <?php
               require_once '../../includes/retailer_notif.php';
             ?>  
             </div>
             
-            <div class="tab-pane hidden">
+            <div class="hidden tab-pane">
             <?php
               require_once '../../includes/retailer_voucher.php';
             ?>               

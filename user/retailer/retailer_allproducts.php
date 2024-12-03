@@ -486,7 +486,6 @@
 
          <div class="tab-pane hidden">
          <h2 class="text-2xl font-bold text-gray-800">Soft Drinks</h2>
-         <h2 class="text-2xl font-bold text-gray-800">Soft Drinks</h2>
          <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
               <a href="../retailer/single_product_view.php" class="bg-white rounded-lg shadow-md p-6 border ">
                     <div class="flex justify-center">
