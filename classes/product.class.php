@@ -1,6 +1,7 @@
 <?php
 
-require_once '../../database/connect.php';
+require_once __DIR__ . '/../database/connect.php';
+
 class Product {
     // These properties represent the columns in the 'product' table.
     public $id = '';   
@@ -14,6 +15,7 @@ class Product {
     public $stock = '';
     public $min_qty = '';
     public $max_qty = '';
+
     protected $db; // This will hold an instance of the Database class for database operations.
 
     // The constructor method initializes the Product class by creating a new Database object.
@@ -149,4 +151,52 @@ class Product {
         // is represented as an associative array with column names as keys.
         return $data;
     }
+
+    public function fetchAllProducts() {
+        // SQL query to select all products along with distributor information from distributor_information table
+        $sql = "
+            SELECT p.*, di_info.name AS distributor_name, di_info.contact AS distributor_contact 
+            FROM product p
+            LEFT JOIN distributor di ON p.distributor_id = di.id
+            LEFT JOIN distributor_information di_info ON di.id = di_info.distributor_id
+            ORDER BY p.product_name ASC;
+        ";
+    
+        // Prepare the SQL statement for execution
+        $query = $this->db->connect()->prepare($sql);
+    
+        $data = null; // Initialize a variable to hold the fetched data
+    
+        // Execute the query. If successful, fetch all results
+        if ($query->execute()) {
+            $data = $query->fetchAll(PDO::FETCH_ASSOC); // Fetch all rows as an associative array
+        }
+    
+        return $data; // Return the fetched data
+    }
+
+
+    public function fetchDistributors() {
+        // SQL query to select all distributors along with their information
+        $sql = "
+            SELECT d.*, di.name AS distributor_name, di.contact AS distributor_contact, di.address AS distributor_address
+            FROM distributor d
+            LEFT JOIN distributor_information di ON d.id = di.distributor_id
+            ORDER BY di.name ASC;
+        ";
+    
+        // Prepare the SQL statement for execution
+        $query = $this->db->connect()->prepare($sql);
+    
+        $data = null; // Initialize a variable to hold the fetched data
+    
+        // Execute the query. If successful, fetch all results
+        if ($query->execute()) {
+            $data = $query->fetchAll(PDO::FETCH_ASSOC); // Fetch all rows as an associative array
+        }
+    
+        return $data; // Return the fetched data
+    }
+
+
 }

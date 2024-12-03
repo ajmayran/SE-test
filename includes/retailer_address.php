@@ -24,7 +24,6 @@
         <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Set as default</button>
       </div>
     </div>
-    
   </div>
   
 </body>

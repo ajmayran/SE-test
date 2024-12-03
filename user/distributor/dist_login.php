@@ -1,3 +1,26 @@
+<?php
+    require_once '../../classes/account.class.php';
+    
+    session_start();
+
+    $email = $password = '';
+    $accountObj = new Account();
+    $loginErr = '';
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $email = (($_POST['email']));
+        $password = ($_POST['password']);
+
+        if($accountObj->loginDistributor($email, $password)){
+            $data = $accountObj->fetch($email);
+            $_SESSION['user'] = $data;
+            header('location: ../distributor/dist_dashboard.php');
+        }else{
+            $loginErr = 'Invalid email/password';
+    }
+}
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +95,7 @@
     <!-- Login form container -->
     <div class="relative z-10 w-full max-w-sm p-8 bg-black rounded-lg shadow-lg bg-opacity-70 login-container">
         <h2 class="mb-6 text-2xl text-center text-white"><iconify-icon icon="mdi:truck" class="pb-1 mr-2 text-3xl text-green-500 align-middle icon"></iconify-icon>Distributor Login</h2>
-        <form action="/login" method="POST">
+        <form action="" method="POST">
             <!-- Username Field -->
             <div class="mb-4">
                 <label for="email" class="block mb-2 text-sm text-white">Email</label>
@@ -87,7 +110,7 @@
 
             <!-- Submit Button -->
             <div class="mb-4">
-                <input type="submit" value="Login" class="w-full p-3 font-semibold text-white bg-green-500 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400" onclick="redirectToDashboard()">
+                <input type="submit" value="Login" class="w-full p-3 font-semibold text-white bg-green-500 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">
             </div>
             <div class="flex justify-between item-center">
                 <a href="#" class="text-sm text-gray-300 hover:text-white">Forgot Password?</a>
@@ -97,10 +120,6 @@
     </div>
     
     <script>
-
-    function redirectToDashboard() {
-            window.location.href = './dist_dash.php'; // Redirect to dist_dash.html
-        }
 
     // Move the login form when the text appears
     window.onload = function() {
