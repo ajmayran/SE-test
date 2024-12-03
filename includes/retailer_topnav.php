@@ -50,7 +50,7 @@
         <a href="retailer_profile.php">
             <div class="flex items-center cursor-pointer">
                 <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full profile-button">
-                <span class="font-medium text-gray-700">Michael Jordan</span>
+                <span class="font-medium text-gray-700"><?php echo isset($_SESSION['retailer_fname']) ? htmlspecialchars($_SESSION['retailer_fname']) : 'Guest'; ?> <?php echo isset($_SESSION['retailer_lname']) ? htmlspecialchars($_SESSION['retailer_lname']) : 'Guest'; ?></span>
             </div>
         </a>
 

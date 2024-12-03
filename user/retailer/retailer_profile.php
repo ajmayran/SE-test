@@ -13,6 +13,11 @@
 
 <body>
   <?php
+     session_start();
+     if (!isset($_SESSION['retailer_id'])) {
+       header('Location:../../login.php');
+       exit;
+   }
     require_once '../../includes/retailer_topnav_2.php';
   ?>
  
@@ -26,7 +31,7 @@
             <a href="retailer_purchase_status.php"><li class="p-2 cursor-pointer tab-item hover:bg-gray-200">My Purchase</li></a>
             <li class="p-2 cursor-pointer tab-item hover:bg-gray-200" >Notifications</li>
             <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">My Voucher</li>
-            <li class="p-2 mt-2 font-bold text-red-500 cursor-pointer tab-item hover:bg-gray-200">Log Out</li>
+            <a href="../../auth/logout.php"><li class="p-2 mt-2 font-bold text-red-500 cursor-pointer tab-item hover:bg-gray-200">Log Out</li></a>
         </ul>
     </div>
     <div class="w-3/4 p-4 pt-5 border shadow-md">
