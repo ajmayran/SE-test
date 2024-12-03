@@ -67,11 +67,9 @@
         <div class="container px-4 mx-auto">
             <div class="flex items-center justify-between">
                 <h2 class="mr-4 text-2xl font-bold">Explore Distributors</h2>
-                <div class="flex items-center">
-                    <a href="../../resources/img/alaska_products/krem_top_5g.jpg"><h1 class="text-green-500">see all</h1></a>
-                </div>
-            </div>
 
+            </div>
+            
             <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
                 <a href="../retailer/retailer_distributor.php" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                   <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor 1" class="mb-4">
@@ -101,6 +99,10 @@
               </div>
         </div>
     </section>
+
+    <div class="flex items-center justify-between container mx-auto">
+        <h2 class="mr-4 text-2xl font-bold">Popular Products</h2>
+    </div>
 
     <?php
         $page_title = 'Dashboard';
