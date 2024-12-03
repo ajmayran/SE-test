@@ -82,15 +82,6 @@
         <div class="container px-4 mx-auto">
             <div class="flex items-center justify-between">
                 <h2 class="mr-4 text-2xl font-bold">Explore Distributors</h2>
-                <div class="flex items-center">
-                    <i class="mr-2 fa-solid fa-angle-left"></i>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">All</button>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Drinks</button>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Frozen Products</button>
-                    <button class="px-4 py-2 mr-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Instant Drink</button>
-                    <button class="px-4 py-2 font-bold text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Toiletries</button>
-                    <i class="ml-2 fa-solid fa-angle-right"></i>
-                </div>
             </div>
 
             <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">

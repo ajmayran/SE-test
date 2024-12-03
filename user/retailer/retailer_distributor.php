@@ -16,14 +16,14 @@
         require_once '../../includes/retailer_topnav.php';
     ?>
     <main class="flex-1">
-        <div class="mx-20 my-10 container mx-auto">
+        <div class="container mx-20 mx-auto my-10">
             <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
                 Go back
             </a>
         </div>
         
-        <section class="p-20 mb-4 bg-yellow-400 rounded-lg container mx-auto">
-            <div class="flex justify-between items-center">
+        <section class="container p-20 mx-auto mb-4 bg-yellow-400 rounded-lg">
+            <div class="flex items-center justify-between">
                 <!-- Left Section: Distributor Info -->
                 <div class="flex items-center">
                     <div class="flex items-center justify-center w-24 h-24 bg-white rounded-lg">
@@ -31,8 +31,8 @@
                     </div>
                     <div class="ml-4">
                         <h2 class="text-2xl font-bold">Jacob</h2>
-                        <p class="text-gray-800 flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                        <p class="flex items-center text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                             </svg>
                             Monkey Drive, Guiwan, Zamboanga City 7000
@@ -60,18 +60,18 @@
         </section>
 
 
-        <ul class="tab-list flex border-b border-gray-200 container mx-auto mb-5 bg-gray-100">
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">All Products</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Ready to Drink Milk</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Powdered Milk</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Condensada</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Coffee Creamer</li>
-          <li class="tab-item flex-1 text-center py-2 cursor-pointer hover:bg-gray-200">Evaporated Milk</li>
+        <ul class="container flex mx-auto mb-5 bg-gray-100 border-b border-gray-200 tab-list">
+          <li class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">All Products</li>
+          <li class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Ready to Drink Milk</li>
+          <li class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Powdered Milk</li>
+          <li class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Condensada</li>
+          <li class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Coffee Creamer</li>
+          <li class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Evaporated Milk</li>
         </ul>
         
-    <h2 class="text-2xl font-bold container mx-auto mb-5">Distributors Products</h2>
+    <h2 class="container mx-auto mb-5 text-2xl font-bold">Distributors Products</h2>
 
-    <div class="tabsrounded-lg container mx-auto  bg-gray-50 h-auto mb-24">
+    <div class="container h-auto mx-auto mb-24 tabsrounded-lg bg-gray-50">
        <div class="p-4">
          <div class="tab-pane">
          <div class="container mx-auto">
@@ -80,13 +80,13 @@
          ?> 
          </div>
          </div>
-         <div class="tab-pane hidden">
+         <div class="hidden tab-pane">
             
          </div>
-         <div class="tab-pane hidden"></div>
-         <div class="tab-pane hidden"></div>
-         <div class="tab-pane hidden"></div>
-         <div class="tab-pane hidden"></div>
+         <div class="hidden tab-pane"></div>
+         <div class="hidden tab-pane"></div>
+         <div class="hidden tab-pane"></div>
+         <div class="hidden tab-pane"></div>
          
            <script>
                const tabItems = document.querySelectorAll('.tab-item');
