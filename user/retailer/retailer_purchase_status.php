@@ -63,26 +63,35 @@ $pendingOrders = $orderObj->fetchOrders($retailer_id);
             <div class="tab-pane">
                 <?php if (count($pendingOrders) > 0): ?>
                     <?php foreach ($pendingOrders as $order): ?>
+                        <!-- Display Order Container -->
                         <div class="p-6 mb-24 bg-white rounded-lg shadow-md">
                             <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-xl font-semibold"><?php echo $order['product_name']; ?></h2>
+                                <h2 class="text-xl font-semibold">Order ID: <?php echo $order['order_id']; ?></h2>
                                 <p class="text-sm font-semibold text-yellow-500">Order Status: <?php echo $order['status']; ?></p>
                             </div>
 
+                            <!-- Loop through the products within the order -->
                             <div class="mb-4 border-b border-gray-200">
-                                <div class="flex items-center mb-2">
-                                    <img src="<?php echo $img['image_path'] ?>" alt="Product Image" class="w-16 h-16 mr-4">
-                                    <div>
-                                        <p class="text-gray-700"><?php echo $order['product_name']; ?></p>
-                                        <p class="text-gray-500">x<?php echo $order['quantity']; ?></p>
+                                <?php 
+                                // Fetch the products for this order (Assuming you have product data in $order['products'])
+                                $products = $orderObj->fetchProductsForOrder($order['order_id']);
+                                foreach ($products as $product): 
+                                ?>
+                                    <div class="flex items-center mb-2">
+                                        <img src="<?php echo $product['img']; ?>"  class="w-16 h-16 mr-4">
+                                        <div>
+                                            <p class="text-gray-700"><?php echo $product['product_name']; ?></p>
+                                            <p class="text-gray-500">x<?php echo $product['quantity']; ?></p>
+                                        </div>
+                                        <p class="ml-auto text-right text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p>
                                     </div>
-                                    <p class="ml-auto text-right text-gray-700">₱<?php echo number_format($order['quantity'] * $order['price'], 2); ?></p>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
 
+                            <!-- Order Summary -->
                             <div class="flex justify-between mb-4">
                                 <p class="text-gray-700">Subtotal Total:</p>
-                                <p class="text-gray-700">₱<?php echo number_format($order['quantity'] * $order['price'], 2); ?></p>
+                                <p class="text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p></p>
                             </div>
 
                             <div class="flex justify-between mb-4">
@@ -102,7 +111,6 @@ $pendingOrders = $orderObj->fetchOrders($retailer_id);
             </div>
         </div>
     </div>
-
-
 </body>
+
 </html>

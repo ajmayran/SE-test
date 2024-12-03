@@ -349,10 +349,11 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
         </div>
     </main>
   </div>
+
   <!-- Modal Structure -->
 
   <div id="processdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
-    <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
+    <div class="relative w-full max-w-xl p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
         <h2 class="mb-4 text-xl font-semibold">Delivery Order No: <?php echo htmlspecialchars($delivery['id']); ?> </h2>
         <button class="text-gray-500 underline hover:text-gray-700" onclick="closeModal()">Close</button>

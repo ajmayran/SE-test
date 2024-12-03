@@ -289,5 +289,26 @@ class Order
             return [];
         }
     }
+
+
+    public function fetchProductsForOrder($order_id) {
+        // Query to get all products for a specific order
+        $sql = "SELECT p.product_name, od.quantity, p.price, p.img
+                FROM product p
+                JOIN order_details od ON p.id = od.product_id
+                WHERE od.order_id = :order_id";
+
+        // Prepare the statement
+        $stmt = $this->db->connect()->prepare($sql);
+
+        // Bind the order_id to the prepared statement
+        $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Fetch the results as an associative array
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

@@ -423,4 +423,4 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
   </script>
 </body>
 
-</html>
+</html>xa
