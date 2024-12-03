@@ -62,8 +62,7 @@
         <ul class="flex justify-center space-x-20">
             <li class="hover:text-green-500"><a href="../retailer/retailer_dash.php">HOME</a></li>
             <li class="hover:text-green-500"><a href="../retailer/retailer_distributor_page.php">DISTRIBUTORS</a></li>
-            <li class="hover:text-green-500"><a href="#">PRODUCTS</a></li>
-            <li class="hover:text-green-500"><a href="#">CATEGORY</a></li>
+            <li class="hover:text-green-500"><a href="../retailer/retailer_allproducts.php">PRODUCTS</a></li>
         </ul>
     </div>
 </nav>

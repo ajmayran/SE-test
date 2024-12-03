@@ -49,7 +49,7 @@
                 <li class=" hover:text-green-500 "><a href="retailer_dash.php">HOME</a></li>
                 <li class=" hover:text-green-500 "><a href="#">DISTRIBUTORS</a></li>
                 <li class=" hover:text-green-500 "><a href="#">PRODUCTS</a></li>
-                <li class=" hover:text-green-500 "><a href="#">CATEGORY</a></li>
+
             </ul>
         </div>
     </nav>
