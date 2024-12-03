@@ -26,6 +26,7 @@
             <a href="retailer_purchase_status.php"><li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Purchase</li></a>
             <li class="tab-item cursor-pointer hover:bg-gray-200 p-2" >Notifications</li>
             <li class="tab-item cursor-pointer hover:bg-gray-200 p-2">My Voucher</li>
+            <li class="tab-item cursor-pointer hover:bg-gray-200 p-2 text-red-500 font-bold mt-2">Log Out</li>
         </ul>
     </div>
     <div class="w-3/4 p-4 pt-5 border shadow-md">

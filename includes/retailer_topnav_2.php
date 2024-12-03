@@ -47,8 +47,8 @@
         <div class="w-full px-20 py-2 text-white bg-gray-900">
             <ul class="flex justify-center space-x-20 ">
                 <li class=" hover:text-green-500 "><a href="retailer_dash.php">HOME</a></li>
-                <li class=" hover:text-green-500 "><a href="#">DISTRIBUTORS</a></li>
-                <li class=" hover:text-green-500 "><a href="#">PRODUCTS</a></li>
+                <li class="hover:text-green-500"><a href="../retailer/retailer_distributor_page.php">DISTRIBUTORS</a></li>
+                <li class="hover:text-green-500"><a href="../retailer/retailer_allproducts.php">PRODUCTS</a></li>
 
             </ul>
         </div>
