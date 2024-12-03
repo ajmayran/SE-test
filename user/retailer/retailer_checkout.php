@@ -15,7 +15,7 @@
         $page_title = 'Dashboard';
         require_once '../../includes/retailer_topnav.php';
     ?>
-    <div class="mx-20 mt-10 container mx-auto">
+    <div class="mt-10 container mx-auto">
         <a href="./retailer_dash.php" class="text-green-500 hover:text-green-700">
             Go back
         </a>
@@ -54,9 +54,9 @@
                         </tr>
                         <tr>
                             <td class=" px-4 py-2 flex items-center">
-                                <img src="https://via.placeholder.com/50" alt="Product Image" class="w-16 h-16 mr-4">
+                                <img src="../../resources/img/Products/rtc-chicken-tocino.png" alt="Product Image" class="w-16 h-16 mr-4">
                                 <div>
-                                    <p class="text-gray-700">1kg Cut-ups Premium Quality Wings</p>
+                                    <p class="text-gray-700">1kg Premium Quality Tocino</p>
                                 </div>
                             </td>
                             <td class=" px-4 py-2 text-right">10</td>

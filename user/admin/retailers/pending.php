@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,14 @@
     body {
         font-family: 'Lexend', sans-serif;
     }
+
     .sidebar-menu .group a {
         border-top-left-radius: 10px;
         /* Added for all links */
         border-bottom-left-radius: 10px;
         /* Added for all links */
     }
+
     .sidebar-menu .group.active a {
         /* Target selected group */
         background-color: #f9fafb;
@@ -28,6 +31,7 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
     }
+
     .sidebar-menu .group.active a::after {
         content: '';
         position: absolute;
@@ -66,11 +70,6 @@
                     <li class="mb-4">
                         <a href="../products/acceptedProducts.php"
                             class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Accepted
-                            Products</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#"
-                            class="text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Featured
                             Products</a>
                     </li>
                     <li class="mb-4">
@@ -184,7 +183,7 @@
                 </ul>
             </li>
             <li class="mt-20 mb-1 group">
-                <a href="#"
+                <a href="../settings.php"
                     class="flex items-center py-2 px-4 hover:bg-green-300 hover:text-gray-100 rounded-md group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                     <iconify-icon icon="mdi:settings" class="mr-3 text-xl"></iconify-icon>
                     <span class="text-sm">Settings</span>
@@ -259,8 +258,8 @@
                         <iconify-icon icon="mdi:message-bubble" class="text-lg"></iconify-icon>
                     </button>
                     <div class="z-30 hidden w-full max-w-xs bg-white border border-gray-100 rounded-md shadow-md dropdown-menu shadow-black/5">
-                       <h4 class="p-2 font-medium">Messages</h4>
-                        <div class="my-2"> 
+                        <h4 class="p-2 font-medium">Messages</h4>
+                        <div class="my-2">
                             <ul class="overflow-y-auto max-h-64" data-tab-for="notification" data-page="messages">
                                 <li>
                                     <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 group">
@@ -310,7 +309,7 @@
                                         </div>
                                     </a>
                                 </li>
-                            </ul>                      
+                            </ul>
                         </div>
                     </div>
                 </li>
@@ -354,7 +353,6 @@
                 </div>
             </div>
 
-
             <div class="p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-bold mb-6">Pending Retailers</h2>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
@@ -365,6 +363,7 @@
                             <th class="p-2 border text-left">Email</th>
                             <th class="p-2 border text-left">Date Created</th>
                             <th class="p-2 border text-left">Status</th>
+                            <th class="p-2 border text-left">TIN</th>
                             <th class="p-2 border">Action</th>
                         </tr>
                     </thead>
@@ -373,6 +372,46 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Modal for Approve -->
+            <div id="approve-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <h2 class="text-xl font-bold mb-4">Approve Retailer</h2>
+                    <div id="approve-retailer-info" class="mb-4">
+                        <!-- Retailer details will be dynamically added here -->
+                    </div>
+                    <img id="retailer-certificate" class="w-full rounded shadow" src="" alt="Certificate">
+                    <div class="flex justify-end space-x-4 mt-4">
+                        <button id="cancel-approve" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                        <button id="confirm-approve" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Confirm Approve</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Reject -->
+            <div id="reject-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <h2 class="text-xl font-bold mb-4">Reject Retailer</h2>
+                    <div id="reject-retailer-info" class="mb-4">
+                        <!-- Retailer details will be dynamically added here -->
+                    </div>
+                    <label for="reject-reason" class="block text-gray-700 mb-2">Select Reason:</label>
+                    <select id="reject-reason" class="w-full border rounded p-2 mb-4">
+                        <option value="" disabled selected>Select a reason</option>
+                        <option value="Fake documents">Fake documents</option>
+                        <option value="Suspicious activity">Suspicious activity</option>
+                        <option value="Invalid contact details">Invalid contact details</option>
+                        <option value="Incomplete requirements">Incomplete requirements</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea id="reject-other-reason" class="w-full border rounded p-2 mb-4 hidden" placeholder="Specify reason..."></textarea>
+                    <div class="flex justify-end space-x-4">
+                        <button id="cancel-reject" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
+                        <button id="confirm-reject" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Confirm Reject</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -382,43 +421,128 @@
     <script>
         $(document).ready(function() {
             const retailerData = [
-                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending"],
-                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending"]
+                ["UserA00001", "Vicente De Leon", "VicenteDeLeon@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00002", "Teodoro Medina", "TeodoroMedina@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00003", "Roberto Cruz", "RobertoCruz@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00004", "Julio Reyes", "JulioReyes@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00005", "Pedro Santos", "PedroSantos@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00006", "Nestor De Leon", "NestorDeLeon@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00007", "Abigail Cruz", "AbigailCruz@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00008", "Dolores Bautista", "DoloresBautista@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00009", "Crisanto Perez", "CrisantoPerez@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00010", "Sofia Dela Cruz", "SofiaDelaCruz@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00011", "Olivia Rodrigo", "OliviaRodrigo@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00012", "Pilar Do", "PilarDo@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00013", "Maria Clara", "MariaClara@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00014", "Julia Montes", "JuliaMontes@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00015", "Joaquin Monroe", "JuliaMontes@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00016", "Juan Dela Pena", "Juandelapena@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00017", "Mariano Marimo", "marianomarima@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00018", "Miguel Red Horse", "redhorse@gmail.com", "January 12, 2024", "Pending", "123456789"],
+                ["UserA00019", "Orlando Cali", "Orlando@gmail.com", "January 12, 2024", "Pending", "123456789"]
             ];
 
             $('#retailerTable').DataTable({
-                data: retailerData,
-                columns: [
-                    { title: "User ID", data: 0 },
-                    { title: "Name", data: 1 },
-                    { title: "Email", data: 2 },
-                    { title: "Date Created", data: 3 },
-                    { title: "Status", data: 4 },
-                    {"data": null,
-                        "render": function (data, type, row) {
-                            return '<div class="flex space-x-2"><button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Approve</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Reject</button></div>';
-                        }
-                    }
-                ]
+            data: retailerData,
+            columns: [
+                { title: "User ID", data: 0 },
+                { title: "Name", data: 1 },
+                { title: "Email", data: 2 },
+                { title: "Date Created", data: 3 },
+                { title: "Status", data: 4 },
+                { title: "TIN", data: 5 },
+                {
+                    data: null,
+                    render: function(data) {
+                        return `
+                            <div class="flex space-x-2">
+                                <button class="approve-btn bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">Approve</button>
+                                <button class="reject-btn bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Reject</button>
+                            </div>`;
+                    },
+                },
+            ],
+        });
+
+            // Approve Modal
+            const approveModal = $('#approve-modal');
+            const approveRetailerInfo = $('#approve-retailer-info');
+            const retailerCertificate = $('#retailer-certificate');
+
+            $('.approve-btn').on('click', function() {
+                const rowData = $(this).closest('tr').children();
+                const userID = rowData.eq(0).text();
+                const name = rowData.eq(1).text();
+                const email = rowData.eq(2).text();
+                const TIN = rowData.eq(5).text();
+
+                approveRetailerInfo.html(`
+                    <p><strong>User ID:</strong> ${userID}</p>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>TIN:</strong> ${TIN}</p>
+                `);
+                retailerCertificate.attr('src', `../../../resources/img/certificates/${userID}.jpg`);
+                approveModal.removeClass('hidden');
+            });
+
+            $('#confirm-approve').on('click', function() {
+                alert('Retailer Approved!');
+                approveModal.addClass('hidden');
+            });
+
+            $('#cancel-approve').on('click', function() {
+                approveModal.addClass('hidden');
+            });
+
+            // Reject Modal
+            const rejectModal = $('#reject-modal');
+            const rejectRetailerInfo = $('#reject-retailer-info');
+            const rejectReason = $('#reject-reason');
+            const rejectOtherReason = $('#reject-other-reason');
+
+            $('.reject-btn').on('click', function() {
+                const rowData = $(this).closest('tr').children();
+                const userID = rowData.eq(0).text();
+                const name = rowData.eq(1).text();
+                const email = rowData.eq(2).text();
+
+                rejectRetailerInfo.html(`
+                <p><strong>User ID:</strong> ${userID}</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                `);
+                rejectModal.removeClass('hidden');
+            });
+
+            rejectReason.on('change', function() {
+                if ($(this).val() === 'Other') {
+                    rejectOtherReason.removeClass('hidden');
+                } else {
+                    rejectOtherReason.addClass('hidden').val('');
+                }
+            });
+
+            $('#confirm-reject').on('click', function() {
+                const selectedReason = rejectReason.val();
+                const otherReason = rejectOtherReason.val().trim();
+                if (!selectedReason || (selectedReason === 'Other' && !otherReason)) {
+                    alert('Please provide a valid reason for rejection.');
+                    return;
+                }
+
+                const reason = selectedReason === 'Other' ? otherReason : selectedReason;
+                alert(`Retailer Rejected! Reason: ${reason}`);
+                rejectModal.addClass('hidden');
+            });
+
+            $('#cancel-reject').on('click', function() {
+                rejectModal.addClass('hidden');
+                rejectReason.val('');
+                rejectOtherReason.addClass('hidden').val('');
             });
         });
     </script>
 </body>
+
 </html>
