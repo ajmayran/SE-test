@@ -60,7 +60,7 @@ class Order
     public function getCartItems($retailer_id)
     {
         $sql = "
-            SELECT ci.*, p.product_name, p.price, (ci.quantity * p.price) AS item_total
+            SELECT ci.*, p.product_name, p.product_code, p.price, (ci.quantity * p.price) AS item_total
             FROM cart_items ci
             JOIN order_cart oc ON ci.cart_id = oc.id
             JOIN product p ON ci.product_id = p.id
