@@ -75,22 +75,22 @@
     </video>
 
     <!-- Appearing text -->
-<!-- Appearing text -->
-<div class="absolute ml-40 text-white transform -translate-y-1/2 left-20 top-1/2">
-    <span class="font-bold letter" style="animation-delay: 5s;">W</span>
-    <span class="font-bold letter" style="animation-delay: 5.2s;">e</span>
-    <span class="font-bold letter" style="animation-delay: 5.4s;">l</span>
-    <span class="font-bold letter" style="animation-delay: 5.6s;">c</span>
-    <span class="font-bold letter" style="animation-delay: 5.8s;">o</span>
-    <span class="font-bold letter" style="animation-delay: 6s;">m</span>
-    <span class="font-bold letter" style="animation-delay: 6.2s;">e</span>
-    <span class="px-2 font-bold letter" style="animation-delay: 6.4s;"> </span>
+    <!-- Appearing text -->
+    <div class="absolute ml-40 text-white transform -translate-y-1/2 left-20 top-1/2">
+        <span class="font-bold letter" style="animation-delay: 5s;">W</span>
+        <span class="font-bold letter" style="animation-delay: 5.2s;">e</span>
+        <span class="font-bold letter" style="animation-delay: 5.4s;">l</span>
+        <span class="font-bold letter" style="animation-delay: 5.6s;">c</span>
+        <span class="font-bold letter" style="animation-delay: 5.8s;">o</span>
+        <span class="font-bold letter" style="animation-delay: 6s;">m</span>
+        <span class="font-bold letter" style="animation-delay: 6.2s;">e</span>
+        <span class="px-2 font-bold letter" style="animation-delay: 6.4s;"> </span>
 
-    <!-- Wrap "Platform" in a new span -->
-    <div class="distributor">
-        <span class="font-bold letter" style="animation-delay: 7s;">Distributors</span>
+        <!-- Wrap "Platform" in a new span -->
+        <div class="distributor">
+            <span class="font-bold letter" style="animation-delay: 7s;">Distributors</span>
+        </div>
     </div>
-</div>
 
     <!-- Login form container -->
     <div class="relative z-10 w-full max-w-sm p-8 bg-black rounded-lg shadow-lg bg-opacity-70 login-container">
@@ -117,10 +117,11 @@
                 <a href="./dist_registration.php" class="text-sm text-gray-300 hover:text-white">Register</a>
             </div>
         </form>
+        <div class="p-6"><a href="../../auth/login.php" class=""><button class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">Sign in as Retailer</button></a></div>
     </div>
     
-    <script>
-
+</body>
+<script>
     // Move the login form when the text appears
     window.onload = function() {
         const loginContainer = document.querySelector('.login-container');
@@ -131,6 +132,4 @@
         }, 8000); // Adjust this value to sync with the text animation duration
     };
     </script>
-
-</body>
 </html>
