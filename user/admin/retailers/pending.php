@@ -355,6 +355,9 @@
 
             <div class="p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-bold mb-6">Pending Retailers</h2>
+                <div class="mb-6">
+                    <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" id="addRetailerBtn">Add Retailer</button>
+                </div>
                 <table id="retailerTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
@@ -412,6 +415,46 @@
                 </div>
             </div>
 
+            <!-- Modal -->
+            <div 
+                id="retailerModal" 
+                class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-h-[90vh] overflow-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">Register Retailer</h2>
+                        <button id="closeModal" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+                    </div>
+                    <form method="POST"> 
+                        <div class="mb-3">
+                            <input type="text" name="first_name" placeholder="First Name" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="middle_name" placeholder="Middle Name (Optional)" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="last_name" placeholder="Last Name" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" placeholder="Email Address" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="mb-3 w-full py-1.5 border rounded-lg">
+                            <input type="file" name="permit" class="hidden" id="fileInput" accept=".jpeg, .jpg, .png">
+                            <label for="fileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label><span class="ml-1" id="fileName"></span>
+                        </div>
+                        <div class="text-right m-2 text-[8px]">
+                            <p class="text-gray-400">Any of the following (Business Permit, Mayor's Permit, Barangay Permit) JPG, JPEG, PNG, PDF support. Maximum of 20MB</p>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" placeholder="Password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="confirmpassword" placeholder="Confirm Password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <input type="submit" name="signup" value="Register" class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">
+                    </form>
+                </div>
+            </div>
+
         </div>
     </main>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -462,6 +505,28 @@
                     },
                 },
             ],
+        });
+
+        // Get modal and buttons
+        const modal = document.getElementById('retailerModal');
+        const addRetailerBtn = document.getElementById('addRetailerBtn');
+        const closeModal = document.getElementById('closeModal');
+
+        // Open modal
+        addRetailerBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Close modal by clicking outside the form
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
         });
 
             // Approve Modal
