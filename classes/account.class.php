@@ -75,6 +75,8 @@ class Account{
                 $_SESSION['retailer_fname'] = $data['first_name']; 
                 $_SESSION['retailer_lname'] = $data['last_name'];
                 $_SESSION['retailer_email'] = $data['email'];
+                $_SESSION['retailer_address'] = $data['address'];
+                $_SESSION['retailer_contact'] = $data['contact'];
                 return true;
             }
         }
