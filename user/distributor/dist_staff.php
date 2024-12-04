@@ -94,33 +94,108 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
         <?php 
             require_once '../../includes/distributor_sidebar.php';
         ?>
-
-        <main class="w-3/4 p-8 flex items-center justify-center bg-gray-300" style="height:100vh;">
-            <div class="w-full max-w-xl p-8 mx-4 bg-white rounded-lg shadow-lg">
-                <h2 class="mb-5 text-2xl font-semibold text-center">Add Staff</h2>
-                <form method="POST">
-                    <div class="mb-3">
-                        <input type="text" name="first_name" placeholder="First Name" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" name="middle_name" placeholder="Middle Name  (Optional)" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" name="last_name" placeholder="Last Name" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" name="email" placeholder="Email Address" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" name="password" placeholder="Password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" name="confirmpassword" placeholder="Confirm Password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    </div>
-                    <input type="submit" name="signup" class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">
-                </form>
+    <main class="w-3/4 max-h-screen p-8 overflow-y-auto">
+      <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Manage Staff</h1>
+      <div class="container mx-auto">
+        <div class="p-4 bg-white rounded-b-lg shadow-md min-h-[600px]">
+          <!-- Tabs -->
+          <div class="flex justify-between mb-4 border-b">
+            <div class="flex space-x-4">
+              <button id="tab-cust-cancel" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
+                -----
+              </button>
+              <button id="tab-my-cancel" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
+               -----
+              </button>
             </div>
-        </main>
+
+          </div>
+          <div class="flex items-center justify-between w-full h-10">
+            <div class="flex items-center w-full max-w-md">
+              <input type="text" placeholder="Search staff" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <button class="w-12 p-2 text-white bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none">
+                <iconify-icon icon="material-symbols:search" class="items-center p-1 text-xl align-middle"></iconify-icon>
+              </button>
+            </div>
+            <!-- Export Reports Button -->
+            <button class="p-2 bg-green-500 rounded-md hover:bg-gray-200 hover:text-white group">
+              <span class="pr-1 text-sm text-white group-hover:text-black">Add New Staff</span>
+            </button>
+          </div>
+
+          <!-- Staff table -->
+          <div id="cust-cancel-orders" class="block mt-6">
+            <div class="overflow-x-auto">
+              <table class="w-full table-auto">
+                <thead>
+                  <tr class="bg-gray-100">
+                    <th class="px-4 py-2 text-left">Staff ID</th>
+                    <th class="px-4 py-2 text-left">First Name</th>
+                    <th class="px-4 py-2 text-left ">Last Name</th>
+                    <th class="px-4 py-2 text-left ">Middle Initial</th>
+                    <th class="px-4 py-2 text-left ">Role</th>
+                    <th class="px-4 py-2 text-left ">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-sm border-b-2 border-gray-100">
+                    <td class="px-4 py-2 text-[12px] font-semibold">246000EVG4AXL</td>
+                    <td class="px-4 py-2 text-[12px] font-light">₱2500.00</td>
+                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
+                    <td class="px-4 py-2 text-[12px] font-light">Kuku Paal</td>
+                    <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
+                    <td>
+                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="246000EVG4AXL" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2 text-[12px] font-semibold">000911VGA2ZIA</td>
+                    <td class="px-4 py-2 text-[12px] font-light">₱4000.00</td>
+                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
+                    <td class="px-4 py-2 text-[12px] font-light">Depo Ngal</td>
+                    <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
+                    <td>
+                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="000911VGA2ZIA" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- My Cancel Table -->
+            <div id="my-cancel-orders" class="hidden mt-6">
+                <h2 class="mb-2 font-light text-gray-500"> Cancelled Order: 1 </h2>
+                <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead>
+                    <tr class="bg-gray-100">
+                        <th class="px-4 py-2 text-left">Order ID</th>
+                        <th class="px-4 py-2 text-left">Amount</th>
+                        <th class="px-4 py-2 text-left">Delivery</th>
+                        <th class="px-4 py-2 text-left">Customer</th>
+                        <th class="px-4 py-2 text-left">Date</th>
+                        <th class="px-4 py-2 text-left">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="px-4 py-2 text-[12px] font-semibold">563829HJV3AK</td>
+                        <td class="px-4 py-2 text-[12px] font-light">₱500.00</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Anna Reyes</td>
+                        <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
+                        <td>
+                        <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="563829HJV3AK" onclick="toggleModal(true, completedOrdersData[0])">Details</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
 
     </div>
     <footer class="py-8" style="background-color: #282424;">
@@ -201,6 +276,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
                 popper.classList.add('hidden');
             }
         });
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../../js/tailwind/dist_dashboard.js"></script>
