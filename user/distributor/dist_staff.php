@@ -94,110 +94,163 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
         <?php 
             require_once '../../includes/distributor_sidebar.php';
         ?>
-    <main class="w-3/4 max-h-screen p-8 overflow-y-auto">
-      <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Manage Staff</h1>
-      <div class="container mx-auto">
-        <div class="p-4 bg-white rounded-b-lg shadow-md min-h-[600px]">
-          <!-- Tabs -->
-          <div class="flex justify-between mb-4 border-b">
-            <div class="flex space-x-4">
-              <button id="tab-cust-cancel" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
+        <main class="w-3/4 max-h-screen p-8 overflow-y-auto">
+        <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Manage Staff</h1>
+        <div class="container mx-auto">
+            <div class="p-4 bg-white rounded-b-lg shadow-md min-h-[600px]">
+            <!-- Tabs -->
+            <div class="flex justify-between mb-4 border-b">
+                <div class="flex space-x-4">
+                <button id="tab-cust-cancel" class="px-4 py-2 text-green-600 border-b-4 border-green-600 focus:outline-none">
+                    -----
+                </button>
+                <button id="tab-my-cancel" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
                 -----
-              </button>
-              <button id="tab-my-cancel" class="px-4 py-2 text-gray-600 hover:text-green-600 hover:border-green-600 focus:outline-none">
-               -----
-              </button>
+                </button>
+                </div>
+
+            </div>
+            <div class="flex items-center justify-between w-full h-10">
+                <div class="flex items-center w-full max-w-md">
+                <div class="relative mr-2">
+                    <select id="roleFilter" class="w-24 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option value="all">All</option>
+                        <option value="manager">Manager</option>
+                        <option value="handler">Handler</option>
+                    </select>
+
+                </div>
+                <input type="text" placeholder="Search staff" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <button class="w-12 p-2 text-white bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none">
+                    <iconify-icon icon="material-symbols:search" class="items-center p-1 text-xl align-middle"></iconify-icon>
+                </button>
+                </div>
+                <!-- Export Reports Button -->
+                <button id="openAddStaffModal" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    Add New Staff
+                </button>
             </div>
 
-          </div>
-          <div class="flex items-center justify-between w-full h-10">
-            <div class="flex items-center w-full max-w-md">
-              <input type="text" placeholder="Search staff" class="w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500" />
-              <button class="w-12 p-2 text-white bg-green-500 rounded-r-md hover:bg-green-600 focus:outline-none">
-                <iconify-icon icon="material-symbols:search" class="items-center p-1 text-xl align-middle"></iconify-icon>
-              </button>
-            </div>
-            <!-- Export Reports Button -->
-            <button class="p-2 bg-green-500 rounded-md hover:bg-gray-200 hover:text-white group">
-              <span class="pr-1 text-sm text-white group-hover:text-black">Add New Staff</span>
-            </button>
-          </div>
-
-          <!-- Staff table -->
-          <div id="cust-cancel-orders" class="block mt-6">
-            <div class="overflow-x-auto">
-              <table class="w-full table-auto">
-                <thead>
-                  <tr class="bg-gray-100">
-                    <th class="px-4 py-2 text-left">Staff ID</th>
-                    <th class="px-4 py-2 text-left">First Name</th>
-                    <th class="px-4 py-2 text-left ">Last Name</th>
-                    <th class="px-4 py-2 text-left ">Middle Initial</th>
-                    <th class="px-4 py-2 text-left ">Role</th>
-                    <th class="px-4 py-2 text-left ">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="text-sm border-b-2 border-gray-100">
-                    <td class="px-4 py-2 text-[12px] font-semibold">246000EVG4AXL</td>
-                    <td class="px-4 py-2 text-[12px] font-light">₱2500.00</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Kuku Paal</td>
-                    <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
-                    <td>
-                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="246000EVG4AXL" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-2 text-[12px] font-semibold">000911VGA2ZIA</td>
-                    <td class="px-4 py-2 text-[12px] font-light">₱4000.00</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
-                    <td class="px-4 py-2 text-[12px] font-light">Depo Ngal</td>
-                    <td class="px-4 py-2 text-[12px] font-light">September 30, 2024</td>
-                    <td>
-                      <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="000911VGA2ZIA" onclick="toggleModal(true, pendingOrdersData[0])">Details</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- My Cancel Table -->
-            <div id="my-cancel-orders" class="hidden mt-6">
-                <h2 class="mb-2 font-light text-gray-500"> Cancelled Order: 1 </h2>
+            <!-- Staff table -->
+            <div id="cust-cancel-orders" class="block mt-6">
                 <div class="overflow-x-auto">
                 <table class="w-full table-auto">
                     <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-4 py-2 text-left">Order ID</th>
-                        <th class="px-4 py-2 text-left">Amount</th>
-                        <th class="px-4 py-2 text-left">Delivery</th>
-                        <th class="px-4 py-2 text-left">Customer</th>
-                        <th class="px-4 py-2 text-left">Date</th>
-                        <th class="px-4 py-2 text-left">Action</th>
+                        <th class="px-4 py-2 text-left">Staff ID</th>
+                        <th class="px-4 py-2 text-left">First Name</th>
+                        <th class="px-4 py-2 text-left ">Last Name</th>
+                        <th class="px-4 py-2 text-left ">Middle Initial</th>
+                        <th class="px-4 py-2 text-left ">Role</th>
+                        <th class="px-4 py-2 text-left ">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="px-4 py-2 text-[12px] font-semibold">563829HJV3AK</td>
-                        <td class="px-4 py-2 text-[12px] font-light">₱500.00</td>
-                        <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
-                        <td class="px-4 py-2 text-[12px] font-light">Anna Reyes</td>
-                        <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
+                        <td class="px-4 py-2 text-[12px] font-semibold">STF001</td>
+                        <td class="px-4 py-2 text-[12px] font-light">John</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Doe</td>
+                        <td class="px-4 py-2 text-[12px] font-light">A</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Manager</td>
                         <td>
-                        <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="563829HJV3AK" onclick="toggleModal(true, completedOrdersData[0])">Details</button>
+                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="STF001" onclick="toggleModal(true, 'STF001')">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-[12px] font-semibold">STF002</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Jane</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Smith</td>
+                        <td class="px-4 py-2 text-[12px] font-light">B</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Handler</td>
+                        <td>
+                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="STF002" onclick="toggleModal(true, 'STF002')">Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 text-[12px] font-semibold">STF003</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Alice</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Brown</td>
+                        <td class="px-4 py-2 text-[12px] font-light">C</td>
+                        <td class="px-4 py-2 text-[12px] font-light">Handler</td>
+                        <td>
+                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="STF003" onclick="toggleModal(true, 'STF003')">Details</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
                 </div>
             </div>
-        </div>
-      </div>
-    </main>
 
+            <!-- My Cancel Table -->
+                <div id="my-cancel-orders" class="hidden mt-6">
+                    <h2 class="mb-2 font-light text-gray-500"> Cancelled Order: 1 </h2>
+                    <div class="overflow-x-auto">
+                    <table class="w-full table-auto">
+                        <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-left">Order ID</th>
+                            <th class="px-4 py-2 text-left">Amount</th>
+                            <th class="px-4 py-2 text-left">Delivery</th>
+                            <th class="px-4 py-2 text-left">Customer</th>
+                            <th class="px-4 py-2 text-left">Date</th>
+                            <th class="px-4 py-2 text-left">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="px-4 py-2 text-[12px] font-semibold">563829HJV3AK</td>
+                            <td class="px-4 py-2 text-[12px] font-light">₱500.00</td>
+                            <td class="px-4 py-2 text-[12px] font-light">Standard Free</td>
+                            <td class="px-4 py-2 text-[12px] font-light">Anna Reyes</td>
+                            <td class="px-4 py-2 text-[12px] font-light">September 29, 2024</td>
+                            <td>
+                            <button class="px-4 py-2 text-[12px] font-light text-blue-600 cursor-pointer hover:underline" data-order-id="563829HJV3AK" onclick="toggleModal(true, completedOrdersData[0])">Details</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
     </div>
+    <!-- Modal Structure (Initially Hidden) -->
+<div id="addStaffModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-semibold mb-4">Add New Staff</h2>
+        <form id="addStaffForm">
+            <!-- First Name -->
+            <div class="mb-4">
+                <label for="firstName" class="block text-sm font-medium">First Name</label>
+                <input type="text" id="firstName" name="firstName" class="w-full p-2 border border-gray-300 rounded-md" required />
+            </div>
+            <div class="mb-4">
+                <label for="firstName" class="block text-sm font-medium">Middle Initial (Optional)</label>
+                <input type="text" id="firstName" name="firstName" class="w-full p-2 border border-gray-300 rounded-md"/>
+            </div>
+            <!-- Last Name -->
+            <div class="mb-4">
+                <label for="lastName" class="block text-sm font-medium">Last Name</label>
+                <input type="text" id="lastName" name="lastName" class="w-full p-2 border border-gray-300 rounded-md" required />
+            </div>
+            <!-- Role -->
+            <div class="mb-4">
+                <label for="role" class="block text-sm font-medium">Role</label>
+                <select id="role" name="role" class="w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="Manager">Manager</option>
+                    <option value="Handler">Handler</option>
+                    <option value="Staff">Staff</option>
+                </select>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" class="px-4 py-2 bg-gray-500 text-white rounded-md" id="cancelModal">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-md">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
     <footer class="py-8" style="background-color: #282424;">
         <div class="container px-4 mx-auto mt-10">
             <div class="flex justify-between">
@@ -264,19 +317,13 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
             popper.classList.toggle('hidden');
         });
 
-      
-        window.addEventListener('click', function(event) {
-            const dropdown = document.getElementById('notificationDropdown');
-            const popper = document.getElementById('accountPopper');
+        document.getElementById('openAddStaffModal').addEventListener('click', () => {
+    document.getElementById('addStaffModal').classList.remove('hidden');
+});
 
-            if (!event.target.closest('#notificationButton')) {
-                dropdown.classList.add('hidden');
-            }
-            if (!event.target.closest('#accountButton')) {
-                popper.classList.add('hidden');
-            }
-        });
-
+document.getElementById('cancelModal').addEventListener('click', () => {
+    document.getElementById('addStaffModal').classList.add('hidden');
+});     
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../../js/tailwind/dist_dashboard.js"></script>
