@@ -349,9 +349,11 @@
                 </div>
             </div>
 
-
             <div class="p-6 bg-white rounded-lg shadow">
                 <h2 class="text-2xl font-bold mb-6">Pending Distributors</h2>
+                <div class="mb-6" id="addDistributor">
+                    <a href="" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 rounded"><button>Add Distributor</button></a>
+                </div>
                 <table id="distributorTable" class="w-full border-collapse border border-gray-300 display">
                     <thead>
                         <tr class="bg-gray-100">
@@ -373,6 +375,9 @@
             <div id="approveModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                 <div class="bg-white rounded-lg p-6 w-2/3 shadow-lg">
                     <h2 class="text-lg font-bold mb-4">Approve Distributor</h2>
+                    <div class="mb-6">
+                        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" id="addDistributor">Add Retailer</button>
+                    </div>
                     <div id="distributor-info" class="text-gray-700 mb-4">
                         <!-- Distributor details will be dynamically added here -->
                     </div>
@@ -409,6 +414,105 @@
                         <button id="closeRejectModal" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Cancel</button>
                         <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Confirm Reject</button>
                     </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div 
+                id="modal" 
+                class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-1/2 max-h-[90vh] overflow-auto">
+                    <h2 class="text-xl font-bold mb-4 text-center">Register Distributor</h2>
+                    <form>
+                        <!-- Distributor Name -->
+                        <div class="mb-2">
+                            <label class="block font-medium text-gray-600">Distributor Name</label>
+                            <input type="text" class="w-full px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <p class="text-gray-500 text-sm mt-1">(This name will be your distributor's profile name)</p>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="mb-2">
+                            <label class="block font-medium text-gray-600">Distributor Address</label>
+                            <div class="flex items-center mb-2">
+                                <label class="block w-1/3 font-medium text-gray-400">City</label>
+                                <select id="citySelect" class="w-2/3 px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" onchange="updateBarangays()">
+                                    <option value="">Select</option>
+                                    <option value="Zamboanga">Zamboanga City</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <label class="block w-1/3 font-medium text-gray-400">Barangay</label>
+                                <select id="barangaySelect" class="w-2/3 px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <label class="block w-1/3 font-medium text-gray-400">Street</label>
+                                <input type="text" class="w-2/3 px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="mb-2">
+                            <label class="block font-medium text-gray-600">Phone Number</label>
+                            <input type="text" class="w-full px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-2">
+                            <label class="block font-medium text-gray-600">Email</label>
+                            <input type="email" class="w-full px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-2">
+                            <label class="block font-medium text-gray-600">Password</label>
+                            <input type="password" class="w-full px-3 py-2 font-light border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="flex items-center">
+                                <label class="block w-1/3 mr-4 text-sm font-bold text-right text-gray-500" for="tin-number">
+                                    TaxPayer Identification <br> Number (TIN)
+                                </label>
+                                <div class="flex items-center w-2/3">
+                                    <input class="w-full px-3 py-2 leading-tight text-gray-500 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="tin-number" type="text" placeholder="Input">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- For BIR Certificate of Registration -->
+                        <div class="mb-2">
+                            <div class="flex items-center">
+                                <label class="block w-1/2 pb-2 mr-4 text-sm font-bold text-right text-gray-500" for="BIR">
+                                    BIR Certifcate of Registration
+                                </label>
+                                <div class="w-full py-1.5 border rounded-lg">
+                                    <input type="file" class="hidden" id="birFileInput" onchange="displayFileName(this, 'birFileName')">
+                                    <label for="birFileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label>
+                                    <span class="ml-1 text-[12px] font-light" id="birFileName"></span>
+                                </div>
+                            </div>    
+                        </div>
+
+                        <!-- For SEC Certificate for Incorporation -->
+                        <div class="mb-4">
+                            <div class="flex items-center">
+                                <label class="block w-1/2 pb-3 mr-4 text-sm font-bold text-right text-gray-500" for="SEC">
+                                    SEC Certificate for Incorporation
+                                </label>
+                                <div class="w-full py-1.5 border rounded-lg">
+                                    <input type="file" class="hidden" id="secFileInput" onchange="displayFileName(this, 'secFileName')">
+                                    <label for="secFileInput" class="px-4 py-2 font-semibold text-white transition duration-300 bg-green-500 rounded-lg shadow-lg hover:bg-green-600"> Upload File</label>
+                                    <span class="ml-1 text-[12px] font-light" id="secFileName"></span>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="flex justify-end mt-4">
+                            <button type="button" class="px-4 py-2 mr-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100" id="closeModal">Back</button>
+                            <button type="button" class="px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -463,33 +567,54 @@
                 ],
             });
 
+            // Modal Functionality
+            const addDistributor = document.getElementById('addDistributor');
+            const closeModal = document.getElementById('closeModal');
+            const modal = document.getElementById('modal');
+
+            addDistributor.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default action
+                modal.classList.remove('hidden');
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            // Close modal on clicking outside of the modal content
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+
             // Modal functionality
-        $(document).on('click', '.approveBtn', function () {
-            $('#approveModal').removeClass('hidden');
-            const row = $(this).closest('tr');
-            const data = row.find('td').map(function () { return $(this).text(); }).get();
-            $('#distributor-info').html(`
-                <p><strong>ID:</strong> ${data[0]}</p>
-                <p><strong>Name:</strong> ${data[1]}</p>
-                <p><strong>Email:</strong> ${data[2]}</p>
-                <p><strong>Date Created:</strong> ${data[3]}</p>
-            `);
-            $('#tin-image').attr('src', '../../../resources/img/BIR/img1.jpg');
-            $('#mayors-permit').attr('src', '../../../resources/img/MP/img1.jpg');
-            $('#sec-certificate').attr('src', '../../../resources/img/SEC/img1.jpg');
-        });
+            $(document).on('click', '.approveBtn', function () {
+                $('#approveModal').removeClass('hidden');
+                const row = $(this).closest('tr');
+                const data = row.find('td').map(function () { return $(this).text(); }).get();
+                $('#distributor-info').html(`
+                    <p><strong>ID:</strong> ${data[0]}</p>
+                    <p><strong>Name:</strong> ${data[1]}</p>
+                    <p><strong>Email:</strong> ${data[2]}</p>
+                    <p><strong>Date Created:</strong> ${data[3]}</p>
+                `);
+                $('#tin-image').attr('src', '../../../resources/img/BIR/img1.jpg');
+                $('#mayors-permit').attr('src', '../../../resources/img/MP/img1.jpg');
+                $('#sec-certificate').attr('src', '../../../resources/img/SEC/img1.jpg');
+            });
 
-        $(document).on('click', '.rejectBtn', function () {
-            $('#rejectModal').removeClass('hidden');
-        });
+            $(document).on('click', '.rejectBtn', function () {
+                $('#rejectModal').removeClass('hidden');
+            });
 
-        $('#closeApproveModal').on('click', function () {
-            $('#approveModal').addClass('hidden');
-        });
+            $('#closeApproveModal').on('click', function () {
+                $('#approveModal').addClass('hidden');
+            });
 
-        $('#closeRejectModal').on('click', function () {
-            $('#rejectModal').addClass('hidden');
-        });
+            $('#closeRejectModal').on('click', function () {
+                $('#rejectModal').addClass('hidden');
+            });
     });
     </script>
 </body>
