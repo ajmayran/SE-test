@@ -108,6 +108,134 @@ if (isset($_SESSION['error_message'])) {
                 </a>
                 <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
                     <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/rdm_185ml.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Fortified Ready To Drink Milk 185ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱936.00</span>
+                    </div>
+                </a>
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/rdm_choco120ml.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Choco Ready To Drink Milk 110ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱414.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/rdm_choco185ml.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Choco Ready To Drink Milk 185ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱2,070.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/rdm_milky236ml.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Milky Ready To Drink Milk 236ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,447.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/rdm_milky110ml.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Milky Ready To Drink Milk 110ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,944.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/condensada_168ml.jpg" alt="Product Image" class="mb-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Condensada Sweetened Creamer 168ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,848.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/condensada_300ml.jpg" alt="Product Image" class="mb-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Condensada Sweetened Creamer 300ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱2,736.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/condensada_560ml.jpg" alt="Product Image" class="mb-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Condensada Sweetened Creamer 560ml</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: 1,416.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/condensada_1.27kg.jpg" alt="Product Image" class="mb-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Condensada Sweetened Creamer 1.27kg</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,296.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/alaska_products/condensada_melon300ml.jpg" alt="Product Image" class="mb-4">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Alaska Condensada Melon</h3>
+                        <p class="text-gray-500">By Jacob Trading</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱2,256.00</span>
+                    </div>
+                </a>     
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
                         <img src="../../resources/img/softdrinks/f3n.jpg" alt="Product Image" class="mb-4 just ">
                     </div>
                     <div class="p-4">
@@ -225,6 +353,131 @@ if (isset($_SESSION['error_message'])) {
                     </div>
                     <div class="flex items-center justify-between mt-4">
                         <span class="text-lg font-bold">₱250.00</span>
+                    </div>
+                </a>
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal1.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Intesive Moisture Coconut Cream</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱936.00</span>
+                    </div>
+                </a>
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal2.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Ultra Smooth Aloe Vera</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱414.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal3.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Coconut</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱2,070.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal4.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Aloe Vera</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,447.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal5.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Anti-dandruff + Scalp health</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,944.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal4.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Aloe Vera</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,447.00</span>
+                    </div>
+                </a>
+
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal5.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Anti-dandruff + Scalp health</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱1,944.00</span>
+                    </div>
+                </a>
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal1.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Intesive Moisture Coconut Cream</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱936.00</span>
+                    </div>
+                </a>
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal2.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Ultra Smooth Aloe Vera</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱414.00</span>
+                    </div>
+                </a>
+                <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
+                    <div class="flex justify-center">
+                        <img src="../../resources/img/shampoo/pal3.jpg" alt="Product Image" class="mb-4 just ">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Palmolive Naturals Coconut</h3>
+                        <p class="text-gray-500">By Primus Ventures</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-lg font-bold">Per Case: ₱2,070.00</span>
                     </div>
                 </a>
               <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">
@@ -494,10 +747,9 @@ if (isset($_SESSION['error_message'])) {
 
          <div class="hidden tab-pane">
          <h2 class="text-2xl font-bold text-gray-800">Wines & Alcohol</h2>
+         <h2 class="text-2xl text-center text-gray-800 container  h-screen mt-10">No Products Available</h2>
          </div>
-
          <div class="hidden tab-pane">
-         <h2 class="text-2xl font-bold text-gray-800">Soft Drinks</h2>
          <h2 class="text-2xl font-bold text-gray-800">Soft Drinks</h2>
          <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
               <a href="../retailer/single_product_view.php" class="p-6 bg-white border rounded-lg shadow-md ">

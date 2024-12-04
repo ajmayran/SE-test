@@ -190,32 +190,6 @@ foreach ($cartItems as $cart) {
     <div id="orderConfirmationModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-opacity-50">
         <div class="w-1/3 p-6 bg-white rounded-lg shadow-lg">
             <h2 class="mb-4 text-2xl font-bold text-center">Confirm Your Order</h2>
-            <p class="text-center">Are you sure you want to place the order?</p>
-
-            <!-- Display Order Summary -->
-            <div class="mt-4">
-                <h3 class="font-semibold">Order Summary:</h3>
-                <ul>
-                    <?php foreach ($cartItems as $cart): ?>
-                        <li><?php echo htmlspecialchars($cart['product_name']); ?> - ₱<?php echo number_format($cart['price'] * $cart['quantity'], 2); ?> (<?php echo htmlspecialchars($cart['quantity']); ?>)</li>
-                    <?php endforeach; ?>
-                </ul>
-                <h4 class="mt-2 font-bold">Total: ₱<?php echo number_format($totalAmount, 2); ?></h4>
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <button onclick="closeorderConfirmationModal()" class="px-4 py-2 mr-2 font-bold text-white bg-red-500 rounded hover:bg-red-600">Cancel</button>
-                <form action="place_order.php" method="POST">
-                    <button type="submit" class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-600">Confirm</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="finalConfirmationModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-opacity-50">
-        <div class="w-1/3 p-6 bg-white rounded-lg shadow-lg">
-            <h2 class="mb-4 text-2xl font-bold text-center">Your order has been placed successfully!</h2>
-
             <div class="mb-4">
                 <h3 class="mb-2 text-lg font-semibold">Delivery Details</h3>
                 <p class="text-gray-700">
@@ -256,9 +230,32 @@ foreach ($cartItems as $cart) {
                 </table>
             </div>
 
+            <div class="flex justify-end mt-4">
+            <form action=""><button onclick="closeorderConfirmationModal()" class="px-4 py-2 mr-2 font-bold text-white bg-red-500 rounded hover:bg-red-600">Cancel</button></form>
+                <form action="place_order.php" method="POST">
+                    <button type="submit" class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-600">Confirm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="finalConfirmationModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-opacity-50">
+        <div class="w-1/3 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="mb-4 text-2xl font-bold text-center">Your order has been placed successfully!</h2>
+            <!-- Display Order Summary -->
+            <div class="mt-4">
+                <h3 class="font-semibold">Order Summary:</h3>
+                <ul>
+                    <?php foreach ($cartItems as $cart): ?>
+                        <li><?php echo htmlspecialchars($cart['product_name']); ?> - ₱<?php echo number_format($cart['price'] * $cart['quantity'], 2); ?> (<?php echo htmlspecialchars($cart['quantity']); ?>)</li>
+                    <?php endforeach; ?>
+                </ul>
+                <h4 class="mt-2 font-bold">Total: ₱<?php echo number_format($totalAmount, 2); ?></h4>
+            </div>
+
+
             <div class="flex justify-end">
-                <button onclick="closefinalConfirmationModal()" class="px-4 py-2 mr-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Close</button>
-                <a href="./retailer_purchase_status.php"><button class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">View My Purchase</button></a>
+                <a href="./retailer_purchase_status.php"><button class="px-4 py-2 font-bold text-gray-500 hover:text-white bg-gray-200 rounded hover:bg-gray-500 border border-gray-500">View My Purchase</button></a>
             </div>
         </div>
     </div>
@@ -288,7 +285,7 @@ foreach ($cartItems as $cart) {
         }
 
         function closeFinalConfirmationModal() {
-            document.getElementById('finalConfirmationModal').classList.add('hidden');
+        document.getElementById('finalConfirmationModal').classList.add('hidden');
         }
 
         // Check if the order was placed and open the modal
