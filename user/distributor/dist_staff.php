@@ -1,26 +1,44 @@
+<?php
+session_start();
+if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) {
+    // Retrieve distributor details from the session
+    $distributorInfo = $_SESSION['distributor_info'];
+
+    $distributorName = htmlspecialchars($distributorInfo['name']);
+    $distributorAddress = htmlspecialchars($distributorInfo['address']);
+} else {
+    // If no session exists, redirect to the login page
+    header("Location: dist_login.php");
+    exit; 
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributors Dashboard</title>
+    <title>Add Staff</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Lexend', sans-serif;
         }
 
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.9s ease-in;
+        .sidebar-menu .group.active a {
+            background-color: #27AE60;
+            color: white;
+            border-radius: 5px;
         }
 
-        .fade-in-active {
-            opacity: 1;
+        .sidebar-menu .group.active .icon {
+            color: white;
         }
     </style>
 </head>
@@ -36,7 +54,7 @@
             </div>
             <div class="flex items-center space-x-2">
                 <span><img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" /></span>
-                <span class="p-1 mb-1 font-sans">Zambasulta</span>
+                <span class="p-1 mb-1 font-sans"><?php echo $distributorName; ?></span>
 
                 <!-- Notification Button -->
                 <div class="relative">
@@ -66,13 +84,13 @@
                     <div id="accountPopper" class="absolute right-0 z-10 hidden w-64 bg-white border border-gray-200 rounded-lg shadow-lg">
                         <div class="flex items-center p-4 mx-2 my-2 border border-gray-200 rounded-lg shadow-sm">
                             <img alt="Profile Picture" class="w-10 h-10 border border-gray-100 rounded-full" src="../../resources/img/Distrubutors/zamba.jpg" />
-                            <span class="ml-2 text-sm font-normal">Zambasulta</span>
+                            <span class="ml-2 text-sm font-normal"><?php echo $distributorName; ?></span>
                         </div>
                         <ul class="py-2">
                             <a href="./dist_settings.php">
                                 <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Settings</li>
                             </a>
-                            <a href="../../auth/logout.php">
+                            <a href="../../user/distributor/dist_logout.php">
                                 <li class="px-4 py-2 font-sans text-sm hover:bg-gray-100">Logout</li>
                             </a>
                         </ul>
@@ -83,30 +101,30 @@
         </div>
     </header>
     <div class="flex">
-        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sticky top-0">
+        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
             <ul class="m-10 ml-10 space-y-2">
                 <li class="group">
-                    <a href="./dist_dashboard.php" class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Dashboard</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">My Orders</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href=""><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Return | Refund</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Cancellation</span>
                     </a>
                 </li>
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Delivery</span>
                     </a>
                 </li>
@@ -134,13 +152,14 @@
                 </li>
                 <hr class="border-gray-300 shadow-sm" />
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Business Insights</span>
                     </a>
                 </li>
                 <hr class="border-gray-300 shadow-sm" />
+
                 <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Voucher</span>
                     </a>
                 </li>
@@ -149,53 +168,47 @@
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:profile" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                <hr class="border-gray-300 shadow-sm" />
+                <li class="group active">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
                         <span class="ml-2 font-normal">Add Staff</span>
+                    </a>
+                </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="#"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Manage Staff</span>
                     </a>
                 </li>
             </ul>
         </aside>
-        <main class="w-3/4 p-8 overflow-y-auto fade-in">
-            <h1 class="p-3 text-2xl font-semibold">To do List</h1>
-            <div class="w-4/5 p-6 ml-20 bg-white rounded-lg shadow">
-                <p class="mb-4 text-2xl font-normal">
-                    Congratulations your application have been approved!
-                </p>
-                <p class="mb-4 font-light">
-                    This to do list is designed to guide you through the essential steps to set up and manage your online store successfully. By following these steps, you'll be well on your way to attracting customers and making sales.
-                </p>
-                <p class="mb-1 font-semibold">Set up your shop:
-                </p>
-                <p class="mb-4 font-light">
-                    Customize your store's appearance, add products, and configure shipping and payment settings.
-                </p>
-                <p class="mb-1 font-semibold">
-                    Optimize your listings:
-                </p>
-                <p class="mb-4 font-light">
-                    Write compelling product descriptions, use high-quality images, and optimize your listings for search engines.
-                </p>
-                <p class="mb-1 font-semibold">
-                    Promote your store:
-                </p>
-                <p class="mb-4 font-light">
-                    Utilize marketing tools and social media to reach potential customers.
-                </p>
-                <p class="mb-1 font-semibold">
-                    Manage orders and customer inquiries:
-                </p>
-                <p class="mb-4 font-light">
-                    Process orders promptly and provide excellent customer service.
-                </p>
-                <p class="mb-1 font-semibold">
-                    Monitor performance:
-                </p>
-                <p class="mb-4 font-light">
-                    Track your sales, customer feedback, and website traffic to identify areas for improvement.
-                </p>
+
+        <main class="w-3/4 p-8 flex items-center justify-center bg-gray-300" style="height:100vh;">
+            <div class="w-full max-w-xl p-8 mx-4 bg-white rounded-lg shadow-lg">
+                <h2 class="mb-5 text-2xl font-semibold text-center">Add Staff</h2>
+                <form method="POST">
+                    <div class="mb-3">
+                        <input type="text" name="first_name" placeholder="First Name" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="middle_name" placeholder="Middle Name  (Optional)" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="last_name" placeholder="Last Name" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" placeholder="Email Address" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="password" placeholder="Password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="confirmpassword" placeholder="Confirm Password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <input type="submit" name="signup" class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">
+                </form>
             </div>
         </main>
+
     </div>
     <footer class="py-8" style="background-color: #282424;">
         <div class="container px-4 mx-auto mt-10">
@@ -229,9 +242,7 @@
                     <ul>
                         <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Email Us</a></li>
                         <li class="mb-1"><a href="#" class="font-light text-gray-500 hover:text-gray-200">Message Us</a></li>
-                        <li class="mb-1">
-                            <p class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</p>
-                        </li>
+                        <li class="mb-1"><a href="#" class="font-light text-gray-500 ">Mon-Sat 9am-3pm GMT+8</a></li>
                     </ul>
                 </div>
                 <div>
@@ -254,11 +265,6 @@
         </div>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const main = document.querySelector('main');
-            main.classList.add('fade-in-active'); // Add the active class to trigger the fade-in
-        });
-
         //Notif and account 
         document.getElementById('notificationButton').addEventListener('click', function() {
             const dropdown = document.getElementById('notificationDropdown');
@@ -270,7 +276,7 @@
             popper.classList.toggle('hidden');
         });
 
-
+      
         window.addEventListener('click', function(event) {
             const dropdown = document.getElementById('notificationDropdown');
             const popper = document.getElementById('accountPopper');
@@ -283,6 +289,8 @@
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/tailwind/dist_dashboard.js"></script>
 </body>
 
 </html>

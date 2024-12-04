@@ -168,6 +168,11 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
                         <span class="ml-2 font-normal">Shop Settings</span>
                     </a>
                 </li>
+                <li class="group">
+                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_staff.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
+                        <span class="ml-2 font-normal">Add Staff</span>
+                    </a>
+                </li>
             </ul>
         </aside>
 
