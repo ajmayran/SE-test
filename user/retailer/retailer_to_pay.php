@@ -14,7 +14,7 @@ $retailer_id = $_SESSION['retailer_id'];
 $orderObj = new Order();
 
 // Fetch the pending orders
-$pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
+$pendingOrders = $orderObj->fetchToPay($retailer_id);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,6 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../src/output.css">
     <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
@@ -50,10 +49,10 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
         <hr class="my-4 border-gray-200">
     </section>
 
-    <div class="container h-screen mx-auto mb-24 bg-gray-50">
+    <div class="container mx-auto mb-24 bg-gray-50">
         <ul class="flex border-b border-gray-200 tab-list">
-        <a href="" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">All</a>
-            <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Pay</a>
+            <a href="../retailer/retailer_purchase_status.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">All</a>
+            <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">To Pay</a>
             <a href="../retailer/retailer_to_receive.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Receive</a>
             <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Completed</a>
             <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Cancelled</a>
@@ -108,7 +107,7 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p class="text-center text-gray-500">You have no orders at the moment.</p>
-                <?php endif; ?> 
+                <?php endif; ?>
             </div>
         </div>
     </div>

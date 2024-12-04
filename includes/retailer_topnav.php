@@ -1,8 +1,8 @@
-<nav class="container flex justify-between py-4 mx-auto bg-white min-h-20">
+<nav class="container flex justify-between p-4 mx-auto bg-white min-h-20">
     <div class="flex items-center">
         <a href="retailer_dash.php"><img src="../../resources/img/Pconnect Logo.png" alt="PConnect Logo" class="h-10 mr-4"></a>
         <a href="retailer_dash.php"><span class="text-2xl font-semibold text-black-700">PConnect</span></a>
-        <div class="relative flex px-10">
+        <div class="relative flex p-4">
             <select class="px-3 py-2 ml-64 mr-2 bg-gray-200 border border-gray-300">
                 <option value="all">All Categories</option>
                 <option value="all">All Categories</option>
@@ -19,7 +19,7 @@
         <a href="retailer_cart.php" class="mr-4 text-gray-500 hover:text-gray-700">
             <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
         </a>
-        <div class="relative">
+        <div class="relative">`
             <button onclick="toggleNotification()" class="mr-4 text-gray-500 hover:text-gray-700">
                 <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
             </button>
@@ -50,7 +50,7 @@
         <a href="retailer_profile.php">
             <div class="flex items-center cursor-pointer">
                 <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full profile-button">
-                <span class="font-medium text-gray-700">Michael Jordan</span>
+                <span class="font-medium text-gray-700"><?php echo isset($_SESSION['retailer_fname']) ? htmlspecialchars($_SESSION['retailer_fname']) : 'Guest'; ?> <?php echo isset($_SESSION['retailer_lname']) ? htmlspecialchars($_SESSION['retailer_lname']) : 'Guest'; ?></span>
             </div>
         </a>
 

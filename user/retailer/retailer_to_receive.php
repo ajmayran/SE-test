@@ -14,7 +14,7 @@ $retailer_id = $_SESSION['retailer_id'];
 $orderObj = new Order();
 
 // Fetch the pending orders
-$pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
+$pendingOrders = $orderObj->fetchToReceive($retailer_id);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,6 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../src/output.css">
     <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
@@ -50,11 +49,11 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
         <hr class="my-4 border-gray-200">
     </section>
 
-    <div class="container h-screen mx-auto mb-24 bg-gray-50">
+    <div class="container mx-auto mb-24 bg-gray-50">
         <ul class="flex border-b border-gray-200 tab-list">
-        <a href="" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">All</a>
+            <a href="../retailer/retailer_purchase_status.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">All</a>
             <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Pay</a>
-            <a href="../retailer/retailer_to_receive.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Receive</a>
+            <a href="" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">To Receive</a>
             <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Completed</a>
             <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Cancelled</a>
             <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Return/Refund</a>
@@ -73,13 +72,13 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
 
                             <!-- Loop through the products within the order -->
                             <div class="mb-4 border-b border-gray-200">
-                                <?php 
+                                <?php
                                 // Fetch the products for this order (Assuming you have product data in $order['products'])
                                 $products = $orderObj->fetchProductsForOrder($order['order_id']);
-                                foreach ($products as $product): 
+                                foreach ($products as $product):
                                 ?>
                                     <div class="flex items-center mb-2">
-                                        <img src="<?php echo $product['img']; ?>"  class="w-16 h-16 mr-4">
+                                        <img src="<?php echo $product['img']; ?>" class="w-16 h-16 mr-4">
                                         <div>
                                             <p class="text-gray-700"><?php echo $product['product_name']; ?></p>
                                             <p class="text-gray-500">x<?php echo $product['quantity']; ?></p>
@@ -92,7 +91,8 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
                             <!-- Order Summary -->
                             <div class="flex justify-between mb-4">
                                 <p class="text-gray-700">Subtotal Total:</p>
-                                <p class="text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p></p>
+                                <p class="text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p>
+                                </p>
                             </div>
 
                             <div class="flex justify-between mb-4">
@@ -101,14 +101,20 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
                             </div>
 
                             <div class="flex justify-end">
-                                <button class="px-4 py-2 mr-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Cancel Order</button>
+                                <button
+                                    class="px-4 py-2 mr-2 font-bold text-white rounded 
+                                    <?php echo $order['status'] === 'Cancelled' || $order['delivery_status'] === 'On Transit' ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-500 hover:bg-red-700'; ?>"
+                                    onclick="openCancelModal(<?php echo $order['order_id']; ?>)"
+                                    <?php echo $order['status'] === 'Cancelled' || $order['delivery_status'] === 'On Transit' ? 'disabled' : ''; ?>>
+                                    Cancel Order
+                                </button>
                                 <a href="./retailer_purchase.php"><button class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">View Details</button></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p class="text-center text-gray-500">You have no orders at the moment.</p>
-                <?php endif; ?> 
+                <?php endif; ?>
             </div>
         </div>
     </div>

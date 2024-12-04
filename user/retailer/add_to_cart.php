@@ -18,13 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $orderObj = new Order();
     $retailer_id = $_SESSION['retailer_id'];
 
-    // Add the product to the cart
     if ($orderObj->addToCart($retailer_id, $product_id, $quantity)) {
-        // Redirect back to the retailer dashboard or cart page with a success message
-        header('Location: ./retailer_cart.php?success=Product added to cart');
+        // Set a success message in the session
+        $_SESSION['success_message'] = 'Product successfully added to cart!';
     } else {
-        // Handle the error (e.g., product could not be added)
-        header('Location: ./retailer_dash.php?error=Could not add product to cart');
+        // Set an error message in the session
+        $_SESSION['error_message'] = 'Failed to add product to cart.';
     }
+
+    // Redirect back to the same page
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
 }
 ?>

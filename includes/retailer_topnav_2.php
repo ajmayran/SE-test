@@ -1,10 +1,10 @@
 <nav class="flex justify-between px-40 py-4 bg-white min-h-20">
-        <div class="flex items-center " >
+        <div class="flex items-center p-4 " >
         <a href="retailer_dash.php"><img src="../../resources/img/Pconnect Logo.png" alt="PConnect Logo" class="h-10 mr-4"></a>
         <a href="retailer_dash.php"><span class="text-2xl font-semibold text-black-700">PConnect</span></a>
 
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center p-4">
             <a href="retailer_cart.php" class="mr-4 text-gray-500 hover:text-gray-700">
                 <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
             </a>
@@ -39,7 +39,7 @@
 
             <a href="retailer_profile.php"><div class="flex items-center cursor-pointer">
                 <img src="../../resources/img/avatar.png.jpeg" alt="User Profile" class="w-8 h-8 mr-2 rounded-full profile-button">
-                <span class="font-medium text-gray-700">Michael Jordan</span>
+                <span class="font-medium text-gray-700"><?php echo isset($_SESSION['retailer_fname']) ? htmlspecialchars($_SESSION['retailer_fname']) : 'Guest'; ?> <?php echo isset($_SESSION['retailer_lname']) ? htmlspecialchars($_SESSION['retailer_lname']) : 'Guest'; ?></span>
             </div></a>
         </div>
     </nav>

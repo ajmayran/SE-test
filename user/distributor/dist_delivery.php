@@ -216,7 +216,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
           </button>
         </div>
 
-        <!-- Delivery Orders Table -->
+        <!-- Process Orders Table -->
         <div id="process-table" class="block mt-6">
           <h2 class="mb-2 font-light text-gray-500">Delivery Orders: <?php echo count($deliveryProcess); ?></h2>
           <div class="overflow-x-auto">
@@ -351,7 +351,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
   </div>
 
   <!-- Modal Structure -->
-
+    <!-- Processing-->
   <div id="processdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-xl p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -366,7 +366,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-
+    <!-- On-Transit-->
   <div id="transitdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -381,7 +381,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-
+    <!-- Delivered-->
   <div id="delivereddetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -449,130 +449,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Tabs
-      const processTab = document.getElementById('tab-process');
-      const transitTab = document.getElementById('tab-ontransit');
-      const deliveredTab = document.getElementById('tab-delivered');
-      const onProcess = document.getElementById('process-table');
-      const onTransit = document.getElementById('transit-table');
-      const onDelivered = document.getElementById('delivered-table');
-
-
-      processTab.addEventListener('click', () => {
-        onProcess.classList.remove('hidden');
-        onTransit.classList.add('hidden');
-        onDelivered.classList.add('hidden');
-        processTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-        transitTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-        deliveredTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-      });
-
-      transitTab.addEventListener('click', () => {
-        onProcess.classList.add('hidden');
-        onTransit.classList.remove('hidden');
-        onDelivered.classList.add('hidden');
-        processTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-        transitTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-        deliveredTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-        processTab.classList.add('text-gray-600');
-      });
-
-      deliveredTab.addEventListener('click', () => {
-        onProcess.classList.add('hidden');
-        onTransit.classList.add('hidden');
-        onDelivered.classList.remove('hidden');
-        processTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-        transitTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
-        deliveredTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
-        processTab.classList.add('text-gray-600');
-      });
-    });
-
-    function viewProcess(orderId) {
-      // Open the modal
-      document.getElementById('processdetailsModal').classList.remove('hidden');
-      document.getElementById('processmodalContent').innerHTML = "Loading...";
-
-      // Set orderId for Deliver button
-      const deliverButton = document.getElementById('deliverButton');
-      deliverButton.setAttribute('data-order-id', orderId);
-
-      document.getElementById('deliverButton').addEventListener('click', function() {
-        const orderId = this.getAttribute('data-order-id');
-
-        fetch('update_delivery_transit.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              order_id: orderId
-            }),
-          })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.success) {
-              alert('Delivery status updated to On-transit.');
-              closeModal();
-              location.reload(); // Refresh the page to show updated status
-            } else {
-              alert('Failed to update status: ' + data.message);
-            }
-          })
-          .catch((error) => {
-            console.error('Error updating status:', error);
-            alert('Error updating status.');
-          });
-      });
-
-      // Fetch details via AJAX
-      $.ajax({
-        url: 'fetch_delivery_details.php',
-        type: 'GET',
-        data: {
-          order_id: orderId
-        },
-        success: function(response) {
-          document.getElementById('processmodalContent').innerHTML = response;
-        },
-        error: function() {
-          document.getElementById('processmodalContent').innerHTML = "Error fetching details.";
-        }
-      });
-    }
-
-    function closeModal() {
-      document.getElementById('processdetailsModal').classList.add('hidden');
-    }
-
-
-
-    //Notif and account 
-    document.getElementById('notificationButton').addEventListener('click', function() {
-      const dropdown = document.getElementById('notificationDropdown');
-      dropdown.classList.toggle('hidden');
-    });
-
-    document.getElementById('accountButton').addEventListener('click', function() {
-      const popper = document.getElementById('accountPopper');
-      popper.classList.toggle('hidden');
-    });
-
-
-    window.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('notificationDropdown');
-      const popper = document.getElementById('accountPopper');
-
-      if (!event.target.closest('#notificationButton')) {
-        dropdown.classList.add('hidden');
-      }
-      if (!event.target.closest('#accountButton')) {
-        popper.classList.add('hidden');
-      }
-    });
-  </script>
+<script src="../../js/tailwind/dist_delivery.js"></script>
 </body>
 
 </html>
