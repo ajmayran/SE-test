@@ -122,17 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         body {
             font-family: 'Lexend', sans-serif;
         }
-
-        .sidebar-menu .group.active a {
-            background-color: #27AE60;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .sidebar-menu .group.active .icon {
-            color: white;
-        }
-
         th {
             white-space: nowrap;
         }
@@ -201,76 +190,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </header>
     <div class="flex">
-        <aside class="w-1/4 min-h-screen mt-0.5 bg-white sidebar-menu">
-            <ul class="m-10 ml-10 space-y-2">
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_dashboard.php"><iconify-icon icon="mdi:home" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Dashboard</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_orders.php"><iconify-icon icon="material-symbols-light:sell" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">My Orders</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_return.php"><iconify-icon icon="ph:key-return-fill" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Return | Refund</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_cancellation.php"><iconify-icon icon="basil:cancel-solid" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Cancellation</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_delivery.php"><iconify-icon icon="mdi:truck-delivery" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Delivery</span>
-                    </a>
-                </li>
-                <hr class="border-gray-300 shadow-sm" />
-                <li class="group active">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_products.php"><iconify-icon icon="dashicons:products" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">My Products</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_inventory.php"><iconify-icon icon="ic:baseline-inventory-2" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Inventory</span>
-                    </a>
-                </li>
-                <hr class="border-gray-300 shadow-sm" />
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_messages.php"><iconify-icon icon="ant-design:message-filled" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Messages</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_blocking.php"><iconify-icon icon="material-symbols:block" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Blocking</span>
-                    </a>
-                </li>
-                <hr class="border-gray-300 shadow-sm" />
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_insights.php"><iconify-icon icon="gg:insights" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Business Insights</span>
-                    </a>
-                </li>
-                <hr class="border-gray-300 shadow-sm" />
-
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_voucher.php"><iconify-icon icon="mdi:voucher" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Voucher</span>
-                    </a>
-                </li>
-                <li class="group">
-                    <a class="flex items-center px-4 py-1 hover:bg-green-300 hover:text-gray-100" href="./dist_settings.php"><iconify-icon icon="material-symbols:settings" class="ml-10 mr-1 text-xl text-green-500 icon"></iconify-icon>
-                        <span class="ml-2 font-normal">Shop Settings</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
+         <?php 
+            require_once '../../includes/distributor_sidebar.php';
+        ?>
         <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
             <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Products</h1>
             <div class="p-6 bg-white rounded-b-lg shadow-sm">
