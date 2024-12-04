@@ -88,6 +88,7 @@
         <div class="mt-6 text-center">
             <p class="text-gray-500">Don't have an account? <a href="./signup.php" onclick="handleSignup(event)" class="text-green-500 transition duration-500 ease-in-out hover:text-green-400">Create Account</a></p>
         </div>
+        <div class="p-6"><a href="../user/distributor/dist_login.php" class=""><button class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">Sign in as Distributor</button></a></div>
     </div>
 </body>
 <script>
