@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         .login-container {
-            transition: transform 3s;
+            transition: transform 1.5s;
             /* Smooth transition for moving the form */
         }
 
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             opacity: 0;
             transform: translateY(500px) rotateY(20deg) translateZ(0);
             ;
-            animation: fadeIn 0.5s forwards;
+            animation: fadeIn 1.5s forwards;
             font-size: 5em;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             color: white;
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <span class="font-bold letter" style="animation-delay: 2.3s;">l</span>
         <span class="font-bold letter" style="animation-delay: 2.4s;">c</span>
         <span class="font-bold letter" style="animation-delay: 2.5s;">o</span>
-        <span class="font-bold letter" style="animation-delay: 2.6;">m</span>
+        <span class="font-bold letter" style="animation-delay: 2.6s;">m</span>
         <span class="font-bold letter" style="animation-delay: 2.7s;">e</span>
         <span class="px-2 font-bold letter" style="animation-delay: 2.8s;"> </span>
 
