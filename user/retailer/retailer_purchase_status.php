@@ -55,9 +55,9 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
         <a href="" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">All</a>
             <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Pay</a>
             <a href="../retailer/retailer_to_receive.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Receive</a>
-            <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Completed</a>
-            <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Cancelled</a>
-            <a href="" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Return/Refund</a>
+            <a href="../retailer/retailer_Completed.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Completed</a>
+            <a href="../retailer/retailer_cancelled.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Cancelled</a>
+            <a href="../retailer/retailer_return.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Return/Refund</a>
         </ul>
 
         <div class="p-4">

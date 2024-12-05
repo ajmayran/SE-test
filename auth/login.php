@@ -50,7 +50,10 @@
 </head>
 
 <body class="flex items-center justify-center min-h-screen bg-center bg-cover" style="background-image: url('../resources/img/loginbg.png');">
-    <div class="w-full max-w-lg p-8 mx-4 bg-white rounded-lg shadow-lg">
+    <div class="w-1/2 flex justify-start mb-24">
+    <img src="../resources/img/retailer_graphic.png" alt="Distributor Graphic" class="w-3/4 h-3/4 opacity-20">
+    </div>
+    <div class="w-1/2 max-w-lg p-8 mx-4 bg-white rounded-lg shadow-lg border">
         <h2 class="mb-6 text-2xl font-semibold text-center">Login</h2>
         <form method="POST">
             <div class="mb-4">
