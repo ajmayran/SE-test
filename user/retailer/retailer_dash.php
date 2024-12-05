@@ -100,7 +100,7 @@ if (isset($_SESSION['error_message'])) {
                             </div>
                             <div class="text-left">
                                 <h3 class="text-lg font-bold"><?php echo htmlspecialchars($product['product_name']); ?></h3>
-                                <p class="text-[12px] text-gray-500">By <?php echo htmlspecialchars($product['distributor_name']); ?></p>           
+                                <p class="text-[12px] text-gray-500"><?php echo htmlspecialchars($product['distributor_name']); ?></p>           
                                 <p class="text-[12px] text-gray-500">Min purchase qty: <?php echo htmlspecialchars($product['min_qty']); ?></p>
                                 <p class="text-[12px] text-gray-500">Stocks Remaining: <?php echo htmlspecialchars($product['quantity']); ?></p>   
                                 <div class="flex flex-col items-center mt-4">

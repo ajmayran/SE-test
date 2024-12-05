@@ -97,6 +97,125 @@ function closeModal() {
 }
 
 
+//Transit
+function viewTransit(orderId) {
+  // Open the modal
+  document.getElementById('transitdetailsModal').classList.remove('hidden');
+  document.getElementById('transitmodalContent').innerHTML = "Loading...";
+
+  // Set orderId for Deliver button
+  const deliverButton = document.getElementById('deliveredButton');
+  deliverButton.setAttribute('data-order-id', orderId);
+
+  document.getElementById('deliveredButton').addEventListener('click', function() {
+    const orderId = this.getAttribute('data-order-id');
+
+    fetch('update_delivery_delivered.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify({
+          order_id: orderId
+        }),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert('Delivery status updated to Delivered.');
+          closetransitModal();
+          location.reload(); // Refresh the page to show updated status
+        } else {
+          alert('Failed to update status: ' + data.message);
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating status:', error);
+        alert('Error updating status.');
+      });
+  });
+
+  // Fetch details via AJAX
+  $.ajax({
+    url: 'fetch_delivery_details.php',
+    type: 'GET',
+    data: {
+      order_id: orderId
+    },
+    success: function(response) {
+      document.getElementById('transitmodalContent').innerHTML = response;
+    },
+    error: function() {
+      document.getElementById('transitmodalContent').innerHTML = "Error fetching details.";
+    }
+  });
+}
+
+function closetransitModal() {
+  document.getElementById('transitdetailsModal').classList.add('hidden');
+}
+
+
+
+//Delivered
+function viewDelivered(orderId) {
+  // Open the modal
+  document.getElementById('deliverdetailsModal').classList.remove('hidden');
+  document.getElementById('delivermodalContent').innerHTML = "Loading...";
+
+  // Set orderId for Deliver button
+  const deliverButton = document.getElementById('completedButton');
+  deliverButton.setAttribute('data-order-id', orderId);
+
+  document.getElementById('completedButton').addEventListener('click', function() {
+    const orderId = this.getAttribute('data-order-id');
+
+    fetch('update_delivery_completed.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          order_id: orderId
+        }),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert('Order status updated to Completed.');
+          closedeliverModal();
+          location.reload(); // Refresh the page to show updated status
+        } else {
+          alert('Failed to update status: ' + data.message);
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating status:', error);
+        alert('Error updating status.');
+      });
+  });
+
+  // Fetch details via AJAX
+  $.ajax({
+    url: 'fetch_delivery_details.php',
+    type: 'GET',
+    data: {
+      order_id: orderId
+    },
+    success: function(response) {
+      document.getElementById('delivermodalContent').innerHTML = response;
+    },
+    error: function() {
+      document.getElementById('delivermodalContent').innerHTML = "Error fetching details.";
+    }
+  });
+}
+
+function closedeliverModal() {
+  document.getElementById('deliverdetailsModal').classList.add('hidden');
+}
+
+
 
 //Notif and account 
 document.getElementById('notificationButton').addEventListener('click', function() {
