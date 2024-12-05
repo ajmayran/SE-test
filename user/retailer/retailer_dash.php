@@ -98,10 +98,11 @@ if (isset($_SESSION['error_message'])) {
                             <div class="flex justify-center mb-4">
                                 <img src="<?php echo htmlspecialchars($product['img']); ?>" alt="Product Image" class="h-32 rounded">
                             </div>
-                            <div class="text-center">
+                            <div class="text-left">
                                 <h3 class="text-lg font-bold"><?php echo htmlspecialchars($product['product_name']); ?></h3>
-                                <p class="text-sm text-gray-500">By <?php echo htmlspecialchars($product['distributor_name']); ?></p>
-                                <p class="text-sm text-gray-500">Min qty: <?php echo htmlspecialchars($product['min_qty']); ?></p>
+                                <p class="text-[12px] text-gray-500">By <?php echo htmlspecialchars($product['distributor_name']); ?></p>           
+                                <p class="text-[12px] text-gray-500">Min purchase qty: <?php echo htmlspecialchars($product['min_qty']); ?></p>
+                                <p class="text-[12px] text-gray-500">Stocks Remaining: <?php echo htmlspecialchars($product['quantity']); ?></p>   
                                 <div class="flex flex-col items-center mt-4">
                                     <span class="text-lg font-bold text-green-600">₱<?php echo htmlspecialchars($product['price']); ?></span>
                                     <form action="../../user/retailer/add_to_cart.php" method="POST" class="flex items-center mt-2">

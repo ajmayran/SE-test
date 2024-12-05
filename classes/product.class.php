@@ -153,10 +153,11 @@ class Product {
     public function fetchAllProducts() {
         // SQL query to select all products along with distributor information from distributor_information table
         $sql = "
-            SELECT p.*, di_info.name AS distributor_name, di_info.contact AS distributor_contact 
+            SELECT p.*, di_info.name AS distributor_name, s.quantity AS quantity
             FROM product p
             LEFT JOIN distributor di ON p.distributor_id = di.id
             LEFT JOIN distributor_information di_info ON di.id = di_info.distributor_id
+            LEFT JOIN stock s ON p.id = s.product_id
             ORDER BY p.product_name ASC;
         ";
     
