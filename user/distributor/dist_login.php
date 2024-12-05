@@ -76,60 +76,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </head>
 
-<body class="flex items-center justify-center h-screen" style="background-color: lightgreen;">
-
-    <!-- Background video -->
-    <video id="background-video" class="absolute top-0 left-0 z-0 object-cover w-full h-full" autoplay muted>
-        <source src="../../resources/img/vids/dist_loginBG.mp4" type="video/mp4">
-    </video>
-
-    <!-- Appearing text -->
-    <!-- Appearing text -->
-    <div class="absolute ml-40 text-white transform -translate-y-1/2 left-20 top-1/2">
-        <span class="font-bold letter" style="animation-delay: 2s;">W</span>
-        <span class="font-bold letter" style="animation-delay: 2.2s;">e</span>
-        <span class="font-bold letter" style="animation-delay: 2.3s;">l</span>
-        <span class="font-bold letter" style="animation-delay: 2.4s;">c</span>
-        <span class="font-bold letter" style="animation-delay: 2.5s;">o</span>
-        <span class="font-bold letter" style="animation-delay: 2.6s;">m</span>
-        <span class="font-bold letter" style="animation-delay: 2.7s;">e</span>
-        <span class="px-2 font-bold letter" style="animation-delay: 2.8s;"> </span>
-
-        <!-- Wrap "Platform" in a new span -->
-        <div class="distributor">
-            <span class="font-bold letter" style="animation-delay: 3s;">Distributors</span>
+<body class="flex h-screen" >
+        <div class="flex justify-center items-center w-2/3" style="background-color: #00bf63;"> 
+            <img src="../../resources/img/dist_graphic2.png" alt="Distributor Graphic" class="w-2/3 h-2/3 opacity-20">
         </div>
-    </div>
+            <div class="w-1/2 bg-opacity-100 flex justify-start items-center pl-5" style="background-color: #00bf63;">
+                <div class="w-1/2 rounded-lg shadow-lg p-8 border" style="background-color: white;">
+                    <h2 class="mb-6 text-2xl text-center text-gray-700">
+                        <iconify-icon icon="mdi:truck" class="pb-1 mr-2 text-3xl text-green-500 align-middle icon"></iconify-icon>
+                        Distributor Login
+                    </h2>
+                    <form action="" method="POST">
+                        <div class="mb-4">
+                            <label for="email" class="block mb-2 text-sm text-gray-700">Email</label>
+                            <input type="email" name="email" required class="w-full p-3 text-gray-800 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent" placeholder="Enter your email">
+                        </div>
 
-    <!-- Login form container -->
-    <div class="relative z-10 w-full max-w-sm p-8 bg-black rounded-lg shadow-lg bg-opacity-70 login-container">
-        <h2 class="mb-6 text-2xl text-center text-white"><iconify-icon icon="mdi:truck" class="pb-1 mr-2 text-3xl text-green-500 align-middle icon"></iconify-icon>Distributor Login</h2>
-        <form action="" method="POST">
-            <!-- Username Field -->
-            <div class="mb-4">
-                <label for="email" class="block mb-2 text-sm text-white">Email</label>
-                <input type="email" name="email" required class="w-full p-3 text-gray-800 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent" placeholder="Enter your email">
-            </div>
+                        <div class="mb-4">
+                            <label for="password" class="block mb-2 text-sm text-gray-700">Password</label>
+                            <input type="password" id="password" name="password" required class="w-full p-3 text-gray-800 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent" placeholder="Enter your password">
+                        </div>
 
-            <!-- Password Field -->
-            <div class="mb-4">
-                <label for="password" class="block mb-2 text-sm text-white">Password</label>
-                <input type="password" id="password" name="password" required class="w-full p-3 text-gray-800 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent" placeholder="Enter your password">
+                        <div class="mb-4">
+                            <input type="submit" value="Login" class="w-full p-3 font-semibold text-white bg-green-500 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">
+                        </div>
+                        <div class="flex justify-between item-center">
+                            <a href="#" class="text-sm text-gray-700 hover:text-gray-500">Forgot Password?</a>
+                            <a href="./dist_registration.php" class="text-sm text-gray-700 hover:text-gray-500">Register</a>
+                        </div>
+                    </form>
+                    <div class="p-6">
+                        <a href="../../auth/login.php" class="">
+                            <button class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">Sign in as Retailer</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <!-- Submit Button -->
-            <div class="mb-4">
-                <input type="submit" value="Login" class="w-full p-3 font-semibold text-white bg-green-500 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">
-            </div>
-            <div class="flex justify-between item-center">
-                <a href="#" class="text-sm text-gray-300 hover:text-white">Forgot Password?</a>
-                <a href="./dist_registration.php" class="text-sm text-gray-300 hover:text-white">Register</a>
-            </div>
-        </form>
-        <div class="p-6"><a href="../../auth/login.php" class=""><button class="w-full p-3 text-white transition duration-300 bg-green-500 shadow-lg rounded-3xl hover:bg-green-600">Sign in as Retailer</button></a></div>
-    </div>
-
 </body>
+
 <script>
     const video = document.getElementById('background-video');
     video.playbackRate = 2.5;

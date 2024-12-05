@@ -14,7 +14,7 @@ $retailer_id = $_SESSION['retailer_id'];
 $orderObj = new Order();
 
 // Fetch the pending orders
-$pendingOrders = $orderObj->fetchToPay($retailer_id);
+$pendingOrders = $orderObj->fetchCompleted($retailer_id);
 ?>
 
 <!DOCTYPE html>
@@ -50,9 +50,9 @@ $pendingOrders = $orderObj->fetchToPay($retailer_id);
     <div class="container mx-auto mb-24 bg-gray-50">
         <ul class="flex border-b border-gray-200 tab-list">
             <a href="../retailer/retailer_purchase_status.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">All</a>
-            <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">To Pay</a>
-            <a href="../retailer/retailer_to_receive.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Receive</a>
-            <a href="../retailer/retailer_completed.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Completed</a>
+            <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 text-center cursor-pointer tab-item tab-item hover:bg-gray-200">To Pay</a>
+            <a href="../retailer/retailer_to_receive.php" class="flex-1 py-2 text-center cursor-pointer tab-item  hover:bg-gray-200">To Receive</a>
+            <a href="../retailer/retailer_completed.php" class="flex-1 py-2 text-center  text-white bg-green-500 font-semibold ">Completed</a>
             <a href="../retailer/retailer_cancelled.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Cancelled</a>
             <a href="../retailer/retailer_return.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">Return/Refund</a>
         </ul>
