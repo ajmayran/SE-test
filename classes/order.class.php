@@ -341,7 +341,7 @@ class Order
     
         $sql = "
         SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
-               od.product_id, od.quantity, od.price, p.product_name
+               od.product_id, od.quantity, p.product_name
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
@@ -378,13 +378,13 @@ class Order
     
         $sql = "
         SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
-               od.product_id, od.quantity, od.price, p.product_name
+               od.product_id, od.quantity, p.product_name
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
+        JOIN delivery d ON o.id = d.order_id
         WHERE o.retailer_id = :retailer_id
-          AND o.status = 'Accepted'
-          AND o.delivery_status = 'On Transit';
+          AND d.status = 'On Transit';
     ";
         try {
             $query = $this->db->connect()->prepare($sql);
@@ -414,13 +414,12 @@ class Order
     
         $sql = "
         SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
-               od.product_id, od.quantity, od.price, p.product_name
+               od.product_id, od.quantity, p.product_name
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
         WHERE o.retailer_id = :retailer_id
-          AND o.status = 'Completed'
-          AND o.delivery_status = 'Delivered';
+          AND d.status = 'Delivered';
     ";
         try {
             $query = $this->db->connect()->prepare($sql);
@@ -450,7 +449,7 @@ class Order
     
         $sql = "
         SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
-               od.product_id, od.quantity, od.price, p.product_name
+               od.product_id, od.quantity, p.product_name
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
@@ -484,7 +483,7 @@ class Order
     
         $sql = "
         SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
-               od.product_id, od.quantity, od.price, p.product_name
+               od.product_id, od.quantity, p.product_name
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
