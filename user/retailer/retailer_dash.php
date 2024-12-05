@@ -47,7 +47,6 @@ if (isset($_SESSION['error_message'])) {
     }
 
     require_once base_import('classes/product.class.php');
-    require_once base_import('classes/product.class.php');
 
     $page_title = 'Dashboard';
     require_once base_import('includes/retailer_topnav.php');
@@ -102,8 +101,8 @@ if (isset($_SESSION['error_message'])) {
                         <div
                             class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md basis-1/5 w-[20] border bordr-gray-100">
                             <div class="flex justify-center mb-4">
-                                <img src="<?= get_image('products', $product['img']) ?>" alt="Product Image"
-                                    class="h-32 rounded">
+                                <!-- Use get_image() to fetch the correct path for the product image -->
+                                <img class="mb-4" src="<?= get_image('products', $product['img']) ?>" alt="Product Image">
                             </div>
                             <div class="text-left">
                                 <h3 class="text-lg font-bold"><?php echo htmlspecialchars($product['product_name']); ?></h3>
@@ -136,7 +135,6 @@ if (isset($_SESSION['error_message'])) {
                     <p class="w-full text-center text-gray-500">No products available.</p>
                 <?php endif; ?>
             </div>
-
         </div>
     </section>
 

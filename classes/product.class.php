@@ -171,8 +171,23 @@ class Product {
             $data = $query->fetchAll(PDO::FETCH_ASSOC); // Fetch all rows as an associative array
         }
     
+        // Modify the img field to include the full path
+        if ($data) {
+            foreach ($data as &$product) {
+                // Check if there's a valid image, otherwise use a default image
+                if (!empty($product['img'])) {
+                    $product['img'] = '../../resources/img/Products/' . $product['img'];
+                } else {
+                    $product['img'] = '../../resources/img/Products/default.png'; // Default image path
+                }
+            }
+        }
+    
         return $data; // Return the fetched data
     }
+    
+    
+    
 
 
     public function fetchDistributors() {
