@@ -1,6 +1,6 @@
 <?php
 
-$currentPage = basename($_SERVER['PHP_SELF']); 
+$currentPage = basename($_SERVER['PHP_SELF']);
 
 session_start();
 require_once '../../classes/account.class.php'; // 
@@ -39,14 +39,17 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
     body {
       font-family: 'Lexend', sans-serif;
     }
+
     .sidebar-menu .group.active a {
       background-color: #27AE60;
       color: white;
       border-radius: 5px;
     }
+
     .sidebar-menu .group.active .icon {
       color: white;
     }
+
     .scroll-hide::-webkit-scrollbar {
       display: none;
     }
@@ -169,85 +172,65 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
   </div>
   </main>
   </div>
+  <!-- Modal -->
+  <div id="order-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-bold">Order ID: <span id="order-id">--</span></h2>
+          <button class="text-blue-600 hover:underline" onclick="toggleModal(false)">Close</button>
+        </div>
+        <hr class="my-4 border-gray-300">
+
+        <!-- Order Details Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full border-b border-gray-200 table-auto">
+            <thead>
+              <tr class="text-left border-b">
+                <th class="px-4 py-2">Products</th>
+                <th class="px-4 py-2">Price</th>
+                <th class="px-4 py-2">Qty</th>
+                <th class="px-4 py-2">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="order-products">
+              <!-- Content -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="flex justify-between mt-4">
+          <div class="flex flex-col">
+            <span>Customer Name: <span id="order-customer-name" class="text-sm font-light">--</span></span>
+            <span>Delivery Address: <span id="order-customer-address" class="text-sm font-light">--</span></span>
+            <span>Customer Contact: <span id="order-customer-contact" class="text-sm font-light">--</span></span>
+          </div>
+          <div class="flex flex-col">
+            <span>Subtotal: <span id="order-subtotal" class="text-sm font-light"></span></span>
+            <span>Total: <span id="order-total" class="text-sm font-light"></span></span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+              onclick="updateOrderStatus('reject')">
+              Reject Order
+            </button>
+            <button
+              class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600"
+              onclick="updateOrderStatus('approve')">
+              Accept Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </div>
   <?php include_once '../../includes/retailer_footer.php'; ?>
-  <script>
-    //Notif and account 
-    document.getElementById('notificationButton').addEventListener('click', function() {
-      const dropdown = document.getElementById('notificationDropdown');
-      dropdown.classList.toggle('hidden');
-    });
+  <script src="../../js/tailwind/dist_order.js"></script>
 
-    document.getElementById('accountButton').addEventListener('click', function() {
-      const popper = document.getElementById('accountPopper');
-      popper.classList.toggle('hidden');
-    });
-
-
-    window.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('notificationDropdown');
-      const popper = document.getElementById('accountPopper');
-
-      if (!event.target.closest('#notificationButton')) {
-        dropdown.classList.add('hidden');
-      }
-      if (!event.target.closest('#accountButton')) {
-        popper.classList.add('hidden');
-      }
-    });
-
-
-    function approveOrder(button) {
-      var orderId = button.getAttribute('data-order-id');
-
-      // Create a new XMLHttpRequest to call the PHP function
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "./accept_reject_order.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var response = xhr.responseText.trim();
-          if (response === 'success') {
-            // Update the status on the UI or refresh the page
-            alert("Order Approved!");
-            window.location.reload(); // Refresh the page after approval
-          } else {
-            alert("Failed to approve order.");
-          }
-        }
-      };
-
-      // Send the request with the order_id
-      xhr.send("order_id=" + orderId + "&action=approve");
-    }
-
-    function rejectOrder(button) {
-      var orderId = button.getAttribute('data-order-id');
-
-      // Create a new XMLHttpRequest to call the PHP function
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "./accept_reject_order.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var response = xhr.responseText.trim();
-          if (response === 'success') {
-            // Update the status on the UI or refresh the page
-            alert("Order Rejected!");
-            window.location.reload(); // Refresh the page after rejection
-          } else {
-            alert("Failed to reject order.");
-          }
-        }
-      };
-
-      // Send the request with the order_id
-      xhr.send("order_id=" + orderId + "&action=reject");
-    }
-  </script>
 </body>
 
 </html>
