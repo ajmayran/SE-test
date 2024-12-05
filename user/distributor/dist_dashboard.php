@@ -184,6 +184,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
             }
         });
     </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../../js/tailwind/dist_dashboard.js"></script>
 </body>

@@ -32,16 +32,6 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
             font-family: 'Lexend', sans-serif;
         }
 
-        .sidebar-menu .group.active a {
-            background-color: #27AE60;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .sidebar-menu .group.active .icon {
-            color: white;
-        }
-
         .voucher-card {
             width: 49%;
         }
