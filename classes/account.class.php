@@ -8,6 +8,7 @@ class Account{
     public $last_name = '';
     public $email = '';
     public $password = '';
+    public $permit = '';
     protected $db;
 
     function __construct(){
@@ -24,7 +25,7 @@ class Account{
         $query->bindParam(':middle_name', $this->middle_name);
         $query->bindParam(':last_name', $this->last_name);
         $query->bindParam(':email', $this->email);
-        $query->bindParam(':password', $this->password);    
+        $query->bindParam(':password', $this->password);
 
         return $query->execute();
     }

@@ -402,4 +402,109 @@ class Order
             return [];
         }
     }
+
+    public function fetchCompleted()
+    {
+        // Check if the retailer is logged in (session contains retailer_id)
+        if (!isset($_SESSION['retailer_id'])) {
+            header("Location: login.php"); // Redirect to login if no retailer is logged in
+            exit;
+        }
+        $retailer_id = $_SESSION['retailer_id'];
+    
+        $sql = "
+        SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
+               od.product_id, od.quantity, od.price, p.product_name
+        FROM orders o
+        JOIN order_details od ON o.id = od.order_id
+        JOIN product p ON od.product_id = p.id
+        WHERE o.retailer_id = :retailer_id
+          AND o.status = 'Completed'
+          AND o.delivery_status = 'Delivered';
+    ";
+        try {
+            $query = $this->db->connect()->prepare($sql);
+            $query->bindParam(':retailer_id', $retailer_id, PDO::PARAM_INT);
+    
+            $query->execute();
+            $orders = [];
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $orders[] = $row;
+            }
+    
+            return $orders;
+        } catch (Exception $e) {
+            error_log("Error fetching pending orders: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function fetchCancelled()
+    {
+        // Check if the retailer is logged in (session contains retailer_id)
+        if (!isset($_SESSION['retailer_id'])) {
+            header("Location: login.php"); // Redirect to login if no retailer is logged in
+            exit;
+        }
+        $retailer_id = $_SESSION['retailer_id'];
+    
+        $sql = "
+        SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
+               od.product_id, od.quantity, od.price, p.product_name
+        FROM orders o
+        JOIN order_details od ON o.id = od.order_id
+        JOIN product p ON od.product_id = p.id
+        WHERE o.retailer_id = :retailer_id
+          AND o.status = 'Cancelled';
+    ";
+        try {
+            $query = $this->db->connect()->prepare($sql);
+            $query->bindParam(':retailer_id', $retailer_id, PDO::PARAM_INT);
+    
+            $query->execute();
+            $orders = [];
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $orders[] = $row;
+            }
+    
+            return $orders;
+        } catch (Exception $e) {
+            error_log("Error fetching pending orders: " . $e->getMessage());
+            return [];
+        }
+    }
+    public function fetchReturn()
+    {
+        // Check if the retailer is logged in (session contains retailer_id)
+        if (!isset($_SESSION['retailer_id'])) {
+            header("Location: login.php"); // Redirect to login if no retailer is logged in
+            exit;
+        }
+        $retailer_id = $_SESSION['retailer_id'];
+    
+        $sql = "
+        SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
+               od.product_id, od.quantity, od.price, p.product_name
+        FROM orders o
+        JOIN order_details od ON o.id = od.order_id
+        JOIN product p ON od.product_id = p.id
+        WHERE o.retailer_id = :retailer_id
+          AND o.status = 'Returned';
+    ";
+        try {
+            $query = $this->db->connect()->prepare($sql);
+            $query->bindParam(':retailer_id', $retailer_id, PDO::PARAM_INT);
+    
+            $query->execute();
+            $orders = [];
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $orders[] = $row;
+            }
+    
+            return $orders;
+        } catch (Exception $e) {
+            error_log("Error fetching pending orders: " . $e->getMessage());
+            return [];
+        }
+    }
 }

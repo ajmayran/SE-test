@@ -26,8 +26,9 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
     <link rel="icon" href="../../resources/img/Pconnect Logo.png">
     <link rel="stylesheet" href="../../src/output.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
+</head>
 
-    <style>
+<style>
         body {
             font-family: 'Lexend', sans-serif;
         }
