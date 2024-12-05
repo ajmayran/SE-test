@@ -10,97 +10,104 @@
     <link rel="stylesheet" href="../../src/user_dash.css">
     <script src="https://unpkg.com/iconify-icon/dist/iconify-icon.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen">
     <?php
+    session_start();
+    if (!isset($_SESSION['retailer_id'])) {
+        header("Location: login.php"); // Redirect to login if no retailer is logged in
+        exit;
+    }
+    
+    $retailer_id = $_SESSION['retailer_id'];
         $page_title = 'Dashboard';
         require_once '../../includes/retailer_topnav.php';
     ?>
     
-    <section class="mt-12 container px-4 mx-auto">
-    <div class="flex container px-4 mx-auto">
+    <section class="container px-4 mx-auto mt-12">
+    <div class="container flex px-4 mx-auto">
         <div class="flex-shrink-0 mr-4">
         <img src="../../resources/img/avatar.png.jpeg" alt="Profile Picture" class="w-8 h-8 mr-2 rounded-full">
         </div>
         <div>
-            <p class="text-gray-900 font-semibold">Micheal Jordan</p>
+            <p class="font-semibold text-gray-900">Micheal Jordan</p>
             
-            <p class="text-green-500 text-xl font-medium">My Purchases Status</p>
+            <p class="text-xl font-medium text-green-500">My Purchases Status</p>
         </div>
     </div>
     <hr class="my-4 border-gray-200">
     </section>
     
-    <section class="pb-24 relative container px-4 mx-auto">
-        <div class="px-4 md:px-5 lg:px-5 mx-auto">
-            <div class="w-full flex-col justify-start items-center gap-10 inline-flex">
-                <div class="w-full flex-col justify-start items-center gap-4 flex">
-                    <h2 class="w-full text-center text-black text-3xl font-bold font-manrope leading-normal">Order Tracking</h2>
+    <section class="container relative px-4 pb-24 mx-auto">
+        <div class="px-4 mx-auto md:px-5 lg:px-5">
+            <div class="inline-flex flex-col items-center justify-start w-full gap-10">
+                <div class="flex flex-col items-center justify-start w-full gap-4">
+                    <h2 class="w-full text-3xl font-bold leading-normal text-center text-black font-manrope">Order Tracking</h2>
                 </div>
-                <div class="w-full flex-col justify-start items-start gap-10 flex">
-                    <div class="w-full justify-between items-center flex sm:flex-row flex-col gap-3">
-                        <h3 class="text-gray-900 text-2xl font-semibold font-manrope leading-9">Order Details</h3>
+                <div class="flex flex-col items-start justify-start w-full gap-10">
+                    <div class="flex flex-col items-center justify-between w-full gap-3 sm:flex-row">
+                        <h3 class="text-2xl font-semibold leading-9 text-gray-900 font-manrope">Order Details</h3>
                     </div>
-                    <div class="w-full py-6 border-t border-b border-gray-100 md:justify-between justify-center md:items-start items-center md:gap-8 gap-10 flex flex-wrap">
+                    <div class="flex flex-wrap items-center justify-center w-full gap-10 py-6 border-t border-b border-gray-100 md:justify-between md:items-start md:gap-8">
                         
-                        <div class="flex-col justify-start items-start gap-3 inline-flex">
-                            <h6 class="text-gray-500 text-base font-normal leading-relaxed">Order Placed</h6>
-                            <h4 class="text-black text-xl font-semibold leading-8">Feb 20, 2024</h4>
+                        <div class="inline-flex flex-col items-start justify-start gap-3">
+                            <h6 class="text-base font-normal leading-relaxed text-gray-500">Order Placed</h6>
+                            <h4 class="text-xl font-semibold leading-8 text-black">Feb 20, 2024</h4>
                         </div>
-                        <div class="flex-col justify-start items-start gap-3 inline-flex">
-                            <h6 class="text-gray-500 text-base font-normal leading-relaxed">To be delivered</h6>
-                            <h4 class="text-black text-xl font-semibold leading-8">Feb 27, 2024</h4>
+                        <div class="inline-flex flex-col items-start justify-start gap-3">
+                            <h6 class="text-base font-normal leading-relaxed text-gray-500">To be delivered</h6>
+                            <h4 class="text-xl font-semibold leading-8 text-black">Feb 27, 2024</h4>
                         </div>
-                        <div class="flex-col justify-start items-start gap-3 inline-flex">
-                            <h6 class="text-gray-500 text-base font-normal leading-relaxed">No of Items</h6>
-                            <h4 class="text-black text-xl font-semibold leading-8">1 items</h4>
+                        <div class="inline-flex flex-col items-start justify-start gap-3">
+                            <h6 class="text-base font-normal leading-relaxed text-gray-500">No of Items</h6>
+                            <h4 class="text-xl font-semibold leading-8 text-black">1 items</h4>
                         </div>
-                        <div class="flex-col justify-start items-start gap-3 inline-flex">
-                            <h6 class="text-gray-500 text-base font-normal leading-relaxed">Status</h6>
-                            <h4 class="text-yellow-500 text-xl font-semibold leading-8">Waiting for Confirmation</h4>
+                        <div class="inline-flex flex-col items-start justify-start gap-3">
+                            <h6 class="text-base font-normal leading-relaxed text-gray-500">Status</h6>
+                            <h4 class="text-xl font-semibold leading-8 text-yellow-500">Waiting for Confirmation</h4>
                         </div>
                     </div>
                 </div>
-                <div class="w-full flex-col justify-start items-start gap-10 flex">
-                    <div class="w-full justify-between items-start flex sm:flex-row flex-col gap-3">
-                        <h3 class="text-gray-900 text-2xl font-semibold font-manrope leading-9">Order Tracking</h3>
-                        <h3 class="text-right text-gray-600 text-2xl font-semibold font-manrope leading-9">Order ID: 340909EVJ4XVY</h3>
+                <div class="flex flex-col items-start justify-start w-full gap-10">
+                    <div class="flex flex-col items-start justify-between w-full gap-3 sm:flex-row">
+                        <h3 class="text-2xl font-semibold leading-9 text-gray-900 font-manrope">Order Tracking</h3>
+                        <h3 class="text-2xl font-semibold leading-9 text-right text-gray-600 font-manrope">Order ID: 340909EVJ4XVY</h3>
                     </div>
-                    <div class="w-full py-9 rounded-xl border border-gray-200 flex-col justify-start items-start flex">
-                        <div class="w-full flex-col justify-center sm:items-center items-start gap-8 flex">
-                            <ol class="flex sm:items-center items-start w-full sm:gap-0 gap-5">
+                    <div class="flex flex-col items-start justify-start w-full border border-gray-200 py-9 rounded-xl">
+                        <div class="flex flex-col items-start justify-center w-full gap-8 sm:items-center">
+                            <ol class="flex items-start w-full gap-5 sm:items-center sm:gap-0">
                                 <li class="flex w-full relative justify-center text-green-600 text-base font-semibold after:content-['']  after:w-full after:h-0.5 after:bg-green-600 after:inline-block after:absolute lg:after:top-4 after:top-3 xl:after:left-40 lg:after:left-36 md:after:left-28 sm:after:left-20 after:left-16">
-                                <div class="block sm:whitespace-nowrap z-10 flex flex-col items-center text-center">
-                                    <span class="w-6 h-6 bg-green-600 text-center border-2 border-transparent rounded-full flex justify-center items-center mx-auto mb-1 text-base font-bold text-white lg:w-8 lg:h-8">1</span> Order Placed
-                                    <span class="text-green-600 text-base font-normal text-center">Feb 20th, 2024</span>
+                                <div class="z-10 flex flex-col items-center block text-center sm:whitespace-nowrap">
+                                    <span class="flex items-center justify-center w-6 h-6 mx-auto mb-1 text-base font-bold text-center text-white bg-green-600 border-2 border-transparent rounded-full lg:w-8 lg:h-8">1</span> Order Placed
+                                    <span class="text-base font-normal text-center text-green-600">Feb 20th, 2024</span>
                                 </div>
                                 </li>
                                 <li class="flex w-full relative justify-center text-gray-500 text-base font-semibold after:content-['']  after:w-full after:h-0.5 after:bg-gray-300 after:inline-block after:absolute lg:after:top-4 after:top-3 xl:after:left-40 lg:after:left-36 md:after:left-28 sm:after:left-20 after:left-16">
-                                <div class="block sm:whitespace-nowrap z-10 flex flex-col items-center text-center">
-                                    <span class="w-6 h-6 bg-gray-400 text-center border-2 border-transparent rounded-full flex justify-center items-center mx-auto mb-1 text-base font-bold text-white lg:w-8 lg:h-8">2</span> Order Packed
-                                    <span class="text-gray-500 text-base font-normal text-center">Feb 20th, 2024</span>
+                                <div class="z-10 flex flex-col items-center block text-center sm:whitespace-nowrap">
+                                    <span class="flex items-center justify-center w-6 h-6 mx-auto mb-1 text-base font-bold text-center text-white bg-gray-400 border-2 border-transparent rounded-full lg:w-8 lg:h-8">2</span> Order Packed
+                                    <span class="text-base font-normal text-center text-gray-500">Feb 20th, 2024</span>
                                 </div>
                                 </li>
                                 <li class="flex w-full relative justify-center text-gray-500 text-base font-semibold after:content-['']  after:w-full after:h-0.5 after:bg-gray-300 after:inline-block after:absolute lg:after:top-4 after:top-3 xl:after:left-40 lg:after:left-36 md:after:left-28 sm:after:left-20 after:left-16">
-                                    <div class="block sm:whitespace-nowrap z-10 flex flex-col items-center text-center">
-                                        <span class="w-6 h-6 bg-gray-400 text-center border-2 border-transparent rounded-full flex justify-center items-center mx-auto mb-1 text-base font-bold text-white lg:w-8 lg:h-8">3</span> In Translt
-                                        <span class="text-gray-500 text-base font-normal text-center">Feb 25th, 2024</span>
+                                    <div class="z-10 flex flex-col items-center block text-center sm:whitespace-nowrap">
+                                        <span class="flex items-center justify-center w-6 h-6 mx-auto mb-1 text-base font-bold text-center text-white bg-gray-400 border-2 border-transparent rounded-full lg:w-8 lg:h-8">3</span> In Translt
+                                        <span class="text-base font-normal text-center text-gray-500">Feb 25th, 2024</span>
                                     </div>
                                     </li>
-                                <li class="flex w-full relative justify-center text-gray-500 text-base font-semibold">
-                                    <div class="block sm:whitespace-nowrap z-10 flex flex-col items-center text-center">
-                                        <span class="w-6 h-6 bg-gray-400 text-center border-2 border-transparent rounded-full flex justify-center items-center mx-auto mb-1 text-base font-bold text-white lg:w-8 lg:h-8">4</span> Out for Delivery
-                                        <span class="text-gray-500 text-base font-normal text-center">Feb 27th, 2024 </span>
+                                <li class="relative flex justify-center w-full text-base font-semibold text-gray-500">
+                                    <div class="z-10 flex flex-col items-center block text-center sm:whitespace-nowrap">
+                                        <span class="flex items-center justify-center w-6 h-6 mx-auto mb-1 text-base font-bold text-center text-white bg-gray-400 border-2 border-transparent rounded-full lg:w-8 lg:h-8">4</span> Out for Delivery
+                                        <span class="text-base font-normal text-center text-gray-500">Feb 27th, 2024 </span>
                                     </div>
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
-                <div class="w-full flex-col justify-start items-start gap-10 flex">
-                    <h3 class="text-gray-900 text-2xl font-semibold font-manrope leading-9">Items from the order</h3>
-                    <div class="w-full justify-center items-start ">
-                        <div class="w-full hidden md:grid grid-cols-2 p-4 bg-gray-50">
-                            <span class="text-gray-500 text-base font-normal leading-relaxed">Product</span>
+                <div class="flex flex-col items-start justify-start w-full gap-10">
+                    <h3 class="text-2xl font-semibold leading-9 text-gray-900 font-manrope">Items from the order</h3>
+                    <div class="items-start justify-center w-full ">
+                        <div class="hidden w-full grid-cols-2 p-4 md:grid bg-gray-50">
+                            <span class="text-base font-normal leading-relaxed text-gray-500">Product</span>
                             <p class="flex items-center justify-between">
                                 <span class="w-full max-w-[200px] text-center px-8 text-gray-500 text-base font-normal leading-relaxed "></span>
                                 <span class="w-full max-w-[260px] text-center px-8 text-gray-500 text-base font-normal leading-relaxed ">Quantity</span>
@@ -112,7 +119,7 @@
                                 <div class="w-[120px] h-[120px] img-box bg-gray-50 rounded-xl justify-center items-center inline-flex">
                                     <img src="../img/Products/rtc-chicken-tocino.png" alt="Denim Shirt image" class="xl:w-[75px] object-cover">
                                 </div>
-                                <div class="pro-data w-full max-w-sm flex-col justify-start items-start gap-2 inline-flex">
+                                <div class="inline-flex flex-col items-start justify-start w-full max-w-sm gap-2 pro-data">
                                     <h4 class="w-full text-black text-lg font-medium leading-8 max-[550px]:text-center">Chicken Tocino</h4>
                                     <h5 class="w-full text-gray-500 text-base font-normal leading-relaxed min-[550px]:my-0 my-2 max-[550px]:text-center">Product SKU: FWM513VKT</h5>
                                 </div>
@@ -129,25 +136,25 @@
                 </div>
             </div>
         </div>
-        <div class="w-full pt-5 container px-4 mx-auto">
+        <div class="container w-full px-4 pt-5 mx-auto">
             <table class="w-full table-auto">
                 <tbody>
                     <tr>
                         <td class="px-4 py-2 text-left"><iconify-icon icon="mingcute:store-line" class="mr-2"></iconify-icon>Magnolia Chicken</td>
-                        <td class=" px-4 py-2 text-right"></td>
-                        <td class=" px-4 py-2 text-right text-right text-xl font-medium ">Total</td>
+                        <td class="px-4 py-2 text-right "></td>
+                        <td class="px-4 py-2 text-xl font-medium text-right ">Total</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="border px-4 py-2 text-right text-right text-xl font-medium ">Subtotal: 1 items</td>
-                        <td class="border px-4 py-2 text-right text-right text-xl font-medium ">₱2,000.00</td>
+                        <td colspan="2" class="px-4 py-2 text-xl font-medium text-right border ">Subtotal: 1 items</td>
+                        <td class="px-4 py-2 text-xl font-medium text-right border ">₱2,000.00</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="border px-4 py-2 text-right text-right text-xl font-medium ">Shipping Fee</td>
-                        <td class="border px-4 py-2 text-right text-right text-xl font-medium ">₱60.00</td>
+                        <td colspan="2" class="px-4 py-2 text-xl font-medium text-right border ">Shipping Fee</td>
+                        <td class="px-4 py-2 text-xl font-medium text-right border ">₱60.00</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="border px-4 py-2 text-right text-xl font-medium ">Total:</td>
-                        <td class="border px-4 py-2 text-right font-semibold text-green-500 text-right text-xl font-medium ">₱2,060.00</td>
+                        <td colspan="2" class="px-4 py-2 text-xl font-medium text-right border ">Total:</td>
+                        <td class="px-4 py-2 text-xl font-medium font-semibold text-right text-green-500 border ">₱2,060.00</td>
                     </tr>
                 </tbody>
             </table>        

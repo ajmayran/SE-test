@@ -11,6 +11,10 @@ class Order
     public $total_amount = '';
     public $date = '';
     public $quantity = '';
+    public $date_rejected = '';
+    public $reason = '';
+    public $date_updated = '';
+
 
     protected $db;
 
@@ -23,14 +27,14 @@ class Order
     {
         try {
             $this->db->connect()->beginTransaction();
-
+    
             // Check if there's already a cart for the retailer
             $sql = "SELECT id FROM order_cart WHERE retailer_id = :retailer_id LIMIT 1";
             $query = $this->db->connect()->prepare($sql);
             $query->bindParam(':retailer_id', $retailer_id);
             $query->execute();
             $cart_id = $query->fetchColumn();
-
+    
             if (!$cart_id) {
                 // Create a new cart if none exists
                 $sql = "INSERT INTO order_cart (retailer_id) VALUES (:retailer_id)";
@@ -39,15 +43,33 @@ class Order
                 $query->execute();
                 $cart_id = $this->db->connect()->lastInsertId();
             }
-
-            // Insert item into cart_items
-            $sql = "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (:cart_id, :product_id, :quantity)";
+    
+            // Check if the product already exists in the cart
+            $sql = "SELECT id, quantity FROM cart_items WHERE cart_id = :cart_id AND product_id = :product_id LIMIT 1";
             $query = $this->db->connect()->prepare($sql);
             $query->bindParam(':cart_id', $cart_id);
             $query->bindParam(':product_id', $product_id);
-            $query->bindParam(':quantity', $quantity);
             $query->execute();
-
+            $existingItem = $query->fetch(PDO::FETCH_ASSOC);
+    
+            if ($existingItem) {
+                // If the product already exists in the cart, update its quantity
+                $newQuantity = $existingItem['quantity'] + $quantity; // Add the new quantity to the existing one
+                $sql = "UPDATE cart_items SET quantity = :quantity WHERE id = :item_id";
+                $query = $this->db->connect()->prepare($sql);
+                $query->bindParam(':quantity', $newQuantity);
+                $query->bindParam(':item_id', $existingItem['id']);
+                $query->execute();
+            } else {
+                // If the product does not exist, insert a new item into the cart
+                $sql = "INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (:cart_id, :product_id, :quantity)";
+                $query = $this->db->connect()->prepare($sql);
+                $query->bindParam(':cart_id', $cart_id);
+                $query->bindParam(':product_id', $product_id);
+                $query->bindParam(':quantity', $quantity);
+                $query->execute();
+            }
+    
             $this->db->connect()->commit();
             return true; // Success
         } catch (Exception $e) {
@@ -271,7 +293,8 @@ class Order
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
         WHERE o.retailer_id = :retailer_id
-          AND o.status IN ('Pending', 'Rejected', 'Accepted');
+          AND o.status IN ('Pending', 'Rejected', 'Accepted')
+          ORDER BY o.date DESC;
     ";
     
         try {

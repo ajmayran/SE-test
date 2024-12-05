@@ -12,9 +12,8 @@ class Product {
     public $category = '';
     public $price = '';
     public $tags = '';
-    public $stock = '';
     public $min_qty = '';
-    public $max_qty = '';
+    public $distributor_id = '';
 
     protected $db; // This will hold an instance of the Database class for database operations.
 
@@ -26,7 +25,7 @@ class Product {
     // The add() method is used to add a new product to the database.
     function add() {
         // SQL query to insert a new product into the 'product' table.
-        $sql = "INSERT INTO product (img, product_name, product_code, product_desc, category, price, tags, stock, min_qty, max_qty) VALUES (:img, :product_name, :product_code, :product_desc, :category, :price, :tags, :stock, :min_qty, :max_qty)";
+        $sql = "INSERT INTO product (img, product_name, product_code, product_desc, category, price, tags, min_qty, distributor_id) VALUES (:img, :product_name, :product_code, :product_desc, :category, :price, :tags, :min_qty, :distributor_id)";
 
         // Prepare the SQL statement for execution.
         $query = $this->db->connect()->prepare($sql);
@@ -39,9 +38,8 @@ class Product {
         $query->bindParam(':category', $this->category); 
         $query->bindParam(':price', $this->price);
         $query->bindParam(':tags', $this->tags);
-        $query->bindParam(':stock', $this->stock);
         $query->bindParam(':min_qty', $this->min_qty);
-        $query->bindParam(':max_qty', $this->max_qty);
+        $query->bindParam(':distributor_id', $this->distributor_id);
         
         // Execute the query. If successful, return true; otherwise, return false.
         return $query->execute();
@@ -155,10 +153,11 @@ class Product {
     public function fetchAllProducts() {
         // SQL query to select all products along with distributor information from distributor_information table
         $sql = "
-            SELECT p.*, di_info.name AS distributor_name, di_info.contact AS distributor_contact 
+            SELECT p.*, di_info.name AS distributor_name, s.quantity AS quantity
             FROM product p
             LEFT JOIN distributor di ON p.distributor_id = di.id
             LEFT JOIN distributor_information di_info ON di.id = di_info.distributor_id
+            LEFT JOIN stock s ON p.id = s.product_id
             ORDER BY p.product_name ASC;
         ";
     

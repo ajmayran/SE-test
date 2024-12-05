@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2024 at 11:12 PM
+-- Generation Time: Dec 05, 2024 at 06:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,7 +53,7 @@ CREATE TABLE `delivery` (
 --
 
 INSERT INTO `delivery` (`id`, `order_id`, `status`, `create_at`, `delivery_date`) VALUES
-(1, 3, 'On Transit', '2024-12-02 18:30:44', '2024-12-05');
+(4, 8, 'On Transit', '2024-12-05 12:19:45', '2024-12-08');
 
 -- --------------------------------------------------------
 
@@ -113,15 +113,21 @@ CREATE TABLE `orders` (
   `distributor_id` int(11) NOT NULL,
   `total_amount` decimal(10,2) NOT NULL,
   `date` datetime DEFAULT current_timestamp(),
-  `status` enum('Pending','Accepted','Rejected','Completed') NOT NULL DEFAULT 'Pending'
+  `status` enum('Pending','Accepted','Rejected','Completed','Cancelled') NOT NULL DEFAULT 'Pending',
+  `date_rejected` datetime DEFAULT NULL,
+  `reason` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `retailer_id`, `distributor_id`, `total_amount`, `date`, `status`) VALUES
-(3, 1, 1, 1800.00, '2024-12-02 13:38:17', 'Accepted');
+INSERT INTO `orders` (`id`, `retailer_id`, `distributor_id`, `total_amount`, `date`, `status`, `date_rejected`, `reason`) VALUES
+(1, 1, 1, 3800.00, '2024-12-04 11:40:54', 'Rejected', NULL, ''),
+(5, 1, 1, 1800.00, '2024-12-04 12:33:01', 'Rejected', NULL, ''),
+(6, 1, 1, 1800.00, '2024-12-04 13:01:02', 'Rejected', NULL, ''),
+(7, 1, 1, 1800.00, '2024-12-04 13:08:04', 'Rejected', NULL, ''),
+(8, 1, 1, 1800.00, '2024-12-05 12:04:22', 'Accepted', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -155,7 +161,30 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(8, 3, 4, 10, 180.00);
+(19, 11, 2, 10, 200.00),
+(20, 12, 3, 15, 180.00),
+(21, 12, 4, 10, 180.00),
+(22, 13, 4, 10, 180.00),
+(23, 14, 4, 10, 180.00),
+(24, 15, 4, 10, 180.00),
+(25, 16, 3, 10, 180.00),
+(26, 17, 4, 10, 180.00),
+(27, 18, 3, 10, 180.00),
+(28, 19, 4, 10, 180.00),
+(29, 20, 4, 10, 180.00),
+(30, 21, 2, 10, 200.00),
+(31, 22, 4, 10, 180.00),
+(32, 23, 4, 10, 180.00),
+(33, 23, 2, 10, 200.00),
+(34, 23, 2, 10, 200.00),
+(35, 23, 2, 10, 200.00),
+(36, 24, 2, 10, 200.00),
+(37, 1, 2, 10, 200.00),
+(38, 1, 4, 10, 180.00),
+(39, 5, 4, 10, 180.00),
+(40, 6, 4, 10, 180.00),
+(41, 7, 4, 10, 180.00),
+(42, 8, 4, 10, 180.00);
 
 -- --------------------------------------------------------
 
@@ -172,9 +201,7 @@ CREATE TABLE `product` (
   `category` varchar(255) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `tags` varchar(255) DEFAULT NULL,
-  `stock` int(11) DEFAULT NULL,
   `min_qty` int(11) DEFAULT NULL,
-  `max_qty` int(11) DEFAULT NULL,
   `distributor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -182,10 +209,10 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `img`, `product_name`, `product_code`, `product_desc`, `category`, `price`, `tags`, `stock`, `min_qty`, `max_qty`, `distributor_id`) VALUES
-(2, '', 'Ready to Cook Fried Chicken', '', 'Timplados Fried Chicken', 'Frozen Products', 200, NULL, 100, 10, 20, 1),
-(3, '', 'Ready to Cook Chicken Tocino', '', NULL, 'Frozen Products', 180, NULL, 200, 10, 20, 1),
-(4, '', 'Ready to Cook Chicken Longanisa', '', 'Timplados Longanisa', 'Frozen Products', 180, NULL, 100, 10, 20, 1);
+INSERT INTO `product` (`id`, `img`, `product_name`, `product_code`, `product_desc`, `category`, `price`, `tags`, `min_qty`, `distributor_id`) VALUES
+(2, '', 'Ready to Cook Fried Chicken', '', 'Timplados Fried Chicken', 'Frozen Products', 200, NULL, 10, 1),
+(3, '', 'Ready to Cook Chicken Tocino', '', NULL, 'Frozen Products', 180, NULL, 10, 1),
+(4, '', 'Ready to Cook Chicken Longanisa', '', 'Timplados Longanisa', 'Frozen Products', 180, NULL, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -210,6 +237,30 @@ CREATE TABLE `retailer` (
 
 INSERT INTO `retailer` (`id`, `first_name`, `last_name`, `middle_name`, `contact`, `address`, `email`, `password`) VALUES
 (1, 'AJ', 'Mayran', '', '09709495814', 'Baliwasan Grande, Zamboanga City', 'clickerz09@gmail.com', '09203332441');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stock`
+--
+
+CREATE TABLE `stock` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `status` enum('STOCK IN','STOCK OUT','','') NOT NULL,
+  `date_updated` datetime NOT NULL DEFAULT current_timestamp(),
+  `reason` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `stock`
+--
+
+INSERT INTO `stock` (`id`, `product_id`, `quantity`, `status`, `date_updated`, `reason`) VALUES
+(3, 3, 1000, 'STOCK IN', '2024-12-05 13:19:37', ''),
+(4, 2, 1000, 'STOCK IN', '2024-12-05 13:20:49', ''),
+(10, 4, 1000, 'STOCK IN', '2024-12-05 13:23:01', '');
 
 --
 -- Indexes for dumped tables
@@ -279,6 +330,13 @@ ALTER TABLE `retailer`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stock`
+--
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_product_stock` (`product_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -286,13 +344,13 @@ ALTER TABLE `retailer`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `distributor`
@@ -310,19 +368,19 @@ ALTER TABLE `distributor_information`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_cart`
 --
 ALTER TABLE `order_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -335,6 +393,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `retailer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `stock`
+--
+ALTER TABLE `stock`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -383,6 +447,12 @@ ALTER TABLE `order_details`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `fk_dist_products` FOREIGN KEY (`distributor_id`) REFERENCES `distributor` (`id`);
+
+--
+-- Constraints for table `stock`
+--
+ALTER TABLE `stock`
+  ADD CONSTRAINT `fk_product_stock` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

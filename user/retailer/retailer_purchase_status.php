@@ -50,7 +50,7 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
         <hr class="my-4 border-gray-200">
     </section>
 
-    <div class="container h-screen mx-auto mb-24 bg-gray-50">
+    <div class="container mx-auto mb-24 bg-gray-50">
         <ul class="flex border-b border-gray-200 tab-list">
         <a href="" class="flex-1 py-2 font-semibold text-center text-white bg-green-500 tab-item">All</a>
             <a href="../retailer/retailer_to_pay.php" class="flex-1 py-2 text-center cursor-pointer tab-item hover:bg-gray-200">To Pay</a>
@@ -82,7 +82,8 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
                                         <img src="<?php echo $product['img']; ?>"  class="w-16 h-16 mr-4">
                                         <div>
                                             <p class="text-gray-700"><?php echo $product['product_name']; ?></p>
-                                            <p class="text-gray-500">x<?php echo $product['quantity']; ?></p>
+                                            <p class="text-gray-700 text-[12px]">Price: ₱<?php echo $product['price']; ?></p>
+                                            <p class="text-gray-500 text-[12px]">Qty:<?php echo $product['quantity']; ?></p>
                                         </div>
                                         <p class="ml-auto text-right text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p>
                                     </div>
@@ -90,13 +91,16 @@ $pendingOrders = $orderObj->fetchMyPurchase($retailer_id);
                             </div>
 
                             <!-- Order Summary -->
-                            <div class="flex justify-between mb-4">
-                                <p class="text-gray-700">Subtotal Total:</p>
-                                <p class="text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p></p>
+                            <div class="flex justify-between">
+                                <p class="text-gray-700">Subtotal:</p>
+                                <p class="text-gray-700">₱<?php echo number_format($product['quantity'] * $product['price'], 2); ?></p>
                             </div>
-
                             <div class="flex justify-between mb-4">
-                                <p class="font-bold text-gray-700">Total COD Payment:</p>
+                                <p class="text-gray-700">Discount:</p>
+                                <p class="text-gray-700">₱<?php echo isset($_SESSION['discount']) ? htmlspecialchars($_SESSION['discount']) : '0'; ?></p>
+                            </div>
+                            <div class="flex justify-between mb-4">     
+                                <p class="font-bold text-gray-700">Total Payment:</p>
                                 <p class="font-bold text-gray-700">₱<?php echo number_format($order['total_amount'], 2); ?></p>
                             </div>
 
