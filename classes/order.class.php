@@ -273,40 +273,33 @@ class Order
     }
 
     
-    public function fetchMyPurchase()
+    public function fetchMyPurchase($retailer_id)
     {
-        // Start the session to access session variables
-    
-    
-        // Check if the retailer is logged in (session contains retailer_id)
-        if (!isset($_SESSION['retailer_id'])) {
-            header("Location: login.php"); // Redirect to login if no retailer is logged in
-            exit;
-        }
-        
-        $retailer_id = $_SESSION['retailer_id'];
-    
         $sql = "
-        SELECT o.id AS order_id, o.status, o.total_amount, o.date, 
-               od.product_id, od.quantity, od.price, p.product_name
+        SELECT o.id AS order_id, o.status, o.total_amount, o.date,
+               GROUP_CONCAT(od.product_id) AS product_ids, 
+               GROUP_CONCAT(od.quantity) AS quantities, 
+               GROUP_CONCAT(od.price) AS prices, 
+               GROUP_CONCAT(p.product_name) AS product_names
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
         WHERE o.retailer_id = :retailer_id
           AND o.status IN ('Pending', 'Rejected', 'Accepted')
-          ORDER BY o.date DESC;
+        GROUP BY o.id
+        ORDER BY o.date DESC;
     ";
-    
+
         try {
             $query = $this->db->connect()->prepare($sql);
             $query->bindParam(':retailer_id', $retailer_id, PDO::PARAM_INT);
-    
+
             $query->execute();
             $orders = [];
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $orders[] = $row;
             }
-    
+
             return $orders;
         } catch (Exception $e) {
             error_log("Error fetching pending orders: " . $e->getMessage());

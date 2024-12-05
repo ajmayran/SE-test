@@ -120,12 +120,12 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
                     <?php endforeach; ?>
                   </tbody>
                 </table>
-              </table>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-  </div>
   </div>
   </main>
   </div>
@@ -164,12 +164,13 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
           </div>
           <div class="flex flex-col">
             <span>Subtotal: <span id="order-subtotal" class="text-sm font-light"></span></span>
+            <span>Discount: <span id="order-discount" class="text-sm font-light"></span></span>
             <span>Total: <span id="order-total" class="text-sm font-light"></span></span>
           </div>
           <div class="flex items-center space-x-4">
             <button
               class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
-              onclick="updateOrderStatus('reject')">
+              onclick="showRejectModal(this)">
               Reject Order
             </button>
             <button
@@ -180,6 +181,34 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Reject Order Modal -->
+  <div id="rejectOrderModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-500 bg-opacity-50">
+    <div class="p-6 bg-white rounded-md shadow-lg w-96">
+      <h2 class="mb-4 text-xl font-semibold">Reject Order</h2>
+      <form id="rejectForm">
+        <div class="mb-4">
+          <label for="reason" class="block text-sm font-medium text-gray-700">Reason for Rejecting</label>
+          <select id="reason" name="reason" class="w-full p-2 border border-gray-300 rounded-md" required>
+            <option value="">Select a reason</option>
+            <option value="out_of_stock">Out of stock</option>
+            <option value="incorrect_details">Incorrect details</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div id="otherReasonDiv" class="hidden mb-4">
+          <label for="other_reason" class="block text-sm font-medium text-gray-700">Specify Reason</label>
+          <textarea id="other_reason" name="reason" rows="3" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Explain the reason..."></textarea>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button type="button" class="px-4 py-2 text-gray-700 bg-gray-300 rounded-md hover:bg-gray-400" onclick="closeRejectModal()">Cancel</button>
+          <button onclick="updateOrderStatus('reject')" class="px-4 py-2 text-white bg-red-500 rounded-md">Reject</button>
+        </div>
+      </form>
     </div>
   </div>
 

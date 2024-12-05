@@ -11,6 +11,10 @@ class Order
     public $total_amount = '';
     public $date = '';
     public $quantity = '';
+    public $date_rejected = '';
+    public $reason = '';
+    public $date_updated = '';
+
 
     protected $db;
 
@@ -24,7 +28,7 @@ class Order
     {
         try {
             // Query to fetch orders along with retailer information
-            $query = "SELECT o.id AS order_id, o.retailer_id, r.first_name,r.last_name, r.address AS retailer_address, 
+            $query = "SELECT o.id AS order_id, o.retailer_id, r.first_name,r.last_name, r.address AS retailer_address, r.contact AS retailer_contact,
                              o.status, o.total_amount, o.date
                       FROM orders o
                       JOIN retailer r ON o.retailer_id = r.id
@@ -227,6 +231,34 @@ class Order
     }
 
     public function updateDeliveryStatus($order_id, $status)
+    {
+        try {
+            $query = "UPDATE delivery SET status = :status WHERE order_id = :order_id";
+            $stmt = $this->db->connect()->prepare($query);
+            $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':order_id', $order_id);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Error updating delivery status: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateDeliveryStatusTransit($order_id, $status)
+    {
+        try {
+            $query = "UPDATE delivery SET status = :status WHERE order_id = :order_id";
+            $stmt = $this->db->connect()->prepare($query);
+            $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':order_id', $order_id);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Error updating delivery status: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateDeliveryStatusDelivered($order_id, $status)
     {
         try {
             $query = "UPDATE delivery SET status = :status WHERE order_id = :order_id";

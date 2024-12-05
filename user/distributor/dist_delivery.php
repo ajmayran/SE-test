@@ -112,7 +112,6 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
                   <th class="px-4 py-2 text-left">Recipient</th>
                   <th class="px-4 py-2 text-left">Contact</th>
                   <th class="px-4 py-2 text-left">Address</th>
-                  <th class="px-4 py-2 text-left">Status</th>
                   <th class="px-4 py-2 text-center">Action</th>
                 </tr>
               </thead>
@@ -130,7 +129,6 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
                       </td>
                       <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['contact']); ?></td>
                       <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['address']); ?></td>
-                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['status']); ?></td>
                       <td class="px-4 py-2 text-center">
                         <button class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
                           onclick="viewProcess('<?php echo $delivery['order_id']; ?>')">
@@ -156,7 +154,6 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
                   <th class="px-4 py-2 text-left">Recipient</th>
                   <th class="px-4 py-2 text-left">Contact</th>
                   <th class="px-4 py-2 text-left">Address</th>
-                  <th class="px-4 py-2 text-left">Status</th>
                   <th class="px-4 py-2 text-center">Action</th>
                 </tr>
               </thead>
@@ -174,10 +171,9 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
                       </td>
                       <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['contact']); ?></td>
                       <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['address']); ?></td>
-                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['status']); ?></td>
                       <td class="px-4 py-2 text-center">
                         <button class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
-                          onclick="viewDetails('<?php echo $delivery['order_id']; ?>')">
+                          onclick="viewTransit('<?php echo $delivery['order_id']; ?>')">
                           View Details
                         </button>
                       </td>
@@ -200,7 +196,6 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
                   <th class="px-4 py-2 text-left">Recipient</th>
                   <th class="px-4 py-2 text-left">Contact</th>
                   <th class="px-4 py-2 text-left">Address</th>
-                  <th class="px-4 py-2 text-left">Status</th>
                   <th class="px-4 py-2 text-center">Action</th>
                 </tr>
               </thead>
@@ -218,10 +213,9 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
                       </td>
                       <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['contact']); ?></td>
                       <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['address']); ?></td>
-                      <td class="px-4 py-2 text-[12px] font-light"><?php echo htmlspecialchars($delivery['status']); ?></td>
                       <td class="px-4 py-2 text-center">
                         <button class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600"
-                          onclick="viewDetails('<?php echo $delivery['order_id']; ?>')">
+                          onclick="viewDelivered('<?php echo $delivery['order_id']; ?>')">
                           View Details
                         </button>
                       </td>
@@ -235,7 +229,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
     </main>
   </div>
 
-  <!-- Modal Structure -->
+
   <!-- Processing-->
   <div id="processdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-xl p-6 bg-white rounded shadow-lg">
@@ -251,12 +245,13 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
+
   <!-- On-Transit-->
   <div id="transitdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
         <h2 class="mb-4 text-xl font-semibold">Delivery Order No: <?php echo htmlspecialchars($delivery['id']); ?> </h2>
-        <button class="text-gray-500 underline hover:text-gray-700" onclick="closeModal()">Close</button>
+        <button class="text-gray-500 underline hover:text-gray-700" onclick="closetransitModal()">Close</button>
       </div>
       <div id="transitmodalContent" class="text-sm text-gray-700">
         <!-- Order details will be loaded here -->
@@ -266,20 +261,24 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-  <!-- Delivered-->
-  <div id="delivereddetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+
+  
+  <!-- Delivered -->
+  <div id="deliverdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
         <h2 class="mb-4 text-xl font-semibold">Delivery Order No: <?php echo htmlspecialchars($delivery['id']); ?> </h2>
-        <button class="text-gray-500 underline hover:text-gray-700" onclick="closeModal()">Close</button>
+        <button class="text-gray-500 underline hover:text-gray-700" onclick="closedeliverModal()">Close</button>
       </div>
-      <div id="deliverdmodalContent" class="text-sm text-gray-700">
+      <div id="delivermodalContent" class="text-sm text-gray-700">
         <!-- Order details will be loaded here -->
+      </div>
+      <div class="flex justify-end mt-4">
+        <button id="completedButton" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Completed</button>
       </div>
     </div>
   </div>
-
-
+  
   <?php include_once '../../includes/retailer_footer.php'; ?>
   <script src="../../js/tailwind/dist_delivery.js"></script>
 </body>
