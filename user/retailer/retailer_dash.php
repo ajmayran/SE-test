@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+require_once(__DIR__ . '/../../utils.php');
+
 if (isset($_SESSION['success_message'])) {
     $success_message = $_SESSION['success_message'];
     unset($_SESSION['success_message']); // Clear the message after showing
@@ -43,10 +46,11 @@ if (isset($_SESSION['error_message'])) {
         unset($_SESSION['error_message']); // Clear the message after showing
     }
 
-    require_once '../../classes/product.class.php';
+    require_once base_import('classes/product.class.php');
+    require_once base_import('classes/product.class.php');
 
     $page_title = 'Dashboard';
-    require_once '../../includes/retailer_topnav.php';
+    require_once base_import('includes/retailer_topnav.php');
 
     $productObj = new Product();
     // Fetch all products for displaying
@@ -64,7 +68,7 @@ if (isset($_SESSION['error_message'])) {
             <?php echo htmlspecialchars($error_message); ?>
         </div>
     <?php endif; ?>
-    <?php include_once '../../includes/dash-section.php';    ?>   
+    <?php include_once '../../includes/dash-section.php'; ?>
     <section class="py-8 bg-white">
         <div class="container px-4 mx-auto">
             <div class="flex items-center justify-between">
@@ -74,7 +78,8 @@ if (isset($_SESSION['error_message'])) {
             <div class="grid grid-cols-1 gap-4 py-10 md:grid-cols-5">
                 <?php if (!empty($distributors)): ?>
                     <?php foreach ($distributors as $distributor): ?>
-                        <a href="./retailer_distributor.php?id=<?php echo htmlspecialchars($distributor['id']); ?>" class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
+                        <a href="./retailer_distributor.php?id=<?php echo htmlspecialchars($distributor['id']); ?>"
+                            class="flex flex-col items-center p-6 bg-gray-100 rounded-lg">
                             <img class="mb-4" src="<?php echo htmlspecialchars($product['img']); ?>">
                             <h3 class="text-lg font-bold"><?php echo htmlspecialchars($distributor['distributor_name']); ?></h3>
                         </a>
@@ -94,21 +99,32 @@ if (isset($_SESSION['error_message'])) {
             <div class="flex flex-wrap gap-4 py-10">
                 <?php if (!empty($allProducts)): ?>
                     <?php foreach ($allProducts as $product): ?>
-                        <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md basis-1/5 w-[20] border bordr-gray-100">
+                        <div
+                            class="flex flex-col items-center p-6 bg-white rounded-lg shadow-md basis-1/5 w-[20] border bordr-gray-100">
                             <div class="flex justify-center mb-4">
-                                <img src="<?php echo htmlspecialchars($product['img']); ?>" alt="Product Image" class="h-32 rounded">
+                                <img src="<?= get_image('products', $product['img']) ?>" alt="Product Image"
+                                    class="h-32 rounded">
                             </div>
                             <div class="text-left">
                                 <h3 class="text-lg font-bold"><?php echo htmlspecialchars($product['product_name']); ?></h3>
-                                <p class="text-[12px] text-gray-500">By <?php echo htmlspecialchars($product['distributor_name']); ?></p>           
-                                <p class="text-[12px] text-gray-500">Min purchase qty: <?php echo htmlspecialchars($product['min_qty']); ?></p>
-                                <p class="text-[12px] text-gray-500">Stocks Remaining: <?php echo htmlspecialchars($product['quantity']); ?></p>   
+                                <p class="text-[12px] text-gray-500">By
+                                    <?php echo htmlspecialchars($product['distributor_name']); ?></p>
+                                <p class="text-[12px] text-gray-500">Min purchase qty:
+                                    <?php echo htmlspecialchars($product['min_qty']); ?></p>
+                                <p class="text-[12px] text-gray-500">Stocks Remaining:
+                                    <?php echo htmlspecialchars($product['quantity']); ?></p>
                                 <div class="flex flex-col items-center mt-4">
-                                    <span class="text-lg font-bold text-green-600">₱<?php echo htmlspecialchars($product['price']); ?></span>
-                                    <form action="../../user/retailer/add_to_cart.php" method="POST" class="flex items-center mt-2">
-                                        <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
-                                        <input type="number" name="quantity" value="<?php echo htmlspecialchars($product['min_qty']); ?>" min="10" class="w-16 text-center border border-gray-300 rounded focus:ring focus:ring-green-200">
-                                        <button type="submit" class="px-4 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                                    <span
+                                        class="text-lg font-bold text-green-600">₱<?php echo htmlspecialchars($product['price']); ?></span>
+                                    <form action="../../user/retailer/add_to_cart.php" method="POST"
+                                        class="flex items-center mt-2">
+                                        <input type="hidden" name="product_id"
+                                            value="<?php echo htmlspecialchars($product['id']); ?>">
+                                        <input type="number" name="quantity"
+                                            value="<?php echo htmlspecialchars($product['min_qty']); ?>" min="10"
+                                            class="w-16 text-center border border-gray-300 rounded focus:ring focus:ring-green-200">
+                                        <button type="submit"
+                                            class="px-4 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
                                             Add to Cart
                                         </button>
                                     </form>
@@ -135,9 +151,9 @@ if (isset($_SESSION['error_message'])) {
     </div>
 
     <?php
-    require_once '../../includes/retailer_footer.php';
+    require_once base_import('includes/retailer_footer.php');
     ?>
-    <script src="../../js/tailwind/user_dash.js"></script>
+    <script src="<?= base_path('js/tailwind/user_dash.js') ?>"></script>
     <script>
         // Automatically hide success alert after 3 seconds
         setTimeout(() => {
