@@ -31,7 +31,7 @@ function showOrderDetails(order) {
   document.getElementById('order-id').textContent = order.order_id;
   document.getElementById('order-customer-name').textContent = `${order.first_name} ${order.last_name}`;
   document.getElementById('order-customer-address').textContent = order.retailer_address;
-  document.getElementById('order-customer-contact').textContent = order.contact || '--';
+  document.getElementById('order-customer-contact').textContent = order.retailer_contact;
 
   const productsTable = document.getElementById('order-products');
   productsTable.innerHTML = '';
