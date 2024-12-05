@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart_item_id'])) {
 
     // Attempt to delete the cart item
     if ($orderObj->deleteCartItem($cartItemId, $retailer_id)) {
-        $message = "Item successfully deleted.";
+        $message = "Item successfully removed.";
     } else {
         $errorMessage = "Failed to delete the item. Please try again.";
     }
@@ -58,16 +58,16 @@ $totalAmount = $cartsData['total'] ?? 0;
 <?php require_once '../../includes/retailer_topnav.php'; ?>
 
 <body>
-   
+
 
     <section class="container h-screen py-6 mx-auto bg-white">
         <h2 class="mb-4 text-2xl font-bold">Order Cart</h2>
 
         <!-- Display Success or Error Message -->
         <?php if (isset($message)): ?>
-            <div class="p-4 mb-4 text-green-700 bg-green-100 rounded"><?php echo htmlspecialchars($message); ?></div>
+            <div class="p-4 mb-4 text-green-700 bg-green-100 rounded" id="success"><?php echo htmlspecialchars($message); ?></div>
         <?php elseif (isset($errorMessage)): ?>
-            <div class="p-4 mb-4 text-red-700 bg-red-100 rounded"><?php echo htmlspecialchars($errorMessage); ?></div>
+            <div class="p-4 mb-4 text-red-700 bg-red-100 rounded" id="fail"><?php echo htmlspecialchars($errorMessage); ?></div>
         <?php endif; ?>
 
         <table class="w-full table-auto">
@@ -78,7 +78,7 @@ $totalAmount = $cartsData['total'] ?? 0;
                     <th class="px-4 py-2">Price</th>
                     <th class="px-4 py-2">Quantity</th>
                     <th class="px-4 py-2">Total</th>
-                    <th class="px-4 py-2">Action</th>
+                    <th class="px-4 py-2"></th>
                 </tr>
             </thead>
             <tbody>
@@ -94,9 +94,9 @@ $totalAmount = $cartsData['total'] ?? 0;
                             <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($cart['quantity'] ?? 0); ?></td>
                             <td class="px-4 py-2 text-center">₱<?php echo htmlspecialchars(number_format($itemTotal, 2)); ?></td>
                             <td class="px-4 py-2 text-center">
-                            <form action="" method="POST" style="display:inline;">
+                                <form action="" method="POST" style="display:inline;">
                                     <input type="hidden" name="cart_item_id" value="<?php echo htmlspecialchars($cart['id']); ?>">
-                                    <button type="submit" class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Delete</button>
+                                    <button type="submit" class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Remove</button>
                                 </form>
                             </td>
                         </tr>
@@ -109,10 +109,10 @@ $totalAmount = $cartsData['total'] ?? 0;
             </tbody>
         </table>
 
-        <section class="container flex justify-end  mx-auto mt-12 bg-white border">
-            <div class="p-6 text-center flex">
-                <h4 class="m-2 text-lg font-semibold mr-5 text-green-500">Total Amount: ₱<?php echo htmlspecialchars(number_format($totalAmount, 2)); ?></h4>
-                <form action="" method="POST">
+        <section class="container flex justify-end mx-auto mt-12 bg-white border">
+            <div class="flex p-6 text-center">
+                <h4 class="m-2 mr-5 text-lg font-semibold text-green-500">Total Amount: ₱<?php echo htmlspecialchars(number_format($totalAmount, 2)); ?></h4>
+                <form action="" method="POST" onsubmit="return validateCart()">
                     <button type="submit" name="checkout" class="px-6 py-2 text-lg font-bold text-white bg-green-500 rounded-lg hover:bg-green-600">
                         Proceed to Checkout
                     </button>
@@ -120,8 +120,33 @@ $totalAmount = $cartsData['total'] ?? 0;
             </div>
         </section>
     </section>
+    <script>
+        function validateCart() {
+            const cartItems = <?php echo json_encode($cartItems); ?>;
+            if (!cartItems || cartItems.length === 0) {
+                alert('Your cart is empty! You cannot proceed to checkout.');
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+        setTimeout(() => {
+            const successAlert = document.getElementById('success');
+            if (successAlert) {
+                successAlert.style.display = 'none';
+            }
+        }, 2000);
+
+        // Automatically hide error alert after 3 seconds
+        setTimeout(() => {
+            const errorAlert = document.getElementById('fail');
+            if (errorAlert) {
+                errorAlert.style.display = 'none';
+            }
+        }, 3000);
+    </script>
 </body>
 <?php
-    require_once '../../includes/retailer_footer.php';
-?> 
+require_once '../../includes/retailer_footer.php';
+?>
+
 </html>

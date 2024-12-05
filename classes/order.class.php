@@ -11,6 +11,8 @@ class Order
     public $total_amount = '';
     public $date = '';
     public $quantity = '';
+    public $date_rejected = '';
+    public $reason = '';
 
     protected $db;
 
@@ -271,7 +273,8 @@ class Order
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
         WHERE o.retailer_id = :retailer_id
-          AND o.status IN ('Pending', 'Rejected', 'Accepted');
+          AND o.status IN ('Pending', 'Rejected', 'Accepted')
+          ORDER BY o.date DESC;
     ";
     
         try {

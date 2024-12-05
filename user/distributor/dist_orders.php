@@ -36,13 +36,14 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
     body {
       font-family: 'Lexend', sans-serif;
     }
-
     .sidebar-menu .group.active a {
       background-color: #27AE60;
       color: white;
       border-radius: 5px;
     }
-
+    .scroll-hide::-webkit-scrollbar {
+      display: none;
+    }
     .sidebar-menu .group.active .icon {
       color: white;
     }
@@ -177,7 +178,6 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
         </li>
       </ul>
     </aside>
-
 
     <main class="w-3/4 p-8 overflow-y-auto" style="max-height:100vh;">
       <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">My Orders</h1>
@@ -423,4 +423,4 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
   </script>
 </body>
 
-</html>xa
+</html>

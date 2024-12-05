@@ -9,8 +9,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 } else {
     // If no session exists, redirect to the login page
     header("Location: dist_login.php");
-    exit; 
-
+    exit;
 }
 ?>
 
@@ -39,6 +38,10 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 
         .sidebar-menu .group.active .icon {
             color: white;
+        }
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>

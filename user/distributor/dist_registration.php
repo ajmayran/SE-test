@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,16 @@
         body {
             font-family: 'Lexend', sans-serif;
         }
-        
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+
         .flip-container {
             perspective: 1000px;
             width: 500px;
-            height: 400px; 
+            height: 400px;
         }
 
         .flip-container:hover .flipper {
@@ -30,12 +36,13 @@
             height: 100%;
         }
 
-        .front, .back {
+        .front,
+        .back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            -webkit-backface-visibility: hidden; 
+            -webkit-backface-visibility: hidden;
         }
 
         .front {
@@ -46,23 +53,32 @@
             transform: rotateY(180deg);
         }
 
-        .front img, .back img {
+        .front img,
+        .back img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
+
         @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
+
         .spin-animation {
             animation: spin 2s linear infinite;
         }
     </style>
 </head>
+
 <body class="bg-cover" style="background-image: url('../../resources/img/Registration.png');">
     <div class="relative flex items-center justify-center min-h-screen">
-        
+
         <div class="relative z-10 flex flex-col items-center px-4 text-center text-white">
             <h1 class="mb-4 text-xl font-bold text-right md:text-4xl">
                 Your first step on <br> becoming a Distributor
@@ -72,7 +88,7 @@
                 <br>
                 To register, please provide us with some essential information. This includes your company profile, product details, and contact information. We will review your submission and verify your products to ensure they meet our quality standards. Once approved, you'll receive access to our distributor dashboard, where you can manage your product listings, track orders, and monitor sales performance.
             </p>
-            <button type="submit"  onclick="Proceed()" class="w-full px-4 py-2 font-bold text-white bg-gray-700 rounded-lg hover:bg-slate-500">
+            <button type="submit" onclick="Proceed()" class="w-full px-4 py-2 font-bold text-white bg-gray-700 rounded-lg hover:bg-slate-500">
                 Proceed
             </button>
         </div>
@@ -96,8 +112,9 @@
             showLoader();
             setTimeout(function() {
                 window.location.href = '../../auth/registration_step1.php';
-            }, 2500); 
+            }, 2500);
         }
     </script>
 </body>
+
 </html>

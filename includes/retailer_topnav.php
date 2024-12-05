@@ -10,7 +10,7 @@
             </select>
             <input type="text" placeholder="Search for items..." class="flex-1 w-full px-3 py-2 bg-gray-200 border">
             <button class="px-4 py-2 font-bold text-white bg-green-500 hover:bg-green-700">
-                <iconify-icon icon="mdi:search" class="flex items-center h-6 text-lg"></iconify-icon> 
+                <iconify-icon icon="mdi:search" class="flex items-center h-6 text-lg"></iconify-icon>
             </button>
         </div>
     </div>
@@ -19,9 +19,9 @@
         <a href="retailer_cart.php" class="mr-4 text-gray-500 hover:text-gray-700">
             <iconify-icon icon="mdi:cart" class="text-3xl"></iconify-icon> 
         </a>
-        <div class="relative">`
+        <div class="relative">
             <button onclick="toggleNotification()" class="mr-4 text-gray-500 hover:text-gray-700">
-                <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon> 
+                <iconify-icon icon="mdi:notifications" class="text-3xl"></iconify-icon>     
             </button>
             <!-- Notification Popup -->
             <div id="notification-popup" class="absolute right-0 z-10 hidden bg-white rounded-lg shadow-lg w-96 top-12">
