@@ -13,6 +13,8 @@ class Order
     public $quantity = '';
     public $date_rejected = '';
     public $reason = '';
+    public $date_updated = '';
+
 
     protected $db;
 
