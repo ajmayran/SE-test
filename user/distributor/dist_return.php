@@ -9,8 +9,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 } else {
     // If no session exists, redirect to the login page
     header("Location: dist_login.php");
-    exit; 
-
+    exit;
 }
 ?>
 
@@ -39,6 +38,10 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 
         .sidebar-menu .group.active .icon {
             color: white;
+        }
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -487,9 +490,8 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
     </div>
 
     <script>
-
-                //Notif and account 
-                document.getElementById('notificationButton').addEventListener('click', function() {
+        //Notif and account 
+        document.getElementById('notificationButton').addEventListener('click', function() {
             const dropdown = document.getElementById('notificationDropdown');
             dropdown.classList.toggle('hidden');
         });
@@ -499,7 +501,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
             popper.classList.toggle('hidden');
         });
 
-      
+
         window.addEventListener('click', function(event) {
             const dropdown = document.getElementById('notificationDropdown');
             const popper = document.getElementById('accountPopper');
@@ -511,7 +513,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
                 popper.classList.add('hidden');
             }
         });
-        
+
         const returnTab = document.getElementById('tab-return');
         const refundTab = document.getElementById('tab-refund');
         const returnOrders = document.getElementById('return-orders-table');

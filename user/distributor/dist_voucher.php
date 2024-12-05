@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) {
@@ -10,8 +10,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 } else {
     // If no session exists, redirect to the login page
     header("Location: dist_login.php");
-    exit; 
-
+    exit;
 }
 ?>
 
@@ -44,6 +43,10 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 
         .voucher-card {
             width: 49%;
+        }
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>

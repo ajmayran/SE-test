@@ -1,16 +1,15 @@
 <?php
 session_start();
 if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) {
-    // Retrieve distributor details from the session
-    $distributorInfo = $_SESSION['distributor_info'];
+  // Retrieve distributor details from the session
+  $distributorInfo = $_SESSION['distributor_info'];
 
-    $distributorName = htmlspecialchars($distributorInfo['name']);
-    $distributorAddress = htmlspecialchars($distributorInfo['address']);
+  $distributorName = htmlspecialchars($distributorInfo['name']);
+  $distributorAddress = htmlspecialchars($distributorInfo['address']);
 } else {
-    // If no session exists, redirect to the login page
-    header("Location: dist_login.php");
-    exit; 
-
+  // If no session exists, redirect to the login page
+  header("Location: dist_login.php");
+  exit;
 }
 ?>
 
@@ -29,6 +28,10 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
   <style>
     body {
       font-family: 'Lexend', sans-serif;
+    }
+
+    .scroll-hide::-webkit-scrollbar {
+      display: none;
     }
 
     .sidebar-menu .group.active a {

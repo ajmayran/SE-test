@@ -45,6 +45,11 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       font-family: 'Lexend', sans-serif;
     }
 
+    .scroll-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+
     .sidebar-menu .group.active a {
       background-color: #27AE60;
       color: white;
@@ -351,7 +356,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
   </div>
 
   <!-- Modal Structure -->
-    <!-- Processing-->
+  <!-- Processing-->
   <div id="processdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-xl p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -366,7 +371,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-    <!-- On-Transit-->
+  <!-- On-Transit-->
   <div id="transitdetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -381,7 +386,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </div>
-    <!-- Delivered-->
+  <!-- Delivered-->
   <div id="delivereddetailsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
     <div class="relative w-full max-w-md p-6 bg-white rounded shadow-lg">
       <div class="flex items-center justify-between mb-4">
@@ -449,7 +454,7 @@ $deliveryDelivered = $distributor->fetchDeliveredOrders($distributorId);
       </div>
     </div>
   </footer>
-<script src="../../js/tailwind/dist_delivery.js"></script>
+  <script src="../../js/tailwind/dist_delivery.js"></script>
 </body>
 
 </html>

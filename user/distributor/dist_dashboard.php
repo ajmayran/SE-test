@@ -9,8 +9,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 } else {
     // If no session exists, redirect to the login page
     header("Location: dist_login.php");
-    exit; 
-
+    exit;
 }
 ?>
 
@@ -29,6 +28,10 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
     <style>
         body {
             font-family: 'Lexend', sans-serif;
+        }
+
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
         }
 
         .sidebar-menu .group.active a {
@@ -341,7 +344,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
             popper.classList.toggle('hidden');
         });
 
-      
+
         window.addEventListener('click', function(event) {
             const dropdown = document.getElementById('notificationDropdown');
             const popper = document.getElementById('accountPopper');

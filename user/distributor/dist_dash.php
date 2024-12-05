@@ -14,6 +14,11 @@
             font-family: 'Lexend', sans-serif;
         }
 
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+
         .fade-in {
             opacity: 0;
             transition: opacity 0.9s ease-in;
