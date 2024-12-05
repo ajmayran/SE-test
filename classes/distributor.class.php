@@ -69,16 +69,58 @@ class Order
                 echo "No products found for order_id: " . $order_id;
                 return [];
             }
-        } catch (PDOException $e) { 
+        } catch (PDOException $e) {
             echo "Error fetching order details: " . $e->getMessage();
             return [];
         }
     }
 
-
     public function approveOrder($order_id)
     {
         try {
+            // Start a transaction for consistency
+            $this->db->connect()->beginTransaction();
+
+            // Fetch order details (product id and quantity)
+            $getOrderDetailsQuery = "SELECT product_id, quantity FROM order_details WHERE order_id = :order_id";
+            $stmt = $this->db->connect()->prepare($getOrderDetailsQuery);
+            $stmt->bindParam(':order_id', $order_id);
+            $stmt->execute();
+            $orderDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (empty($orderDetails)) {
+                throw new Exception("No items found for this order.");
+            }
+
+            // Update stock for each product in the order
+            foreach ($orderDetails as $detail) {
+                $product_id = $detail['product_id'];
+                $quantityOrdered = $detail['quantity'];
+
+                // Fetch current stock
+                $getStockQuery = "SELECT quantity FROM stock WHERE product_id = :product_id";
+                $stmt = $this->db->connect()->prepare($getStockQuery);
+                $stmt->bindParam(':product_id', $product_id);
+                $stmt->execute();
+                $stock = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!$stock) {
+                    throw new Exception("Product stock not found for product ID: $product_id");
+                }
+
+                // Calculate new stock quantity
+                $newStockQuantity = $stock['quantity'] - $quantityOrdered;
+
+                // Update stock table
+                $updateStockQuery = "UPDATE stock SET quantity = :newStockQuantity, 
+                                     status = 'stock out', reason = 'order by retailer', date_updated = NOW() 
+                                     WHERE product_id = :product_id";
+                $stmt = $this->db->connect()->prepare($updateStockQuery);
+                $stmt->bindParam(':newStockQuantity', $newStockQuantity);
+                $stmt->bindParam(':product_id', $product_id);
+                $stmt->execute();
+            }
+
             // Update order status to 'accepted'
             $updateOrderQuery = "UPDATE orders SET status = 'accepted' WHERE id = :order_id";
             $stmt = $this->db->connect()->prepare($updateOrderQuery);
@@ -86,20 +128,29 @@ class Order
             $stmt->execute();
 
             // Insert into delivery table
-            $deliveryDate = date('Y-m-d', strtotime('+3 days')); // Set delivery date to 3 days from now
-            $insertDeliveryQuery = "INSERT INTO delivery (order_id, status, delivery_date) 
-                                    VALUES (:order_id, 'processing', :delivery_date)";
+            $insertDeliveryQuery = "INSERT INTO delivery (order_id, status) 
+                                    VALUES (:order_id, 'processing')";
             $stmt = $this->db->connect()->prepare($insertDeliveryQuery);
             $stmt->bindParam(':order_id', $order_id);
-            $stmt->bindParam(':delivery_date', $deliveryDate);
             $stmt->execute();
+
+            // Commit the transaction
+            $this->db->connect()->commit();
 
             return true;
         } catch (PDOException $e) {
+            // Rollback in case of an error
+            $this->db->connect()->rollBack();
             echo "Error approving order: " . $e->getMessage();
+            return false;
+        } catch (Exception $e) {
+            // Handle any other exceptions
+            $this->db->connect()->rollBack();
+            echo "Error: " . $e->getMessage();
             return false;
         }
     }
+
 
     // Reject an order
     public function rejectOrder($order_id)
@@ -188,6 +239,4 @@ class Order
             return false;
         }
     }
-    
-
 }
