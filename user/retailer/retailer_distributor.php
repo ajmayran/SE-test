@@ -34,39 +34,42 @@ if (isset($_SESSION['error_message'])) {
             </a>
         </div>
         
-        <section class="container p-20 mx-auto mb-4 bg-yellow-400 rounded-lg">
-            <div class="flex items-center justify-between">
-                <!-- Left Section: Distributor Info -->
-                <div class="flex items-center">
-                    <div class="flex items-center justify-center w-24 h-24 bg-white rounded-lg">
-                        <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor Photo" class="w-24 h-24">
+        <section class="container p-20 mx-auto mb-4 rounded-lg bg-gray-400">
+            <div>
+                <div class="flex items-center justify-between">
+                    <!-- Left Section: Distributor Info -->
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center w-24 h-24 bg-white rounded-lg">
+                            <img src="../../resources/img/Distrubutors/alaska.png" alt="Distributor Photo" class="w-24 h-24">
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-2xl font-bold">Jacob</h2>
+                            <p class="flex items-center text-gray-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                Cabato Drive, Guiwan, Zamboanga City 7000
+                            </p>
+                        </div>
                     </div>
-                    <div class="ml-4">
-                        <h2 class="text-2xl font-bold">Jacob</h2>
-                        <p class="flex items-center text-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            Monkey Drive, Guiwan, Zamboanga City 7000
-                        </p>
+
+                    <!-- Right Section: Action Icons -->
+                    <div class="flex space-x-4">
+                        <!-- Report Icon -->
+                        <button class="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow hover:bg-gray-200">
+                            <img src="../../resources/svg/report.svg" alt="report icon">
+                        </button>
+
+                        <!-- Message Icon -->
+                        <button class="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow hover:bg-gray-200">
+                            <img src="../../resources/svg/chat.svg" alt="message icon">
+                        </button>
+                        
+                        <!-- Review Icon -->
+                        <button id="reviewBtn" class="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow hover:bg-gray-200">
+                            <img src="../../resources/svg/star.svg" alt="review icon">
+                        </button>
                     </div>
-                </div>
-
-                <!-- Right Section: Action Icons -->
-                <div class="flex space-x-4">
-                    <!-- Report Icon -->
-                    <button class="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow hover:bg-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                        </svg>
-                    </button>
-
-                    <!-- Message Icon -->
-                    <button class="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow hover:bg-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M21 6.5a2.5 2.5 0 00-2.5-2.5h-13A2.5 2.5 0 003 6.5v10a2.5 2.5 0 002.5 2.5H9v2.2a.8.8 0 001.3.6l4.8-2.8H18.5a2.5 2.5 0 002.5-2.5v-10zm-2 10H14.5a.5.5 0 00-.3.1l-3.2 1.9v-1.5a.5.5 0 00-.5-.5H5.5a.5.5 0 01-.5-.5v-10a.5.5 0 01.5-.5h13a.5.5 0 01.5.5v10a.5.5 0 01-.5.5z"/>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </section>
@@ -606,25 +609,39 @@ if (isset($_SESSION['error_message'])) {
                 </a>
             </div>
          </div>
+
+         <!-- Review Modal -->
+        <div id="reviewModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="bg-white w-[90%] md:w-[40%] p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">Leave a Review</h2>
+                        <button id="closeReviewModal" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+                    </div>
+                    <form method="POST" action="#">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">Rating</label>
+                            <div class="flex space-x-2">
+                                <!-- Star Rating -->
+                                <button type="button" class="star text-gray-400 text-3xl" data-rating="1">&#9733;</button>
+                                <button type="button" class="star text-gray-400 text-3xl" data-rating="2">&#9733;</button>
+                                <button type="button" class="star text-gray-400 text-3xl" data-rating="3">&#9733;</button>
+                                <button type="button" class="star text-gray-400 text-3xl" data-rating="4">&#9733;</button>
+                                <button type="button" class="star text-gray-400 text-3xl" data-rating="5">&#9733;</button>
+                            </div>
+                            <input type="hidden" name="rating" id="ratingInput">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">Feedback</label>
+                            <textarea name="feedback" rows="4" placeholder="Write your feedback here..." class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+                        <div class="flex justify-end space-x-4">
+                            <button type="button" id="cancelReview" class="px-4 py-2 text-gray-500 hover:text-gray-700">Cancel</button>
+                            <button type="submit" class="px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
          
-           <script>
-               const tabItems = document.querySelectorAll('.tab-item');
-               const tabPanes = document.querySelectorAll('.tab-pane');
-
-               // Set the first tab as active by default
-               tabItems[0].classList.add('active');
-               tabPanes[0].classList.remove('hidden');
-
-               tabItems.forEach((item, index) => {
-               item.addEventListener('click', () => {
-                   tabItems.forEach(item => item.classList.remove('active'));
-                   tabPanes.forEach(pane => pane.classList.add('hidden'));
-
-                   item.classList.add('active');
-                   tabPanes[index].classList.remove('hidden');
-               });
-               });
-           </script>
        </div>
     </div>
     </main>
@@ -632,4 +649,63 @@ if (isset($_SESSION['error_message'])) {
         require_once '../../includes/retailer_footer.php';
     ?>  
 </body>
+<script>
+    // Modal Controls
+    const reviewModal = document.getElementById('reviewModal');
+    const reviewBtn = document.getElementById('reviewBtn');
+    const closeReviewModal = document.getElementById('closeReviewModal');
+    const cancelReview = document.getElementById('cancelReview');
+
+    // Star Rating Controls
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('ratingInput');
+
+    // Open Modal
+    reviewBtn.addEventListener('click', () => {
+        reviewModal.classList.remove('hidden');
+    });
+
+    // Close Modal
+    closeReviewModal.addEventListener('click', () => {
+        reviewModal.classList.add('hidden');
+    });
+    cancelReview.addEventListener('click', () => {
+        reviewModal.classList.add('hidden');
+    });
+
+    // Star Rating Logic
+    stars.forEach(star => {
+        star.addEventListener('click', (e) => {
+            const rating = e.target.getAttribute('data-rating');
+            ratingInput.value = rating;
+
+            // Highlight selected stars
+            stars.forEach(s => {
+                s.classList.remove('text-yellow-500');
+                s.classList.add('text-gray-400');
+            });
+            for (let i = 0; i < rating; i++) {
+                stars[i].classList.remove('text-gray-400');
+                stars[i].classList.add('text-yellow-500');
+            }
+        });
+    });
+
+    const tabItems = document.querySelectorAll('.tab-item');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+               
+    // Set the first tab as active by default
+    tabItems[0].classList.add('active');
+    tabPanes[0].classList.remove('hidden');
+
+    tabItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        tabItems.forEach(item => item.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+        item.classList.add('active');
+        tabPanes[index].classList.remove('hidden');
+    });
+    });
+</script>
 </html>
