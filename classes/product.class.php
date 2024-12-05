@@ -4,9 +4,9 @@ require_once __DIR__ . '/../database/connect.php';
 
 class Product {
     // These properties represent the columns in the 'product' table.
-    public $id = '';   
+    public $id = '';
     public $img = '';
-    public $product_name = '';          // The name of the product.
+    public $product_name = '';         // The name of the product.
     public $product_code = '';    
     public $product_desc = '';
     public $category = '';
