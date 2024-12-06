@@ -134,8 +134,8 @@ foreach ($cartItems as $cart) {
     require_once '../../includes/retailer_footer.php'; 
     ?>
     
-    <div id="productModal" class="flex justify-center items-center">
-     <div class="fixed z-50 flex items-center justify-center  bg-white w-1/3 h-3/4 border shadow-lg">
+    <div id="productModal" class="flex items-center justify-center">
+     <div class="fixed z-50 flex items-center justify-center w-1/3 bg-white border shadow-lg h-3/4">
             <form>
                 <h2 class="mb-4 text-2xl font-bold">New Address</h2>
 

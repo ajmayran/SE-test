@@ -22,6 +22,8 @@ window.addEventListener('click', function (event) {
   }
 });
 
+
+//
 function toggleModal(show) {
   const modal = document.getElementById('order-details-modal');
   modal.classList.toggle('hidden', !show);
@@ -57,6 +59,45 @@ function showOrderDetails(order) {
 
   toggleModal(true);
 }
+
+
+//
+function toggleCompleteModal(show) {
+  const modal = document.getElementById('complete-order-details-modal');
+  modal.classList.toggle('hidden', !show);
+}
+
+function showCompleteOrderDetails(order) {
+  document.getElementById('complete-order-id').textContent = order.order_id;
+  document.getElementById('complete-order-customer-name').textContent = `${order.first_name} ${order.last_name}`;
+  document.getElementById('complete-order-customer-address').textContent = order.retailer_address;
+  document.getElementById('complete-order-customer-contact').textContent = order.retailer_contact;
+
+
+  const completeproductsTable = document.getElementById('complete-order-products');
+  completeproductsTable.innerHTML = '';
+
+  let subtotal = 0;
+  let total = -0;
+  order.details.forEach(product => {
+    const row = `<tr>
+    <td class="px-4 py-2">${product.product_name}</td>
+    <td class="px-4 py-2">₱${product.price}</td>
+    <td class="px-4 py-2">${product.quantity}</td>
+    <td class="px-4 py-2">₱${product.quantity * product.price}</td>
+  </tr>`;
+    productsTable.innerHTML += row;
+    subtotal += product.quantity * product.price;
+    total += product.quantity * product.price;
+  });
+
+
+  document.getElementById('complete-order-subtotal').textContent = `₱${subtotal.toFixed(2)}`;
+  document.getElementById('complete-order-total').textContent = `₱${total.toFixed(2)}`;
+
+  toggleCompleteModal(true);
+}
+//
 
 function updateOrderStatus(action) {
   const orderId = document.getElementById('order-id').textContent;

@@ -21,6 +21,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 
 $order = new Order();
 $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
+$completeOrders = $order->fetchCompleteOrders($_SESSION['distributor_id']);
 ?>
 
 <!DOCTYPE html>
@@ -124,11 +125,48 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
               </div>
             </div>
           </div>
+
+          <!-- Completed Orders Table -->
+          <div id="completed-orders" class="hidden mt-6">
+            <h2 class="mb-2 font-light text-gray-500">
+              Number of Orders: 0
+            </h2>
+            <div class="overflow-x-auto">
+              <div class="overflow-x-auto">
+                <table class="w-full mt-4 bg-white table-auto">
+                  <thead>
+                    <tr class="bg-gray-200 border">
+                      <th class="px-4 py-2 text-left">Order ID</th>
+                      <th class="px-4 py-2 text-left">Product</th>
+                      <th class="px-4 py-2 text-left">Total Amount</th>
+                      <th class="px-4 py-2 text-left">Retailer</th>
+                      <th class="px-4 py-2 text-left">Order Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($completeOrders as $order): ?>
+                      <tr
+                        class="text-sm border-b-2 border-gray-200 cursor-pointer hover:bg-gray-50"
+                        onclick="showCompleteOrderDetails(<?php echo htmlspecialchars(json_encode($order)); ?>)">
+                        <td class="px-4 py-3 text-gray-600"><?php echo $order['order_id']; ?></td>
+                        <td class="px-4 py-3 text-[12px] font-light"><?php echo htmlspecialchars($order['details'][0]['product_name']); ?>...</td>
+                        <td class="px-4 py-3 text-[12px] font-light">₱<?php echo number_format($order['total_amount'], 2); ?></td>
+                        <td class="px-4 py-3 text-[12px] font-light"><?php echo htmlspecialchars($order['first_name'] . ' ' . $order['last_name']); ?></td>
+                        <td class="px-4 py-3 text-[12px] font-light"><?php echo htmlspecialchars($order['date']); ?></td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   </div>
   </main>
   </div>
+  <!-- Pending orders--->
   <div id="order-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
@@ -184,6 +222,62 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
     </div>
   </div>
 
+  <!-- complete orders--->
+  <div id="complete-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-bold">Order ID: <span id="complete-order-id">--</span></h2>
+          <button class="text-blue-600 hover:underline" onclick="toggleCompleteModal(false)">Close</button>
+        </div>
+        <hr class="my-4 border-gray-300">
+
+        <!-- Order Details Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full border-b border-gray-200 table-auto">
+            <thead>
+              <tr class="text-left border-b">
+                <th class="px-4 py-2">Products</th>
+                <th class="px-4 py-2">Price</th>
+                <th class="px-4 py-2">Qty</th>
+                <th class="px-4 py-2">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="complete-order-products">
+              <!-- Content -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="flex justify-between mt-4">
+          <div class="flex flex-col">
+            <span>Retailer Name: <span id="complete-order-customer-name" class="text-sm font-light">--</span></span>
+            <span>Delivery Address: <span id="complete-order-customer-address" class="text-sm font-light">--</span></span>
+            <span>Retailer Contact: <span id="complete-order-customer-contact" class="text-sm font-light">--</span></span>
+          </div>
+          <div class="flex flex-col">
+            <span>Subtotal: <span id="complete-order-subtotal" class="text-sm font-light"></span></span>
+            <span>Discount: <span id="complete-order-discount" class="text-sm font-light"></span></span>
+            <span>Total: <span id="complete-order-total" class="text-sm font-light"></span></span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+              onclick="toggleCompleteModal(false)">
+              Close
+            </button>
+            <button
+              class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600"
+              onclick="deleteOrder()">
+            Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Reject Order Modal -->
   <div id="rejectOrderModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-500 bg-opacity-50">
     <div class="p-6 bg-white rounded-md shadow-lg w-96">
@@ -217,5 +311,4 @@ $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
   <script src="../../js/tailwind/dist_order.js"></script>
 
 </body>
-
 </html>
