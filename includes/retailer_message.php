@@ -40,89 +40,85 @@
 </head>
 
 <body class="bg-gray-100">
+        <main class="w-full p-8 overflow-y-auto max-h-3/4">
+        <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Messages</h1>
+        <div class="flex h-screen">
+            <!-- Left Side: Message List -->
+            <div class="flex flex-col w-1/3 bg-white border-r rounded-bl-lg">
+            <!-- Search Bar -->
+            <div class="p-4 border-b">
+                <input type="text" placeholder="Search..." class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-green-300">
+            </div>
 
-  <div class="flex">
+            <!-- Message List -->
+            <ul class="flex-1 overflow-y-auto">
+                <!-- Message Thread 1 -->
+                <li class="border-b-2 border-gray-200 cursor-pointer" onclick="selectMessage(1)">
+                <div class="flex items-center p-4">
+                    <img src="../../resources/img/Avatar/avatar-5.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
+                    <div>
+                    <p class="font-normal text-gray-800">Anthon Zuckerberg</p>
+                    <p class="text-sm text-gray-500 truncate">Good morning, may I ask about...</p>
+                    </div>
+                    <span class="text-gray-400 text-[10px]">10:44 AM</span>
+                </div>
+                </li>
+
+                <!-- Message Thread 2 -->
+                <li class="border-b-2 border-gray-200 cursor-pointer" onclick="selectMessage(2)">
+                <div class="flex items-center p-4">
+                    <img src="../../resources/img/Avatar/avatar-1.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
+                    <div>
+                    <p class="font-normal text-gray-800">Elon Mask</p>
+                    <p class="text-sm font-light text-gray-500 truncate">Thank you so much for the update.</p>
+                    </div>
+                    <span class="ml-auto text-[10px] text-gray-400">9:00 AM</span>
+                </div>
+                </li>
+            </ul>
+            </div>
+
+            <!-- Right Side: Conversation View -->
+            <div class="flex flex-col flex-1 rounded-br-lg bg-gray-50">
+            <!-- Conversation Header -->
+            <div id="conversation-header" class="p-4 bg-white border-b">
+                <h2 class="text-lg font-normal">Anthon Zuckerberg</h2>
+            </div>
+
+            <!-- Convo -->
+            <div id="conversation-content" class="flex-1 p-4 space-y-4 overflow-y-auto">
+                <div class="flex justify-start">
+                <img src="https://via.placeholder.com/40" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
+                <div class="max-w-xs px-4 py-3 bg-gray-200 rounded-lg">
+                    <p class="text-sm text-gray-700">Good morning, may I ask about...</p>
+                </div>
+                </div>
+                <div class="flex justify-end">
+                <div class="max-w-xs px-4 py-3 text-white bg-green-500 rounded-lg">
+                    <p class="text-sm">Great news! Your order is now out for delivery and will arrive soon.</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="flex items-center p-4 space-x-2 bg-white border-t rounded-br-lg">
+                <label class="cursor-pointer">
+                <iconify-icon icon="akar-icons:attach" class="text-xl text-green-500"></iconify-icon>
+                <input type="file" class="hidden" accept="image/*">
+                </label>
+                <button id="open-camera" onclick="openCamera();">
+                <iconify-icon icon="mdi:camera" class="pb-1 text-2xl text-green-500 align-middle"></iconify-icon>
+                </button>
+
+                <video id="video" width="640" height="480" autoplay style="display: none;"></video>
+                <input type="text" placeholder="Type your message here" class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300">
+                <button type="submit"><iconify-icon icon="majesticons:send" class="pb-1 text-2xl text-green-500 align-middle"></iconify-icon></button>
+            </div>
+            </div>
+        </div>
+
+        </main>
   
-
-    <main class="w-3/4 p-8 overflow-y-auto max-h-3/4">
-      <h1 class="p-3 text-2xl font-semibold bg-green-300 rounded-t-md">Messages</h1>
-      <div class="flex h-screen">
-        <!-- Left Side: Message List -->
-        <div class="flex flex-col w-1/3 bg-white border-r rounded-bl-lg">
-          <!-- Search Bar -->
-          <div class="p-4 border-b">
-            <input type="text" placeholder="Search..." class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-green-300">
-          </div>
-
-          <!-- Message List -->
-          <ul class="flex-1 overflow-y-auto">
-            <!-- Message Thread 1 -->
-            <li class="border-b-2 border-gray-200 cursor-pointer" onclick="selectMessage(1)">
-              <div class="flex items-center p-4">
-                <img src="../../resources/img/Avatar/avatar-5.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
-                <div>
-                  <p class="font-normal text-gray-800">Anthon Zuckerberg</p>
-                  <p class="text-sm text-gray-500 truncate">Good morning, may I ask about...</p>
-                </div>
-                <span class="text-gray-400 text-[10px]">10:44 AM</span>
-              </div>
-            </li>
-
-            <!-- Message Thread 2 -->
-            <li class="border-b-2 border-gray-200 cursor-pointer" onclick="selectMessage(2)">
-              <div class="flex items-center p-4">
-                <img src="../../resources/img/Avatar/avatar-1.jpg" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
-                <div>
-                  <p class="font-normal text-gray-800">Elon Mask</p>
-                  <p class="text-sm font-light text-gray-500 truncate">Thank you so much for the update.</p>
-                </div>
-                <span class="ml-auto text-[10px] text-gray-400">9:00 AM</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right Side: Conversation View -->
-        <div class="flex flex-col flex-1 rounded-br-lg bg-gray-50">
-          <!-- Conversation Header -->
-          <div id="conversation-header" class="p-4 bg-white border-b">
-            <h2 class="text-lg font-normal">Anthon Zuckerberg</h2>
-          </div>
-
-          <!-- Convo -->
-          <div id="conversation-content" class="flex-1 p-4 space-y-4 overflow-y-auto">
-            <div class="flex justify-start">
-              <img src="https://via.placeholder.com/40" alt="User  Avatar" class="w-10 h-10 mr-3 rounded-full">
-              <div class="max-w-xs px-4 py-3 bg-gray-200 rounded-lg">
-                <p class="text-sm text-gray-700">Good morning, may I ask about...</p>
-              </div>
-            </div>
-            <div class="flex justify-end">
-              <div class="max-w-xs px-4 py-3 text-white bg-green-500 rounded-lg">
-                <p class="text-sm">Great news! Your order is now out for delivery and will arrive soon.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Message Input -->
-          <div class="flex items-center p-4 space-x-2 bg-white border-t rounded-br-lg">
-            <label class="cursor-pointer">
-              <iconify-icon icon="akar-icons:attach" class="text-xl text-green-500"></iconify-icon>
-              <input type="file" class="hidden" accept="image/*">
-            </label>
-            <button id="open-camera" onclick="openCamera();">
-              <iconify-icon icon="mdi:camera" class="pb-1 text-2xl text-green-500 align-middle"></iconify-icon>
-            </button>
-
-            <video id="video" width="640" height="480" autoplay style="display: none;"></video>
-            <input type="text" placeholder="Type your message here" class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-green-300">
-            <button type="submit"><iconify-icon icon="majesticons:send" class="pb-1 text-2xl text-green-500 align-middle"></iconify-icon></button>
-          </div>
-        </div>
-      </div>
-
-    </main>
-  </div>
 
   <script>
     //Notif and account 

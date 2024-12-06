@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2024 at 02:44 AM
+-- Generation Time: Dec 06, 2024 at 03:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,14 @@ CREATE TABLE `cart_items` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart_items`
+--
+
+INSERT INTO `cart_items` (`id`, `cart_id`, `product_id`, `quantity`) VALUES
+(74, 30, 5, 10),
+(75, 30, 6, 30);
 
 -- --------------------------------------------------------
 
@@ -124,6 +132,13 @@ CREATE TABLE `order_cart` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `order_cart`
+--
+
+INSERT INTO `order_cart` (`id`, `retailer_id`, `created_at`, `updated_at`) VALUES
+(30, 1, '2024-12-06 09:48:47', '2024-12-06 09:48:47');
+
 -- --------------------------------------------------------
 
 --
@@ -162,7 +177,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `img`, `product_name`, `product_code`, `product_desc`, `category`, `price`, `tags`, `min_qty`, `distributor_id`) VALUES
 (5, '', 'Ready to Cook Fried Chicken', '', NULL, 'Frozen Products', 200, 'Food, Meat', 10, 1),
-(6, '', 'Ready to Cook Longanisa', '', NULL, 'Frozen Products', NULL, NULL, 10, 1),
+(6, '', 'Ready to Cook Longanisa', '', NULL, 'Frozen Products', 180, NULL, 10, 1),
 (8, '', 'Alaska Milk Dink', '', NULL, 'Beverages', 1200, NULL, 1, 2);
 
 -- --------------------------------------------------------
@@ -203,6 +218,15 @@ CREATE TABLE `stock` (
   `date_updated` datetime NOT NULL DEFAULT current_timestamp(),
   `reason` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `stock`
+--
+
+INSERT INTO `stock` (`id`, `product_id`, `quantity`, `status`, `date_updated`, `reason`) VALUES
+(11, 5, 1000, 'STOCK IN', '2024-12-06 09:46:17', ''),
+(12, 6, 500, 'STOCK IN', '2024-12-06 09:46:29', ''),
+(13, 8, 200, 'STOCK IN', '2024-12-06 09:46:41', '');
 
 --
 -- Indexes for dumped tables
@@ -287,7 +311,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `delivery`
@@ -311,13 +335,13 @@ ALTER TABLE `distributor_information`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order_cart`
 --
 ALTER TABLE `order_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `order_details`
@@ -341,7 +365,7 @@ ALTER TABLE `retailer`
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
