@@ -1,7 +1,5 @@
 <?php
-
 $currentPage = basename($_SERVER['PHP_SELF']); 
-
 require_once '../../classes/product.class.php';
 require_once '../../function/util.php';
 
@@ -19,7 +17,6 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
     exit;
 }
 
-
 // Initialize variables to hold form input values and error messages.
 // Create an instance of the Product class for database interaction.
 $productObj = new Product();
@@ -30,7 +27,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $img = $product_name = $product_code = $product_desc = $category = $price = $tags = $stock = $min_qty = $max_qty = $distributor_id = '';
     $imgErr = $product_nameErr = $product_codeErr = $product_descErr =  $categoryErr = $priceErr = $tagsErr = $stockErr = $min_qtyErr = $max_qtyErr = '';
 
-    $img = clean_input($_POST['img']);
+    // Directory where images will be saved
+    $uploadDir = '../../resources/img/Products/';
+    $allowedTypes = ['jpeg', 'jpg', 'png'];
+
+    if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+        $fileName = basename($_FILES['img']['name']);
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+        if (in_array(strtolower($fileType), $allowedTypes)) {
+            // Generate a unique name for the file
+            $uniqueName = uniqid() . "." . $fileType;
+            $targetFilePath = $uploadDir . $uniqueName;
+
+            // Upload file to server
+            if (move_uploaded_file($_FILES['img']['tmp_name'], $targetFilePath)) {
+                $img = $uniqueName; // Store the file path
+            } else {
+                $imgErr = 'Error uploading the image.';
+            }
+        } else {
+            $imgErr = 'Invalid file type. Only JPEG, JPG, and PNG are allowed.';
+        }
+    } else {
+        $imgErr = 'Image upload is required.';
+    }
+
     $product_name = clean_input($_POST['product_name']);
     $product_code = clean_input($_POST['product_code']);
     $product_desc = clean_input($_POST['product_desc']);
@@ -82,7 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
         empty($imgErr) && empty($product_nameErr) && empty($product_codeErr) && empty($product_descErr) && empty($categoryErr) && empty($priceErr)
         && empty($tagsErr) && empty($stockErr) && empty($min_qtyErr) && empty($max_qtyErr)
-    ) {
+    )
+    {
         // Assign the sanitized inputs to the product object.
         $productObj->img = $img;
         $productObj->product_name = $product_name;
@@ -103,6 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // If an error occurs during insertion, display an error message.
             echo 'Something went wrong when adding the new product.';
         }
+    }
+    else {
+        echo $imgErr;
     }
 }
 ?>
@@ -292,7 +318,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <?php include_once '../../includes/retailer_footer.php'; ?>
 
-    <form action="#" method="POST">
+    <form action="#" method="POST" enctype="multipart/form-data">
         <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
             <div class="relative w-full max-w-3xl max-h-screen p-8 overflow-y-auto bg-white rounded-lg">
                 <button onclick="closeproductModal()" class="absolute text-blue-600 top-4 right-4 hover:underline">
