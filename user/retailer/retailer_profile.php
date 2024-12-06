@@ -63,9 +63,10 @@
               require_once '../../includes/retailer_notif.php';
             ?>  
             </div>
+            <div class="hidden tab-pane">
             <?php
-              require_once '../../includes/retailer_messages.php';
-            ?>  
+              require_once '../../includes/retailer_message.php';
+            ?>               
             </div>
             <div class="hidden tab-pane">
             <?php

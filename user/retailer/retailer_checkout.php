@@ -134,8 +134,9 @@ foreach ($cartItems as $cart) {
     require_once '../../includes/retailer_footer.php'; 
     ?>
     
-    <div id="productModal" class="flex justify-center items-center">
-     <div class="fixed z-50 flex items-center justify-center  bg-white w-1/3 h-3/4 border shadow-lg">
+ 
+     <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-opacity-50">
+        <div class="bg-white p-8 border shadow-lg rounded-md" >
             <form>
                 <h2 class="mb-4 text-2xl font-bold">New Address</h2>
 
@@ -184,12 +185,14 @@ foreach ($cartItems as $cart) {
                     <label class="block text-sm font-medium text-gray-700">Phone Number</label>
                     <input type="tel" class="w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
-                <div class="flex justify-between">
-                <button onclick="closeproductModal()" class="w-auto px-4 py-2 mt-4 font-bold text-white bg-gray-400 rounded hover:bg-gray-500">Cancel</button>
-                <button type="submit" class="w-auto px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button></div>
+                <div class="flex justify-center">
+                    <button onclick="closeproductModal()" class="w-2/3 mr-5 px-4 py-2 mt-4 font-bold text-white bg-gray-400 rounded hover:bg-gray-500">Cancel</button>
+                    <button type="submit" class="w-2/3 px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button>
+                </div>
             </form>
+           </div>
         </div>
-    </div>
+ 
 
     <div id="orderConfirmationModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-opacity-50">
         <div class="w-1/3 p-6 bg-white rounded-lg shadow-lg">
