@@ -205,15 +205,14 @@ class Order
 
             // Insert order details (items)
             $sql = "
-                INSERT INTO order_details (order_id, product_id, quantity, price)
-                VALUES (:order_id, :product_id, :quantity, :price)
+                INSERT INTO order_details (order_id, product_id, quantity)
+                VALUES (:order_id, :product_id, :quantity)
             ";
             $query = $this->db->connect()->prepare($sql);
             foreach ($cartItems as $item) {
                 $query->bindParam(':order_id', $orderId, PDO::PARAM_INT);
                 $query->bindParam(':product_id', $item['product_id'], PDO::PARAM_INT);
                 $query->bindParam(':quantity', $item['quantity'], PDO::PARAM_INT);
-                $query->bindParam(':price', $item['price'], PDO::PARAM_STR);
                 $query->execute();
             }
 
@@ -279,7 +278,7 @@ class Order
         SELECT o.id AS order_id, o.status, o.total_amount, o.date,
                GROUP_CONCAT(od.product_id) AS product_ids, 
                GROUP_CONCAT(od.quantity) AS quantities, 
-               GROUP_CONCAT(od.price) AS prices, 
+               GROUP_CONCAT(p.price) AS prices, 
                GROUP_CONCAT(p.product_name) AS product_names
         FROM orders o
         JOIN order_details od ON o.id = od.order_id

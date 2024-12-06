@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2024 at 06:37 AM
+-- Generation Time: Dec 06, 2024 at 03:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,14 @@ CREATE TABLE `cart_items` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart_items`
+--
+
+INSERT INTO `cart_items` (`id`, `cart_id`, `product_id`, `quantity`) VALUES
+(74, 30, 5, 10),
+(75, 30, 6, 30);
+
 -- --------------------------------------------------------
 
 --
@@ -43,17 +51,10 @@ CREATE TABLE `cart_items` (
 CREATE TABLE `delivery` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `status` enum('Processing','On Transit','Delivered','') NOT NULL DEFAULT 'Processing',
+  `status` enum('Processing','On Transit','Delivered','Completed') NOT NULL DEFAULT 'Processing',
   `create_at` datetime NOT NULL DEFAULT current_timestamp(),
   `delivery_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `delivery`
---
-
-INSERT INTO `delivery` (`id`, `order_id`, `status`, `create_at`, `delivery_date`) VALUES
-(4, 8, 'On Transit', '2024-12-05 12:19:45', '2024-12-08');
 
 -- --------------------------------------------------------
 
@@ -113,21 +114,10 @@ CREATE TABLE `orders` (
   `distributor_id` int(11) NOT NULL,
   `total_amount` decimal(10,2) NOT NULL,
   `date` datetime DEFAULT current_timestamp(),
-  `status` enum('Pending','Accepted','Rejected','Completed','Cancelled') NOT NULL DEFAULT 'Pending',
+  `status` enum('Pending','Accepted','Rejected','Completed','Cancelled','Returned') NOT NULL DEFAULT 'Pending',
   `date_rejected` datetime DEFAULT NULL,
   `reason` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `retailer_id`, `distributor_id`, `total_amount`, `date`, `status`, `date_rejected`, `reason`) VALUES
-(1, 1, 1, 3800.00, '2024-12-04 11:40:54', 'Rejected', NULL, ''),
-(5, 1, 1, 1800.00, '2024-12-04 12:33:01', 'Rejected', NULL, ''),
-(6, 1, 1, 1800.00, '2024-12-04 13:01:02', 'Rejected', NULL, ''),
-(7, 1, 1, 1800.00, '2024-12-04 13:08:04', 'Rejected', NULL, ''),
-(8, 1, 1, 1800.00, '2024-12-05 12:04:22', 'Accepted', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -142,6 +132,13 @@ CREATE TABLE `order_cart` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `order_cart`
+--
+
+INSERT INTO `order_cart` (`id`, `retailer_id`, `created_at`, `updated_at`) VALUES
+(30, 1, '2024-12-06 09:48:47', '2024-12-06 09:48:47');
+
 -- --------------------------------------------------------
 
 --
@@ -152,39 +149,8 @@ CREATE TABLE `order_details` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` decimal(10,2) NOT NULL
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(19, 11, 2, 10, 200.00),
-(20, 12, 3, 15, 180.00),
-(21, 12, 4, 10, 180.00),
-(22, 13, 4, 10, 180.00),
-(23, 14, 4, 10, 180.00),
-(24, 15, 4, 10, 180.00),
-(25, 16, 3, 10, 180.00),
-(26, 17, 4, 10, 180.00),
-(27, 18, 3, 10, 180.00),
-(28, 19, 4, 10, 180.00),
-(29, 20, 4, 10, 180.00),
-(30, 21, 2, 10, 200.00),
-(31, 22, 4, 10, 180.00),
-(32, 23, 4, 10, 180.00),
-(33, 23, 2, 10, 200.00),
-(34, 23, 2, 10, 200.00),
-(35, 23, 2, 10, 200.00),
-(36, 24, 2, 10, 200.00),
-(37, 1, 2, 10, 200.00),
-(38, 1, 4, 10, 180.00),
-(39, 5, 4, 10, 180.00),
-(40, 6, 4, 10, 180.00),
-(41, 7, 4, 10, 180.00),
-(42, 8, 4, 10, 180.00);
 
 -- --------------------------------------------------------
 
@@ -210,9 +176,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `img`, `product_name`, `product_code`, `product_desc`, `category`, `price`, `tags`, `min_qty`, `distributor_id`) VALUES
-(2, '', 'Ready to Cook Fried Chicken', '', 'Timplados Fried Chicken', 'Frozen Products', 200, NULL, 10, 1),
-(3, '', 'Ready to Cook Chicken Tocino', '', NULL, 'Frozen Products', 180, NULL, 10, 1),
-(4, '', 'Ready to Cook Chicken Longanisa', '', 'Timplados Longanisa', 'Frozen Products', 180, NULL, 10, 1);
+(5, '', 'Ready to Cook Fried Chicken', '', NULL, 'Frozen Products', 200, 'Food, Meat', 10, 1),
+(6, '', 'Ready to Cook Longanisa', '', NULL, 'Frozen Products', 180, NULL, 10, 1),
+(8, '', 'Alaska Milk Dink', '', NULL, 'Beverages', 1200, NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -258,9 +224,9 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `product_id`, `quantity`, `status`, `date_updated`, `reason`) VALUES
-(3, 3, 1000, 'STOCK IN', '2024-12-05 13:19:37', ''),
-(4, 2, 1000, 'STOCK IN', '2024-12-05 13:20:49', ''),
-(10, 4, 1000, 'STOCK IN', '2024-12-05 13:23:01', '');
+(11, 5, 1000, 'STOCK IN', '2024-12-06 09:46:17', ''),
+(12, 6, 500, 'STOCK IN', '2024-12-06 09:46:29', ''),
+(13, 8, 200, 'STOCK IN', '2024-12-06 09:46:41', '');
 
 --
 -- Indexes for dumped tables
@@ -299,7 +265,8 @@ ALTER TABLE `distributor_information`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_distributor` (`distributor_id`);
+  ADD KEY `fk_distributor` (`distributor_id`),
+  ADD KEY `fk_retailer_order` (`retailer_id`);
 
 --
 -- Indexes for table `order_cart`
@@ -344,7 +311,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `delivery`
@@ -368,13 +335,13 @@ ALTER TABLE `distributor_information`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order_cart`
 --
 ALTER TABLE `order_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `order_details`
@@ -386,7 +353,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `retailer`
@@ -398,7 +365,7 @@ ALTER TABLE `retailer`
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -415,7 +382,7 @@ ALTER TABLE `cart_items`
 -- Constraints for table `delivery`
 --
 ALTER TABLE `delivery`
-  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+  ADD CONSTRAINT `fk_order_delivery` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 --
 -- Constraints for table `distributor_information`
@@ -427,7 +394,8 @@ ALTER TABLE `distributor_information`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_distributor` FOREIGN KEY (`distributor_id`) REFERENCES `distributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_distributor_order` FOREIGN KEY (`distributor_id`) REFERENCES `distributor` (`id`),
+  ADD CONSTRAINT `fk_retailer_order` FOREIGN KEY (`retailer_id`) REFERENCES `retailer` (`id`);
 
 --
 -- Constraints for table `order_cart`
@@ -439,8 +407,7 @@ ALTER TABLE `order_cart`
 -- Constraints for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD CONSTRAINT `fk_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_products` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 --
 -- Constraints for table `product`

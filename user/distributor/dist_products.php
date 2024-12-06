@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category = clean_input($_POST['category']);
     $price = clean_input($_POST['price']);
     $tags = clean_input($_POST['tags']);
-    $min_qty = clean_input($_POST['min_qty']);
+    $min_qty = clean_input($_POST['min_qty']);  
 
 
 
