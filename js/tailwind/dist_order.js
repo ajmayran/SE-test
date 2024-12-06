@@ -23,6 +23,26 @@ window.addEventListener('click', function (event) {
 });
 
 
+const penTab = document.getElementById('tab-pending');
+const comTab = document.getElementById('tab-completed');
+const pendingOrders = document.getElementById('pending-orders');
+const completedOrders = document.getElementById('completed-orders');
+
+penTab.addEventListener('click', () => {
+  pendingOrders.classList.remove('hidden');
+  completedOrders.classList.add('hidden');
+  penTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+  comTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+});
+
+comTab.addEventListener('click', () => {
+  completedOrders.classList.remove('hidden');
+  pendingOrders.classList.add('hidden');
+  comTab.classList.add('text-green-600', 'border-b-4', 'border-green-600');
+  penTab.classList.remove('text-green-600', 'border-b-4', 'border-green-600');
+  penTab.classList.add('text-gray-600');
+});
+
 //
 function toggleModal(show) {
   const modal = document.getElementById('order-details-modal');
@@ -86,7 +106,7 @@ function showCompleteOrderDetails(order) {
     <td class="px-4 py-2">${product.quantity}</td>
     <td class="px-4 py-2">₱${product.quantity * product.price}</td>
   </tr>`;
-    productsTable.innerHTML += row;
+    completeproductsTable.innerHTML += row;
     subtotal += product.quantity * product.price;
     total += product.quantity * product.price;
   });
@@ -228,3 +248,4 @@ document.getElementById('rejectForm').addEventListener('submit', function (event
   xhr.send("order_id=" + orderId + "&action=reject&reason=" + reason + "&other_reason=" + encodeURIComponent(otherReason));
   closeRejectModal(); // Close the modal after submission
 });
+

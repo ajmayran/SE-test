@@ -417,8 +417,9 @@ class Order
         FROM orders o
         JOIN order_details od ON o.id = od.order_id
         JOIN product p ON od.product_id = p.id
+        JOIN delivery d ON o.id = d.order_id
         WHERE o.retailer_id = :retailer_id
-          AND d.status = 'Delivered';
+          AND d.status = 'Completed';
     ";
         try {
             $query = $this->db->connect()->prepare($sql);

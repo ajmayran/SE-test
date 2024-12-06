@@ -21,7 +21,7 @@ if (isset($_SESSION['distributor_id']) && isset($_SESSION['distributor_info'])) 
 
 $order = new Order();
 $pendingOrders = $order->fetchPendingOrders($_SESSION['distributor_id']);
-$completeOrders = $order->fetchCompleteOrders($_SESSION['distributor_id']);
+$completeOrders = $order->fetchcompleteOrders($_SESSION['distributor_id']);
 ?>
 
 <!DOCTYPE html>
@@ -222,7 +222,7 @@ $completeOrders = $order->fetchCompleteOrders($_SESSION['distributor_id']);
     </div>
   </div>
 
-  <!-- complete orders--->
+  <!-- complete orders modal--->
   <div id="complete-details-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="w-3/4 p-6 bg-white rounded-md shadow-lg">

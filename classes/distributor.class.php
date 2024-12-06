@@ -54,33 +54,44 @@ class Order
     }
 
     public function fetchCompleteOrders($distributor_id)
-    {
-        try {
-            // Query to fetch orders along with retailer information
-            $query = "SELECT o.id AS order_id, o.retailer_id, r.first_name,r.last_name, r.address AS retailer_address, r.contact AS retailer_contact,
-                             o.status, o.total_amount, o.date
-                      FROM orders o
-                      JOIN retailer r ON o.retailer_id = r.id
-                      WHERE o.distributor_id = :distributor_id AND o.status = 'Completed';";
+{
+    try {
+        // Query to fetch orders along with retailer information
+        $query = "SELECT o.id AS order_id, o.retailer_id, r.first_name, r.last_name, 
+                         r.address AS retailer_address, r.contact AS retailer_contact,
+                         o.status, o.total_amount, o.date
+                  FROM orders o
+                  JOIN retailer r ON o.retailer_id = r.id
+                  JOIN delivery d ON o.id = d.order_id
+                  WHERE o.distributor_id = :distributor_id AND d.status = 'completed';";
 
-            // Prepare the SQL statement
-            $stmt = $this->db->connect()->prepare($query);
-            $stmt->execute(['distributor_id' => $distributor_id]);
+        // Prepare the SQL statement
+        $stmt = $this->db->connect()->prepare($query);
+        
+        // Execute the query with distributor_id parameter
+        $stmt->execute(['distributor_id' => $distributor_id]);
 
-            // Fetch all pending orders
-            $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Fetch all orders
+        $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        // Check if any orders are found
+        if ($orders) {
             // Now, fetch order details for each order
             foreach ($orders as &$order) {
                 $order['details'] = $this->fetchOrderDetails($order['order_id']); // Use 'order_id' to fetch details
             }
-
-            return $orders;
-        } catch (PDOException $e) {
-            echo "Error fetching pending orders: " . $e->getMessage();
+        } else {
+            // If no orders are found, return an empty array or a message
             return [];
         }
+
+        return $orders;
+    } catch (PDOException $e) {
+        echo "Error fetching complete orders: " . $e->getMessage();
+        return [];
     }
+}
+
 
 
     // Fetch Order Details for a Specific Order
