@@ -1,4 +1,4 @@
-<div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-white">
+<div id="productModal" class="fixed z-50 flex items-center justify-center hidden bg-white w-1/3 h-3/4 border shadow-lg">
         <form>
             <h2 class="mb-4 text-2xl font-bold">New Address</h2>
 
@@ -47,7 +47,9 @@
                 <label class="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input type="tel" class="w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
             </div>
-
-            <button type="submit" class="w-full px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button>
+            <div class="flex justify-between">
+            <button onclick="closeproductModal()" class="w-auto px-4 py-2 mt-4 font-bold text-white bg-gray-400 rounded hover:bg-gray-500">Cancel</button>
+            <button type="submit" class="w-auto px-4 py-2 mt-4 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button></div>
         </form>
+   
     </div>

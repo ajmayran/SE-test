@@ -30,6 +30,7 @@
             <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">Change Password</li>
             <a href="retailer_purchase_status.php"><li class="p-2 cursor-pointer tab-item hover:bg-gray-200">My Purchase</li></a>
             <li class="p-2 cursor-pointer tab-item hover:bg-gray-200" >Notifications</li>
+            <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">Messages</li>
             <li class="p-2 cursor-pointer tab-item hover:bg-gray-200">My Voucher</li>
             <a href="../../auth/logout.php"><li class="p-2 mt-2 font-bold text-red-500 cursor-pointer tab-item hover:bg-gray-200">Log Out</li></a>
         </ul>
@@ -56,13 +57,17 @@
             </div>
 
             <div class="hidden tab-pane"></div>
-
+              
             <div class="hidden tab-pane" >
             <?php
               require_once '../../includes/retailer_notif.php';
             ?>  
             </div>
-            
+            <div class="hidden tab-pane">
+            <?php
+              require_once '../../includes/retailer_message.php';
+            ?>               
+            </div>
             <div class="hidden tab-pane">
             <?php
               require_once '../../includes/retailer_voucher.php';
