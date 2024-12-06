@@ -43,5 +43,5 @@ function base_import(...$path)
  */
 function get_image(...$path)
 {
-    return base_path('resources/img/' . implode('/', $path));
+    return base_path('resources/img', ...$path);
 }

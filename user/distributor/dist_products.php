@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Upload file to server
             if (move_uploaded_file($_FILES['img']['tmp_name'], $targetFilePath)) {
-                $img = $targetFilePath; // Store the file path
+                $img = $uniqueName; // Store the file path
             } else {
                 $imgErr = 'Error uploading the image.';
             }

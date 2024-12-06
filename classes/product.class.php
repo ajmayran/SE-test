@@ -175,10 +175,8 @@ class Product {
         if ($data) {
             foreach ($data as &$product) {
                 // Check if there's a valid image, otherwise use a default image
-                if (!empty($product['img'])) {
-                    $product['img'] = '../../resources/img/Products/' . $product['img'];
-                } else {
-                    $product['img'] = '../../resources/img/Products/default.png'; // Default image path
+                if (empty($product['img'])) {
+                    $product['img'] = 'default.png';
                 }
             }
         }
