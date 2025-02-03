@@ -23,7 +23,8 @@ if (!isset($_SESSION['cart_items']) || !isset($_SESSION['cart_total']) ||
 // Place the order
 if ($orderObj->confirmOrder($_SESSION['retailer_id'], $_SESSION['cart_items'], $_SESSION['cart_total'])) {
     // Clear cart session data
-
+    unset($_SESSION['cart_items']);
+    unset($_SESSION['cart_total']);
     $_SESSION['order_placed'] = true;
     header('Location: retailer_checkout.php');
     exit;

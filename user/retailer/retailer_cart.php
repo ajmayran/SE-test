@@ -41,7 +41,6 @@ $totalAmount = $cartsData['total'] ?? 0;
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +57,6 @@ $totalAmount = $cartsData['total'] ?? 0;
 <?php require_once '../../includes/retailer_topnav.php'; ?>
 
 <body>
-
 
     <section class="container h-screen py-6 mx-auto bg-white">
         <h2 class="mb-4 text-2xl font-bold">Order Cart</h2>
@@ -91,7 +89,12 @@ $totalAmount = $cartsData['total'] ?? 0;
                             <td class="px-4 py-2 text-lg font-bold text-center"><?php echo htmlspecialchars($cart['product_name'] ?? 'N/A'); ?></td>
                             <td class="px-4 py-2 text-lg text-center"><?php echo htmlspecialchars($cart['product_code'] ?? 'N/A'); ?></td>
                             <td class="px-4 py-2 text-center">₱<?php echo htmlspecialchars(number_format($cart['price'] ?? 0, 2)); ?></td>
-                            <td class="px-4 py-2 text-center"><?php echo htmlspecialchars($cart['quantity'] ?? 0); ?></td>
+                            <td class="px-4 py-2 text-center">
+                                <input type="hidden" name="cart_item_id" value="<?php echo htmlspecialchars($cart['id']); ?>">
+                                <button onclick="updateQuantity(<?php echo htmlspecialchars($cart['id']); ?>, -1)" class="px-2 py-1 bg-gray-300 rounded" <?php echo ($cart['quantity'] <= 1) ? 'disabled' : ''; ?>>-</button>
+                                <input type="number" id="quantity-<?php echo htmlspecialchars($cart['id']); ?>" value="<?php echo htmlspecialchars($cart['quantity']); ?>" min="1" class="w-16 text-center border rounded" readonly>
+                                <button onclick="updateQuantity(<?php echo htmlspecialchars($cart['id']); ?>, 1)" class="px-2 py-1 bg-gray-300 rounded">+</button>
+                            </td>
                             <td class="px-4 py-2 text-center">₱<?php echo htmlspecialchars(number_format($itemTotal, 2)); ?></td>
                             <td class="px-4 py-2 text-center">
                                 <form action="" method="POST" style="display:inline;">
@@ -121,6 +124,18 @@ $totalAmount = $cartsData['total'] ?? 0;
         </section>
     </section>
     <script>
+        function updateQuantity(cartItemId, change) {
+            const quantityInput = document.getElementById(`quantity-${cartItemId}`);
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += change;
+
+            if (currentQuantity < 1) {
+                currentQuantity = 1; // Prevent going below 1
+            }
+
+            quantityInput.value = currentQuantity;
+        }
+
         function validateCart() {
             const cartItems = <?php echo json_encode($cartItems); ?>;
             if (!cartItems || cartItems.length === 0) {
@@ -129,6 +144,7 @@ $totalAmount = $cartsData['total'] ?? 0;
             }
             return true; // Allow form submission
         }
+
         setTimeout(() => {
             const successAlert = document.getElementById('success');
             if (successAlert) {
